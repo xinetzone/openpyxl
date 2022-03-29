@@ -1,0 +1,350 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../api/openpyxl.drawing.text.rst:2
+msgid "openpyxl.drawing.text module"
+msgstr ""
+
+#: of openpyxl.drawing.text.AutonumberBullet:1
+#: openpyxl.drawing.text.CharacterProperties:1
+#: openpyxl.drawing.text.EmbeddedWAVAudioFile:1 openpyxl.drawing.text.Font:1
+#: openpyxl.drawing.text.GeomGuide:1 openpyxl.drawing.text.GeomGuideList:1
+#: openpyxl.drawing.text.Hyperlink:1 openpyxl.drawing.text.LineBreak:1
+#: openpyxl.drawing.text.ListStyle:1 openpyxl.drawing.text.Paragraph:1
+#: openpyxl.drawing.text.ParagraphProperties:1
+#: openpyxl.drawing.text.PresetTextShape:1
+#: openpyxl.drawing.text.RegularTextRun:1
+#: openpyxl.drawing.text.RichTextProperties:1 openpyxl.drawing.text.Spacing:1
+#: openpyxl.drawing.text.TabStop:1 openpyxl.drawing.text.TabStopList:1
+#: openpyxl.drawing.text.TextField:1 openpyxl.drawing.text.TextNormalAutofit:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.AutonumberBullet.startAt:1
+#: openpyxl.drawing.text.CharacterProperties.baseline:1
+#: openpyxl.drawing.text.CharacterProperties.kern:1
+#: openpyxl.drawing.text.CharacterProperties.smtId:1
+#: openpyxl.drawing.text.CharacterProperties.spc:1
+#: openpyxl.drawing.text.Font.charset:1
+#: openpyxl.drawing.text.ParagraphProperties.buSzPct:1
+#: openpyxl.drawing.text.ParagraphProperties.buSzPts:1
+#: openpyxl.drawing.text.ParagraphProperties.defTabSz:1
+#: openpyxl.drawing.text.ParagraphProperties.indent:1
+#: openpyxl.drawing.text.ParagraphProperties.lvl:1
+#: openpyxl.drawing.text.ParagraphProperties.marL:1
+#: openpyxl.drawing.text.ParagraphProperties.marR:1
+#: openpyxl.drawing.text.RichTextProperties.bIns:1
+#: openpyxl.drawing.text.RichTextProperties.flatTx:1
+#: openpyxl.drawing.text.RichTextProperties.lIns:1
+#: openpyxl.drawing.text.RichTextProperties.numCol:1
+#: openpyxl.drawing.text.RichTextProperties.rIns:1
+#: openpyxl.drawing.text.RichTextProperties.rot:1
+#: openpyxl.drawing.text.RichTextProperties.spcCol:1
+#: openpyxl.drawing.text.RichTextProperties.tIns:1
+#: openpyxl.drawing.text.Spacing.spcPct:1
+#: openpyxl.drawing.text.Spacing.spcPts:1
+#: openpyxl.drawing.text.TextNormalAutofit.fontScale:1
+#: openpyxl.drawing.text.TextNormalAutofit.lnSpcReduction:1
+msgid "Values must be of type <class 'int'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.AutonumberBullet.type:1
+msgid ""
+"Value must be one of {'thaiNumParenR', 'ea1JpnKorPlain', 'thaiNumPeriod',"
+" 'arabic1Minus', 'ea1ChtPlain', 'arabicDbPlain', 'alphaUcParenBoth', "
+"'thaiAlphaPeriod', 'romanUcParenR', 'ea1ChsPeriod', 'arabicPlain', "
+"'hindiNumParenR', 'arabicParenBoth', 'thaiNumParenBoth', 'ea1ChtPeriod', "
+"'alphaLcPeriod', 'alphaLcParenBoth', 'thaiAlphaParenBoth', "
+"'hindiAlphaPeriod', 'alphaLcParenR', 'ea1ChsPlain', 'alphaUcParenR', "
+"'romanLcParenR', 'hebrew2Minus', 'romanLcParenBoth', 'arabicParenR', "
+"'romanUcPeriod', 'circleNumWdWhitePlain', 'ea1JpnKorPeriod', "
+"'arabicDbPeriod', 'ea1JpnChsDbPeriod', 'romanLcPeriod', "
+"'hindiAlpha1Period', 'thaiAlphaParenR', 'alphaUcPeriod', 'arabic2Minus', "
+"'hindiNumPeriod', 'circleNumWdBlackPlain', 'arabicPeriod', "
+"'romanUcParenBoth', 'circleNumDbPlain'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.CharacterProperties.altLang:1
+#: openpyxl.drawing.text.CharacterProperties.bmk:1
+#: openpyxl.drawing.text.CharacterProperties.lang:1
+#: openpyxl.drawing.text.EmbeddedWAVAudioFile.name:1
+#: openpyxl.drawing.text.Font.typeface:1 openpyxl.drawing.text.GeomGuide.fmla:1
+#: openpyxl.drawing.text.GeomGuide.name:1
+#: openpyxl.drawing.text.Hyperlink.action:1
+#: openpyxl.drawing.text.Hyperlink.id:1
+#: openpyxl.drawing.text.Hyperlink.invalidUrl:1
+#: openpyxl.drawing.text.Hyperlink.tgtFrame:1
+#: openpyxl.drawing.text.Hyperlink.tooltip:1
+#: openpyxl.drawing.text.ParagraphProperties.buChar:1
+#: openpyxl.drawing.text.RegularTextRun.t:1
+#: openpyxl.drawing.text.TextField.id:1 openpyxl.drawing.text.TextField.t:1
+#: openpyxl.drawing.text.TextField.type:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.CharacterProperties.b:1
+#: openpyxl.drawing.text.CharacterProperties.dirty:1
+#: openpyxl.drawing.text.CharacterProperties.err:1
+#: openpyxl.drawing.text.CharacterProperties.grpFill:1
+#: openpyxl.drawing.text.CharacterProperties.i:1
+#: openpyxl.drawing.text.CharacterProperties.kumimoji:1
+#: openpyxl.drawing.text.CharacterProperties.noFill:1
+#: openpyxl.drawing.text.CharacterProperties.noProof:1
+#: openpyxl.drawing.text.CharacterProperties.normalizeH:1
+#: openpyxl.drawing.text.CharacterProperties.rtl:1
+#: openpyxl.drawing.text.CharacterProperties.smtClean:1
+#: openpyxl.drawing.text.CharacterProperties.uFill:1
+#: openpyxl.drawing.text.CharacterProperties.uFillTx:1
+#: openpyxl.drawing.text.CharacterProperties.uLnTx:1
+#: openpyxl.drawing.text.Hyperlink.endSnd:1
+#: openpyxl.drawing.text.Hyperlink.highlightClick:1
+#: openpyxl.drawing.text.Hyperlink.history:1
+#: openpyxl.drawing.text.ParagraphProperties.buAutoNum:1
+#: openpyxl.drawing.text.ParagraphProperties.buClrTx:1
+#: openpyxl.drawing.text.ParagraphProperties.buFontTx:1
+#: openpyxl.drawing.text.ParagraphProperties.buNone:1
+#: openpyxl.drawing.text.ParagraphProperties.buSzTx:1
+#: openpyxl.drawing.text.ParagraphProperties.eaLnBrk:1
+#: openpyxl.drawing.text.ParagraphProperties.hangingPunct:1
+#: openpyxl.drawing.text.ParagraphProperties.latinLnBrk:1
+#: openpyxl.drawing.text.ParagraphProperties.rtl:1
+#: openpyxl.drawing.text.RichTextProperties.anchorCtr:1
+#: openpyxl.drawing.text.RichTextProperties.compatLnSpc:1
+#: openpyxl.drawing.text.RichTextProperties.forceAA:1
+#: openpyxl.drawing.text.RichTextProperties.fromWordArt:1
+#: openpyxl.drawing.text.RichTextProperties.noAutofit:1
+#: openpyxl.drawing.text.RichTextProperties.normAutofit:1
+#: openpyxl.drawing.text.RichTextProperties.rtlCol:1
+#: openpyxl.drawing.text.RichTextProperties.spAutoFit:1
+#: openpyxl.drawing.text.RichTextProperties.spcFirstLastPara:1
+#: openpyxl.drawing.text.RichTextProperties.upright:1
+msgid "Values must be of type <class 'bool'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.CharacterProperties.blipFill:1
+msgid "Values must be of type <class 'openpyxl.drawing.fill.BlipFillProperties'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.CharacterProperties.cap:1
+msgid "Value must be one of {'small', 'all'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.CharacterProperties.cs:1
+#: openpyxl.drawing.text.CharacterProperties.ea:1
+#: openpyxl.drawing.text.CharacterProperties.latin:1
+#: openpyxl.drawing.text.CharacterProperties.sym:1
+#: openpyxl.drawing.text.ParagraphProperties.buFont:1
+msgid "Values must be of type <class 'openpyxl.drawing.text.Font'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.CharacterProperties.effectDag:1
+msgid "Values must be of type <class 'openpyxl.drawing.effect.EffectContainer'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.CharacterProperties.effectLst:1
+msgid "Values must be of type <class 'openpyxl.drawing.effect.EffectList'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.CharacterProperties.extLst:1
+#: openpyxl.drawing.text.Hyperlink.extLst:1
+#: openpyxl.drawing.text.ListStyle.extLst:1
+#: openpyxl.drawing.text.ParagraphProperties.extLst:1
+#: openpyxl.drawing.text.RichTextProperties.extLst:1
+msgid "Values must be of type <class 'openpyxl.descriptors.excel.ExtensionList'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.CharacterProperties.gradFill:1
+msgid ""
+"Values must be of type <class "
+"'openpyxl.drawing.fill.GradientFillProperties'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.CharacterProperties.highlight:1
+#: openpyxl.drawing.text.ParagraphProperties.buClr:1
+msgid "Values must be of type <class 'openpyxl.styles.colors.Color'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.CharacterProperties.hlinkClick:1
+#: openpyxl.drawing.text.CharacterProperties.hlinkMouseOver:1
+msgid "Values must be of type <class 'openpyxl.drawing.text.Hyperlink'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.CharacterProperties.ln:1
+#: openpyxl.drawing.text.CharacterProperties.uLn:1
+msgid "Values must be of type <class 'openpyxl.drawing.line.LineProperties'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.CharacterProperties.pattFill:1
+msgid ""
+"Values must be of type <class "
+"'openpyxl.drawing.fill.PatternFillProperties'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.CharacterProperties.solidFill:1
+msgid "Values must be of type <class 'openpyxl.drawing.colors.ColorChoice'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.CharacterProperties.strike:1
+msgid "Value must be one of {'sngStrike', 'dblStrike', 'noStrike'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.CharacterProperties.sz:1
+#: openpyxl.drawing.text.Font.pitchFamily:1
+msgid "Values must be of type <class 'float'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.CharacterProperties.u:1
+msgid ""
+"Value must be one of {'dottedHeavy', 'heavy', 'sng', 'dotDash', "
+"'dotDashHeavy', 'wavy', 'wavyHeavy', 'dash', 'dotDotDash', 'wavyDbl', "
+"'dotDotDashHeavy', 'dashLong', 'dashHeavy', 'dbl', 'dashLongHeavy', "
+"'dotted', 'words'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.GeomGuideList.gd:1
+#: openpyxl.drawing.text.Paragraph.r:1
+msgid ""
+"A sequence (list or tuple) that may only contain objects of the declared "
+"type"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.Hyperlink.snd:1
+msgid ""
+"Values must be of type <class "
+"'openpyxl.drawing.text.EmbeddedWAVAudioFile'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.LineBreak.rPr:1
+#: openpyxl.drawing.text.Paragraph.endParaRPr:1
+#: openpyxl.drawing.text.ParagraphProperties.defRPr:1
+#: openpyxl.drawing.text.RegularTextRun.rPr:1
+#: openpyxl.drawing.text.TextField.rPr:1
+msgid "Values must be of type <class 'openpyxl.drawing.text.CharacterProperties'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.ListStyle.defPPr:1
+#: openpyxl.drawing.text.ListStyle.lvl1pPr:1
+#: openpyxl.drawing.text.ListStyle.lvl2pPr:1
+#: openpyxl.drawing.text.ListStyle.lvl3pPr:1
+#: openpyxl.drawing.text.ListStyle.lvl4pPr:1
+#: openpyxl.drawing.text.ListStyle.lvl5pPr:1
+#: openpyxl.drawing.text.ListStyle.lvl6pPr:1
+#: openpyxl.drawing.text.ListStyle.lvl7pPr:1
+#: openpyxl.drawing.text.ListStyle.lvl8pPr:1
+#: openpyxl.drawing.text.ListStyle.lvl9pPr:1
+#: openpyxl.drawing.text.Paragraph.pPr:1 openpyxl.drawing.text.TextField.pPr:1
+msgid "Values must be of type <class 'openpyxl.drawing.text.ParagraphProperties'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.Paragraph.br:1
+msgid "Values must be of type <class 'openpyxl.drawing.text.LineBreak'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.Paragraph.fld:1
+msgid "Values must be of type <class 'openpyxl.drawing.text.TextField'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.Paragraph.properties:1
+#: openpyxl.drawing.text.Paragraph.text:1
+#: openpyxl.drawing.text.RegularTextRun.properties:1
+#: openpyxl.drawing.text.RegularTextRun.value:1
+msgid ""
+"Aliases can be used when either the desired attribute name is not allowed"
+" or confusing in Python (eg. \"type\") or a more descriptve name is "
+"desired (eg. \"underline\" for \"u\")"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.ParagraphProperties.algn:1
+msgid ""
+"Value must be one of {'l', 'r', 'justLow', 'just', 'thaiDist', 'ctr', "
+"'dist'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.ParagraphProperties.buBlip:1
+msgid "Values must be of type <class 'openpyxl.drawing.fill.Blip'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.ParagraphProperties.fontAlgn:1
+msgid "Value must be one of {'t', 'base', 'auto', 'b', 'ctr'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.ParagraphProperties.lnSpc:1
+#: openpyxl.drawing.text.ParagraphProperties.spcAft:1
+#: openpyxl.drawing.text.ParagraphProperties.spcBef:1
+msgid "Values must be of type <class 'openpyxl.drawing.text.Spacing'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.ParagraphProperties.tabLst:1
+msgid "Values must be of type <class 'openpyxl.drawing.text.TabStopList'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.PresetTextShape.avLst:1
+msgid "Values must be of type <class 'openpyxl.drawing.text.GeomGuideList'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.PresetTextShape.prst:1
+msgid ""
+"Values must be of type <openpyxl.descriptors.base.Set object at "
+"0x00000232BD9B8E50>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.RichTextProperties.anchor:1
+msgid "Value must be one of {'t', 'just', 'b', 'ctr', 'dist'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.RichTextProperties.horzOverflow:1
+msgid "Value must be one of {'overflow', 'clip'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.RichTextProperties.prstTxWarp:1
+msgid "Values must be of type <class 'openpyxl.drawing.text.PresetTextShape'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.RichTextProperties.scene3d:1
+msgid "Values must be of type <class 'openpyxl.drawing.geometry.Scene3D'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.RichTextProperties.vert:1
+msgid ""
+"Value must be one of {'mongolianVert', 'vert270', 'wordArtVertRtl', "
+"'eaVert', 'horz', 'wordArtVert', 'vert'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.RichTextProperties.vertOverflow:1
+msgid "Value must be one of {'ellipsis', 'overflow', 'clip'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.RichTextProperties.wrap:1
+msgid "Value must be one of {'square', 'none'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.TabStop.algn:1
+msgid ""
+"Values must be of type <openpyxl.descriptors.base.Set object at "
+"0x00000232BD9B1DC0>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.TabStop.pos:1
+msgid "Values must be of type <class 'openpyxl.descriptors.base.Integer'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.text.TabStopList.tab:1
+msgid "Values must be of type <class 'openpyxl.drawing.text.TabStop'>"
+msgstr ""
+

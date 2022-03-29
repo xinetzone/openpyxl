@@ -1,0 +1,81 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../usage.rst:2
+msgid "Simple usage"
+msgstr ""
+
+#: ../../usage.rst:5
+msgid "Write a workbook"
+msgstr ""
+
+#: ../../usage.rst:35
+msgid "Read an existing workbook"
+msgstr ""
+
+#: ../../usage.rst:47
+msgid "There are several flags that can be used in load_workbook."
+msgstr ""
+
+#: ../../usage.rst:49
+msgid "`data_only` controls whether cells with formulae have either the formula (default) or the value stored the last time Excel read the sheet."
+msgstr ""
+
+#: ../../usage.rst:52
+msgid "`keep_vba` controls whether any Visual Basic elements are preserved or not (default). If they are preserved they are still not editable."
+msgstr ""
+
+#: ../../usage.rst:58
+msgid "openpyxl does currently not read all possible items in an Excel file so images and charts will be lost from existing files if they are opened and saved with the same name."
+msgstr ""
+
+#: ../../usage.rst:64
+msgid "Using number formats"
+msgstr ""
+
+#: ../../usage.rst:79
+msgid "Using formulae"
+msgstr ""
+
+#: ../../usage.rst:90
+msgid "NB you must use the English name for a function and function arguments *must* be separated by commas and not other punctuation such as semi-colons."
+msgstr ""
+
+#: ../../usage.rst:92
+msgid "openpyxl never evaluates formula but it is possible to check the name of a formula:"
+msgstr ""
+
+#: ../../usage.rst:100
+msgid "If you're trying to use a formula that isn't known this could be because you're using a formula that was not included in the initial specification. Such formulae must be prefixed with `_xlfn.` to work."
+msgstr ""
+
+#: ../../usage.rst:103
+msgid "Merge / Unmerge cells"
+msgstr ""
+
+#: ../../usage.rst:105
+msgid "When you merge cells all cells but the top-left one are **removed** from the worksheet. To carry the border-information of the merged cell, the boundary cells of the merged cell are created as MergeCells which always have the value None. See :ref:`styling-merged-cells` for information on formatting merged cells."
+msgstr ""
+
+#: ../../usage.rst:126
+msgid "Inserting an image"
+msgstr ""
+
+#: ../../usage.rst:145
+msgid "Fold (outline)"
+msgstr ""

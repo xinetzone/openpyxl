@@ -1,0 +1,339 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../api/openpyxl.drawing.geometry.rst:2
+msgid "openpyxl.drawing.geometry module"
+msgstr ""
+
+#: of openpyxl.drawing.geometry.AdjPoint2D:1
+#: openpyxl.drawing.geometry.AdjustHandleList:1
+#: openpyxl.drawing.geometry.Backdrop:1 openpyxl.drawing.geometry.Bevel:1
+#: openpyxl.drawing.geometry.Camera:1
+#: openpyxl.drawing.geometry.ConnectionSite:1
+#: openpyxl.drawing.geometry.ConnectionSiteList:1
+#: openpyxl.drawing.geometry.CustomGeometry2D:1
+#: openpyxl.drawing.geometry.FontReference:1
+#: openpyxl.drawing.geometry.GeomGuide:1
+#: openpyxl.drawing.geometry.GeomGuideList:1
+#: openpyxl.drawing.geometry.GeomRect:1
+#: openpyxl.drawing.geometry.GroupTransform2D:1
+#: openpyxl.drawing.geometry.LightRig:1 openpyxl.drawing.geometry.Path2D:1
+#: openpyxl.drawing.geometry.Path2DList:1 openpyxl.drawing.geometry.Point2D:1
+#: openpyxl.drawing.geometry.Point3D:1
+#: openpyxl.drawing.geometry.PositiveSize2D:1
+#: openpyxl.drawing.geometry.PresetGeometry2D:1
+#: openpyxl.drawing.geometry.Scene3D:1 openpyxl.drawing.geometry.Shape3D:1
+#: openpyxl.drawing.geometry.ShapeStyle:1
+#: openpyxl.drawing.geometry.SphereCoords:1
+#: openpyxl.drawing.geometry.StyleMatrixReference:1
+#: openpyxl.drawing.geometry.Transform2D:1 openpyxl.drawing.geometry.Vector3D:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.AdjPoint2D.x:1
+#: openpyxl.drawing.geometry.AdjPoint2D.y:1 openpyxl.drawing.geometry.Bevel.h:1
+#: openpyxl.drawing.geometry.Bevel.w:1 openpyxl.drawing.geometry.Camera.fov:1
+#: openpyxl.drawing.geometry.GeomRect.b:1
+#: openpyxl.drawing.geometry.GeomRect.l:1
+#: openpyxl.drawing.geometry.GeomRect.r:1
+#: openpyxl.drawing.geometry.GeomRect.t:1
+#: openpyxl.drawing.geometry.GroupTransform2D.rot:1
+#: openpyxl.drawing.geometry.Point2D.x:1 openpyxl.drawing.geometry.Point2D.y:1
+#: openpyxl.drawing.geometry.Point3D.x:1 openpyxl.drawing.geometry.Point3D.y:1
+#: openpyxl.drawing.geometry.Point3D.z:1
+#: openpyxl.drawing.geometry.PositiveSize2D.cx:1
+#: openpyxl.drawing.geometry.PositiveSize2D.cy:1
+#: openpyxl.drawing.geometry.Shape3D.contourW:1
+#: openpyxl.drawing.geometry.Shape3D.extrusionH:1
+#: openpyxl.drawing.geometry.SphereCoords.lat:1
+#: openpyxl.drawing.geometry.SphereCoords.lon:1
+#: openpyxl.drawing.geometry.SphereCoords.rev:1
+#: openpyxl.drawing.geometry.StyleMatrixReference.idx:1
+#: openpyxl.drawing.geometry.Transform2D.rot:1
+#: openpyxl.drawing.geometry.Vector3D.dx:1
+#: openpyxl.drawing.geometry.Vector3D.dy:1
+#: openpyxl.drawing.geometry.Vector3D.dz:1
+msgid "Values must be of type <class 'int'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.Backdrop.anchor:1
+msgid "Values must be of type <class 'openpyxl.drawing.geometry.Point3D'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.Backdrop.extLst:1
+#: openpyxl.drawing.geometry.Scene3D.extLst:1
+#: openpyxl.drawing.geometry.Shape3D.extLst:1
+msgid "Values must be of type <class 'openpyxl.descriptors.excel.ExtensionList'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.Backdrop.norm:1
+#: openpyxl.drawing.geometry.Backdrop.up:1
+msgid "Values must be of type <class 'openpyxl.drawing.geometry.Vector3D'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.Bevel.prst:1
+msgid ""
+"Value must be one of {'divot', 'softRound', 'relaxedInset', 'angle', "
+"'riblet', 'slope', 'cross', 'artDeco', 'coolSlant', 'hardEdge', 'convex',"
+" 'circle'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.Camera.prst:1
+msgid ""
+"Value must be one of {'isometricOffAxis4Bottom', 'legacyObliqueRight', "
+"'isometricOffAxis1Top', 'obliqueTop', 'perspectiveLeft', "
+"'isometricOffAxis4Left', 'legacyObliqueBottomLeft', 'perspectiveAbove', "
+"'perspectiveBelow', 'legacyObliqueTop', 'obliqueBottom', "
+"'perspectiveAboveRightFacing', 'legacyPerspectiveBottom', "
+"'legacyObliqueTopLeft', 'isometricOffAxis4Right', 'obliqueBottomRight', "
+"'perspectiveAboveLeftFacing', 'obliqueTopLeft', 'legacyPerspectiveRight',"
+" 'isometricOffAxis3Right', 'obliqueLeft', 'isometricRightUp', "
+"'isometricOffAxis3Left', 'perspectiveHeroicExtremeRightFacing', "
+"'legacyObliqueLeft', 'perspectiveHeroicExtremeLeftFacing', "
+"'isometricOffAxis2Left', 'legacyObliqueFront', "
+"'legacyObliqueBottomRight', 'legacyPerspectiveBottomLeft', "
+"'perspectiveHeroicRightFacing', 'perspectiveHeroicLeftFacing', "
+"'isometricOffAxis2Right', 'obliqueBottomLeft', 'legacyPerspectiveLeft', "
+"'perspectiveRight', 'perspectiveFront', 'perspectiveRelaxed', "
+"'legacyObliqueBottom', 'legacyPerspectiveBottomRight', 'isometricTopUp', "
+"'isometricBottomUp', 'isometricBottomDown', "
+"'perspectiveRelaxedModerately', 'isometricOffAxis1Left', "
+"'isometricOffAxis1Right', 'legacyObliqueTopRight', "
+"'legacyPerspectiveTopRight', 'isometricTopDown', "
+"'legacyPerspectiveFront', 'isometricRightDown', 'isometricLeftUp', "
+"'isometricOffAxis2Top', 'legacyPerspectiveTop', 'obliqueRight', "
+"'isometricOffAxis3Bottom', 'perspectiveContrastingLeftFacing', "
+"'orthographicFront', 'perspectiveContrastingRightFacing', "
+"'isometricLeftDown', 'obliqueTopRight', 'legacyPerspectiveTopLeft'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.Camera.rot:1
+#: openpyxl.drawing.geometry.LightRig.rot:1
+msgid "Values must be of type <class 'openpyxl.drawing.geometry.SphereCoords'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.Camera.zoom:1
+msgid "Values must be of type <class 'openpyxl.descriptors.excel.Percentage'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.ConnectionSite.ang:1
+#: openpyxl.drawing.geometry.Path2D.h:1 openpyxl.drawing.geometry.Path2D.w:1
+msgid "Values must be of type <class 'float'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.ConnectionSite.pos:1
+msgid "Values must be of type <class 'openpyxl.drawing.geometry.AdjPoint2D'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.ConnectionSiteList.cxn:1
+msgid "Values must be of type <class 'openpyxl.drawing.geometry.ConnectionSite'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.CustomGeometry2D.ahLst:1
+msgid ""
+"Values must be of type <class "
+"'openpyxl.drawing.geometry.AdjustHandleList'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.CustomGeometry2D.avLst:1
+#: openpyxl.drawing.geometry.CustomGeometry2D.gdLst:1
+#: openpyxl.drawing.geometry.PresetGeometry2D.avLst:1
+msgid "Values must be of type <class 'openpyxl.drawing.geometry.GeomGuideList'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.CustomGeometry2D.cxnLst:1
+msgid ""
+"Values must be of type <class "
+"'openpyxl.drawing.geometry.ConnectionSiteList'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.CustomGeometry2D.pathLst:1
+msgid "Values must be of type <class 'openpyxl.drawing.geometry.Path2DList'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.FontReference.idx:1
+msgid "Value must be one of {'major', 'minor'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.GeomGuide.fmla:1
+#: openpyxl.drawing.geometry.GeomGuide.name:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.GeomGuideList.gd:1
+msgid "Values must be of type <class 'openpyxl.drawing.geometry.GeomGuide'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.GroupTransform2D.chExt:1
+#: openpyxl.drawing.geometry.GroupTransform2D.ext:1
+#: openpyxl.drawing.geometry.Transform2D.chExt:1
+#: openpyxl.drawing.geometry.Transform2D.ext:1
+msgid "Values must be of type <class 'openpyxl.drawing.geometry.PositiveSize2D'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.GroupTransform2D.chOff:1
+#: openpyxl.drawing.geometry.GroupTransform2D.off:1
+#: openpyxl.drawing.geometry.Transform2D.chOff:1
+#: openpyxl.drawing.geometry.Transform2D.off:1
+msgid "Values must be of type <class 'openpyxl.drawing.geometry.Point2D'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.GroupTransform2D.flipH:1
+#: openpyxl.drawing.geometry.GroupTransform2D.flipV:1
+#: openpyxl.drawing.geometry.Path2D.extrusionOk:1
+#: openpyxl.drawing.geometry.Path2D.stroke:1
+#: openpyxl.drawing.geometry.Transform2D.flipH:1
+#: openpyxl.drawing.geometry.Transform2D.flipV:1
+msgid "Values must be of type <class 'bool'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.LightRig.dir:1
+msgid "Value must be one of {'l', 'tr', 'tl', 'bl', 'b', 't', 'r', 'br'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.LightRig.rig:1
+msgid ""
+"Value must be one of {'legacyNormal3', 'legacyFlat2', 'chilly', "
+"'sunrise', 'legacyFlat3', 'threePt', 'balanced', 'legacyFlat1', "
+"'freezing', 'sunset', 'legacyHarsh1', 'legacyHarsh4', 'contrasting', "
+"'harsh', 'legacyHarsh3', 'flat', 'brightRoom', 'morning', 'twoPt', "
+"'legacyFlat4', 'flood', 'legacyHarsh2', 'soft', 'glow', 'legacyNormal2', "
+"'legacyNormal4', 'legacyNormal1'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.Path2D.fill:1
+msgid ""
+"Value must be one of {'lightenLess', 'lighten', 'darken', 'darkenLess', "
+"'norm'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.Path2DList.path:1
+msgid "Values must be of type <class 'openpyxl.drawing.geometry.Path2D'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.PositiveSize2D.height:1
+#: openpyxl.drawing.geometry.PositiveSize2D.width:1
+msgid ""
+"Aliases can be used when either the desired attribute name is not allowed"
+" or confusing in Python (eg. \"type\") or a more descriptve name is "
+"desired (eg. \"underline\" for \"u\")"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.PositiveSize2D.namespace:1
+msgid "Dimensions in EMUs"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.PresetGeometry2D.prst:1
+msgid ""
+"Value must be one of {'cloudCallout', 'rightBrace', 'star24', "
+"'flowChartDecision', 'flowChartTerminator', 'chord', 'frame', "
+"'borderCallout3', 'star8', 'snipRoundRect', 'actionButtonHelp', 'gear9', "
+"'chevron', 'octagon', 'snip2DiagRect', 'borderCallout2', "
+"'curvedRightArrow', 'snip1Rect', 'flowChartOr', 'snip2SameRect', "
+"'actionButtonDocument', 'bentUpArrow', 'actionButtonHome', "
+"'ellipseRibbon', 'leftBrace', 'curvedConnector5', 'downArrowCallout', "
+"'plaque', 'arc', 'bentConnector2', 'lightningBolt', "
+"'actionButtonForwardNext', 'round2DiagRect', 'donut', "
+"'flowChartPunchedCard', 'irregularSeal1', 'accentCallout2', "
+"'flowChartCollate', 'pie', 'flowChartMagneticDisk', 'squareTabs', "
+"'diagStripe', 'cornerTabs', 'flowChartAlternateProcess', "
+"'flowChartOfflineStorage', 'bentConnector3', 'rect', "
+"'flowChartPunchedTape', 'funnel', 'cloud', 'star6', 'pieWedge', "
+"'actionButtonMovie', 'verticalScroll', 'downArrow', "
+"'flowChartSummingJunction', 'flowChartMerge', 'flowChartMultidocument', "
+"'roundRect', 'parallelogram', 'accentBorderCallout1', 'rightBracket', "
+"'star16', 'ellipseRibbon2', 'moon', 'ribbon2', 'accentBorderCallout3', "
+"'ribbon', 'flowChartConnector', 'actionButtonBeginning', 'plaqueTabs', "
+"'actionButtonSound', 'flowChartManualOperation', "
+"'flowChartOffpageConnector', 'leftRightArrowCallout', 'callout1', "
+"'irregularSeal2', 'diamond', 'rightArrowCallout', 'mathMultiply', "
+"'upDownArrow', 'flowChartInternalStorage', 'ellipse', 'upArrow', "
+"'chartStar', 'wedgeRectCallout', 'gear6', 'homePlate', "
+"'curvedConnector3', 'lineInv', 'star12', 'chartPlus', 'rightArrow', "
+"'star32', 'actionButtonEnd', 'actionButtonBlank', 'upDownArrowCallout', "
+"'accentCallout1', 'triangle', 'uturnArrow', 'curvedConnector4', "
+"'swooshArrow', 'leftRightRibbon', 'cube', 'star5', 'round2SameRect', "
+"'dodecagon', 'leftUpArrow', 'flowChartPredefinedProcess', "
+"'leftRightCircularArrow', 'decagon', 'line', 'flowChartManualInput', "
+"'actionButtonBackPrevious', 'leftRightUpArrow', 'circularArrow', "
+"'bentConnector4', 'bentConnector5', 'actionButtonReturn', 'sun', 'star4',"
+" 'mathPlus', 'wedgeEllipseCallout', 'borderCallout1', 'quadArrowCallout',"
+" 'nonIsoscelesTrapezoid', 'wave', 'corner', 'heart', 'bracePair', "
+"'mathNotEqual', 'star10', 'leftArrow', 'star7', 'blockArc', "
+"'curvedDownArrow', 'curvedConnector2', 'flowChartMagneticTape', "
+"'leftCircularArrow', 'bracketPair', 'halfFrame', 'stripedRightArrow', "
+"'doubleWave', 'callout2', 'flowChartDocument', 'flowChartDelay', "
+"'pentagon', 'round1Rect', 'noSmoking', 'upArrowCallout', 'can', "
+"'flowChartOnlineStorage', 'actionButtonInformation', 'curvedLeftArrow', "
+"'accentBorderCallout2', 'horizontalScroll', 'mathDivide', 'foldedCorner',"
+" 'flowChartDisplay', 'flowChartProcess', 'notchedRightArrow', "
+"'mathEqual', 'leftBracket', 'leftArrowCallout', 'callout3', "
+"'flowChartExtract', 'bentArrow', 'mathMinus', 'chartX', 'quadArrow', "
+"'flowChartMagneticDrum', 'hexagon', 'rtTriangle', 'heptagon', "
+"'trapezoid', 'flowChartInputOutput', 'flowChartSort', "
+"'wedgeRoundRectCallout', 'smileyFace', 'plus', 'bevel', 'leftRightArrow',"
+" 'accentCallout3', 'flowChartPreparation', 'straightConnector1', "
+"'curvedUpArrow', 'teardrop'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.Scene3D.backdrop:1
+msgid "Values must be of type <class 'openpyxl.drawing.geometry.Backdrop'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.Scene3D.camera:1
+msgid "Values must be of type <class 'openpyxl.drawing.geometry.Camera'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.Scene3D.lightRig:1
+msgid "Values must be of type <class 'openpyxl.drawing.geometry.LightRig'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.Shape3D.bevelB:1
+#: openpyxl.drawing.geometry.Shape3D.bevelT:1
+msgid "Values must be of type <class 'openpyxl.drawing.geometry.Bevel'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.Shape3D.contourClr:1
+#: openpyxl.drawing.geometry.Shape3D.extrusionClr:1
+msgid "Values must be of type <class 'openpyxl.styles.colors.Color'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.Shape3D.prstMaterial:1
+msgid ""
+"Value must be one of {'metal', 'translucentPowder', 'clear', 'matte', "
+"'legacyWireframe', 'powder', 'softEdge', 'dkEdge', 'flat', 'legacyMatte',"
+" 'softmetal', 'legacyPlastic', 'plastic', 'warmMatte', 'legacyMetal'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.Shape3D.z:1
+msgid "Values must be of type <class 'openpyxl.descriptors.base.Integer'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.ShapeStyle.effectRef:1
+#: openpyxl.drawing.geometry.ShapeStyle.fillRef:1
+#: openpyxl.drawing.geometry.ShapeStyle.lnRef:1
+msgid ""
+"Values must be of type <class "
+"'openpyxl.drawing.geometry.StyleMatrixReference'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.geometry.ShapeStyle.fontRef:1
+msgid "Values must be of type <class 'openpyxl.drawing.geometry.FontReference'>"
+msgstr ""
+

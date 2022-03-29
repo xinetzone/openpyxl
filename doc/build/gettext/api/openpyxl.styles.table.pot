@@ -1,0 +1,53 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/openpyxl.styles.table.rst:2
+msgid "openpyxl.styles.table module"
+msgstr ""
+
+#: ../../../openpyxl/styles/table.py:docstring of openpyxl.styles.table.TableStyle:1
+#: ../../../openpyxl/styles/table.py:docstring of openpyxl.styles.table.TableStyleElement:1
+#: ../../../openpyxl/styles/table.py:docstring of openpyxl.styles.table.TableStyleList:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../docstring of openpyxl.styles.table.TableStyle.count:1
+#: ../../docstring of openpyxl.styles.table.TableStyleElement.dxfId:1
+#: ../../docstring of openpyxl.styles.table.TableStyleElement.size:1
+msgid "Values must be of type <class 'int'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.styles.table.TableStyle.name:1
+#: ../../docstring of openpyxl.styles.table.TableStyleList.defaultPivotStyle:1
+#: ../../docstring of openpyxl.styles.table.TableStyleList.defaultTableStyle:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.styles.table.TableStyle.pivot:1
+#: ../../docstring of openpyxl.styles.table.TableStyle.table:1
+msgid "Values must be of type <class 'bool'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.styles.table.TableStyle.tableStyleElement:1
+#: ../../docstring of openpyxl.styles.table.TableStyleList.tableStyle:1
+msgid "A sequence (list or tuple) that may only contain objects of the declared type"
+msgstr ""
+
+#: ../../docstring of openpyxl.styles.table.TableStyleElement.type:1
+msgid "Value must be one of {'lastColumn', 'secondSubtotalRow', 'firstColumn', 'secondColumnSubheading', 'firstRowSubheading', 'firstSubtotalColumn', 'thirdRowSubheading', 'headerRow', 'lastHeaderCell', 'firstSubtotalRow', 'lastTotalCell', 'secondRowSubheading', 'blankRow', 'secondColumnStripe', 'secondRowStripe', 'firstColumnStripe', 'firstTotalCell', 'pageFieldValues', 'thirdSubtotalColumn', 'thirdColumnSubheading', 'secondSubtotalColumn', 'totalRow', 'firstColumnSubheading', 'thirdSubtotalRow', 'wholeTable', 'firstHeaderCell', 'pageFieldLabels', 'firstRowStripe'}"
+msgstr ""

@@ -1,0 +1,46 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../charts/line.rst:2
+#: ../../charts/line.rst:5
+msgid "Line Charts"
+msgstr ""
+
+#: ../../charts/line.rst:7
+msgid "Line charts allow data to be plotted against a fixed axis. They are similar to scatter charts, the main difference is that with line charts each data series is plotted against the same values. Different kinds of axes can be used for the secondary axes."
+msgstr ""
+
+#: ../../charts/line.rst:12
+msgid "Similar to bar charts there are three kinds of line charts: standard, stacked and percentStacked."
+msgstr ""
+
+#: ../../charts/line.rst:None
+msgid "\"Sample line charts\""
+msgstr ""
+
+#: ../../charts/line.rst:24
+msgid "3D Line Charts"
+msgstr ""
+
+#: ../../charts/line.rst:26
+msgid "In 3D line charts the third axis is the same as the legend for the series."
+msgstr ""
+
+#: ../../charts/line.rst:None
+msgid "\"Sample 3D line chart\""
+msgstr ""

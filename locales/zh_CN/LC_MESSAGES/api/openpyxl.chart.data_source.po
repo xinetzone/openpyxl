@@ -1,0 +1,130 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../api/openpyxl.chart.data_source.rst:2
+msgid "openpyxl.chart.data\\_source module"
+msgstr ""
+
+#: of openpyxl.chart.data_source:1
+msgid "Collection of utility primitives for charts."
+msgstr ""
+
+#: of openpyxl.chart.data_source.AxDataSource:1
+#: openpyxl.chart.data_source.Level:1
+#: openpyxl.chart.data_source.MultiLevelStrData:1
+#: openpyxl.chart.data_source.MultiLevelStrRef:1
+#: openpyxl.chart.data_source.NumData:1
+#: openpyxl.chart.data_source.NumDataSource:1
+#: openpyxl.chart.data_source.NumFmt:1 openpyxl.chart.data_source.NumRef:1
+#: openpyxl.chart.data_source.NumVal:1 openpyxl.chart.data_source.StrData:1
+#: openpyxl.chart.data_source.StrRef:1 openpyxl.chart.data_source.StrVal:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.data_source.AxDataSource.multiLvlStrRef:1
+msgid ""
+"Values must be of type <class "
+"'openpyxl.chart.data_source.MultiLevelStrRef'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.data_source.AxDataSource.numLit:1
+#: openpyxl.chart.data_source.NumDataSource.numLit:1
+#: openpyxl.chart.data_source.NumRef.numCache:1
+msgid "Values must be of type <class 'openpyxl.chart.data_source.NumData'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.data_source.AxDataSource.numRef:1
+#: openpyxl.chart.data_source.NumDataSource.numRef:1
+msgid "Values must be of type <class 'openpyxl.chart.data_source.NumRef'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.data_source.AxDataSource.strLit:1
+#: openpyxl.chart.data_source.StrRef.strCache:1
+msgid "Values must be of type <class 'openpyxl.chart.data_source.StrData'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.data_source.AxDataSource.strRef:1
+msgid "Values must be of type <class 'openpyxl.chart.data_source.StrRef'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.data_source.Level.pt:1
+#: openpyxl.chart.data_source.MultiLevelStrData.lvl:1
+#: openpyxl.chart.data_source.NumData.pt:1
+#: openpyxl.chart.data_source.StrData.pt:1
+msgid ""
+"A sequence (list or tuple) that may only contain objects of the declared "
+"type"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.data_source.MultiLevelStrData.extLst:1
+#: openpyxl.chart.data_source.MultiLevelStrRef.extLst:1
+#: openpyxl.chart.data_source.NumData.extLst:1
+#: openpyxl.chart.data_source.NumRef.extLst:1
+#: openpyxl.chart.data_source.StrData.extLst:1
+#: openpyxl.chart.data_source.StrRef.extLst:1
+msgid "Values must be of type <class 'openpyxl.descriptors.excel.ExtensionList'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.data_source.MultiLevelStrData.ptCount:1
+#: openpyxl.chart.data_source.NumData.ptCount:1
+#: openpyxl.chart.data_source.NumVal.idx:1
+#: openpyxl.chart.data_source.StrData.ptCount:1
+#: openpyxl.chart.data_source.StrVal.idx:1
+msgid "Values must be of type <class 'int'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.data_source.MultiLevelStrRef.f:1
+#: openpyxl.chart.data_source.NumData.formatCode:1
+#: openpyxl.chart.data_source.NumFmt.formatCode:1
+#: openpyxl.chart.data_source.NumRef.f:1
+#: openpyxl.chart.data_source.NumVal.formatCode:1
+#: openpyxl.chart.data_source.StrRef.f:1 openpyxl.chart.data_source.StrVal.v:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.chart.data_source.MultiLevelStrRef.multiLvlStrCache:1
+msgid ""
+"Values must be of type <class "
+"'openpyxl.chart.data_source.MultiLevelStrData'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.data_source.NumFmt.sourceLinked:1
+msgid "Values must be of type <class 'bool'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.data_source.NumRef.ref:1
+msgid ""
+"Aliases can be used when either the desired attribute name is not allowed"
+" or confusing in Python (eg. \"type\") or a more descriptve name is "
+"desired (eg. \"underline\" for \"u\")"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.data_source.NumVal.v:1
+msgid "Values must be of type <class 'NoneType'>"
+msgstr ""
+
+#: of openpyxl.chart.data_source.NumberValueDescriptor:1
+msgid "Bases: :py:class:`openpyxl.descriptors.nested.NestedText`"
+msgstr ""
+
+#: of openpyxl.chart.data_source.NumberValueDescriptor:1
+msgid "Data should be numerical but isn't always :-/"
+msgstr ""
+

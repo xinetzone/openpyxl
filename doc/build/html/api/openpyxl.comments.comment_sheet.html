@@ -1,0 +1,337 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>openpyxl.comments.comment_sheet module &#8212; openpyxl 3.0.9 文档</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nature.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="openpyxl.comments.comments module" href="openpyxl.comments.comments.html" />
+    <link rel="prev" title="openpyxl.comments.author module" href="openpyxl.comments.author.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.comments.comments.html" title="openpyxl.comments.comments module"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.comments.author.html" title="openpyxl.comments.author module"
+             accesskey="P">上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.comments.html" accesskey="U">openpyxl.comments package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.comments.comment_sheet module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-openpyxl.comments.comment_sheet">
+<span id="openpyxl-comments-comment-sheet-module"></span><h1>openpyxl.comments.comment_sheet module<a class="headerlink" href="#module-openpyxl.comments.comment_sheet" title="永久链接至标题">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.CommentRecord">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.comments.comment_sheet.</span></span><span class="sig-name descname"><span class="pre">CommentRecord</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">authorId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">guid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shapeId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">commentPr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">author</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">79</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">144</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/comments/comment_sheet.html#CommentRecord"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.comments.comment_sheet.CommentRecord" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.CommentRecord.author">
+<span class="sig-name descname"><span class="pre">author</span></span><a class="headerlink" href="#openpyxl.comments.comment_sheet.CommentRecord.author" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.CommentRecord.authorId">
+<span class="sig-name descname"><span class="pre">authorId</span></span><a class="headerlink" href="#openpyxl.comments.comment_sheet.CommentRecord.authorId" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.CommentRecord.commentPr">
+<span class="sig-name descname"><span class="pre">commentPr</span></span><a class="headerlink" href="#openpyxl.comments.comment_sheet.CommentRecord.commentPr" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.comments.comment_sheet.Properties’&gt;</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.CommentRecord.content">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">content</span></span><a class="headerlink" href="#openpyxl.comments.comment_sheet.CommentRecord.content" title="永久链接至目标">¶</a></dt>
+<dd><p>Remove all inline formatting and stuff</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.CommentRecord.from_cell">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_cell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cell</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/comments/comment_sheet.html#CommentRecord.from_cell"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.comments.comment_sheet.CommentRecord.from_cell" title="永久链接至目标">¶</a></dt>
+<dd><p>Class method to convert cell comment</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.CommentRecord.guid">
+<span class="sig-name descname"><span class="pre">guid</span></span><a class="headerlink" href="#openpyxl.comments.comment_sheet.CommentRecord.guid" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.CommentRecord.ref">
+<span class="sig-name descname"><span class="pre">ref</span></span><a class="headerlink" href="#openpyxl.comments.comment_sheet.CommentRecord.ref" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.CommentRecord.shapeId">
+<span class="sig-name descname"><span class="pre">shapeId</span></span><a class="headerlink" href="#openpyxl.comments.comment_sheet.CommentRecord.shapeId" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.CommentRecord.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'comment'</span></em><a class="headerlink" href="#openpyxl.comments.comment_sheet.CommentRecord.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.CommentRecord.text">
+<span class="sig-name descname"><span class="pre">text</span></span><a class="headerlink" href="#openpyxl.comments.comment_sheet.CommentRecord.text" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.cell.text.Text’&gt;</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.CommentSheet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.comments.comment_sheet.</span></span><span class="sig-name descname"><span class="pre">CommentSheet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">authors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">commentList</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extLst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/comments/comment_sheet.html#CommentSheet"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.comments.comment_sheet.CommentSheet" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.CommentSheet.authors">
+<span class="sig-name descname"><span class="pre">authors</span></span><a class="headerlink" href="#openpyxl.comments.comment_sheet.CommentSheet.authors" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.comments.author.AuthorList’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.CommentSheet.commentList">
+<span class="sig-name descname"><span class="pre">commentList</span></span><a class="headerlink" href="#openpyxl.comments.comment_sheet.CommentSheet.commentList" title="永久链接至目标">¶</a></dt>
+<dd><p>Wrap a sequence in an containing object</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.CommentSheet.comments">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">comments</span></span><a class="headerlink" href="#openpyxl.comments.comment_sheet.CommentSheet.comments" title="永久链接至目标">¶</a></dt>
+<dd><p>Return a dictionary of comments keyed by coord</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.CommentSheet.extLst">
+<span class="sig-name descname"><span class="pre">extLst</span></span><a class="headerlink" href="#openpyxl.comments.comment_sheet.CommentSheet.extLst" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.descriptors.excel.ExtensionList’&gt;</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.CommentSheet.from_comments">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_comments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">comments</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/comments/comment_sheet.html#CommentSheet.from_comments"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.comments.comment_sheet.CommentSheet.from_comments" title="永久链接至目标">¶</a></dt>
+<dd><p>Create a comment sheet from a list of comments for a particular worksheet</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.CommentSheet.mime_type">
+<span class="sig-name descname"><span class="pre">mime_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'application/vnd.openxmlformats-officedocument.spreadsheetml.comments+xml'</span></em><a class="headerlink" href="#openpyxl.comments.comment_sheet.CommentSheet.mime_type" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.CommentSheet.path">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">path</span></span><a class="headerlink" href="#openpyxl.comments.comment_sheet.CommentSheet.path" title="永久链接至目标">¶</a></dt>
+<dd><p>Return path within the archive</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.CommentSheet.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'comments'</span></em><a class="headerlink" href="#openpyxl.comments.comment_sheet.CommentSheet.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.CommentSheet.to_tree">
+<span class="sig-name descname"><span class="pre">to_tree</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/comments/comment_sheet.html#CommentSheet.to_tree"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.comments.comment_sheet.CommentSheet.to_tree" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.CommentSheet.write_shapes">
+<span class="sig-name descname"><span class="pre">write_shapes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vml</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/comments/comment_sheet.html#CommentSheet.write_shapes"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.comments.comment_sheet.CommentSheet.write_shapes" title="永久链接至目标">¶</a></dt>
+<dd><p>Create the VML for comments</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.Properties">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.comments.comment_sheet.</span></span><span class="sig-name descname"><span class="pre">Properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">locked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">defaultSize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_print</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uiObject</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autoFill</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autoLine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">altText</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textHAlign</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textVAlign</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lockText</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">justLastX</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autoScale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rowHidden</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colHidden</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anchor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/comments/comment_sheet.html#Properties"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.comments.comment_sheet.Properties" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.Properties.altText">
+<span class="sig-name descname"><span class="pre">altText</span></span><a class="headerlink" href="#openpyxl.comments.comment_sheet.Properties.altText" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.Properties.autoFill">
+<span class="sig-name descname"><span class="pre">autoFill</span></span><a class="headerlink" href="#openpyxl.comments.comment_sheet.Properties.autoFill" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.Properties.autoLine">
+<span class="sig-name descname"><span class="pre">autoLine</span></span><a class="headerlink" href="#openpyxl.comments.comment_sheet.Properties.autoLine" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.Properties.autoScale">
+<span class="sig-name descname"><span class="pre">autoScale</span></span><a class="headerlink" href="#openpyxl.comments.comment_sheet.Properties.autoScale" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.Properties.colHidden">
+<span class="sig-name descname"><span class="pre">colHidden</span></span><a class="headerlink" href="#openpyxl.comments.comment_sheet.Properties.colHidden" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.Properties.defaultSize">
+<span class="sig-name descname"><span class="pre">defaultSize</span></span><a class="headerlink" href="#openpyxl.comments.comment_sheet.Properties.defaultSize" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.Properties.disabled">
+<span class="sig-name descname"><span class="pre">disabled</span></span><a class="headerlink" href="#openpyxl.comments.comment_sheet.Properties.disabled" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.Properties.justLastX">
+<span class="sig-name descname"><span class="pre">justLastX</span></span><a class="headerlink" href="#openpyxl.comments.comment_sheet.Properties.justLastX" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.Properties.lockText">
+<span class="sig-name descname"><span class="pre">lockText</span></span><a class="headerlink" href="#openpyxl.comments.comment_sheet.Properties.lockText" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.Properties.locked">
+<span class="sig-name descname"><span class="pre">locked</span></span><a class="headerlink" href="#openpyxl.comments.comment_sheet.Properties.locked" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.Properties.rowHidden">
+<span class="sig-name descname"><span class="pre">rowHidden</span></span><a class="headerlink" href="#openpyxl.comments.comment_sheet.Properties.rowHidden" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.Properties.textHAlign">
+<span class="sig-name descname"><span class="pre">textHAlign</span></span><a class="headerlink" href="#openpyxl.comments.comment_sheet.Properties.textHAlign" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘justify’, ‘center’, ‘right’, ‘distributed’, ‘left’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.Properties.textVAlign">
+<span class="sig-name descname"><span class="pre">textVAlign</span></span><a class="headerlink" href="#openpyxl.comments.comment_sheet.Properties.textVAlign" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘justify’, ‘center’, ‘top’, ‘distributed’, ‘bottom’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.comments.comment_sheet.Properties.uiObject">
+<span class="sig-name descname"><span class="pre">uiObject</span></span><a class="headerlink" href="#openpyxl.comments.comment_sheet.Properties.uiObject" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="openpyxl.comments.author.html"
+                          title="上一章">openpyxl.comments.author module</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="openpyxl.comments.comments.html"
+                          title="下一章">openpyxl.comments.comments module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/openpyxl.comments.comment_sheet.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.comments.comments.html" title="openpyxl.comments.comments module"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.comments.author.html" title="openpyxl.comments.author module"
+             >上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.comments.html" >openpyxl.comments package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.comments.comment_sheet module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2010 - 2022, See AUTHORS.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+  </body>
+</html>

@@ -1,0 +1,329 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>openpyxl.chart.data_source &#8212; openpyxl 3.0.9 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/nature.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.chart.data_source</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for openpyxl.chart.data_source</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Collection of utility primitives for charts.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.serialisable</span> <span class="kn">import</span> <span class="n">Serialisable</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Bool</span><span class="p">,</span>
+    <span class="n">Typed</span><span class="p">,</span>
+    <span class="n">Alias</span><span class="p">,</span>
+    <span class="n">String</span><span class="p">,</span>
+    <span class="n">Integer</span><span class="p">,</span>
+    <span class="n">Sequence</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.excel</span> <span class="kn">import</span> <span class="n">ExtensionList</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.nested</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">NestedString</span><span class="p">,</span>
+    <span class="n">NestedText</span><span class="p">,</span>
+    <span class="n">NestedInteger</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="NumFmt"><a class="viewcode-back" href="../../../api/openpyxl.chart.data_source.html#openpyxl.chart.data_source.NumFmt">[docs]</a><span class="k">class</span> <span class="nc">NumFmt</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">formatCode</span> <span class="o">=</span> <span class="n">String</span><span class="p">()</span>
+    <span class="n">sourceLinked</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">formatCode</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">sourceLinked</span><span class="o">=</span><span class="kc">False</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">formatCode</span> <span class="o">=</span> <span class="n">formatCode</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sourceLinked</span> <span class="o">=</span> <span class="n">sourceLinked</span></div>
+
+
+<div class="viewcode-block" id="NumberValueDescriptor"><a class="viewcode-back" href="../../../api/openpyxl.chart.data_source.html#openpyxl.chart.data_source.NumberValueDescriptor">[docs]</a><span class="k">class</span> <span class="nc">NumberValueDescriptor</span><span class="p">(</span><span class="n">NestedText</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Data should be numerical but isn&#39;t always :-/</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">allow_none</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="fm">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;#N/A&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">expected_type</span> <span class="o">=</span> <span class="nb">str</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">expected_type</span> <span class="o">=</span> <span class="nb">float</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">NumberValueDescriptor</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__set__</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NumVal"><a class="viewcode-back" href="../../../api/openpyxl.chart.data_source.html#openpyxl.chart.data_source.NumVal">[docs]</a><span class="k">class</span> <span class="nc">NumVal</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">formatCode</span> <span class="o">=</span> <span class="n">NestedText</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">expected_type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">NumberValueDescriptor</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">idx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">formatCode</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">v</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idx</span> <span class="o">=</span> <span class="n">idx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">formatCode</span> <span class="o">=</span> <span class="n">formatCode</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">v</span> <span class="o">=</span> <span class="n">v</span></div>
+
+
+<div class="viewcode-block" id="NumData"><a class="viewcode-back" href="../../../api/openpyxl.chart.data_source.html#openpyxl.chart.data_source.NumData">[docs]</a><span class="k">class</span> <span class="nc">NumData</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">formatCode</span> <span class="o">=</span> <span class="n">NestedText</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ptCount</span> <span class="o">=</span> <span class="n">NestedInteger</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pt</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">NumVal</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;formatCode&#39;</span><span class="p">,</span> <span class="s1">&#39;ptCount&#39;</span><span class="p">,</span> <span class="s1">&#39;pt&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">formatCode</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">ptCount</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">pt</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">formatCode</span> <span class="o">=</span> <span class="n">formatCode</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ptCount</span> <span class="o">=</span> <span class="n">ptCount</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pt</span> <span class="o">=</span> <span class="n">pt</span></div>
+
+
+<div class="viewcode-block" id="NumRef"><a class="viewcode-back" href="../../../api/openpyxl.chart.data_source.html#openpyxl.chart.data_source.NumRef">[docs]</a><span class="k">class</span> <span class="nc">NumRef</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="n">NestedText</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+    <span class="n">ref</span> <span class="o">=</span> <span class="n">Alias</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+    <span class="n">numCache</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">NumData</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;numCache&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">f</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">numCache</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="n">f</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">numCache</span> <span class="o">=</span> <span class="n">numCache</span></div>
+
+
+<div class="viewcode-block" id="StrVal"><a class="viewcode-back" href="../../../api/openpyxl.chart.data_source.html#openpyxl.chart.data_source.StrVal">[docs]</a><span class="k">class</span> <span class="nc">StrVal</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;strVal&quot;</span>
+
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">NestedText</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">idx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                 <span class="n">v</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idx</span> <span class="o">=</span> <span class="n">idx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">v</span> <span class="o">=</span> <span class="n">v</span></div>
+
+
+<div class="viewcode-block" id="StrData"><a class="viewcode-back" href="../../../api/openpyxl.chart.data_source.html#openpyxl.chart.data_source.StrData">[docs]</a><span class="k">class</span> <span class="nc">StrData</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;strData&quot;</span>
+
+    <span class="n">ptCount</span> <span class="o">=</span> <span class="n">NestedInteger</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pt</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">StrVal</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;ptCount&#39;</span><span class="p">,</span> <span class="s1">&#39;pt&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">ptCount</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">pt</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ptCount</span> <span class="o">=</span> <span class="n">ptCount</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pt</span> <span class="o">=</span> <span class="n">pt</span></div>
+
+
+<div class="viewcode-block" id="StrRef"><a class="viewcode-back" href="../../../api/openpyxl.chart.data_source.html#openpyxl.chart.data_source.StrRef">[docs]</a><span class="k">class</span> <span class="nc">StrRef</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;strRef&quot;</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="n">NestedText</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">strCache</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">StrData</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;strCache&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">f</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">strCache</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="n">f</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">strCache</span> <span class="o">=</span> <span class="n">strCache</span></div>
+
+
+<div class="viewcode-block" id="NumDataSource"><a class="viewcode-back" href="../../../api/openpyxl.chart.data_source.html#openpyxl.chart.data_source.NumDataSource">[docs]</a><span class="k">class</span> <span class="nc">NumDataSource</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">numRef</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">NumRef</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">numLit</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">NumData</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">numRef</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">numLit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">numRef</span> <span class="o">=</span> <span class="n">numRef</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">numLit</span> <span class="o">=</span> <span class="n">numLit</span></div>
+
+
+<div class="viewcode-block" id="Level"><a class="viewcode-back" href="../../../api/openpyxl.chart.data_source.html#openpyxl.chart.data_source.Level">[docs]</a><span class="k">class</span> <span class="nc">Level</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;lvl&quot;</span>
+
+    <span class="n">pt</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">StrVal</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;pt&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">pt</span><span class="o">=</span><span class="p">(),</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pt</span> <span class="o">=</span> <span class="n">pt</span></div>
+
+
+<div class="viewcode-block" id="MultiLevelStrData"><a class="viewcode-back" href="../../../api/openpyxl.chart.data_source.html#openpyxl.chart.data_source.MultiLevelStrData">[docs]</a><span class="k">class</span> <span class="nc">MultiLevelStrData</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;multiLvlStrData&quot;</span>
+
+    <span class="n">ptCount</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">lvl</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Level</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;ptCount&#39;</span><span class="p">,</span> <span class="s1">&#39;lvl&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">ptCount</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">lvl</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ptCount</span> <span class="o">=</span> <span class="n">ptCount</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lvl</span> <span class="o">=</span> <span class="n">lvl</span></div>
+
+
+<div class="viewcode-block" id="MultiLevelStrRef"><a class="viewcode-back" href="../../../api/openpyxl.chart.data_source.html#openpyxl.chart.data_source.MultiLevelStrRef">[docs]</a><span class="k">class</span> <span class="nc">MultiLevelStrRef</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;multiLvlStrRef&quot;</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="n">NestedText</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+    <span class="n">multiLvlStrCache</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">MultiLevelStrData</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;multiLvlStrCache&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">f</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">multiLvlStrCache</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="n">f</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">multiLvlStrCache</span> <span class="o">=</span> <span class="n">multiLvlStrCache</span></div>
+
+
+<div class="viewcode-block" id="AxDataSource"><a class="viewcode-back" href="../../../api/openpyxl.chart.data_source.html#openpyxl.chart.data_source.AxDataSource">[docs]</a><span class="k">class</span> <span class="nc">AxDataSource</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;cat&quot;</span>
+
+    <span class="n">numRef</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">NumRef</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">numLit</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">NumData</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">strRef</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">StrRef</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">strLit</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">StrData</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">multiLvlStrRef</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">MultiLevelStrRef</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">numRef</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">numLit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">strRef</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">strLit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">multiLvlStrRef</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">([</span><span class="n">numLit</span><span class="p">,</span> <span class="n">numRef</span><span class="p">,</span> <span class="n">strRef</span><span class="p">,</span> <span class="n">strLit</span><span class="p">,</span> <span class="n">multiLvlStrRef</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;A data source must be provided&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">numRef</span> <span class="o">=</span> <span class="n">numRef</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">numLit</span> <span class="o">=</span> <span class="n">numLit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">strRef</span> <span class="o">=</span> <span class="n">strRef</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">strLit</span> <span class="o">=</span> <span class="n">strLit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">multiLvlStrRef</span> <span class="o">=</span> <span class="n">multiLvlStrRef</span></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.chart.data_source</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2010 - 2022, See AUTHORS.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

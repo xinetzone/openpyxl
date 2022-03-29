@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>openpyxl.packaging.workbook &#8212; openpyxl 3.0.9 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/nature.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.packaging.workbook</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for openpyxl.packaging.workbook</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2010-2022 openpyxl</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.serialisable</span> <span class="kn">import</span> <span class="n">Serialisable</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Alias</span><span class="p">,</span>
+    <span class="n">Typed</span><span class="p">,</span>
+    <span class="n">String</span><span class="p">,</span>
+    <span class="n">Integer</span><span class="p">,</span>
+    <span class="n">Bool</span><span class="p">,</span>
+    <span class="n">NoneSet</span><span class="p">,</span>
+    <span class="n">Set</span><span class="p">,</span>
+    <span class="n">Sequence</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.excel</span> <span class="kn">import</span> <span class="n">ExtensionList</span><span class="p">,</span> <span class="n">Relation</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.sequence</span> <span class="kn">import</span> <span class="n">NestedSequence</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.nested</span> <span class="kn">import</span> <span class="n">NestedString</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.xml.constants</span> <span class="kn">import</span> <span class="n">SHEET_MAIN_NS</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.workbook.defined_name</span> <span class="kn">import</span> <span class="n">DefinedName</span><span class="p">,</span> <span class="n">DefinedNameList</span>
+<span class="kn">from</span> <span class="nn">openpyxl.workbook.external_reference</span> <span class="kn">import</span> <span class="n">ExternalReference</span>
+<span class="kn">from</span> <span class="nn">openpyxl.workbook.function_group</span> <span class="kn">import</span> <span class="n">FunctionGroupList</span>
+<span class="kn">from</span> <span class="nn">openpyxl.workbook.properties</span> <span class="kn">import</span> <span class="n">WorkbookProperties</span><span class="p">,</span> <span class="n">CalcProperties</span><span class="p">,</span> <span class="n">FileVersion</span>
+<span class="kn">from</span> <span class="nn">openpyxl.workbook.protection</span> <span class="kn">import</span> <span class="n">WorkbookProtection</span><span class="p">,</span> <span class="n">FileSharing</span>
+<span class="kn">from</span> <span class="nn">openpyxl.workbook.smart_tags</span> <span class="kn">import</span> <span class="n">SmartTagList</span><span class="p">,</span> <span class="n">SmartTagProperties</span>
+<span class="kn">from</span> <span class="nn">openpyxl.workbook.views</span> <span class="kn">import</span> <span class="n">CustomWorkbookView</span><span class="p">,</span> <span class="n">BookView</span>
+<span class="kn">from</span> <span class="nn">openpyxl.workbook.web</span> <span class="kn">import</span> <span class="n">WebPublishing</span><span class="p">,</span> <span class="n">WebPublishObjectList</span>
+
+
+<div class="viewcode-block" id="FileRecoveryProperties"><a class="viewcode-back" href="../../../api/openpyxl.packaging.workbook.html#openpyxl.packaging.workbook.FileRecoveryProperties">[docs]</a><span class="k">class</span> <span class="nc">FileRecoveryProperties</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;fileRecoveryPr&quot;</span>
+
+    <span class="n">autoRecover</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">crashSave</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dataExtractLoad</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">repairLoad</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">autoRecover</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">crashSave</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">dataExtractLoad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">repairLoad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">autoRecover</span> <span class="o">=</span> <span class="n">autoRecover</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">crashSave</span> <span class="o">=</span> <span class="n">crashSave</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataExtractLoad</span> <span class="o">=</span> <span class="n">dataExtractLoad</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">repairLoad</span> <span class="o">=</span> <span class="n">repairLoad</span></div>
+
+
+<div class="viewcode-block" id="ChildSheet"><a class="viewcode-back" href="../../../api/openpyxl.packaging.workbook.html#openpyxl.packaging.workbook.ChildSheet">[docs]</a><span class="k">class</span> <span class="nc">ChildSheet</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents a reference to a worksheet or chartsheet in workbook.xml</span>
+
+<span class="sd">    It contains the title, order and state but only an indirect reference to</span>
+<span class="sd">    the objects themselves.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;sheet&quot;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">String</span><span class="p">()</span>
+    <span class="n">sheetId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;visible&#39;</span><span class="p">,</span> <span class="s1">&#39;hidden&#39;</span><span class="p">,</span> <span class="s1">&#39;veryHidden&#39;</span><span class="p">]))</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">Relation</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">sheetId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">state</span><span class="o">=</span><span class="s2">&quot;visible&quot;</span><span class="p">,</span>
+                 <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sheetId</span> <span class="o">=</span> <span class="n">sheetId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span></div>
+
+
+<div class="viewcode-block" id="PivotCache"><a class="viewcode-back" href="../../../api/openpyxl.packaging.workbook.html#openpyxl.packaging.workbook.PivotCache">[docs]</a><span class="k">class</span> <span class="nc">PivotCache</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;pivotCache&quot;</span>
+
+    <span class="n">cacheId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">Relation</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">cacheId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="nb">id</span><span class="o">=</span><span class="kc">None</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cacheId</span> <span class="o">=</span> <span class="n">cacheId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span></div>
+
+
+<div class="viewcode-block" id="WorkbookPackage"><a class="viewcode-back" href="../../../api/openpyxl.packaging.workbook.html#openpyxl.packaging.workbook.WorkbookPackage">[docs]</a><span class="k">class</span> <span class="nc">WorkbookPackage</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represent the workbook file in the archive</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;workbook&quot;</span>
+
+    <span class="n">conformance</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;strict&#39;</span><span class="p">,</span> <span class="s1">&#39;transitional&#39;</span><span class="p">])</span>
+    <span class="n">fileVersion</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">FileVersion</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">fileSharing</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">FileSharing</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">workbookPr</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">WorkbookProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">properties</span> <span class="o">=</span> <span class="n">Alias</span><span class="p">(</span><span class="s2">&quot;workbookPr&quot;</span><span class="p">)</span>
+    <span class="n">workbookProtection</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">WorkbookProtection</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">bookViews</span> <span class="o">=</span> <span class="n">NestedSequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">BookView</span><span class="p">)</span>
+    <span class="n">sheets</span> <span class="o">=</span> <span class="n">NestedSequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ChildSheet</span><span class="p">)</span>
+    <span class="n">functionGroups</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">FunctionGroupList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">externalReferences</span> <span class="o">=</span> <span class="n">NestedSequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExternalReference</span><span class="p">)</span>
+    <span class="n">definedNames</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">DefinedNameList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">calcPr</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">CalcProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">oleSize</span> <span class="o">=</span> <span class="n">NestedString</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">attribute</span><span class="o">=</span><span class="s2">&quot;ref&quot;</span><span class="p">)</span>
+    <span class="n">customWorkbookViews</span> <span class="o">=</span> <span class="n">NestedSequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">CustomWorkbookView</span><span class="p">)</span>
+    <span class="n">pivotCaches</span> <span class="o">=</span> <span class="n">NestedSequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">PivotCache</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">smartTagPr</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">SmartTagProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">smartTagTypes</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">SmartTagList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">webPublishing</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">WebPublishing</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">fileRecoveryPr</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">FileRecoveryProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">webPublishObjects</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">WebPublishObjectList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">Ignorable</span> <span class="o">=</span> <span class="n">NestedString</span><span class="p">(</span><span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;http://schemas.openxmlformats.org/markup-compatibility/2006&quot;</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;fileVersion&#39;</span><span class="p">,</span> <span class="s1">&#39;fileSharing&#39;</span><span class="p">,</span> <span class="s1">&#39;workbookPr&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;workbookProtection&#39;</span><span class="p">,</span> <span class="s1">&#39;bookViews&#39;</span><span class="p">,</span> <span class="s1">&#39;sheets&#39;</span><span class="p">,</span> <span class="s1">&#39;functionGroups&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;externalReferences&#39;</span><span class="p">,</span> <span class="s1">&#39;definedNames&#39;</span><span class="p">,</span> <span class="s1">&#39;calcPr&#39;</span><span class="p">,</span> <span class="s1">&#39;oleSize&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;customWorkbookViews&#39;</span><span class="p">,</span> <span class="s1">&#39;pivotCaches&#39;</span><span class="p">,</span> <span class="s1">&#39;smartTagPr&#39;</span><span class="p">,</span> <span class="s1">&#39;smartTagTypes&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;webPublishing&#39;</span><span class="p">,</span> <span class="s1">&#39;fileRecoveryPr&#39;</span><span class="p">,</span> <span class="s1">&#39;webPublishObjects&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">conformance</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">fileVersion</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">fileSharing</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">workbookPr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">workbookProtection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">bookViews</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">sheets</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">functionGroups</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">externalReferences</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">definedNames</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">calcPr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">oleSize</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">customWorkbookViews</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">pivotCaches</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">smartTagPr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">smartTagTypes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">webPublishing</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">fileRecoveryPr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">webPublishObjects</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">Ignorable</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conformance</span> <span class="o">=</span> <span class="n">conformance</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fileVersion</span> <span class="o">=</span> <span class="n">fileVersion</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fileSharing</span> <span class="o">=</span> <span class="n">fileSharing</span>
+        <span class="k">if</span> <span class="n">workbookPr</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">workbookPr</span> <span class="o">=</span> <span class="n">WorkbookProperties</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">workbookPr</span> <span class="o">=</span> <span class="n">workbookPr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">workbookProtection</span> <span class="o">=</span> <span class="n">workbookProtection</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bookViews</span> <span class="o">=</span> <span class="n">bookViews</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sheets</span> <span class="o">=</span> <span class="n">sheets</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">functionGroups</span> <span class="o">=</span> <span class="n">functionGroups</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">externalReferences</span> <span class="o">=</span> <span class="n">externalReferences</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">definedNames</span> <span class="o">=</span> <span class="n">definedNames</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">calcPr</span> <span class="o">=</span> <span class="n">calcPr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">oleSize</span> <span class="o">=</span> <span class="n">oleSize</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">customWorkbookViews</span> <span class="o">=</span> <span class="n">customWorkbookViews</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pivotCaches</span> <span class="o">=</span> <span class="n">pivotCaches</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">smartTagPr</span> <span class="o">=</span> <span class="n">smartTagPr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">smartTagTypes</span> <span class="o">=</span> <span class="n">smartTagTypes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">webPublishing</span> <span class="o">=</span> <span class="n">webPublishing</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fileRecoveryPr</span> <span class="o">=</span> <span class="n">fileRecoveryPr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">webPublishObjects</span> <span class="o">=</span> <span class="n">webPublishObjects</span>
+
+
+<div class="viewcode-block" id="WorkbookPackage.to_tree"><a class="viewcode-back" href="../../../api/openpyxl.packaging.workbook.html#openpyxl.packaging.workbook.WorkbookPackage.to_tree">[docs]</a>    <span class="k">def</span> <span class="nf">to_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">tree</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">WorkbookPackage</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">to_tree</span><span class="p">()</span>
+        <span class="n">tree</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;xmlns&quot;</span><span class="p">,</span> <span class="n">SHEET_MAIN_NS</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">tree</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">active</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">view</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bookViews</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">view</span><span class="o">.</span><span class="n">activeTab</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">view</span><span class="o">.</span><span class="n">activeTab</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">pivot_caches</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get PivotCache objects</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">caches</span><span class="p">:</span>
+            <span class="n">cache</span> <span class="o">=</span> <span class="n">get_rel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">archive</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rels</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">CacheDefinition</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">cache</span><span class="o">.</span><span class="n">deps</span><span class="p">:</span>
+                <span class="n">records</span> <span class="o">=</span> <span class="n">get_rel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">archive</span><span class="p">,</span> <span class="n">cache</span><span class="o">.</span><span class="n">deps</span><span class="p">,</span> <span class="n">cache</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">RecordList</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">records</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">cache</span><span class="o">.</span><span class="n">records</span> <span class="o">=</span> <span class="n">records</span>
+            <span class="n">d</span><span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">cacheId</span><span class="p">]</span>  <span class="o">=</span> <span class="n">cache</span>
+        <span class="k">return</span> <span class="n">d</span></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.packaging.workbook</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2010 - 2022, See AUTHORS.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/openpyxl.worksheet.hyperlink.rst:2
+msgid "openpyxl.worksheet.hyperlink module"
+msgstr ""
+
+#: ../../../openpyxl/worksheet/hyperlink.py:docstring of openpyxl.worksheet.hyperlink.Hyperlink:1
+#: ../../../openpyxl/worksheet/hyperlink.py:docstring of openpyxl.worksheet.hyperlink.HyperlinkList:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.hyperlink.Hyperlink.display:1
+#: ../../docstring of openpyxl.worksheet.hyperlink.Hyperlink.id:1
+#: ../../docstring of openpyxl.worksheet.hyperlink.Hyperlink.location:1
+#: ../../docstring of openpyxl.worksheet.hyperlink.Hyperlink.ref:1
+#: ../../docstring of openpyxl.worksheet.hyperlink.Hyperlink.target:1
+#: ../../docstring of openpyxl.worksheet.hyperlink.Hyperlink.tooltip:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.hyperlink.HyperlinkList.hyperlink:1
+msgid "A sequence (list or tuple) that may only contain objects of the declared type"
+msgstr ""

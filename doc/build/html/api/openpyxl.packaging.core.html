@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>openpyxl.packaging.core module &#8212; openpyxl 3.0.9 文档</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nature.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="openpyxl.packaging.extended module" href="openpyxl.packaging.extended.html" />
+    <link rel="prev" title="openpyxl.packaging package" href="openpyxl.packaging.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.packaging.extended.html" title="openpyxl.packaging.extended module"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.packaging.html" title="openpyxl.packaging package"
+             accesskey="P">上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.packaging.html" accesskey="U">openpyxl.packaging package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.packaging.core module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-openpyxl.packaging.core">
+<span id="openpyxl-packaging-core-module"></span><h1>openpyxl.packaging.core module<a class="headerlink" href="#module-openpyxl.packaging.core" title="永久链接至标题">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.packaging.core.DocumentProperties">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.packaging.core.</span></span><span class="sig-name descname"><span class="pre">DocumentProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contentStatus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keywords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lastModifiedBy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lastPrinted</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">revision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">created</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">datetime.datetime(2022,</span> <span class="pre">3,</span> <span class="pre">29,</span> <span class="pre">1,</span> <span class="pre">56,</span> <span class="pre">59,</span> <span class="pre">75468)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">creator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'openpyxl'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modified</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">datetime.datetime(2022,</span> <span class="pre">3,</span> <span class="pre">29,</span> <span class="pre">1,</span> <span class="pre">56,</span> <span class="pre">59,</span> <span class="pre">75468)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/packaging/core.html#DocumentProperties"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.packaging.core.DocumentProperties" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<p>High-level properties of the document.
+Defined in ECMA-376 Par2 Annex D</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.packaging.core.DocumentProperties.category">
+<span class="sig-name descname"><span class="pre">category</span></span><a class="headerlink" href="#openpyxl.packaging.core.DocumentProperties.category" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.packaging.core.DocumentProperties.contentStatus">
+<span class="sig-name descname"><span class="pre">contentStatus</span></span><a class="headerlink" href="#openpyxl.packaging.core.DocumentProperties.contentStatus" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.packaging.core.DocumentProperties.created">
+<span class="sig-name descname"><span class="pre">created</span></span><a class="headerlink" href="#openpyxl.packaging.core.DocumentProperties.created" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘datetime.datetime’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.packaging.core.DocumentProperties.creator">
+<span class="sig-name descname"><span class="pre">creator</span></span><a class="headerlink" href="#openpyxl.packaging.core.DocumentProperties.creator" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.packaging.core.DocumentProperties.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#openpyxl.packaging.core.DocumentProperties.description" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.packaging.core.DocumentProperties.identifier">
+<span class="sig-name descname"><span class="pre">identifier</span></span><a class="headerlink" href="#openpyxl.packaging.core.DocumentProperties.identifier" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.packaging.core.DocumentProperties.keywords">
+<span class="sig-name descname"><span class="pre">keywords</span></span><a class="headerlink" href="#openpyxl.packaging.core.DocumentProperties.keywords" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.packaging.core.DocumentProperties.language">
+<span class="sig-name descname"><span class="pre">language</span></span><a class="headerlink" href="#openpyxl.packaging.core.DocumentProperties.language" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.packaging.core.DocumentProperties.lastModifiedBy">
+<span class="sig-name descname"><span class="pre">lastModifiedBy</span></span><a class="headerlink" href="#openpyxl.packaging.core.DocumentProperties.lastModifiedBy" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.packaging.core.DocumentProperties.lastPrinted">
+<span class="sig-name descname"><span class="pre">lastPrinted</span></span><a class="headerlink" href="#openpyxl.packaging.core.DocumentProperties.lastPrinted" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘datetime.datetime’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.packaging.core.DocumentProperties.last_modified_by">
+<span class="sig-name descname"><span class="pre">last_modified_by</span></span><a class="headerlink" href="#openpyxl.packaging.core.DocumentProperties.last_modified_by" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.packaging.core.DocumentProperties.modified">
+<span class="sig-name descname"><span class="pre">modified</span></span><a class="headerlink" href="#openpyxl.packaging.core.DocumentProperties.modified" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘datetime.datetime’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.packaging.core.DocumentProperties.namespace">
+<span class="sig-name descname"><span class="pre">namespace</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://schemas.openxmlformats.org/package/2006/metadata/core-properties'</span></em><a class="headerlink" href="#openpyxl.packaging.core.DocumentProperties.namespace" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.packaging.core.DocumentProperties.revision">
+<span class="sig-name descname"><span class="pre">revision</span></span><a class="headerlink" href="#openpyxl.packaging.core.DocumentProperties.revision" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.packaging.core.DocumentProperties.subject">
+<span class="sig-name descname"><span class="pre">subject</span></span><a class="headerlink" href="#openpyxl.packaging.core.DocumentProperties.subject" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.packaging.core.DocumentProperties.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'coreProperties'</span></em><a class="headerlink" href="#openpyxl.packaging.core.DocumentProperties.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.packaging.core.DocumentProperties.title">
+<span class="sig-name descname"><span class="pre">title</span></span><a class="headerlink" href="#openpyxl.packaging.core.DocumentProperties.title" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.packaging.core.DocumentProperties.version">
+<span class="sig-name descname"><span class="pre">version</span></span><a class="headerlink" href="#openpyxl.packaging.core.DocumentProperties.version" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.packaging.core.NestedDateTime">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.packaging.core.</span></span><span class="sig-name descname"><span class="pre">NestedDateTime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/packaging/core.html#NestedDateTime"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.packaging.core.NestedDateTime" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.base.html#openpyxl.descriptors.base.DateTime" title="openpyxl.descriptors.base.DateTime"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.base.DateTime</span></code></a>, <a class="reference internal" href="openpyxl.descriptors.nested.html#openpyxl.descriptors.nested.NestedText" title="openpyxl.descriptors.nested.NestedText"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.nested.NestedText</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.packaging.core.NestedDateTime.expected_type">
+<span class="sig-name descname"><span class="pre">expected_type</span></span><a class="headerlink" href="#openpyxl.packaging.core.NestedDateTime.expected_type" title="永久链接至目标">¶</a></dt>
+<dd><p>:py:class:<a href="#id1"><span class="problematic" id="id2">`</span></a>datetime.datetime`的别名</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpyxl.packaging.core.NestedDateTime.to_tree">
+<span class="sig-name descname"><span class="pre">to_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tagname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">namespace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/packaging/core.html#NestedDateTime.to_tree"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.packaging.core.NestedDateTime.to_tree" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.packaging.core.QualifiedDateTime">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.packaging.core.</span></span><span class="sig-name descname"><span class="pre">QualifiedDateTime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/packaging/core.html#QualifiedDateTime"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.packaging.core.QualifiedDateTime" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="#openpyxl.packaging.core.NestedDateTime" title="openpyxl.packaging.core.NestedDateTime"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.packaging.core.NestedDateTime</span></code></a></p>
+<p>In certain situations Excel will complain if the additional type
+attribute isn’t set</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="openpyxl.packaging.core.QualifiedDateTime.to_tree">
+<span class="sig-name descname"><span class="pre">to_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tagname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">namespace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/packaging/core.html#QualifiedDateTime.to_tree"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.packaging.core.QualifiedDateTime.to_tree" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="openpyxl.packaging.html"
+                          title="上一章">openpyxl.packaging package</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="openpyxl.packaging.extended.html"
+                          title="下一章">openpyxl.packaging.extended module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/openpyxl.packaging.core.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.packaging.extended.html" title="openpyxl.packaging.extended module"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.packaging.html" title="openpyxl.packaging package"
+             >上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.packaging.html" >openpyxl.packaging package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.packaging.core module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2010 - 2022, See AUTHORS.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+  </body>
+</html>

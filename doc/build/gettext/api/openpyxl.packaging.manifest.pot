@@ -1,0 +1,63 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/openpyxl.packaging.manifest.rst:2
+msgid "openpyxl.packaging.manifest module"
+msgstr ""
+
+#: ../../../openpyxl/packaging/manifest.py:docstring of openpyxl.packaging.manifest:1
+msgid "File manifest"
+msgstr ""
+
+#: ../../../openpyxl/packaging/manifest.py:docstring of openpyxl.packaging.manifest.FileExtension:1
+#: ../../../openpyxl/packaging/manifest.py:docstring of openpyxl.packaging.manifest.Manifest:1
+#: ../../../openpyxl/packaging/manifest.py:docstring of openpyxl.packaging.manifest.Override:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../docstring of openpyxl.packaging.manifest.FileExtension.ContentType:1
+#: ../../docstring of openpyxl.packaging.manifest.FileExtension.Extension:1
+#: ../../docstring of openpyxl.packaging.manifest.Override.ContentType:1
+#: ../../docstring of openpyxl.packaging.manifest.Override.PartName:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.packaging.manifest.Manifest.Default:1
+#: ../../docstring of openpyxl.packaging.manifest.Manifest.Override:1
+msgid "A sequence (list or tuple) that may only contain objects of the declared type"
+msgstr ""
+
+#: ../../../openpyxl/packaging/manifest.py:docstring of openpyxl.packaging.manifest.Manifest.append:1
+msgid "Add content object to the package manifest # needs a contract..."
+msgstr ""
+
+#: ../../../openpyxl/packaging/manifest.py:docstring of openpyxl.packaging.manifest.Manifest.extensions:1
+msgid "Map content types to file extensions Skip parts without extensions"
+msgstr ""
+
+#: ../../../openpyxl/packaging/manifest.py:docstring of openpyxl.packaging.manifest.Manifest.find:1
+msgid "Find specific content-type"
+msgstr ""
+
+#: ../../../openpyxl/packaging/manifest.py:docstring of openpyxl.packaging.manifest.Manifest.findall:1
+msgid "Find all elements of a specific content-type"
+msgstr ""
+
+#: ../../../openpyxl/packaging/manifest.py:docstring of openpyxl.packaging.manifest.Manifest.to_tree:1
+msgid "Custom serialisation method to allow setting a default namespace"
+msgstr ""

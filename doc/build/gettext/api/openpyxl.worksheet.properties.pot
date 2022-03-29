@@ -1,0 +1,67 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/openpyxl.worksheet.properties.rst:2
+msgid "openpyxl.worksheet.properties module"
+msgstr ""
+
+#: ../../../openpyxl/worksheet/properties.py:docstring of openpyxl.worksheet.properties:1
+msgid "Worksheet Properties"
+msgstr ""
+
+#: ../../../openpyxl/worksheet/properties.py:docstring of openpyxl.worksheet.properties.Outline:1
+#: ../../../openpyxl/worksheet/properties.py:docstring of openpyxl.worksheet.properties.PageSetupProperties:1
+#: ../../../openpyxl/worksheet/properties.py:docstring of openpyxl.worksheet.properties.WorksheetProperties:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.properties.Outline.applyStyles:1
+#: ../../docstring of openpyxl.worksheet.properties.Outline.showOutlineSymbols:1
+#: ../../docstring of openpyxl.worksheet.properties.Outline.summaryBelow:1
+#: ../../docstring of openpyxl.worksheet.properties.Outline.summaryRight:1
+#: ../../docstring of openpyxl.worksheet.properties.PageSetupProperties.autoPageBreaks:1
+#: ../../docstring of openpyxl.worksheet.properties.PageSetupProperties.fitToPage:1
+#: ../../docstring of openpyxl.worksheet.properties.WorksheetProperties.enableFormatConditionsCalculation:1
+#: ../../docstring of openpyxl.worksheet.properties.WorksheetProperties.filterMode:1
+#: ../../docstring of openpyxl.worksheet.properties.WorksheetProperties.published:1
+#: ../../docstring of openpyxl.worksheet.properties.WorksheetProperties.syncHorizontal:1
+#: ../../docstring of openpyxl.worksheet.properties.WorksheetProperties.syncVertical:1
+#: ../../docstring of openpyxl.worksheet.properties.WorksheetProperties.transitionEvaluation:1
+msgid "Values must be of type <class 'bool'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.properties.WorksheetProperties.codeName:1
+#: ../../docstring of openpyxl.worksheet.properties.WorksheetProperties.syncRef:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.properties.WorksheetProperties.outlinePr:1
+msgid "Values must be of type <class 'openpyxl.worksheet.properties.Outline'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.properties.WorksheetProperties.pageSetUpPr:1
+msgid "Values must be of type <class 'openpyxl.worksheet.properties.PageSetupProperties'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.properties.WorksheetProperties.tabColor:1
+msgid "Values must be of type <class 'openpyxl.styles.colors.Color'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.properties.WorksheetProperties.transitionEntry:1
+msgid "Elements"
+msgstr ""

@@ -1,0 +1,106 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/openpyxl.descriptors.base.rst:2
+msgid "openpyxl.descriptors.base module"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base:1
+msgid "Based on Python Cookbook 3rd Edition, 8.13 http://chimera.labs.oreilly.com/books/1230000000393/ch08.html#_discussiuncion_130"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.ASCII:1
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.Convertible:1
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.DateTime:1
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.Default:1
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.String:1
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.Tuple:1
+msgid "Bases: :py:class:`openpyxl.descriptors.base.Typed`"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.Alias:1
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.Length:1
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.MatchPattern:1
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.Set:1
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.Typed:1
+msgid "Bases: :py:class:`openpyxl.descriptors.base.Descriptor`"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.Alias:1
+msgid "Aliases can be used when either the desired attribute name is not allowed or confusing in Python (eg. \"type\") or a more descriptve name is desired (eg. \"underline\" for \"u\")"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.Bool:1
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.Float:1
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.Integer:1
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.Max:1
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.Min:1
+msgid "Bases: :py:class:`openpyxl.descriptors.base.Convertible`"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.Convertible:1
+msgid "Values must be convertible to a particular type"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.Default:1
+msgid "When called returns an instance of the expected type. Additional default values can be passed in to the descriptor"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.Descriptor:1
+msgid "Bases: :py:class:`object`"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.MatchPattern:1
+msgid "Values must match a regex pattern"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.Max:1
+msgid "Values must be less than a `max` value"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.Min:1
+msgid "Values must be greater than a `min` value"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.MinMax:1
+msgid "Bases: :py:class:`openpyxl.descriptors.base.Min`, :py:class:`openpyxl.descriptors.base.Max`"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.MinMax:1
+msgid "Values must be greater than `min` value and less than a `max` one"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.NoneSet:1
+msgid "Bases: :py:class:`openpyxl.descriptors.base.Set`"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.NoneSet:1
+msgid "'none' will be treated as None"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.Set:1
+msgid "Value can only be from a set of know values"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.Text:1
+msgid "Bases: :py:class:`openpyxl.descriptors.base.String`, :py:class:`openpyxl.descriptors.base.Convertible`"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/base.py:docstring of openpyxl.descriptors.base.Typed:1
+msgid "Values must of a particular type"
+msgstr ""

@@ -1,0 +1,98 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/openpyxl.styles.named_styles.rst:2
+msgid "openpyxl.styles.named\\_styles module"
+msgstr ""
+
+#: ../../../openpyxl/styles/named_styles.py:docstring of openpyxl.styles.named_styles.NamedStyle:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../../openpyxl/styles/named_styles.py:docstring of openpyxl.styles.named_styles.NamedStyle:1
+msgid "Named and editable styles"
+msgstr ""
+
+#: ../../docstring of openpyxl.styles.named_styles.NamedStyle.alignment:1
+msgid "Values must be of type <class 'openpyxl.styles.alignment.Alignment'>"
+msgstr ""
+
+#: ../../../openpyxl/styles/named_styles.py:docstring of openpyxl.styles.named_styles.NamedStyle.as_name:1
+msgid "Return relevant named style"
+msgstr ""
+
+#: ../../../openpyxl/styles/named_styles.py:docstring of openpyxl.styles.named_styles.NamedStyle.as_tuple:1
+msgid "Return a style array representing the current style"
+msgstr ""
+
+#: ../../../openpyxl/styles/named_styles.py:docstring of openpyxl.styles.named_styles.NamedStyle.as_xf:1
+msgid "Return equivalent XfStyle"
+msgstr ""
+
+#: ../../../openpyxl/styles/named_styles.py:docstring of openpyxl.styles.named_styles.NamedStyle.bind:1
+msgid "Bind a named style to a workbook"
+msgstr ""
+
+#: ../../docstring of openpyxl.styles.named_styles.NamedStyle.border:1
+msgid "Values must be of type <class 'openpyxl.styles.borders.Border'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.styles.named_styles.NamedStyle.builtinId:1
+msgid "Values must be of type <class 'int'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.styles.named_styles.NamedStyle.fill:1
+msgid "Values must be of type <class 'openpyxl.styles.fills.Fill'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.styles.named_styles.NamedStyle.font:1
+msgid "Values must be of type <class 'openpyxl.styles.fonts.Font'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.styles.named_styles.NamedStyle.hidden:1
+msgid "Values must be of type <class 'bool'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.styles.named_styles.NamedStyle.name:1
+#: ../../docstring of openpyxl.styles.named_styles.NamedStyle.number_format:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.styles.named_styles.NamedStyle.protection:1
+msgid "Values must be of type <class 'openpyxl.styles.protection.Protection'>"
+msgstr ""
+
+#: ../../../openpyxl/styles/named_styles.py:docstring of openpyxl.styles.named_styles.NamedStyle.xfId:1
+msgid "Index of the style in the list of named styles"
+msgstr ""
+
+#: ../../../openpyxl/styles/named_styles.py:docstring of openpyxl.styles.named_styles.NamedStyleList:1
+msgid "Bases: :py:class:`list`"
+msgstr ""
+
+#: ../../../openpyxl/styles/named_styles.py:docstring of openpyxl.styles.named_styles.NamedStyleList:1
+msgid "Named styles are editable and can be applied to multiple objects"
+msgstr ""
+
+#: ../../../openpyxl/styles/named_styles.py:docstring of openpyxl.styles.named_styles.NamedStyleList:3
+msgid "As only the index is stored in referencing objects the order mus be preserved."
+msgstr ""
+
+#: ../../../openpyxl/styles/named_styles.py:docstring of openpyxl.styles.named_styles.NamedStyleList.append:1
+msgid "Append object to the end of the list."
+msgstr ""

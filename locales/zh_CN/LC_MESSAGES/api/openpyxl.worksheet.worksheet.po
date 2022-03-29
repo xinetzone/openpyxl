@@ -1,0 +1,309 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../api/openpyxl.worksheet.worksheet.rst:2
+msgid "openpyxl.worksheet.worksheet module"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet:1
+msgid "Worksheet is the 2nd-level container in Excel."
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet:1
+msgid "Bases: :py:class:`openpyxl.workbook.child._WorkbookChild`"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet:1
+msgid "Represents a worksheet."
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet:3
+msgid ""
+"Do not create worksheets yourself, use "
+":func:`openpyxl.workbook.Workbook.create_sheet` instead"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.add_chart:1
+msgid "Add a chart to the sheet Optionally provide a cell for the top-left anchor"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.add_data_validation:1
+msgid ""
+"Add a data-validation object to the sheet.  The data-validation object "
+"defines the type of data-validation to be applied and the cell or range "
+"of cells it should apply to."
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.add_image:1
+msgid ""
+"Add an image to the sheet. Optionally provide a cell for the top-left "
+"anchor"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.add_table:1
+msgid ""
+"Check for duplicate name in definedNames and other worksheet tables "
+"before adding table."
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.append:1
+msgid "Appends a group of values at the bottom of the current sheet."
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.append:3
+msgid ""
+"If it's a list: all values are added in order, starting from the first "
+"column"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.append:4
+msgid ""
+"If it's a dict: values are assigned to the columns indicated by the keys "
+"(numbers or letters)"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.append
+#: openpyxl.worksheet.worksheet.Worksheet.cell
+#: openpyxl.worksheet.worksheet.Worksheet.iter_cols
+#: openpyxl.worksheet.worksheet.Worksheet.iter_rows
+msgid "Parameters"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.append:6
+msgid "list, range or generator, or dict containing values to append"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.append:9
+msgid "Usage:"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.append:11
+msgid "append(['This is A1', 'This is B1', 'This is C1'])"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.append:12
+msgid "**or** append({'A' : 'This is A1', 'C' : 'This is C1'})"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.append:13
+msgid "**or** append({1 : 'This is A1', 3 : 'This is C1'})"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.append
+msgid "raise"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.append:15
+msgid "TypeError when iterable is neither a list/tuple nor a dict"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.calculate_dimension:1
+msgid ""
+"Return the minimum bounding range for all cells containing data (ex. "
+"'A1:M24')"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.calculate_dimension
+#: openpyxl.worksheet.worksheet.Worksheet.cell
+#: openpyxl.worksheet.worksheet.Worksheet.iter_cols
+#: openpyxl.worksheet.worksheet.Worksheet.iter_rows
+msgid "Return type"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.cell:1
+msgid "Returns a cell object based on the given coordinates."
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.cell:3
+msgid "Usage: cell(row=15, column=1, value=5)"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.cell:5
+msgid "Calling `cell` creates cells in memory when they are first accessed."
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.cell:8
+msgid "row index of the cell (e.g. 4)"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.cell:11
+msgid "column index of the cell (e.g. 3)"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.cell:14
+msgid "value of the cell (e.g. 5)"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.columns:1
+msgid "Produces all cells in the worksheet, by column  (see :func:`iter_cols`)"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.delete_cols:1
+msgid "Delete column or columns from col==idx"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.delete_rows:1
+msgid "Delete row or rows from row==idx"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.dimensions:1
+msgid "Returns the result of :func:`calculate_dimension`"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.insert_cols:1
+msgid "Insert column or columns before col==idx"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.insert_rows:1
+msgid "Insert row or rows before row==idx"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.iter_cols:1
+msgid ""
+"Produces cells from the worksheet, by column. Specify the iteration range"
+" using indices of rows and columns."
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.iter_cols:4
+#: openpyxl.worksheet.worksheet.Worksheet.iter_rows:4
+msgid "If no indices are specified the range starts at A1."
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.iter_cols:6
+#: openpyxl.worksheet.worksheet.Worksheet.iter_rows:6
+msgid "If no cells are in the worksheet an empty tuple will be returned."
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.iter_cols:8
+#: openpyxl.worksheet.worksheet.Worksheet.iter_rows:8
+msgid "smallest column index (1-based index)"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.iter_cols:11
+#: openpyxl.worksheet.worksheet.Worksheet.iter_rows:11
+msgid "smallest row index (1-based index)"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.iter_cols:14
+#: openpyxl.worksheet.worksheet.Worksheet.iter_rows:14
+msgid "largest column index (1-based index)"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.iter_cols:17
+#: openpyxl.worksheet.worksheet.Worksheet.iter_rows:17
+msgid "largest row index (1-based index)"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.iter_cols:20
+#: openpyxl.worksheet.worksheet.Worksheet.iter_rows:20
+msgid "whether only cell values should be returned"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.iter_rows:1
+msgid ""
+"Produces cells from the worksheet, by row. Specify the iteration range "
+"using indices of rows and columns."
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.max_column:1
+msgid "The maximum column index containing data (1-based)"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.max_column
+#: openpyxl.worksheet.worksheet.Worksheet.max_row
+#: openpyxl.worksheet.worksheet.Worksheet.min_column
+#: openpyxl.worksheet.worksheet.Worksheet.min_row
+#: openpyxl.worksheet.worksheet.Worksheet.rows
+#: openpyxl.worksheet.worksheet.Worksheet.values
+msgid "type"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.max_column:3
+#: openpyxl.worksheet.worksheet.Worksheet.max_row:3
+#: openpyxl.worksheet.worksheet.Worksheet.min_column:3
+#: openpyxl.worksheet.worksheet.Worksheet.min_row:3
+msgid "int"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.max_row:1
+msgid "The maximum row index containing data (1-based)"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.merge_cells:1
+msgid "Set merge on a cell range.  Range is a cell range (e.g. A1:E1)"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.merged_cell_ranges:1
+msgid "Return a copy of cell ranges"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.merged_cell_ranges:4
+msgid "Deprecated: Use ws.merged_cells.ranges"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.min_column:1
+msgid "The minimum column index containing data (1-based)"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.min_row:1
+msgid "The minimium row index containing data (1-based)"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.move_range:1
+msgid ""
+"Move a cell range by the number of rows and/or columns: down if rows > 0 "
+"and up if rows < 0 right if cols > 0 and left if cols < 0 Existing cells "
+"will be overwritten. Formulae and references will not be updated."
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.print_area:1
+msgid ""
+"The print area for the worksheet, or None if not set. To set, supply a "
+"range like 'A1:D4' or a list of ranges."
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.print_title_cols:1
+msgid "Columns to be printed at the left side of every page (ex: 'A:C')"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.print_title_rows:1
+msgid "Rows to be printed at the top of every page (ex: '1:3')"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.rows:1
+msgid "Produces all cells in the worksheet, by row (see :func:`iter_rows`)"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.rows:3
+#: openpyxl.worksheet.worksheet.Worksheet.values:3
+msgid "generator"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.set_printer_settings:1
+msgid "Set printer settings"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.unmerge_cells:1
+msgid "Remove merge on a cell range.  Range is a cell range (e.g. A1:E1)"
+msgstr ""
+
+#: of openpyxl.worksheet.worksheet.Worksheet.values:1
+msgid "Produces all cell values in the worksheet, by row"
+msgstr ""
+

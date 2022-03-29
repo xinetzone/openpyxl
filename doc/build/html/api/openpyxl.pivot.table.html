@@ -1,0 +1,2019 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>openpyxl.pivot.table module &#8212; openpyxl 3.0.9 文档</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nature.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="openpyxl.reader package" href="openpyxl.reader.html" />
+    <link rel="prev" title="openpyxl.pivot.record module" href="openpyxl.pivot.record.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.reader.html" title="openpyxl.reader package"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.pivot.record.html" title="openpyxl.pivot.record module"
+             accesskey="P">上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.pivot.html" accesskey="U">openpyxl.pivot package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.pivot.table module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-openpyxl.pivot.table">
+<span id="openpyxl-pivot-table-module"></span><h1>openpyxl.pivot.table module<a class="headerlink" href="#module-openpyxl.pivot.table" title="永久链接至标题">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.AutoSortScope">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.pivot.table.</span></span><span class="sig-name descname"><span class="pre">AutoSortScope</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pivotArea</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/pivot/table.html#AutoSortScope"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.pivot.table.AutoSortScope" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.AutoSortScope.pivotArea">
+<span class="sig-name descname"><span class="pre">pivotArea</span></span><a class="headerlink" href="#openpyxl.pivot.table.AutoSortScope.pivotArea" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.pivot.table.PivotArea’&gt;</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.ChartFormat">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.pivot.table.</span></span><span class="sig-name descname"><span class="pre">ChartFormat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">series</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pivotArea</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/pivot/table.html#ChartFormat"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.pivot.table.ChartFormat" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.ChartFormat.chart">
+<span class="sig-name descname"><span class="pre">chart</span></span><a class="headerlink" href="#openpyxl.pivot.table.ChartFormat.chart" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.ChartFormat.format">
+<span class="sig-name descname"><span class="pre">format</span></span><a class="headerlink" href="#openpyxl.pivot.table.ChartFormat.format" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.ChartFormat.pivotArea">
+<span class="sig-name descname"><span class="pre">pivotArea</span></span><a class="headerlink" href="#openpyxl.pivot.table.ChartFormat.pivotArea" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.pivot.table.PivotArea’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.ChartFormat.series">
+<span class="sig-name descname"><span class="pre">series</span></span><a class="headerlink" href="#openpyxl.pivot.table.ChartFormat.series" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.ChartFormat.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'chartFormat'</span></em><a class="headerlink" href="#openpyxl.pivot.table.ChartFormat.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.ColHierarchiesUsage">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.pivot.table.</span></span><span class="sig-name descname"><span class="pre">ColHierarchiesUsage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colHierarchyUsage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/pivot/table.html#ColHierarchiesUsage"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.pivot.table.ColHierarchiesUsage" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.ColHierarchiesUsage.colHierarchyUsage">
+<span class="sig-name descname"><span class="pre">colHierarchyUsage</span></span><a class="headerlink" href="#openpyxl.pivot.table.ColHierarchiesUsage.colHierarchyUsage" title="永久链接至目标">¶</a></dt>
+<dd><p>A sequence (list or tuple) that may only contain objects of the declared
+type</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.ColHierarchiesUsage.count">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">count</span></span><a class="headerlink" href="#openpyxl.pivot.table.ColHierarchiesUsage.count" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.ColHierarchiesUsage.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'colHierarchiesUsage'</span></em><a class="headerlink" href="#openpyxl.pivot.table.ColHierarchiesUsage.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.ConditionalFormat">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.pivot.table.</span></span><span class="sig-name descname"><span class="pre">ConditionalFormat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'selection'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priority</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pivotAreas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extLst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/pivot/table.html#ConditionalFormat"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.pivot.table.ConditionalFormat" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.ConditionalFormat.extLst">
+<span class="sig-name descname"><span class="pre">extLst</span></span><a class="headerlink" href="#openpyxl.pivot.table.ConditionalFormat.extLst" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.descriptors.excel.ExtensionList’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.ConditionalFormat.pivotAreas">
+<span class="sig-name descname"><span class="pre">pivotAreas</span></span><a class="headerlink" href="#openpyxl.pivot.table.ConditionalFormat.pivotAreas" title="永久链接至目标">¶</a></dt>
+<dd><p>Wrap a sequence in an containing object</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.ConditionalFormat.priority">
+<span class="sig-name descname"><span class="pre">priority</span></span><a class="headerlink" href="#openpyxl.pivot.table.ConditionalFormat.priority" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.ConditionalFormat.scope">
+<span class="sig-name descname"><span class="pre">scope</span></span><a class="headerlink" href="#openpyxl.pivot.table.ConditionalFormat.scope" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘field’, ‘data’, ‘selection’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.ConditionalFormat.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'conditionalFormat'</span></em><a class="headerlink" href="#openpyxl.pivot.table.ConditionalFormat.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.ConditionalFormat.type">
+<span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#openpyxl.pivot.table.ConditionalFormat.type" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘column’, ‘row’, ‘all’}</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.DataField">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.pivot.table.</span></span><span class="sig-name descname"><span class="pre">DataField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fld</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtotal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sum'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showDataAs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'normal'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseField</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseItem</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1048832</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numFmtId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extLst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/pivot/table.html#DataField"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.pivot.table.DataField" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.DataField.baseField">
+<span class="sig-name descname"><span class="pre">baseField</span></span><a class="headerlink" href="#openpyxl.pivot.table.DataField.baseField" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.DataField.baseItem">
+<span class="sig-name descname"><span class="pre">baseItem</span></span><a class="headerlink" href="#openpyxl.pivot.table.DataField.baseItem" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.DataField.extLst">
+<span class="sig-name descname"><span class="pre">extLst</span></span><a class="headerlink" href="#openpyxl.pivot.table.DataField.extLst" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.descriptors.excel.ExtensionList’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.DataField.fld">
+<span class="sig-name descname"><span class="pre">fld</span></span><a class="headerlink" href="#openpyxl.pivot.table.DataField.fld" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.DataField.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#openpyxl.pivot.table.DataField.name" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.DataField.numFmtId">
+<span class="sig-name descname"><span class="pre">numFmtId</span></span><a class="headerlink" href="#openpyxl.pivot.table.DataField.numFmtId" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.DataField.showDataAs">
+<span class="sig-name descname"><span class="pre">showDataAs</span></span><a class="headerlink" href="#openpyxl.pivot.table.DataField.showDataAs" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘index’, ‘difference’, ‘normal’, ‘percentOfTotal’, ‘runTotal’, ‘percentDiff’, ‘percentOfRow’, ‘percentOfCol’, ‘percent’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.DataField.subtotal">
+<span class="sig-name descname"><span class="pre">subtotal</span></span><a class="headerlink" href="#openpyxl.pivot.table.DataField.subtotal" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘sum’, ‘varp’, ‘stdDev’, ‘max’, ‘min’, ‘stdDevp’, ‘product’, ‘countNums’, ‘var’, ‘average’, ‘count’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.DataField.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'dataField'</span></em><a class="headerlink" href="#openpyxl.pivot.table.DataField.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.FieldItem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.pivot.table.</span></span><span class="sig-name descname"><span class="pre">FieldItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/pivot/table.html#FieldItem"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.pivot.table.FieldItem" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.FieldItem.c">
+<span class="sig-name descname"><span class="pre">c</span></span><a class="headerlink" href="#openpyxl.pivot.table.FieldItem.c" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.FieldItem.d">
+<span class="sig-name descname"><span class="pre">d</span></span><a class="headerlink" href="#openpyxl.pivot.table.FieldItem.d" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.FieldItem.e">
+<span class="sig-name descname"><span class="pre">e</span></span><a class="headerlink" href="#openpyxl.pivot.table.FieldItem.e" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.FieldItem.f">
+<span class="sig-name descname"><span class="pre">f</span></span><a class="headerlink" href="#openpyxl.pivot.table.FieldItem.f" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.FieldItem.h">
+<span class="sig-name descname"><span class="pre">h</span></span><a class="headerlink" href="#openpyxl.pivot.table.FieldItem.h" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.FieldItem.m">
+<span class="sig-name descname"><span class="pre">m</span></span><a class="headerlink" href="#openpyxl.pivot.table.FieldItem.m" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.FieldItem.n">
+<span class="sig-name descname"><span class="pre">n</span></span><a class="headerlink" href="#openpyxl.pivot.table.FieldItem.n" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.FieldItem.s">
+<span class="sig-name descname"><span class="pre">s</span></span><a class="headerlink" href="#openpyxl.pivot.table.FieldItem.s" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.FieldItem.sd">
+<span class="sig-name descname"><span class="pre">sd</span></span><a class="headerlink" href="#openpyxl.pivot.table.FieldItem.sd" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.FieldItem.t">
+<span class="sig-name descname"><span class="pre">t</span></span><a class="headerlink" href="#openpyxl.pivot.table.FieldItem.t" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘avg’, ‘sum’, ‘blank’, ‘countA’, ‘stdDev’, ‘default’, ‘max’, ‘data’, ‘min’, ‘stdDevP’, ‘var’, ‘grand’, ‘varP’, ‘product’, ‘count’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.FieldItem.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'item'</span></em><a class="headerlink" href="#openpyxl.pivot.table.FieldItem.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.FieldItem.x">
+<span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#openpyxl.pivot.table.FieldItem.x" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Format">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.pivot.table.</span></span><span class="sig-name descname"><span class="pre">Format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'formatting'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dxfId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pivotArea</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extLst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/pivot/table.html#Format"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.pivot.table.Format" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Format.action">
+<span class="sig-name descname"><span class="pre">action</span></span><a class="headerlink" href="#openpyxl.pivot.table.Format.action" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘drill’, ‘formatting’, ‘blank’, ‘formula’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Format.dxfId">
+<span class="sig-name descname"><span class="pre">dxfId</span></span><a class="headerlink" href="#openpyxl.pivot.table.Format.dxfId" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Format.extLst">
+<span class="sig-name descname"><span class="pre">extLst</span></span><a class="headerlink" href="#openpyxl.pivot.table.Format.extLst" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.descriptors.excel.ExtensionList’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Format.pivotArea">
+<span class="sig-name descname"><span class="pre">pivotArea</span></span><a class="headerlink" href="#openpyxl.pivot.table.Format.pivotArea" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.pivot.table.PivotArea’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Format.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'format'</span></em><a class="headerlink" href="#openpyxl.pivot.table.Format.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.HierarchyUsage">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.pivot.table.</span></span><span class="sig-name descname"><span class="pre">HierarchyUsage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hierarchyUsage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/pivot/table.html#HierarchyUsage"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.pivot.table.HierarchyUsage" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.HierarchyUsage.hierarchyUsage">
+<span class="sig-name descname"><span class="pre">hierarchyUsage</span></span><a class="headerlink" href="#openpyxl.pivot.table.HierarchyUsage.hierarchyUsage" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.HierarchyUsage.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'hierarchyUsage'</span></em><a class="headerlink" href="#openpyxl.pivot.table.HierarchyUsage.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Location">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.pivot.table.</span></span><span class="sig-name descname"><span class="pre">Location</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firstHeaderRow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firstDataRow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firstDataCol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rowPageCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colPageCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/pivot/table.html#Location"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.pivot.table.Location" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Location.colPageCount">
+<span class="sig-name descname"><span class="pre">colPageCount</span></span><a class="headerlink" href="#openpyxl.pivot.table.Location.colPageCount" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Location.firstDataCol">
+<span class="sig-name descname"><span class="pre">firstDataCol</span></span><a class="headerlink" href="#openpyxl.pivot.table.Location.firstDataCol" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Location.firstDataRow">
+<span class="sig-name descname"><span class="pre">firstDataRow</span></span><a class="headerlink" href="#openpyxl.pivot.table.Location.firstDataRow" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Location.firstHeaderRow">
+<span class="sig-name descname"><span class="pre">firstHeaderRow</span></span><a class="headerlink" href="#openpyxl.pivot.table.Location.firstHeaderRow" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Location.ref">
+<span class="sig-name descname"><span class="pre">ref</span></span><a class="headerlink" href="#openpyxl.pivot.table.Location.ref" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Location.rowPageCount">
+<span class="sig-name descname"><span class="pre">rowPageCount</span></span><a class="headerlink" href="#openpyxl.pivot.table.Location.rowPageCount" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Location.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'location'</span></em><a class="headerlink" href="#openpyxl.pivot.table.Location.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.MemberList">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.pivot.table.</span></span><span class="sig-name descname"><span class="pre">MemberList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">member</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/pivot/table.html#MemberList"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.pivot.table.MemberList" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.MemberList.count">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">count</span></span><a class="headerlink" href="#openpyxl.pivot.table.MemberList.count" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.MemberList.level">
+<span class="sig-name descname"><span class="pre">level</span></span><a class="headerlink" href="#openpyxl.pivot.table.MemberList.level" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.MemberList.member">
+<span class="sig-name descname"><span class="pre">member</span></span><a class="headerlink" href="#openpyxl.pivot.table.MemberList.member" title="永久链接至目标">¶</a></dt>
+<dd><p>Wrap a sequence in an containing object</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.MemberList.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'members'</span></em><a class="headerlink" href="#openpyxl.pivot.table.MemberList.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.MemberProperty">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.pivot.table.</span></span><span class="sig-name descname"><span class="pre">MemberProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showCell</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showTip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showAsCaption</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nameLen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pPos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pLen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/pivot/table.html#MemberProperty"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.pivot.table.MemberProperty" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.MemberProperty.field">
+<span class="sig-name descname"><span class="pre">field</span></span><a class="headerlink" href="#openpyxl.pivot.table.MemberProperty.field" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.MemberProperty.level">
+<span class="sig-name descname"><span class="pre">level</span></span><a class="headerlink" href="#openpyxl.pivot.table.MemberProperty.level" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.MemberProperty.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#openpyxl.pivot.table.MemberProperty.name" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.MemberProperty.nameLen">
+<span class="sig-name descname"><span class="pre">nameLen</span></span><a class="headerlink" href="#openpyxl.pivot.table.MemberProperty.nameLen" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.MemberProperty.pLen">
+<span class="sig-name descname"><span class="pre">pLen</span></span><a class="headerlink" href="#openpyxl.pivot.table.MemberProperty.pLen" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.MemberProperty.pPos">
+<span class="sig-name descname"><span class="pre">pPos</span></span><a class="headerlink" href="#openpyxl.pivot.table.MemberProperty.pPos" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.MemberProperty.showAsCaption">
+<span class="sig-name descname"><span class="pre">showAsCaption</span></span><a class="headerlink" href="#openpyxl.pivot.table.MemberProperty.showAsCaption" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.MemberProperty.showCell">
+<span class="sig-name descname"><span class="pre">showCell</span></span><a class="headerlink" href="#openpyxl.pivot.table.MemberProperty.showCell" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.MemberProperty.showTip">
+<span class="sig-name descname"><span class="pre">showTip</span></span><a class="headerlink" href="#openpyxl.pivot.table.MemberProperty.showTip" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.MemberProperty.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mps'</span></em><a class="headerlink" href="#openpyxl.pivot.table.MemberProperty.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PageField">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.pivot.table.</span></span><span class="sig-name descname"><span class="pre">PageField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fld</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extLst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/pivot/table.html#PageField"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.pivot.table.PageField" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PageField.cap">
+<span class="sig-name descname"><span class="pre">cap</span></span><a class="headerlink" href="#openpyxl.pivot.table.PageField.cap" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PageField.extLst">
+<span class="sig-name descname"><span class="pre">extLst</span></span><a class="headerlink" href="#openpyxl.pivot.table.PageField.extLst" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.descriptors.excel.ExtensionList’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PageField.fld">
+<span class="sig-name descname"><span class="pre">fld</span></span><a class="headerlink" href="#openpyxl.pivot.table.PageField.fld" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PageField.hier">
+<span class="sig-name descname"><span class="pre">hier</span></span><a class="headerlink" href="#openpyxl.pivot.table.PageField.hier" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PageField.item">
+<span class="sig-name descname"><span class="pre">item</span></span><a class="headerlink" href="#openpyxl.pivot.table.PageField.item" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PageField.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#openpyxl.pivot.table.PageField.name" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PageField.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pageField'</span></em><a class="headerlink" href="#openpyxl.pivot.table.PageField.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotArea">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.pivot.table.</span></span><span class="sig-name descname"><span class="pre">PivotArea</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">references</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extLst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'normal'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataOnly</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labelOnly</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grandRow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grandCol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cacheIndex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collapsedLevelsAreSubtotals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fieldPosition</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/pivot/table.html#PivotArea"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.pivot.table.PivotArea" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotArea.axis">
+<span class="sig-name descname"><span class="pre">axis</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotArea.axis" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘axisRow’, ‘axisPage’, ‘axisValues’, ‘axisCol’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotArea.cacheIndex">
+<span class="sig-name descname"><span class="pre">cacheIndex</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotArea.cacheIndex" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotArea.collapsedLevelsAreSubtotals">
+<span class="sig-name descname"><span class="pre">collapsedLevelsAreSubtotals</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotArea.collapsedLevelsAreSubtotals" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotArea.dataOnly">
+<span class="sig-name descname"><span class="pre">dataOnly</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotArea.dataOnly" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotArea.extLst">
+<span class="sig-name descname"><span class="pre">extLst</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotArea.extLst" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.descriptors.excel.ExtensionList’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotArea.field">
+<span class="sig-name descname"><span class="pre">field</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotArea.field" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotArea.fieldPosition">
+<span class="sig-name descname"><span class="pre">fieldPosition</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotArea.fieldPosition" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotArea.grandCol">
+<span class="sig-name descname"><span class="pre">grandCol</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotArea.grandCol" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotArea.grandRow">
+<span class="sig-name descname"><span class="pre">grandRow</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotArea.grandRow" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotArea.labelOnly">
+<span class="sig-name descname"><span class="pre">labelOnly</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotArea.labelOnly" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotArea.offset">
+<span class="sig-name descname"><span class="pre">offset</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotArea.offset" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotArea.outline">
+<span class="sig-name descname"><span class="pre">outline</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotArea.outline" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotArea.references">
+<span class="sig-name descname"><span class="pre">references</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotArea.references" title="永久链接至目标">¶</a></dt>
+<dd><p>Wrap a sequence in an containing object</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotArea.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pivotArea'</span></em><a class="headerlink" href="#openpyxl.pivot.table.PivotArea.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotArea.type">
+<span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotArea.type" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘origin’, ‘button’, ‘normal’, ‘data’, ‘all’, ‘topRight’, ‘topEnd’}</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.pivot.table.</span></span><span class="sig-name descname"><span class="pre">PivotField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autoSortScope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataField</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtotalCaption</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showDropDowns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hiddenLevel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uniqueMemberProperty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compact</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allDrilled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numFmtId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtotalTop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dragToRow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dragToCol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multipleItemSelectionAllowed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dragToPage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dragToData</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dragOff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showAll</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insertBlankRow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serverField</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insertPageBreak</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autoShow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topAutoShow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hideNewItems</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measureFilter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">includeNewItemsInFilter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itemPageCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sortType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'manual'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataSourceSort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nonAutoSortDefault</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rankBy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">defaultSubtotal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sumSubtotal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">countASubtotal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avgSubtotal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxSubtotal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minSubtotal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">productSubtotal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">countSubtotal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stdDevSubtotal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stdDevPSubtotal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varSubtotal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varPSubtotal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showPropCell</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showPropTip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showPropAsCaption</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">defaultAttributeDrillState</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extLst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/pivot/table.html#PivotField"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.pivot.table.PivotField" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.allDrilled">
+<span class="sig-name descname"><span class="pre">allDrilled</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.allDrilled" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.autoShow">
+<span class="sig-name descname"><span class="pre">autoShow</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.autoShow" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.autoSortScope">
+<span class="sig-name descname"><span class="pre">autoSortScope</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.autoSortScope" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.pivot.table.AutoSortScope’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.avgSubtotal">
+<span class="sig-name descname"><span class="pre">avgSubtotal</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.avgSubtotal" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.axis">
+<span class="sig-name descname"><span class="pre">axis</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.axis" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘axisRow’, ‘axisPage’, ‘axisValues’, ‘axisCol’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.compact">
+<span class="sig-name descname"><span class="pre">compact</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.compact" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.countASubtotal">
+<span class="sig-name descname"><span class="pre">countASubtotal</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.countASubtotal" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.countSubtotal">
+<span class="sig-name descname"><span class="pre">countSubtotal</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.countSubtotal" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.dataField">
+<span class="sig-name descname"><span class="pre">dataField</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.dataField" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.dataSourceSort">
+<span class="sig-name descname"><span class="pre">dataSourceSort</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.dataSourceSort" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.defaultAttributeDrillState">
+<span class="sig-name descname"><span class="pre">defaultAttributeDrillState</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.defaultAttributeDrillState" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.defaultSubtotal">
+<span class="sig-name descname"><span class="pre">defaultSubtotal</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.defaultSubtotal" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.dragOff">
+<span class="sig-name descname"><span class="pre">dragOff</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.dragOff" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.dragToCol">
+<span class="sig-name descname"><span class="pre">dragToCol</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.dragToCol" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.dragToData">
+<span class="sig-name descname"><span class="pre">dragToData</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.dragToData" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.dragToPage">
+<span class="sig-name descname"><span class="pre">dragToPage</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.dragToPage" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.dragToRow">
+<span class="sig-name descname"><span class="pre">dragToRow</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.dragToRow" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.extLst">
+<span class="sig-name descname"><span class="pre">extLst</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.extLst" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.descriptors.excel.ExtensionList’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.hiddenLevel">
+<span class="sig-name descname"><span class="pre">hiddenLevel</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.hiddenLevel" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.hideNewItems">
+<span class="sig-name descname"><span class="pre">hideNewItems</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.hideNewItems" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.includeNewItemsInFilter">
+<span class="sig-name descname"><span class="pre">includeNewItemsInFilter</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.includeNewItemsInFilter" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.insertBlankRow">
+<span class="sig-name descname"><span class="pre">insertBlankRow</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.insertBlankRow" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.insertPageBreak">
+<span class="sig-name descname"><span class="pre">insertPageBreak</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.insertPageBreak" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.itemPageCount">
+<span class="sig-name descname"><span class="pre">itemPageCount</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.itemPageCount" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.items">
+<span class="sig-name descname"><span class="pre">items</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.items" title="永久链接至目标">¶</a></dt>
+<dd><p>Wrap a sequence in an containing object</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.maxSubtotal">
+<span class="sig-name descname"><span class="pre">maxSubtotal</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.maxSubtotal" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.measureFilter">
+<span class="sig-name descname"><span class="pre">measureFilter</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.measureFilter" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.minSubtotal">
+<span class="sig-name descname"><span class="pre">minSubtotal</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.minSubtotal" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.multipleItemSelectionAllowed">
+<span class="sig-name descname"><span class="pre">multipleItemSelectionAllowed</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.multipleItemSelectionAllowed" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.name" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.nonAutoSortDefault">
+<span class="sig-name descname"><span class="pre">nonAutoSortDefault</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.nonAutoSortDefault" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.numFmtId">
+<span class="sig-name descname"><span class="pre">numFmtId</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.numFmtId" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.outline">
+<span class="sig-name descname"><span class="pre">outline</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.outline" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.productSubtotal">
+<span class="sig-name descname"><span class="pre">productSubtotal</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.productSubtotal" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.rankBy">
+<span class="sig-name descname"><span class="pre">rankBy</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.rankBy" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.serverField">
+<span class="sig-name descname"><span class="pre">serverField</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.serverField" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.showAll">
+<span class="sig-name descname"><span class="pre">showAll</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.showAll" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.showDropDowns">
+<span class="sig-name descname"><span class="pre">showDropDowns</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.showDropDowns" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.showPropAsCaption">
+<span class="sig-name descname"><span class="pre">showPropAsCaption</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.showPropAsCaption" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.showPropCell">
+<span class="sig-name descname"><span class="pre">showPropCell</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.showPropCell" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.showPropTip">
+<span class="sig-name descname"><span class="pre">showPropTip</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.showPropTip" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.sortType">
+<span class="sig-name descname"><span class="pre">sortType</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.sortType" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘manual’, ‘descending’, ‘ascending’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.stdDevPSubtotal">
+<span class="sig-name descname"><span class="pre">stdDevPSubtotal</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.stdDevPSubtotal" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.stdDevSubtotal">
+<span class="sig-name descname"><span class="pre">stdDevSubtotal</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.stdDevSubtotal" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.subtotalCaption">
+<span class="sig-name descname"><span class="pre">subtotalCaption</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.subtotalCaption" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.subtotalTop">
+<span class="sig-name descname"><span class="pre">subtotalTop</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.subtotalTop" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.sumSubtotal">
+<span class="sig-name descname"><span class="pre">sumSubtotal</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.sumSubtotal" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pivotField'</span></em><a class="headerlink" href="#openpyxl.pivot.table.PivotField.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.topAutoShow">
+<span class="sig-name descname"><span class="pre">topAutoShow</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.topAutoShow" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.uniqueMemberProperty">
+<span class="sig-name descname"><span class="pre">uniqueMemberProperty</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.uniqueMemberProperty" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.varPSubtotal">
+<span class="sig-name descname"><span class="pre">varPSubtotal</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.varPSubtotal" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.varSubtotal">
+<span class="sig-name descname"><span class="pre">varSubtotal</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.varSubtotal" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.pivot.table.</span></span><span class="sig-name descname"><span class="pre">PivotFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fld</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mpFld</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evalOrder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iMeasureHier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iMeasureFld</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stringValue1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stringValue2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autoFilter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extLst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/pivot/table.html#PivotFilter"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.pivot.table.PivotFilter" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotFilter.autoFilter">
+<span class="sig-name descname"><span class="pre">autoFilter</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotFilter.autoFilter" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.worksheet.filters.AutoFilter’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotFilter.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotFilter.description" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotFilter.evalOrder">
+<span class="sig-name descname"><span class="pre">evalOrder</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotFilter.evalOrder" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotFilter.extLst">
+<span class="sig-name descname"><span class="pre">extLst</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotFilter.extLst" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.descriptors.excel.ExtensionList’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotFilter.fld">
+<span class="sig-name descname"><span class="pre">fld</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotFilter.fld" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotFilter.iMeasureFld">
+<span class="sig-name descname"><span class="pre">iMeasureFld</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotFilter.iMeasureFld" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotFilter.iMeasureHier">
+<span class="sig-name descname"><span class="pre">iMeasureHier</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotFilter.iMeasureHier" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotFilter.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotFilter.id" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotFilter.mpFld">
+<span class="sig-name descname"><span class="pre">mpFld</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotFilter.mpFld" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotFilter.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotFilter.name" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotFilter.stringValue1">
+<span class="sig-name descname"><span class="pre">stringValue1</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotFilter.stringValue1" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotFilter.stringValue2">
+<span class="sig-name descname"><span class="pre">stringValue2</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotFilter.stringValue2" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotFilter.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'filter'</span></em><a class="headerlink" href="#openpyxl.pivot.table.PivotFilter.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotFilter.type">
+<span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotFilter.type" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘captionEqual’, ‘M4’, ‘nextYear’, ‘valueEqual’, ‘captionNotBetween’, ‘M2’, ‘lastQuarter’, ‘valueBetween’, ‘nextMonth’, ‘dateOlderThanOrEqual’, ‘M9’, ‘valueLessThan’, ‘percent’, ‘count’, ‘captionBetween’, ‘dateNewerThan’, ‘sum’, ‘captionGreaterThan’, ‘M6’, ‘M7’, ‘nextWeek’, ‘Q4’, ‘unknown’, ‘tomorrow’, ‘dateNotEqual’, ‘captionContains’, ‘dateEqual’, ‘captionEndsWith’, ‘captionNotBeginsWith’, ‘captionLessThan’, ‘Q1’, ‘M1’, ‘captionGreaterThanOrEqual’, ‘valueNotBetween’, ‘captionNotEndsWith’, ‘M8’, ‘today’, ‘nextQuarter’, ‘valueLessThanOrEqual’, ‘dateBetween’, ‘valueGreaterThanOrEqual’, ‘thisMonth’, ‘Q2’, ‘M5’, ‘yesterday’, ‘lastYear’, ‘captionBeginsWith’, ‘captionLessThanOrEqual’, ‘thisQuarter’, ‘thisYear’, ‘M12’, ‘valueGreaterThan’, ‘M10’, ‘lastWeek’, ‘dateNewerThanOrEqual’, ‘captionNotContains’, ‘valueNotEqual’, ‘M3’, ‘dateOlderThan’, ‘Q3’, ‘yearToDate’, ‘lastMonth’, ‘captionNotEqual’, ‘M11’, ‘thisWeek’, ‘dateNotBetween’}</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotFilters">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.pivot.table.</span></span><span class="sig-name descname"><span class="pre">PivotFilters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/pivot/table.html#PivotFilters"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.pivot.table.PivotFilters" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotFilters.count">
+<span class="sig-name descname"><span class="pre">count</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotFilters.count" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotFilters.filter">
+<span class="sig-name descname"><span class="pre">filter</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotFilters.filter" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.pivot.table.PivotFilter’&gt;</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotHierarchy">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.pivot.table.</span></span><span class="sig-name descname"><span class="pre">PivotHierarchy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multipleItemSelectionAllowed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtotalTop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showInFieldList</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dragToRow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dragToCol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dragToPage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dragToData</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dragOff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">includeNewItemsInFilter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">caption</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">members</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extLst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/pivot/table.html#PivotHierarchy"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.pivot.table.PivotHierarchy" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotHierarchy.caption">
+<span class="sig-name descname"><span class="pre">caption</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotHierarchy.caption" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotHierarchy.dragOff">
+<span class="sig-name descname"><span class="pre">dragOff</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotHierarchy.dragOff" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotHierarchy.dragToCol">
+<span class="sig-name descname"><span class="pre">dragToCol</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotHierarchy.dragToCol" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotHierarchy.dragToData">
+<span class="sig-name descname"><span class="pre">dragToData</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotHierarchy.dragToData" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotHierarchy.dragToPage">
+<span class="sig-name descname"><span class="pre">dragToPage</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotHierarchy.dragToPage" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotHierarchy.dragToRow">
+<span class="sig-name descname"><span class="pre">dragToRow</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotHierarchy.dragToRow" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotHierarchy.extLst">
+<span class="sig-name descname"><span class="pre">extLst</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotHierarchy.extLst" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.descriptors.excel.ExtensionList’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotHierarchy.includeNewItemsInFilter">
+<span class="sig-name descname"><span class="pre">includeNewItemsInFilter</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotHierarchy.includeNewItemsInFilter" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotHierarchy.members">
+<span class="sig-name descname"><span class="pre">members</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotHierarchy.members" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.pivot.table.MemberList’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotHierarchy.mps">
+<span class="sig-name descname"><span class="pre">mps</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotHierarchy.mps" title="永久链接至目标">¶</a></dt>
+<dd><p>Wrap a sequence in an containing object</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotHierarchy.multipleItemSelectionAllowed">
+<span class="sig-name descname"><span class="pre">multipleItemSelectionAllowed</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotHierarchy.multipleItemSelectionAllowed" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotHierarchy.outline">
+<span class="sig-name descname"><span class="pre">outline</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotHierarchy.outline" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotHierarchy.showInFieldList">
+<span class="sig-name descname"><span class="pre">showInFieldList</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotHierarchy.showInFieldList" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotHierarchy.subtotalTop">
+<span class="sig-name descname"><span class="pre">subtotalTop</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotHierarchy.subtotalTop" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotHierarchy.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pivotHierarchy'</span></em><a class="headerlink" href="#openpyxl.pivot.table.PivotHierarchy.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotTableStyle">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.pivot.table.</span></span><span class="sig-name descname"><span class="pre">PivotTableStyle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showRowHeaders</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showColHeaders</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showRowStripes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showColStripes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showLastColumn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/pivot/table.html#PivotTableStyle"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.pivot.table.PivotTableStyle" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotTableStyle.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotTableStyle.name" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotTableStyle.showColHeaders">
+<span class="sig-name descname"><span class="pre">showColHeaders</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotTableStyle.showColHeaders" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotTableStyle.showColStripes">
+<span class="sig-name descname"><span class="pre">showColStripes</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotTableStyle.showColStripes" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotTableStyle.showLastColumn">
+<span class="sig-name descname"><span class="pre">showLastColumn</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotTableStyle.showLastColumn" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotTableStyle.showRowHeaders">
+<span class="sig-name descname"><span class="pre">showRowHeaders</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotTableStyle.showRowHeaders" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotTableStyle.showRowStripes">
+<span class="sig-name descname"><span class="pre">showRowStripes</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotTableStyle.showRowStripes" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.PivotTableStyle.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pivotTableStyleInfo'</span></em><a class="headerlink" href="#openpyxl.pivot.table.PivotTableStyle.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Reference">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.pivot.table.</span></span><span class="sig-name descname"><span class="pre">Reference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">byPosition</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">defaultSubtotal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sumSubtotal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">countASubtotal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avgSubtotal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxSubtotal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minSubtotal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">productSubtotal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">countSubtotal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stdDevSubtotal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stdDevPSubtotal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varSubtotal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varPSubtotal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extLst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/pivot/table.html#Reference"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.pivot.table.Reference" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Reference.avgSubtotal">
+<span class="sig-name descname"><span class="pre">avgSubtotal</span></span><a class="headerlink" href="#openpyxl.pivot.table.Reference.avgSubtotal" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Reference.byPosition">
+<span class="sig-name descname"><span class="pre">byPosition</span></span><a class="headerlink" href="#openpyxl.pivot.table.Reference.byPosition" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Reference.count">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">count</span></span><a class="headerlink" href="#openpyxl.pivot.table.Reference.count" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Reference.countASubtotal">
+<span class="sig-name descname"><span class="pre">countASubtotal</span></span><a class="headerlink" href="#openpyxl.pivot.table.Reference.countASubtotal" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Reference.countSubtotal">
+<span class="sig-name descname"><span class="pre">countSubtotal</span></span><a class="headerlink" href="#openpyxl.pivot.table.Reference.countSubtotal" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Reference.defaultSubtotal">
+<span class="sig-name descname"><span class="pre">defaultSubtotal</span></span><a class="headerlink" href="#openpyxl.pivot.table.Reference.defaultSubtotal" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Reference.extLst">
+<span class="sig-name descname"><span class="pre">extLst</span></span><a class="headerlink" href="#openpyxl.pivot.table.Reference.extLst" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.descriptors.excel.ExtensionList’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Reference.field">
+<span class="sig-name descname"><span class="pre">field</span></span><a class="headerlink" href="#openpyxl.pivot.table.Reference.field" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Reference.maxSubtotal">
+<span class="sig-name descname"><span class="pre">maxSubtotal</span></span><a class="headerlink" href="#openpyxl.pivot.table.Reference.maxSubtotal" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Reference.minSubtotal">
+<span class="sig-name descname"><span class="pre">minSubtotal</span></span><a class="headerlink" href="#openpyxl.pivot.table.Reference.minSubtotal" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Reference.productSubtotal">
+<span class="sig-name descname"><span class="pre">productSubtotal</span></span><a class="headerlink" href="#openpyxl.pivot.table.Reference.productSubtotal" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Reference.relative">
+<span class="sig-name descname"><span class="pre">relative</span></span><a class="headerlink" href="#openpyxl.pivot.table.Reference.relative" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Reference.selected">
+<span class="sig-name descname"><span class="pre">selected</span></span><a class="headerlink" href="#openpyxl.pivot.table.Reference.selected" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Reference.stdDevPSubtotal">
+<span class="sig-name descname"><span class="pre">stdDevPSubtotal</span></span><a class="headerlink" href="#openpyxl.pivot.table.Reference.stdDevPSubtotal" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Reference.stdDevSubtotal">
+<span class="sig-name descname"><span class="pre">stdDevSubtotal</span></span><a class="headerlink" href="#openpyxl.pivot.table.Reference.stdDevSubtotal" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Reference.sumSubtotal">
+<span class="sig-name descname"><span class="pre">sumSubtotal</span></span><a class="headerlink" href="#openpyxl.pivot.table.Reference.sumSubtotal" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Reference.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'reference'</span></em><a class="headerlink" href="#openpyxl.pivot.table.Reference.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Reference.varPSubtotal">
+<span class="sig-name descname"><span class="pre">varPSubtotal</span></span><a class="headerlink" href="#openpyxl.pivot.table.Reference.varPSubtotal" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Reference.varSubtotal">
+<span class="sig-name descname"><span class="pre">varSubtotal</span></span><a class="headerlink" href="#openpyxl.pivot.table.Reference.varSubtotal" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.Reference.x">
+<span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#openpyxl.pivot.table.Reference.x" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.RowColField">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.pivot.table.</span></span><span class="sig-name descname"><span class="pre">RowColField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/pivot/table.html#RowColField"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.pivot.table.RowColField" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.RowColField.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'field'</span></em><a class="headerlink" href="#openpyxl.pivot.table.RowColField.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.RowColField.x">
+<span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#openpyxl.pivot.table.RowColField.x" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.RowColItem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.pivot.table.</span></span><span class="sig-name descname"><span class="pre">RowColItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/pivot/table.html#RowColItem"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.pivot.table.RowColItem" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.RowColItem.i">
+<span class="sig-name descname"><span class="pre">i</span></span><a class="headerlink" href="#openpyxl.pivot.table.RowColItem.i" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.RowColItem.r">
+<span class="sig-name descname"><span class="pre">r</span></span><a class="headerlink" href="#openpyxl.pivot.table.RowColItem.r" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.RowColItem.t">
+<span class="sig-name descname"><span class="pre">t</span></span><a class="headerlink" href="#openpyxl.pivot.table.RowColItem.t" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘avg’, ‘sum’, ‘blank’, ‘countA’, ‘stdDev’, ‘default’, ‘max’, ‘data’, ‘min’, ‘stdDevP’, ‘var’, ‘grand’, ‘varP’, ‘product’, ‘count’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.RowColItem.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'i'</span></em><a class="headerlink" href="#openpyxl.pivot.table.RowColItem.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.RowColItem.x">
+<span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#openpyxl.pivot.table.RowColItem.x" title="永久链接至目标">¶</a></dt>
+<dd><p>A sequence (list or tuple) that may only contain objects of the declared
+type</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.RowHierarchiesUsage">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.pivot.table.</span></span><span class="sig-name descname"><span class="pre">RowHierarchiesUsage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rowHierarchyUsage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/pivot/table.html#RowHierarchiesUsage"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.pivot.table.RowHierarchiesUsage" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.RowHierarchiesUsage.count">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">count</span></span><a class="headerlink" href="#openpyxl.pivot.table.RowHierarchiesUsage.count" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.RowHierarchiesUsage.rowHierarchyUsage">
+<span class="sig-name descname"><span class="pre">rowHierarchyUsage</span></span><a class="headerlink" href="#openpyxl.pivot.table.RowHierarchiesUsage.rowHierarchyUsage" title="永久链接至目标">¶</a></dt>
+<dd><p>A sequence (list or tuple) that may only contain objects of the declared
+type</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.RowHierarchiesUsage.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'rowHierarchiesUsage'</span></em><a class="headerlink" href="#openpyxl.pivot.table.RowHierarchiesUsage.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.pivot.table.</span></span><span class="sig-name descname"><span class="pre">TableDefinition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cacheId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataOnRows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataPosition</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataCaption</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grandTotalCaption</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errorCaption</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showError</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">missingCaption</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showMissing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pageStyle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pivotTableStyle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vacatedStyle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">updatedVersion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minRefreshableVersion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">asteriskTotals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showItems</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">editData</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disableFieldList</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showCalcMbrs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">visualTotals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showMultipleLabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showDataDropDown</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showDrill</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">printDrill</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showMemberPropertyTips</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showDataTips</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enableWizard</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enableDrill</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enableFieldProperties</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preserveFormatting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">useAutoFormatting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pageWrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pageOverThenDown</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtotalHiddenItems</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rowGrandTotals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colGrandTotals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fieldPrintTitles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itemPrintTitles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mergeItem</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showDropZones</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">createdVersion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showEmptyRow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showEmptyCol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showHeaders</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compact</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlineData</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compactData</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">published</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gridDropZones</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">immersive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multipleFieldFilters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chartFormat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rowHeaderCaption</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colHeaderCaption</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fieldListSortAscending</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mdxSubqueries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">customListSort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autoFormatId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">applyNumberFormats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">applyBorderFormats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">applyFontFormats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">applyPatternFormats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">applyAlignmentFormats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">applyWidthHeightFormats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pivotFields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rowFields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rowItems</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colFields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colItems</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pageFields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataFields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditionalFormats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chartFormats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pivotHierarchies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pivotTableStyleInfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rowHierarchiesUsage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colHierarchiesUsage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extLst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/pivot/table.html#TableDefinition"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.applyAlignmentFormats">
+<span class="sig-name descname"><span class="pre">applyAlignmentFormats</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.applyAlignmentFormats" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.applyBorderFormats">
+<span class="sig-name descname"><span class="pre">applyBorderFormats</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.applyBorderFormats" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.applyFontFormats">
+<span class="sig-name descname"><span class="pre">applyFontFormats</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.applyFontFormats" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.applyNumberFormats">
+<span class="sig-name descname"><span class="pre">applyNumberFormats</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.applyNumberFormats" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.applyPatternFormats">
+<span class="sig-name descname"><span class="pre">applyPatternFormats</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.applyPatternFormats" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.applyWidthHeightFormats">
+<span class="sig-name descname"><span class="pre">applyWidthHeightFormats</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.applyWidthHeightFormats" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.asteriskTotals">
+<span class="sig-name descname"><span class="pre">asteriskTotals</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.asteriskTotals" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.autoFormatId">
+<span class="sig-name descname"><span class="pre">autoFormatId</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.autoFormatId" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.cache">
+<span class="sig-name descname"><span class="pre">cache</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.cache" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.cacheId">
+<span class="sig-name descname"><span class="pre">cacheId</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.cacheId" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.chartFormat">
+<span class="sig-name descname"><span class="pre">chartFormat</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.chartFormat" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.chartFormats">
+<span class="sig-name descname"><span class="pre">chartFormats</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.chartFormats" title="永久链接至目标">¶</a></dt>
+<dd><p>Wrap a sequence in an containing object</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.colFields">
+<span class="sig-name descname"><span class="pre">colFields</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.colFields" title="永久链接至目标">¶</a></dt>
+<dd><p>Wrap a sequence in an containing object</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.colGrandTotals">
+<span class="sig-name descname"><span class="pre">colGrandTotals</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.colGrandTotals" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.colHeaderCaption">
+<span class="sig-name descname"><span class="pre">colHeaderCaption</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.colHeaderCaption" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.colHierarchiesUsage">
+<span class="sig-name descname"><span class="pre">colHierarchiesUsage</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.colHierarchiesUsage" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.pivot.table.ColHierarchiesUsage’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.colItems">
+<span class="sig-name descname"><span class="pre">colItems</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.colItems" title="永久链接至目标">¶</a></dt>
+<dd><p>Wrap a sequence in an containing object</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.compact">
+<span class="sig-name descname"><span class="pre">compact</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.compact" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.compactData">
+<span class="sig-name descname"><span class="pre">compactData</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.compactData" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.conditionalFormats">
+<span class="sig-name descname"><span class="pre">conditionalFormats</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.conditionalFormats" title="永久链接至目标">¶</a></dt>
+<dd><p>Wrap a sequence in an containing object</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.createdVersion">
+<span class="sig-name descname"><span class="pre">createdVersion</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.createdVersion" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.customListSort">
+<span class="sig-name descname"><span class="pre">customListSort</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.customListSort" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.dataCaption">
+<span class="sig-name descname"><span class="pre">dataCaption</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.dataCaption" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.dataFields">
+<span class="sig-name descname"><span class="pre">dataFields</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.dataFields" title="永久链接至目标">¶</a></dt>
+<dd><p>Wrap a sequence in an containing object</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.dataOnRows">
+<span class="sig-name descname"><span class="pre">dataOnRows</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.dataOnRows" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.dataPosition">
+<span class="sig-name descname"><span class="pre">dataPosition</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.dataPosition" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.disableFieldList">
+<span class="sig-name descname"><span class="pre">disableFieldList</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.disableFieldList" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.editData">
+<span class="sig-name descname"><span class="pre">editData</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.editData" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.enableDrill">
+<span class="sig-name descname"><span class="pre">enableDrill</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.enableDrill" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.enableFieldProperties">
+<span class="sig-name descname"><span class="pre">enableFieldProperties</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.enableFieldProperties" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.enableWizard">
+<span class="sig-name descname"><span class="pre">enableWizard</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.enableWizard" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.errorCaption">
+<span class="sig-name descname"><span class="pre">errorCaption</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.errorCaption" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.extLst">
+<span class="sig-name descname"><span class="pre">extLst</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.extLst" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.descriptors.excel.ExtensionList’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.fieldListSortAscending">
+<span class="sig-name descname"><span class="pre">fieldListSortAscending</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.fieldListSortAscending" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.fieldPrintTitles">
+<span class="sig-name descname"><span class="pre">fieldPrintTitles</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.fieldPrintTitles" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.filters">
+<span class="sig-name descname"><span class="pre">filters</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.filters" title="永久链接至目标">¶</a></dt>
+<dd><p>Wrap a sequence in an containing object</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.formats">
+<span class="sig-name descname"><span class="pre">formats</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.formats" title="永久链接至目标">¶</a></dt>
+<dd><p>Wrap a sequence in an containing object</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.grandTotalCaption">
+<span class="sig-name descname"><span class="pre">grandTotalCaption</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.grandTotalCaption" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.gridDropZones">
+<span class="sig-name descname"><span class="pre">gridDropZones</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.gridDropZones" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.id" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.immersive">
+<span class="sig-name descname"><span class="pre">immersive</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.immersive" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.indent">
+<span class="sig-name descname"><span class="pre">indent</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.indent" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.itemPrintTitles">
+<span class="sig-name descname"><span class="pre">itemPrintTitles</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.itemPrintTitles" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.location">
+<span class="sig-name descname"><span class="pre">location</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.location" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.pivot.table.Location’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.mdxSubqueries">
+<span class="sig-name descname"><span class="pre">mdxSubqueries</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.mdxSubqueries" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.mergeItem">
+<span class="sig-name descname"><span class="pre">mergeItem</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.mergeItem" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.mime_type">
+<span class="sig-name descname"><span class="pre">mime_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'application/vnd.openxmlformats-officedocument.spreadsheetml.pivotTable+xml'</span></em><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.mime_type" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.minRefreshableVersion">
+<span class="sig-name descname"><span class="pre">minRefreshableVersion</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.minRefreshableVersion" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.missingCaption">
+<span class="sig-name descname"><span class="pre">missingCaption</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.missingCaption" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.multipleFieldFilters">
+<span class="sig-name descname"><span class="pre">multipleFieldFilters</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.multipleFieldFilters" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.name" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.outline">
+<span class="sig-name descname"><span class="pre">outline</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.outline" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.outlineData">
+<span class="sig-name descname"><span class="pre">outlineData</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.outlineData" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.pageFields">
+<span class="sig-name descname"><span class="pre">pageFields</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.pageFields" title="永久链接至目标">¶</a></dt>
+<dd><p>Wrap a sequence in an containing object</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.pageOverThenDown">
+<span class="sig-name descname"><span class="pre">pageOverThenDown</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.pageOverThenDown" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.pageStyle">
+<span class="sig-name descname"><span class="pre">pageStyle</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.pageStyle" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.pageWrap">
+<span class="sig-name descname"><span class="pre">pageWrap</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.pageWrap" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.path">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">path</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.path" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.pivotFields">
+<span class="sig-name descname"><span class="pre">pivotFields</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.pivotFields" title="永久链接至目标">¶</a></dt>
+<dd><p>Wrap a sequence in an containing object</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.pivotHierarchies">
+<span class="sig-name descname"><span class="pre">pivotHierarchies</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.pivotHierarchies" title="永久链接至目标">¶</a></dt>
+<dd><p>Wrap a sequence in an containing object</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.pivotTableStyle">
+<span class="sig-name descname"><span class="pre">pivotTableStyle</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.pivotTableStyle" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.pivotTableStyleInfo">
+<span class="sig-name descname"><span class="pre">pivotTableStyleInfo</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.pivotTableStyleInfo" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.pivot.table.PivotTableStyle’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.preserveFormatting">
+<span class="sig-name descname"><span class="pre">preserveFormatting</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.preserveFormatting" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.printDrill">
+<span class="sig-name descname"><span class="pre">printDrill</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.printDrill" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.published">
+<span class="sig-name descname"><span class="pre">published</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.published" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.rel_type">
+<span class="sig-name descname"><span class="pre">rel_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://schemas.openxmlformats.org/officeDocument/2006/relationships/pivotTable'</span></em><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.rel_type" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.rowFields">
+<span class="sig-name descname"><span class="pre">rowFields</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.rowFields" title="永久链接至目标">¶</a></dt>
+<dd><p>Wrap a sequence in an containing object</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.rowGrandTotals">
+<span class="sig-name descname"><span class="pre">rowGrandTotals</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.rowGrandTotals" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.rowHeaderCaption">
+<span class="sig-name descname"><span class="pre">rowHeaderCaption</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.rowHeaderCaption" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.rowHierarchiesUsage">
+<span class="sig-name descname"><span class="pre">rowHierarchiesUsage</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.rowHierarchiesUsage" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.pivot.table.RowHierarchiesUsage’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.rowItems">
+<span class="sig-name descname"><span class="pre">rowItems</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.rowItems" title="永久链接至目标">¶</a></dt>
+<dd><p>Wrap a sequence in an containing object</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.showCalcMbrs">
+<span class="sig-name descname"><span class="pre">showCalcMbrs</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.showCalcMbrs" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.showDataDropDown">
+<span class="sig-name descname"><span class="pre">showDataDropDown</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.showDataDropDown" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.showDataTips">
+<span class="sig-name descname"><span class="pre">showDataTips</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.showDataTips" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.showDrill">
+<span class="sig-name descname"><span class="pre">showDrill</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.showDrill" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.showDropZones">
+<span class="sig-name descname"><span class="pre">showDropZones</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.showDropZones" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.showEmptyCol">
+<span class="sig-name descname"><span class="pre">showEmptyCol</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.showEmptyCol" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.showEmptyRow">
+<span class="sig-name descname"><span class="pre">showEmptyRow</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.showEmptyRow" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.showError">
+<span class="sig-name descname"><span class="pre">showError</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.showError" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.showHeaders">
+<span class="sig-name descname"><span class="pre">showHeaders</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.showHeaders" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.showItems">
+<span class="sig-name descname"><span class="pre">showItems</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.showItems" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.showMemberPropertyTips">
+<span class="sig-name descname"><span class="pre">showMemberPropertyTips</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.showMemberPropertyTips" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.showMissing">
+<span class="sig-name descname"><span class="pre">showMissing</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.showMissing" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.showMultipleLabel">
+<span class="sig-name descname"><span class="pre">showMultipleLabel</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.showMultipleLabel" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.subtotalHiddenItems">
+<span class="sig-name descname"><span class="pre">subtotalHiddenItems</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.subtotalHiddenItems" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.tag">
+<span class="sig-name descname"><span class="pre">tag</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.tag" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pivotTableDefinition'</span></em><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.to_tree">
+<span class="sig-name descname"><span class="pre">to_tree</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/pivot/table.html#TableDefinition.to_tree"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.to_tree" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.updatedVersion">
+<span class="sig-name descname"><span class="pre">updatedVersion</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.updatedVersion" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.useAutoFormatting">
+<span class="sig-name descname"><span class="pre">useAutoFormatting</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.useAutoFormatting" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.vacatedStyle">
+<span class="sig-name descname"><span class="pre">vacatedStyle</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.vacatedStyle" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.pivot.table.TableDefinition.visualTotals">
+<span class="sig-name descname"><span class="pre">visualTotals</span></span><a class="headerlink" href="#openpyxl.pivot.table.TableDefinition.visualTotals" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="openpyxl.pivot.record.html"
+                          title="上一章">openpyxl.pivot.record module</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="openpyxl.reader.html"
+                          title="下一章">openpyxl.reader package</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/openpyxl.pivot.table.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.reader.html" title="openpyxl.reader package"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.pivot.record.html" title="openpyxl.pivot.record module"
+             >上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.pivot.html" >openpyxl.pivot package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.pivot.table module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2010 - 2022, See AUTHORS.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+  </body>
+</html>

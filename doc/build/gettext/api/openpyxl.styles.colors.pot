@@ -1,0 +1,64 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/openpyxl.styles.colors.rst:2
+msgid "openpyxl.styles.colors module"
+msgstr ""
+
+#: ../../../openpyxl/styles/colors.py:docstring of openpyxl.styles.colors.Color:1
+#: ../../../openpyxl/styles/colors.py:docstring of openpyxl.styles.colors.ColorList:1
+#: ../../../openpyxl/styles/colors.py:docstring of openpyxl.styles.colors.RgbColor:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../../openpyxl/styles/colors.py:docstring of openpyxl.styles.colors.Color:1
+msgid "Named colors for use in styles."
+msgstr ""
+
+#: ../../docstring of openpyxl.styles.colors.Color.auto:1
+msgid "Values must be of type <class 'bool'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.styles.colors.Color.indexed:1
+#: ../../docstring of openpyxl.styles.colors.Color.theme:1
+msgid "Values must be of type <class 'int'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.styles.colors.Color.rgb:1
+#: ../../docstring of openpyxl.styles.colors.Color.type:1
+#: ../../docstring of openpyxl.styles.colors.RgbColor.rgb:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.styles.colors.Color.tint:1
+msgid "Values must be of type <class 'float'>"
+msgstr ""
+
+#: ../../../openpyxl/styles/colors.py:docstring of openpyxl.styles.colors.ColorDescriptor:1
+#: ../../../openpyxl/styles/colors.py:docstring of openpyxl.styles.colors.RGB:1
+msgid "Bases: :py:class:`openpyxl.descriptors.base.Typed`"
+msgstr ""
+
+#: ../../docstring of openpyxl.styles.colors.ColorList.indexedColors:1
+#: ../../docstring of openpyxl.styles.colors.ColorList.mruColors:1
+msgid "Wrap a sequence in an containing object"
+msgstr ""
+
+#: ../../../openpyxl/styles/colors.py:docstring of openpyxl.styles.colors.RGB:1
+msgid "Descriptor for aRGB values If not supplied alpha is 00"
+msgstr ""

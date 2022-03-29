@@ -1,0 +1,280 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../api/openpyxl.worksheet.cell_range.rst:2
+msgid "openpyxl.worksheet.cell\\_range module"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange:1
+msgid "Represents a range in a sheet: title and coordinates."
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange:3
+msgid "This object is used to perform operations on ranges, like:"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange:5
+msgid "shift, expand or shrink"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange:6
+msgid "union/intersection with another sheet range,"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange:8
+msgid "We can check whether a range is:"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange:10
+msgid "equal or not equal to another,"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange:11
+msgid "disjoint of another,"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange:12
+msgid "contained in another."
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange:14
+msgid "We can get:"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange:16
+msgid "the size of a range."
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange:17
+msgid "the range bounds (vertices)"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange:18
+msgid "the coordinates,"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange:19
+msgid "the string representation,"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.bottom:1
+msgid "A list of cell coordinates that comprise the bottom of the range"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.bounds:1
+msgid "Vertices of the range as a tuple"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.cols:1
+msgid "Return cell coordinates as columns"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.coord:1
+msgid "Excel-style representation of the range"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.expand:1
+msgid "Expand the range by the dimensions provided."
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.expand
+#: openpyxl.worksheet.cell_range.CellRange.intersection
+#: openpyxl.worksheet.cell_range.CellRange.isdisjoint
+#: openpyxl.worksheet.cell_range.CellRange.issubset
+#: openpyxl.worksheet.cell_range.CellRange.issuperset
+#: openpyxl.worksheet.cell_range.CellRange.shift
+#: openpyxl.worksheet.cell_range.CellRange.shrink
+#: openpyxl.worksheet.cell_range.CellRange.union
+msgid "Parameters"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.expand:4
+msgid "expand range to the right by this number of cells"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.expand:6
+msgid "expand range down by this number of cells"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.expand:8
+msgid "expand range to the left by this number of cells"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.expand:10
+msgid "expand range up by this number of cells"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.intersection:1
+msgid "Return a new range with cells common to this range and *other*"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.intersection:4
+#: openpyxl.worksheet.cell_range.CellRange.isdisjoint:5
+#: openpyxl.worksheet.cell_range.CellRange.union:6
+msgid "Other sheet range."
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.intersection
+#: openpyxl.worksheet.cell_range.CellRange.isdisjoint
+#: openpyxl.worksheet.cell_range.CellRange.issubset
+#: openpyxl.worksheet.cell_range.CellRange.issuperset
+#: openpyxl.worksheet.cell_range.CellRange.union
+msgid "Returns"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.intersection:5
+msgid "the intersecting sheet range."
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.intersection
+#: openpyxl.worksheet.cell_range.CellRange.shift
+msgid "raise"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.intersection:6
+msgid ""
+":class:`ValueError` if the *other* range doesn't intersect with this "
+"range."
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.isdisjoint:1
+msgid ""
+"Return ``True`` if this range has no cell in common with *other*. Ranges "
+"are disjoint if and only if their intersection is the empty range."
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.isdisjoint:6
+msgid "``True`` if the range has no cells in common with other."
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.issubset:1
+msgid "Test whether every cell in this range is also in *other*."
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.issubset:4
+#: openpyxl.worksheet.cell_range.CellRange.issuperset:4
+msgid "Other sheet range"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.issubset:5
+msgid "``True`` if *range* <= *other*."
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.issuperset:1
+msgid "Test whether every cell in *other* is in this range."
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.issuperset:5
+msgid "``True`` if *range* >= *other* (or *other* in *range*)."
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.left:1
+msgid "A list of cell coordinates that comprise the left-side of the range"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.cell_range.CellRange.max_col:1
+#: openpyxl.worksheet.cell_range.CellRange.max_row:1
+#: openpyxl.worksheet.cell_range.CellRange.min_col:1
+#: openpyxl.worksheet.cell_range.CellRange.min_row:1
+msgid "Values must be of type <class 'int'>"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.right:1
+msgid "A list of cell coordinates that comprise the right-side of the range"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.rows:1
+msgid "Return cell coordinates as rows"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.shift:1
+msgid ""
+"Shift the focus of the range according to the shift values (*col_shift*, "
+"*row_shift*)."
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.shift:4
+msgid "number of columns to be moved by, can be negative"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.shift:6
+msgid "number of rows to be moved by, can be negative"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.shift:7
+msgid ":class:`ValueError` if any row or column index < 1"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.shrink:1
+msgid "Shrink the range by the dimensions provided."
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.shrink:4
+msgid "shrink range from the right by this number of cells"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.shrink:6
+msgid "shrink range from the top by this number of cells"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.shrink:8
+msgid "shrink range from the left by this number of cells"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.shrink:10
+msgid "shrink range from the bottown by this number of cells"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.size:1
+msgid "Return the size of the range as a dictionary of rows and columns."
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.top:1
+msgid "A list of cell coordinates that comprise the top of the range"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.union:1
+msgid ""
+"Return the minimal superset of this range and *other*. This new range "
+"will contain all cells from this range, *other*, and any additional cells"
+" required to form a rectangular ``CellRange``."
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.CellRange.union:7
+msgid "a ``CellRange`` that is a superset of this and *other*."
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.MultiCellRange:1
+msgid "Bases: :py:class:`openpyxl.descriptors.Strict`"
+msgstr ""
+
+#: of openpyxl.worksheet.cell_range.MultiCellRange.add:1
+msgid "Add a cell coordinate or CellRange"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.cell_range.MultiCellRange.ranges:1
+msgid ""
+"A sequence (list or tuple) that may only contain objects of the declared "
+"type"
+msgstr ""
+

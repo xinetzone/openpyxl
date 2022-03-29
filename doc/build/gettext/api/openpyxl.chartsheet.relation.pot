@@ -1,0 +1,73 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/openpyxl.chartsheet.relation.rst:2
+msgid "openpyxl.chartsheet.relation module"
+msgstr ""
+
+#: ../../../openpyxl/chartsheet/relation.py:docstring of openpyxl.chartsheet.relation.DrawingHF:1
+#: ../../../openpyxl/chartsheet/relation.py:docstring of openpyxl.chartsheet.relation.SheetBackgroundPicture:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.centerFooterEvenPages:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.centerFooterFirstPage:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.centerFooterOddPages:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.centerHeaderEvenPages:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.centerHeaderFirstPage:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.centerHeaderOddPages:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.leftFooterEvenPages:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.leftFooterFirstPage:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.leftFooterOddPages:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.leftHeaderEvenPages:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.leftHeaderFirstPage:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.leftHeaderOddPages:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.rightFooterEvenPages:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.rightFooterFirstPage:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.rightFooterOddPages:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.rightHeaderEvenPages:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.rightHeaderFirstPage:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.rightHeaderOddPages:1
+msgid "Aliases can be used when either the desired attribute name is not allowed or confusing in Python (eg. \"type\") or a more descriptve name is desired (eg. \"underline\" for \"u\")"
+msgstr ""
+
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.cfe:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.cff:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.cfo:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.che:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.chf:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.cho:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.lfe:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.lff:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.lfo:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.lhe:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.lhf:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.lho:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.rfe:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.rff:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.rfo:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.rhe:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.rhf:1
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.rho:1
+msgid "Values must be of type <class 'int'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chartsheet.relation.DrawingHF.id:1
+#: ../../docstring of openpyxl.chartsheet.relation.SheetBackgroundPicture.id:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""

@@ -1,0 +1,101 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../api/openpyxl.descriptors.nested.rst:2
+msgid "openpyxl.descriptors.nested module"
+msgstr ""
+
+#: of openpyxl.descriptors.nested:1
+msgid "Generic serialisable classes"
+msgstr ""
+
+#: of openpyxl.descriptors.nested.EmptyTag:1
+msgid ""
+"Bases: :py:class:`openpyxl.descriptors.nested.Nested`, "
+":py:class:`openpyxl.descriptors.base.Bool`"
+msgstr ""
+
+#: of openpyxl.descriptors.nested.EmptyTag:1
+msgid "Boolean if a tag exists or not."
+msgstr ""
+
+#: of openpyxl.descriptors.nested.Nested:1
+msgid "Bases: :py:class:`openpyxl.descriptors.base.Descriptor`"
+msgstr ""
+
+#: of openpyxl.descriptors.nested.NestedBool:1
+msgid ""
+"Bases: :py:class:`openpyxl.descriptors.nested.NestedValue`, "
+":py:class:`openpyxl.descriptors.base.Bool`"
+msgstr ""
+
+#: of openpyxl.descriptors.nested.NestedFloat:1
+msgid ""
+"Bases: :py:class:`openpyxl.descriptors.nested.NestedValue`, "
+":py:class:`openpyxl.descriptors.base.Float`"
+msgstr ""
+
+#: of openpyxl.descriptors.nested.NestedInteger:1
+msgid ""
+"Bases: :py:class:`openpyxl.descriptors.nested.NestedValue`, "
+":py:class:`openpyxl.descriptors.base.Integer`"
+msgstr ""
+
+#: of openpyxl.descriptors.nested.NestedMinMax:1
+msgid ""
+"Bases: :py:class:`openpyxl.descriptors.nested.Nested`, "
+":py:class:`openpyxl.descriptors.base.MinMax`"
+msgstr ""
+
+#: of openpyxl.descriptors.nested.NestedNoneSet:1
+msgid ""
+"Bases: :py:class:`openpyxl.descriptors.nested.Nested`, "
+":py:class:`openpyxl.descriptors.base.NoneSet`"
+msgstr ""
+
+#: of openpyxl.descriptors.nested.NestedSet:1
+msgid ""
+"Bases: :py:class:`openpyxl.descriptors.nested.Nested`, "
+":py:class:`openpyxl.descriptors.base.Set`"
+msgstr ""
+
+#: of openpyxl.descriptors.nested.NestedString:1
+msgid ""
+"Bases: :py:class:`openpyxl.descriptors.nested.NestedValue`, "
+":py:class:`openpyxl.descriptors.base.String`"
+msgstr ""
+
+#: of openpyxl.descriptors.nested.NestedText:1
+msgid "Bases: :py:class:`openpyxl.descriptors.nested.NestedValue`"
+msgstr ""
+
+#: of openpyxl.descriptors.nested.NestedText:1
+msgid "Represents any nested tag with the value as the contents of the tag"
+msgstr ""
+
+#: of openpyxl.descriptors.nested.NestedValue:1
+msgid ""
+"Bases: :py:class:`openpyxl.descriptors.nested.Nested`, "
+":py:class:`openpyxl.descriptors.base.Convertible`"
+msgstr ""
+
+#: of openpyxl.descriptors.nested.NestedValue:1
+msgid "Nested tag storing the value on the 'val' attribute"
+msgstr ""
+

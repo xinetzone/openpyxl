@@ -1,0 +1,63 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../api/openpyxl.worksheet.scenario.rst:2
+msgid "openpyxl.worksheet.scenario module"
+msgstr ""
+
+#: of openpyxl.worksheet.scenario.InputCells:1
+#: openpyxl.worksheet.scenario.Scenario:1
+#: openpyxl.worksheet.scenario.ScenarioList:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.scenario.InputCells.deleted:1
+#: openpyxl.worksheet.scenario.InputCells.undone:1
+#: openpyxl.worksheet.scenario.Scenario.hidden:1
+#: openpyxl.worksheet.scenario.Scenario.locked:1
+msgid "Values must be of type <class 'bool'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.scenario.InputCells.numFmtId:1
+#: openpyxl.worksheet.scenario.ScenarioList.current:1
+#: openpyxl.worksheet.scenario.ScenarioList.show:1
+msgid "Values must be of type <class 'int'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.scenario.InputCells.r:1
+#: openpyxl.worksheet.scenario.InputCells.val:1
+#: openpyxl.worksheet.scenario.Scenario.comment:1
+#: openpyxl.worksheet.scenario.Scenario.name:1
+#: openpyxl.worksheet.scenario.Scenario.user:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.scenario.Scenario.inputCells:1
+#: openpyxl.worksheet.scenario.ScenarioList.scenario:1
+msgid ""
+"A sequence (list or tuple) that may only contain objects of the declared "
+"type"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.scenario.ScenarioList.sqref:1
+msgid ""
+"Values must be of type <class "
+"'openpyxl.worksheet.cell_range.MultiCellRange'>"
+msgstr ""
+

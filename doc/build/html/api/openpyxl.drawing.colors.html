@@ -1,0 +1,746 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>openpyxl.drawing.colors module &#8212; openpyxl 3.0.9 文档</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nature.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="openpyxl.drawing.connector module" href="openpyxl.drawing.connector.html" />
+    <link rel="prev" title="openpyxl.drawing package" href="openpyxl.drawing.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.drawing.connector.html" title="openpyxl.drawing.connector module"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.drawing.html" title="openpyxl.drawing package"
+             accesskey="P">上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.drawing.html" accesskey="U">openpyxl.drawing package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.drawing.colors module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-openpyxl.drawing.colors">
+<span id="openpyxl-drawing-colors-module"></span><h1>openpyxl.drawing.colors module<a class="headerlink" href="#module-openpyxl.drawing.colors" title="永久链接至标题">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorChoice">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.drawing.colors.</span></span><span class="sig-name descname"><span class="pre">ColorChoice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scrgbClr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">srgbClr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hslClr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sysClr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schemeClr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prstClr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/drawing/colors.html#ColorChoice"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.drawing.colors.ColorChoice" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorChoice.RGB">
+<span class="sig-name descname"><span class="pre">RGB</span></span><a class="headerlink" href="#openpyxl.drawing.colors.ColorChoice.RGB" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorChoice.RGBPercent">
+<span class="sig-name descname"><span class="pre">RGBPercent</span></span><a class="headerlink" href="#openpyxl.drawing.colors.ColorChoice.RGBPercent" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorChoice.hslClr">
+<span class="sig-name descname"><span class="pre">hslClr</span></span><a class="headerlink" href="#openpyxl.drawing.colors.ColorChoice.hslClr" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.colors.HSLColor’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorChoice.namespace">
+<span class="sig-name descname"><span class="pre">namespace</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://schemas.openxmlformats.org/drawingml/2006/main'</span></em><a class="headerlink" href="#openpyxl.drawing.colors.ColorChoice.namespace" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorChoice.prstClr">
+<span class="sig-name descname"><span class="pre">prstClr</span></span><a class="headerlink" href="#openpyxl.drawing.colors.ColorChoice.prstClr" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘silver’, ‘teal’, ‘paleGreen’, ‘darkSalmon’, ‘crimson’, ‘dkSeaGreen’, ‘ltBlue’, ‘ltPink’, ‘ltSlateGrey’, ‘dkGrey’, ‘ivory’, ‘snow’, ‘lime’, ‘turquoise’, ‘mistyRose’, ‘lightCyan’, ‘ghostWhite’, ‘lavender’, ‘darkKhaki’, ‘darkSlateGrey’, ‘aqua’, ‘gold’, ‘lemonChiffon’, ‘plum’, ‘rosyBrown’, ‘black’, ‘dkGray’, ‘gainsboro’, ‘navy’, ‘dkMagenta’, ‘darkGrey’, ‘darkCyan’, ‘dimGray’, ‘paleGoldenrod’, ‘mintCream’, ‘dkCyan’, ‘lightBlue’, ‘darkSeaGreen’, ‘honeydew’, ‘blueViolet’, ‘slateBlue’, ‘cornsilk’, ‘wheat’, ‘ltGray’, ‘steelBlue’, ‘dkSlateBlue’, ‘chartreuse’, ‘dodgerBlue’, ‘green’, ‘hotPink’, ‘slateGrey’, ‘medPurple’, ‘red’, ‘seaShell’, ‘burlyWood’, ‘darkTurquoise’, ‘lightCoral’, ‘blanchedAlmond’, ‘magenta’, ‘oliveDrab’, ‘ltGrey’, ‘yellow’, ‘orchid’, ‘deepPink’, ‘peru’, ‘lavenderBlush’, ‘slateGray’, ‘midnightBlue’, ‘darkRed’, ‘dkViolet’, ‘ltSteelBlue’, ‘dkTurquoise’, ‘navajoWhite’, ‘sienna’, ‘tan’, ‘lightGrey’, ‘dkSalmon’, ‘mediumSpringGreen’, ‘dkOliveGreen’, ‘ltCoral’, ‘cadetBlue’, ‘dkSlateGrey’, ‘ltSeaGreen’, ‘ltYellow’, ‘dkSlateGray’, ‘royalBlue’, ‘darkMagenta’, ‘peachPuff’, ‘blue’, ‘dkOrange’, ‘papayaWhip’, ‘ltGoldenrodYellow’, ‘darkGreen’, ‘violet’, ‘ltSlateGray’, ‘lightSlateGrey’, ‘salmon’, ‘coral’, ‘ltSkyBlue’, ‘dkOrchid’, ‘cyan’, ‘antiqueWhite’, ‘khaki’, ‘aquamarine’, ‘lawnGreen’, ‘maroon’, ‘mediumBlue’, ‘purple’, ‘skyBlue’, ‘forestGreen’, ‘gray’, ‘darkBlue’, ‘darkSlateBlue’, ‘seaGreen’, ‘lightGreen’, ‘yellowGreen’, ‘orange’, ‘paleTurquoise’, ‘springGreen’, ‘ltCyan’, ‘tomato’, ‘mediumVioletRed’, ‘darkOrchid’, ‘moccasin’, ‘medSeaGreen’, ‘dkGoldenrod’, ‘mediumSeaGreen’, ‘fuchsia’, ‘medVioletRed’, ‘mediumTurquoise’, ‘oldLace’, ‘pink’, ‘whiteSmoke’, ‘orangeRed’, ‘lightPink’, ‘mediumAquamarine’, ‘goldenrod’, ‘white’, ‘lightSlateGray’, ‘olive’, ‘lightGoldenrodYellow’, ‘ltSalmon’, ‘powderBlue’, ‘deepSkyBlue’, ‘mediumOrchid’, ‘saddleBrown’, ‘cornflowerBlue’, ‘dimGrey’, ‘mediumPurple’, ‘lightSteelBlue’, ‘brown’, ‘darkViolet’, ‘paleVioletRed’, ‘dkKhaki’, ‘indigo’, ‘lightGray’, ‘azure’, ‘ltGreen’, ‘darkSlateGray’, ‘darkOliveGreen’, ‘lightSalmon’, ‘medAquamarine’, ‘sandyBrown’, ‘dkRed’, ‘medOrchid’, ‘chocolate’, ‘medBlue’, ‘limeGreen’, ‘indianRed’, ‘mediumSlateBlue’, ‘dkGreen’, ‘darkGray’, ‘firebrick’, ‘linen’, ‘darkOrange’, ‘aliceBlue’, ‘medSpringGreen’, ‘beige’, ‘medSlateBlue’, ‘floralWhite’, ‘darkGoldenrod’, ‘greenYellow’, ‘medTurquoise’, ‘bisque’, ‘lightSkyBlue’, ‘lightYellow’, ‘thistle’, ‘grey’, ‘lightSeaGreen’, ‘dkBlue’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorChoice.schemeClr">
+<span class="sig-name descname"><span class="pre">schemeClr</span></span><a class="headerlink" href="#openpyxl.drawing.colors.ColorChoice.schemeClr" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.colors.SchemeColor’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorChoice.scrgbClr">
+<span class="sig-name descname"><span class="pre">scrgbClr</span></span><a class="headerlink" href="#openpyxl.drawing.colors.ColorChoice.scrgbClr" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.colors.RGBPercent’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorChoice.srgbClr">
+<span class="sig-name descname"><span class="pre">srgbClr</span></span><a class="headerlink" href="#openpyxl.drawing.colors.ColorChoice.srgbClr" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorChoice.sysClr">
+<span class="sig-name descname"><span class="pre">sysClr</span></span><a class="headerlink" href="#openpyxl.drawing.colors.ColorChoice.sysClr" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.colors.SystemColor’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorChoice.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'colorChoice'</span></em><a class="headerlink" href="#openpyxl.drawing.colors.ColorChoice.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorChoiceDescriptor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.drawing.colors.</span></span><span class="sig-name descname"><span class="pre">ColorChoiceDescriptor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/drawing/colors.html#ColorChoiceDescriptor"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.drawing.colors.ColorChoiceDescriptor" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.base.html#openpyxl.descriptors.base.Typed" title="openpyxl.descriptors.base.Typed"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.base.Typed</span></code></a></p>
+<p>Objects can choose from 7 different kinds of color system.
+Assume RGBHex if a string is passed in.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorChoiceDescriptor.allow_none">
+<span class="sig-name descname"><span class="pre">allow_none</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#openpyxl.drawing.colors.ColorChoiceDescriptor.allow_none" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorChoiceDescriptor.expected_type">
+<span class="sig-name descname"><span class="pre">expected_type</span></span><a class="headerlink" href="#openpyxl.drawing.colors.ColorChoiceDescriptor.expected_type" title="永久链接至目标">¶</a></dt>
+<dd><p>:py:class:<a href="#id1"><span class="problematic" id="id2">`</span></a>openpyxl.drawing.colors.ColorChoice`的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorMapping">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.drawing.colors.</span></span><span class="sig-name descname"><span class="pre">ColorMapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bg1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lt1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tx1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dk1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bg2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lt2'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tx2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dk2'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accent1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'accent1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accent2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'accent2'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accent3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'accent3'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accent4</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'accent4'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accent5</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'accent5'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accent6</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'accent6'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hlink</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hlink'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folHlink</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'folHlink'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extLst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/drawing/colors.html#ColorMapping"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.drawing.colors.ColorMapping" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorMapping.accent1">
+<span class="sig-name descname"><span class="pre">accent1</span></span><a class="headerlink" href="#openpyxl.drawing.colors.ColorMapping.accent1" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘lt1’, ‘accent3’, ‘dk1’, ‘accent6’, ‘lt2’, ‘folHlink’, ‘dk2’, ‘accent4’, ‘accent2’, ‘accent1’, ‘hlink’, ‘accent5’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorMapping.accent2">
+<span class="sig-name descname"><span class="pre">accent2</span></span><a class="headerlink" href="#openpyxl.drawing.colors.ColorMapping.accent2" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘lt1’, ‘accent3’, ‘dk1’, ‘accent6’, ‘lt2’, ‘folHlink’, ‘dk2’, ‘accent4’, ‘accent2’, ‘accent1’, ‘hlink’, ‘accent5’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorMapping.accent3">
+<span class="sig-name descname"><span class="pre">accent3</span></span><a class="headerlink" href="#openpyxl.drawing.colors.ColorMapping.accent3" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘lt1’, ‘accent3’, ‘dk1’, ‘accent6’, ‘lt2’, ‘folHlink’, ‘dk2’, ‘accent4’, ‘accent2’, ‘accent1’, ‘hlink’, ‘accent5’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorMapping.accent4">
+<span class="sig-name descname"><span class="pre">accent4</span></span><a class="headerlink" href="#openpyxl.drawing.colors.ColorMapping.accent4" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘lt1’, ‘accent3’, ‘dk1’, ‘accent6’, ‘lt2’, ‘folHlink’, ‘dk2’, ‘accent4’, ‘accent2’, ‘accent1’, ‘hlink’, ‘accent5’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorMapping.accent5">
+<span class="sig-name descname"><span class="pre">accent5</span></span><a class="headerlink" href="#openpyxl.drawing.colors.ColorMapping.accent5" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘lt1’, ‘accent3’, ‘dk1’, ‘accent6’, ‘lt2’, ‘folHlink’, ‘dk2’, ‘accent4’, ‘accent2’, ‘accent1’, ‘hlink’, ‘accent5’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorMapping.accent6">
+<span class="sig-name descname"><span class="pre">accent6</span></span><a class="headerlink" href="#openpyxl.drawing.colors.ColorMapping.accent6" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘lt1’, ‘accent3’, ‘dk1’, ‘accent6’, ‘lt2’, ‘folHlink’, ‘dk2’, ‘accent4’, ‘accent2’, ‘accent1’, ‘hlink’, ‘accent5’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorMapping.bg1">
+<span class="sig-name descname"><span class="pre">bg1</span></span><a class="headerlink" href="#openpyxl.drawing.colors.ColorMapping.bg1" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘lt1’, ‘accent3’, ‘dk1’, ‘accent6’, ‘lt2’, ‘folHlink’, ‘dk2’, ‘accent4’, ‘accent2’, ‘accent1’, ‘hlink’, ‘accent5’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorMapping.bg2">
+<span class="sig-name descname"><span class="pre">bg2</span></span><a class="headerlink" href="#openpyxl.drawing.colors.ColorMapping.bg2" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘lt1’, ‘accent3’, ‘dk1’, ‘accent6’, ‘lt2’, ‘folHlink’, ‘dk2’, ‘accent4’, ‘accent2’, ‘accent1’, ‘hlink’, ‘accent5’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorMapping.extLst">
+<span class="sig-name descname"><span class="pre">extLst</span></span><a class="headerlink" href="#openpyxl.drawing.colors.ColorMapping.extLst" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.descriptors.excel.ExtensionList’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorMapping.folHlink">
+<span class="sig-name descname"><span class="pre">folHlink</span></span><a class="headerlink" href="#openpyxl.drawing.colors.ColorMapping.folHlink" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘lt1’, ‘accent3’, ‘dk1’, ‘accent6’, ‘lt2’, ‘folHlink’, ‘dk2’, ‘accent4’, ‘accent2’, ‘accent1’, ‘hlink’, ‘accent5’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorMapping.hlink">
+<span class="sig-name descname"><span class="pre">hlink</span></span><a class="headerlink" href="#openpyxl.drawing.colors.ColorMapping.hlink" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘lt1’, ‘accent3’, ‘dk1’, ‘accent6’, ‘lt2’, ‘folHlink’, ‘dk2’, ‘accent4’, ‘accent2’, ‘accent1’, ‘hlink’, ‘accent5’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorMapping.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'clrMapOvr'</span></em><a class="headerlink" href="#openpyxl.drawing.colors.ColorMapping.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorMapping.tx1">
+<span class="sig-name descname"><span class="pre">tx1</span></span><a class="headerlink" href="#openpyxl.drawing.colors.ColorMapping.tx1" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘lt1’, ‘accent3’, ‘dk1’, ‘accent6’, ‘lt2’, ‘folHlink’, ‘dk2’, ‘accent4’, ‘accent2’, ‘accent1’, ‘hlink’, ‘accent5’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.ColorMapping.tx2">
+<span class="sig-name descname"><span class="pre">tx2</span></span><a class="headerlink" href="#openpyxl.drawing.colors.ColorMapping.tx2" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘lt1’, ‘accent3’, ‘dk1’, ‘accent6’, ‘lt2’, ‘folHlink’, ‘dk2’, ‘accent4’, ‘accent2’, ‘accent1’, ‘hlink’, ‘accent5’}</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.HSLColor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.drawing.colors.</span></span><span class="sig-name descname"><span class="pre">HSLColor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/drawing/colors.html#HSLColor"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.drawing.colors.HSLColor" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.HSLColor.hue">
+<span class="sig-name descname"><span class="pre">hue</span></span><a class="headerlink" href="#openpyxl.drawing.colors.HSLColor.hue" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.HSLColor.lum">
+<span class="sig-name descname"><span class="pre">lum</span></span><a class="headerlink" href="#openpyxl.drawing.colors.HSLColor.lum" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.HSLColor.sat">
+<span class="sig-name descname"><span class="pre">sat</span></span><a class="headerlink" href="#openpyxl.drawing.colors.HSLColor.sat" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.HSLColor.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'hslClr'</span></em><a class="headerlink" href="#openpyxl.drawing.colors.HSLColor.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.RGBPercent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.drawing.colors.</span></span><span class="sig-name descname"><span class="pre">RGBPercent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/drawing/colors.html#RGBPercent"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.drawing.colors.RGBPercent" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.RGBPercent.b">
+<span class="sig-name descname"><span class="pre">b</span></span><a class="headerlink" href="#openpyxl.drawing.colors.RGBPercent.b" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.RGBPercent.g">
+<span class="sig-name descname"><span class="pre">g</span></span><a class="headerlink" href="#openpyxl.drawing.colors.RGBPercent.g" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.RGBPercent.r">
+<span class="sig-name descname"><span class="pre">r</span></span><a class="headerlink" href="#openpyxl.drawing.colors.RGBPercent.r" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.RGBPercent.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'rgbClr'</span></em><a class="headerlink" href="#openpyxl.drawing.colors.RGBPercent.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.drawing.colors.</span></span><span class="sig-name descname"><span class="pre">SchemeColor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shade</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gray</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alphaOff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alphaMod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hueOff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hueMod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">satOff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">satMod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lumOff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lumMod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">red</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redOff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redMod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">green</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">greenOff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">greenMod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blueOff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blueMod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invGamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/drawing/colors.html#SchemeColor"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.alpha">
+<span class="sig-name descname"><span class="pre">alpha</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.alpha" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.alphaMod">
+<span class="sig-name descname"><span class="pre">alphaMod</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.alphaMod" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.alphaOff">
+<span class="sig-name descname"><span class="pre">alphaOff</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.alphaOff" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.blue">
+<span class="sig-name descname"><span class="pre">blue</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.blue" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.blueMod">
+<span class="sig-name descname"><span class="pre">blueMod</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.blueMod" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.blueOff">
+<span class="sig-name descname"><span class="pre">blueOff</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.blueOff" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.comp">
+<span class="sig-name descname"><span class="pre">comp</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.comp" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.gamma">
+<span class="sig-name descname"><span class="pre">gamma</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.gamma" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.gray">
+<span class="sig-name descname"><span class="pre">gray</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.gray" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.green">
+<span class="sig-name descname"><span class="pre">green</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.green" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.greenMod">
+<span class="sig-name descname"><span class="pre">greenMod</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.greenMod" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.greenOff">
+<span class="sig-name descname"><span class="pre">greenOff</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.greenOff" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.hue">
+<span class="sig-name descname"><span class="pre">hue</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.hue" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.hueMod">
+<span class="sig-name descname"><span class="pre">hueMod</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.hueMod" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.hueOff">
+<span class="sig-name descname"><span class="pre">hueOff</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.hueOff" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.inv">
+<span class="sig-name descname"><span class="pre">inv</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.inv" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.invGamma">
+<span class="sig-name descname"><span class="pre">invGamma</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.invGamma" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.lum">
+<span class="sig-name descname"><span class="pre">lum</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.lum" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.lumMod">
+<span class="sig-name descname"><span class="pre">lumMod</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.lumMod" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.lumOff">
+<span class="sig-name descname"><span class="pre">lumOff</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.lumOff" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.namespace">
+<span class="sig-name descname"><span class="pre">namespace</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://schemas.openxmlformats.org/drawingml/2006/main'</span></em><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.namespace" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.red">
+<span class="sig-name descname"><span class="pre">red</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.red" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.redMod">
+<span class="sig-name descname"><span class="pre">redMod</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.redMod" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.redOff">
+<span class="sig-name descname"><span class="pre">redOff</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.redOff" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.sat">
+<span class="sig-name descname"><span class="pre">sat</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.sat" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.satMod">
+<span class="sig-name descname"><span class="pre">satMod</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.satMod" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.satOff">
+<span class="sig-name descname"><span class="pre">satOff</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.satOff" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.shade">
+<span class="sig-name descname"><span class="pre">shade</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.shade" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'schemeClr'</span></em><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.tint">
+<span class="sig-name descname"><span class="pre">tint</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.tint" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SchemeColor.val">
+<span class="sig-name descname"><span class="pre">val</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SchemeColor.val" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘bg1’, ‘lt1’, ‘accent3’, ‘bg2’, ‘accent6’, ‘folHlink’, ‘dk1’, ‘lt2’, ‘dk2’, ‘accent4’, ‘accent2’, ‘phClr’, ‘accent1’, ‘hlink’, ‘tx1’, ‘accent5’, ‘tx2’}</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.drawing.colors.</span></span><span class="sig-name descname"><span class="pre">SystemColor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'windowText'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lastClr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shade</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gray</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alphaOff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alphaMod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hueOff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hueMod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">satOff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">satMod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lumOff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lumMod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">red</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redOff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redMod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">green</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">greenOff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">greenMod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blueOff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blueMod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invGamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/drawing/colors.html#SystemColor"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.alpha">
+<span class="sig-name descname"><span class="pre">alpha</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.alpha" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.alphaMod">
+<span class="sig-name descname"><span class="pre">alphaMod</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.alphaMod" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.alphaOff">
+<span class="sig-name descname"><span class="pre">alphaOff</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.alphaOff" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.blue">
+<span class="sig-name descname"><span class="pre">blue</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.blue" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.blueMod">
+<span class="sig-name descname"><span class="pre">blueMod</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.blueMod" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.blueOff">
+<span class="sig-name descname"><span class="pre">blueOff</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.blueOff" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.comp">
+<span class="sig-name descname"><span class="pre">comp</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.comp" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.colors.Transform’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.gamma">
+<span class="sig-name descname"><span class="pre">gamma</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.gamma" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.colors.Transform’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.gray">
+<span class="sig-name descname"><span class="pre">gray</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.gray" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.colors.Transform’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.green">
+<span class="sig-name descname"><span class="pre">green</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.green" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.greenMod">
+<span class="sig-name descname"><span class="pre">greenMod</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.greenMod" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.greenOff">
+<span class="sig-name descname"><span class="pre">greenOff</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.greenOff" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.hue">
+<span class="sig-name descname"><span class="pre">hue</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.hue" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.hueMod">
+<span class="sig-name descname"><span class="pre">hueMod</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.hueMod" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.hueOff">
+<span class="sig-name descname"><span class="pre">hueOff</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.hueOff" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.inv">
+<span class="sig-name descname"><span class="pre">inv</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.inv" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.colors.Transform’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.invGamma">
+<span class="sig-name descname"><span class="pre">invGamma</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.invGamma" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.colors.Transform’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.lastClr">
+<span class="sig-name descname"><span class="pre">lastClr</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.lastClr" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.lum">
+<span class="sig-name descname"><span class="pre">lum</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.lum" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.lumMod">
+<span class="sig-name descname"><span class="pre">lumMod</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.lumMod" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.lumOff">
+<span class="sig-name descname"><span class="pre">lumOff</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.lumOff" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.namespace">
+<span class="sig-name descname"><span class="pre">namespace</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://schemas.openxmlformats.org/drawingml/2006/main'</span></em><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.namespace" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.red">
+<span class="sig-name descname"><span class="pre">red</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.red" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.redMod">
+<span class="sig-name descname"><span class="pre">redMod</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.redMod" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.redOff">
+<span class="sig-name descname"><span class="pre">redOff</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.redOff" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.sat">
+<span class="sig-name descname"><span class="pre">sat</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.sat" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.satMod">
+<span class="sig-name descname"><span class="pre">satMod</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.satMod" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.satOff">
+<span class="sig-name descname"><span class="pre">satOff</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.satOff" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.shade">
+<span class="sig-name descname"><span class="pre">shade</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.shade" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'sysClr'</span></em><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.tint">
+<span class="sig-name descname"><span class="pre">tint</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.tint" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.SystemColor.val">
+<span class="sig-name descname"><span class="pre">val</span></span><a class="headerlink" href="#openpyxl.drawing.colors.SystemColor.val" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘captionText’, ‘highlightText’, ‘highlight’, ‘window’, ‘infoBk’, ‘activeCaption’, ‘activeBorder’, ‘menu’, ‘infoText’, ‘gradientActiveCaption’, ‘grayText’, ‘background’, ‘menuBar’, ‘inactiveCaption’, ‘btnShadow’, ‘windowText’, ‘menuHighlight’, ‘inactiveBorder’, ‘btnHighlight’, ‘btnFace’, ‘hotLight’, ‘btnText’, ‘scrollBar’, ‘appWorkspace’, ‘inactiveCaptionText’, ‘3dLight’, ‘3dDkShadow’, ‘menuText’, ‘windowFrame’, ‘gradientInactiveCaption’}</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.drawing.colors.Transform">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.drawing.colors.</span></span><span class="sig-name descname"><span class="pre">Transform</span></span><a class="reference internal" href="../_modules/openpyxl/drawing/colors.html#Transform"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.drawing.colors.Transform" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="openpyxl.drawing.html"
+                          title="上一章">openpyxl.drawing package</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="openpyxl.drawing.connector.html"
+                          title="下一章">openpyxl.drawing.connector module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/openpyxl.drawing.colors.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.drawing.connector.html" title="openpyxl.drawing.connector module"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.drawing.html" title="openpyxl.drawing package"
+             >上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.drawing.html" >openpyxl.drawing package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.drawing.colors module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2010 - 2022, See AUTHORS.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+  </body>
+</html>

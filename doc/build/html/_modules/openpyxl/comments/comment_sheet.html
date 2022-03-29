@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>openpyxl.comments.comment_sheet &#8212; openpyxl 3.0.9 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/nature.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.comments.comment_sheet</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for openpyxl.comments.comment_sheet</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2010-2022 openpyxl</span>
+
+<span class="c1">## Incomplete!</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.serialisable</span> <span class="kn">import</span> <span class="n">Serialisable</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Typed</span><span class="p">,</span>
+    <span class="n">Float</span><span class="p">,</span>
+    <span class="n">Integer</span><span class="p">,</span>
+    <span class="n">Set</span><span class="p">,</span>
+    <span class="n">String</span><span class="p">,</span>
+    <span class="n">Bool</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.excel</span> <span class="kn">import</span> <span class="n">Guid</span><span class="p">,</span> <span class="n">ExtensionList</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.sequence</span> <span class="kn">import</span> <span class="n">NestedSequence</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.utils.indexed_list</span> <span class="kn">import</span> <span class="n">IndexedList</span>
+<span class="kn">from</span> <span class="nn">openpyxl.xml.constants</span> <span class="kn">import</span> <span class="n">SHEET_MAIN_NS</span>
+<span class="kn">from</span> <span class="nn">openpyxl.xml.functions</span> <span class="kn">import</span> <span class="n">tostring</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.cell.text</span> <span class="kn">import</span> <span class="n">Text</span>
+<span class="c1">#from openpyxl.worksheet.ole import ObjectAnchor</span>
+<span class="kn">from</span> <span class="nn">.author</span> <span class="kn">import</span> <span class="n">AuthorList</span>
+<span class="kn">from</span> <span class="nn">.comments</span> <span class="kn">import</span> <span class="n">Comment</span>
+<span class="kn">from</span> <span class="nn">.shape_writer</span> <span class="kn">import</span> <span class="n">ShapeWriter</span>
+
+
+<div class="viewcode-block" id="Properties"><a class="viewcode-back" href="../../../api/openpyxl.comments.comment_sheet.html#openpyxl.comments.comment_sheet.Properties">[docs]</a><span class="k">class</span> <span class="nc">Properties</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">locked</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">defaultSize</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">_print</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">disabled</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">uiObject</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">autoFill</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">autoLine</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">altText</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">textHAlign</span> <span class="o">=</span> <span class="n">Set</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="s1">&#39;justify&#39;</span><span class="p">,</span> <span class="s1">&#39;distributed&#39;</span><span class="p">]))</span>
+    <span class="n">textVAlign</span> <span class="o">=</span> <span class="n">Set</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="s1">&#39;justify&#39;</span><span class="p">,</span> <span class="s1">&#39;distributed&#39;</span><span class="p">]))</span>
+    <span class="n">lockText</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">justLastX</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">autoScale</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">rowHidden</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">colHidden</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1">#anchor = Typed(expected_type=ObjectAnchor, )</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;anchor&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">locked</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">defaultSize</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">_print</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">disabled</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">uiObject</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">autoFill</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">autoLine</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">altText</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">textHAlign</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">textVAlign</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">lockText</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">justLastX</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">autoScale</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">rowHidden</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">colHidden</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">anchor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">locked</span> <span class="o">=</span> <span class="n">locked</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultSize</span> <span class="o">=</span> <span class="n">defaultSize</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_print</span> <span class="o">=</span> <span class="n">_print</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">disabled</span> <span class="o">=</span> <span class="n">disabled</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uiObject</span> <span class="o">=</span> <span class="n">uiObject</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">autoFill</span> <span class="o">=</span> <span class="n">autoFill</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">autoLine</span> <span class="o">=</span> <span class="n">autoLine</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">altText</span> <span class="o">=</span> <span class="n">altText</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">textHAlign</span> <span class="o">=</span> <span class="n">textHAlign</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">textVAlign</span> <span class="o">=</span> <span class="n">textVAlign</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lockText</span> <span class="o">=</span> <span class="n">lockText</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">justLastX</span> <span class="o">=</span> <span class="n">justLastX</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">autoScale</span> <span class="o">=</span> <span class="n">autoScale</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rowHidden</span> <span class="o">=</span> <span class="n">rowHidden</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">colHidden</span> <span class="o">=</span> <span class="n">colHidden</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">anchor</span> <span class="o">=</span> <span class="n">anchor</span></div>
+
+
+<div class="viewcode-block" id="CommentRecord"><a class="viewcode-back" href="../../../api/openpyxl.comments.comment_sheet.html#openpyxl.comments.comment_sheet.CommentRecord">[docs]</a><span class="k">class</span> <span class="nc">CommentRecord</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;comment&quot;</span>
+
+    <span class="n">ref</span> <span class="o">=</span> <span class="n">String</span><span class="p">()</span>
+    <span class="n">authorId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">guid</span> <span class="o">=</span> <span class="n">Guid</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">shapeId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Text</span><span class="p">)</span>
+    <span class="n">commentPr</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Properties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">author</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;commentPr&#39;</span><span class="p">)</span>
+    <span class="n">__attrs__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;ref&#39;</span><span class="p">,</span> <span class="s1">&#39;authorId&#39;</span><span class="p">,</span> <span class="s1">&#39;guid&#39;</span><span class="p">,</span> <span class="s1">&#39;shapeId&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">ref</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                 <span class="n">authorId</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                 <span class="n">guid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">shapeId</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                 <span class="n">text</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">commentPr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">author</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">height</span><span class="o">=</span><span class="mi">79</span><span class="p">,</span>
+                 <span class="n">width</span><span class="o">=</span><span class="mi">144</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="n">ref</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">authorId</span> <span class="o">=</span> <span class="n">authorId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">guid</span> <span class="o">=</span> <span class="n">guid</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shapeId</span> <span class="o">=</span> <span class="n">shapeId</span>
+        <span class="k">if</span> <span class="n">text</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">Text</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">text</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">commentPr</span> <span class="o">=</span> <span class="n">commentPr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">author</span> <span class="o">=</span> <span class="n">author</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
+
+
+<div class="viewcode-block" id="CommentRecord.from_cell"><a class="viewcode-back" href="../../../api/openpyxl.comments.comment_sheet.html#openpyxl.comments.comment_sheet.CommentRecord.from_cell">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_cell</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">cell</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Class method to convert cell comment</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">comment</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">_comment</span>
+        <span class="n">ref</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">coordinate</span>
+        <span class="bp">self</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="n">author</span><span class="o">=</span><span class="n">comment</span><span class="o">.</span><span class="n">author</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">comment</span><span class="o">.</span><span class="n">content</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">comment</span><span class="o">.</span><span class="n">height</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">comment</span><span class="o">.</span><span class="n">width</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">content</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove all inline formatting and stuff</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">content</span></div>
+
+
+<div class="viewcode-block" id="CommentSheet"><a class="viewcode-back" href="../../../api/openpyxl.comments.comment_sheet.html#openpyxl.comments.comment_sheet.CommentSheet">[docs]</a><span class="k">class</span> <span class="nc">CommentSheet</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;comments&quot;</span>
+
+    <span class="n">authors</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">AuthorList</span><span class="p">)</span>
+    <span class="n">commentList</span> <span class="o">=</span> <span class="n">NestedSequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">CommentRecord</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">_id</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">_path</span> <span class="o">=</span> <span class="s2">&quot;/xl/comments/comment</span><span class="si">{0}</span><span class="s2">.xml&quot;</span>
+    <span class="n">mime_type</span> <span class="o">=</span> <span class="s2">&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.comments+xml&quot;</span>
+    <span class="n">_rel_type</span> <span class="o">=</span> <span class="s2">&quot;comments&quot;</span>
+    <span class="n">_rel_id</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;authors&#39;</span><span class="p">,</span> <span class="s1">&#39;commentList&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">authors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">commentList</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">authors</span> <span class="o">=</span> <span class="n">authors</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">commentList</span> <span class="o">=</span> <span class="n">commentList</span>
+
+
+<div class="viewcode-block" id="CommentSheet.to_tree"><a class="viewcode-back" href="../../../api/openpyxl.comments.comment_sheet.html#openpyxl.comments.comment_sheet.CommentSheet.to_tree">[docs]</a>    <span class="k">def</span> <span class="nf">to_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">tree</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">CommentSheet</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">to_tree</span><span class="p">()</span>
+        <span class="n">tree</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;xmlns&quot;</span><span class="p">,</span> <span class="n">SHEET_MAIN_NS</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">tree</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">comments</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return a dictionary of comments keyed by coord</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">authors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">authors</span><span class="o">.</span><span class="n">author</span>
+
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">commentList</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">c</span><span class="o">.</span><span class="n">ref</span><span class="p">,</span> <span class="n">Comment</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="n">authors</span><span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">authorId</span><span class="p">],</span> <span class="n">c</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="CommentSheet.from_comments"><a class="viewcode-back" href="../../../api/openpyxl.comments.comment_sheet.html#openpyxl.comments.comment_sheet.CommentSheet.from_comments">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_comments</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">comments</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a comment sheet from a list of comments for a particular worksheet</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">authors</span> <span class="o">=</span> <span class="n">IndexedList</span><span class="p">()</span>
+
+        <span class="c1"># dedupe authors and get indexes</span>
+        <span class="k">for</span> <span class="n">comment</span> <span class="ow">in</span> <span class="n">comments</span><span class="p">:</span>
+            <span class="n">comment</span><span class="o">.</span><span class="n">authorId</span> <span class="o">=</span> <span class="n">authors</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">comment</span><span class="o">.</span><span class="n">author</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">authors</span><span class="o">=</span><span class="n">AuthorList</span><span class="p">(</span><span class="n">authors</span><span class="p">),</span> <span class="n">commentList</span><span class="o">=</span><span class="n">comments</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="CommentSheet.write_shapes"><a class="viewcode-back" href="../../../api/openpyxl.comments.comment_sheet.html#openpyxl.comments.comment_sheet.CommentSheet.write_shapes">[docs]</a>    <span class="k">def</span> <span class="nf">write_shapes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vml</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create the VML for comments</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sw</span> <span class="o">=</span> <span class="n">ShapeWriter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">comments</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">sw</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">vml</span><span class="p">)</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">path</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return path within the archive</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_path</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_id</span><span class="p">)</span></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.comments.comment_sheet</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2010 - 2022, See AUTHORS.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

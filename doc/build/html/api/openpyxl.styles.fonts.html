@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>openpyxl.styles.fonts module &#8212; openpyxl 3.0.9 文档</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nature.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="openpyxl.styles.named_styles module" href="openpyxl.styles.named_styles.html" />
+    <link rel="prev" title="openpyxl.styles.fills module" href="openpyxl.styles.fills.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.styles.named_styles.html" title="openpyxl.styles.named_styles module"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.styles.fills.html" title="openpyxl.styles.fills module"
+             accesskey="P">上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.styles.html" accesskey="U">openpyxl.styles package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.styles.fonts module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-openpyxl.styles.fonts">
+<span id="openpyxl-styles-fonts-module"></span><h1>openpyxl.styles.fonts module<a class="headerlink" href="#module-openpyxl.styles.fonts" title="永久链接至标题">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.styles.fonts.Font">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.styles.fonts.</span></span><span class="sig-name descname"><span class="pre">Font</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strike</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scheme</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">family</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">italic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strikethrough</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">underline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertAlign</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shadow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condense</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/styles/fonts.html#Font"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.styles.fonts.Font" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<p>Font options used in styles.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fonts.Font.UNDERLINE_DOUBLE">
+<span class="sig-name descname"><span class="pre">UNDERLINE_DOUBLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'double'</span></em><a class="headerlink" href="#openpyxl.styles.fonts.Font.UNDERLINE_DOUBLE" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fonts.Font.UNDERLINE_DOUBLE_ACCOUNTING">
+<span class="sig-name descname"><span class="pre">UNDERLINE_DOUBLE_ACCOUNTING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'doubleAccounting'</span></em><a class="headerlink" href="#openpyxl.styles.fonts.Font.UNDERLINE_DOUBLE_ACCOUNTING" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fonts.Font.UNDERLINE_SINGLE">
+<span class="sig-name descname"><span class="pre">UNDERLINE_SINGLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'single'</span></em><a class="headerlink" href="#openpyxl.styles.fonts.Font.UNDERLINE_SINGLE" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fonts.Font.UNDERLINE_SINGLE_ACCOUNTING">
+<span class="sig-name descname"><span class="pre">UNDERLINE_SINGLE_ACCOUNTING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'singleAccounting'</span></em><a class="headerlink" href="#openpyxl.styles.fonts.Font.UNDERLINE_SINGLE_ACCOUNTING" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fonts.Font.b">
+<span class="sig-name descname"><span class="pre">b</span></span><a class="headerlink" href="#openpyxl.styles.fonts.Font.b" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fonts.Font.bold">
+<span class="sig-name descname"><span class="pre">bold</span></span><a class="headerlink" href="#openpyxl.styles.fonts.Font.bold" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fonts.Font.charset">
+<span class="sig-name descname"><span class="pre">charset</span></span><a class="headerlink" href="#openpyxl.styles.fonts.Font.charset" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fonts.Font.color">
+<span class="sig-name descname"><span class="pre">color</span></span><a class="headerlink" href="#openpyxl.styles.fonts.Font.color" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.styles.colors.Color’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fonts.Font.condense">
+<span class="sig-name descname"><span class="pre">condense</span></span><a class="headerlink" href="#openpyxl.styles.fonts.Font.condense" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fonts.Font.extend">
+<span class="sig-name descname"><span class="pre">extend</span></span><a class="headerlink" href="#openpyxl.styles.fonts.Font.extend" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fonts.Font.family">
+<span class="sig-name descname"><span class="pre">family</span></span><a class="headerlink" href="#openpyxl.styles.fonts.Font.family" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpyxl.styles.fonts.Font.from_tree">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/styles/fonts.html#Font.from_tree"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.styles.fonts.Font.from_tree" title="永久链接至目标">¶</a></dt>
+<dd><p>Set default value for underline if child element is present</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fonts.Font.i">
+<span class="sig-name descname"><span class="pre">i</span></span><a class="headerlink" href="#openpyxl.styles.fonts.Font.i" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fonts.Font.italic">
+<span class="sig-name descname"><span class="pre">italic</span></span><a class="headerlink" href="#openpyxl.styles.fonts.Font.italic" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fonts.Font.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#openpyxl.styles.fonts.Font.name" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fonts.Font.outline">
+<span class="sig-name descname"><span class="pre">outline</span></span><a class="headerlink" href="#openpyxl.styles.fonts.Font.outline" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fonts.Font.scheme">
+<span class="sig-name descname"><span class="pre">scheme</span></span><a class="headerlink" href="#openpyxl.styles.fonts.Font.scheme" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘major’, ‘minor’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fonts.Font.shadow">
+<span class="sig-name descname"><span class="pre">shadow</span></span><a class="headerlink" href="#openpyxl.styles.fonts.Font.shadow" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fonts.Font.size">
+<span class="sig-name descname"><span class="pre">size</span></span><a class="headerlink" href="#openpyxl.styles.fonts.Font.size" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fonts.Font.strike">
+<span class="sig-name descname"><span class="pre">strike</span></span><a class="headerlink" href="#openpyxl.styles.fonts.Font.strike" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fonts.Font.strikethrough">
+<span class="sig-name descname"><span class="pre">strikethrough</span></span><a class="headerlink" href="#openpyxl.styles.fonts.Font.strikethrough" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fonts.Font.sz">
+<span class="sig-name descname"><span class="pre">sz</span></span><a class="headerlink" href="#openpyxl.styles.fonts.Font.sz" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fonts.Font.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'font'</span></em><a class="headerlink" href="#openpyxl.styles.fonts.Font.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fonts.Font.u">
+<span class="sig-name descname"><span class="pre">u</span></span><a class="headerlink" href="#openpyxl.styles.fonts.Font.u" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘double’, ‘single’, ‘singleAccounting’, ‘doubleAccounting’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fonts.Font.underline">
+<span class="sig-name descname"><span class="pre">underline</span></span><a class="headerlink" href="#openpyxl.styles.fonts.Font.underline" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fonts.Font.vertAlign">
+<span class="sig-name descname"><span class="pre">vertAlign</span></span><a class="headerlink" href="#openpyxl.styles.fonts.Font.vertAlign" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘superscript’, ‘baseline’, ‘subscript’}</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="openpyxl.styles.fills.html"
+                          title="上一章">openpyxl.styles.fills module</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="openpyxl.styles.named_styles.html"
+                          title="下一章">openpyxl.styles.named_styles module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/openpyxl.styles.fonts.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.styles.named_styles.html" title="openpyxl.styles.named_styles module"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.styles.fills.html" title="openpyxl.styles.fills module"
+             >上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.styles.html" >openpyxl.styles package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.styles.fonts module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2010 - 2022, See AUTHORS.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../api/openpyxl.chart.shapes.rst:2
+msgid "openpyxl.chart.shapes module"
+msgstr ""
+
+#: of openpyxl.chart.shapes.GraphicalProperties:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: of openpyxl.chart.shapes.GraphicalProperties:1
+msgid "Somewhat vaguely 21.2.2.197 says this:"
+msgstr ""
+
+#: of openpyxl.chart.shapes.GraphicalProperties:3
+msgid ""
+"This element specifies the formatting for the parent chart element. The "
+"custGeom, prstGeom, scene3d, and xfrm elements are not supported. The "
+"bwMode attribute is not supported."
+msgstr ""
+
+#: of openpyxl.chart.shapes.GraphicalProperties:7
+msgid "This doesn't leave much. And the element is used in different places."
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.shapes.GraphicalProperties.bwMode:1
+msgid ""
+"Value must be one of {'blackWhite', 'black', 'ltGray', 'blackGray', "
+"'hidden', 'gray', 'clr', 'auto', 'white', 'grayWhite', 'invGray'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.shapes.GraphicalProperties.custGeom:1
+msgid ""
+"Values must be of type <class "
+"'openpyxl.drawing.geometry.CustomGeometry2D'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.shapes.GraphicalProperties.extLst:1
+msgid "Values must be of type <class 'openpyxl.descriptors.excel.ExtensionList'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.shapes.GraphicalProperties.gradFill:1
+msgid ""
+"Values must be of type <class "
+"'openpyxl.drawing.fill.GradientFillProperties'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.shapes.GraphicalProperties.line:1
+#: openpyxl.chart.shapes.GraphicalProperties.shape3D:1
+#: openpyxl.chart.shapes.GraphicalProperties.transform:1
+msgid ""
+"Aliases can be used when either the desired attribute name is not allowed"
+" or confusing in Python (eg. \"type\") or a more descriptve name is "
+"desired (eg. \"underline\" for \"u\")"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.shapes.GraphicalProperties.ln:1
+msgid "Values must be of type <class 'openpyxl.drawing.line.LineProperties'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.shapes.GraphicalProperties.noFill:1
+msgid "Values must be of type <class 'bool'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.shapes.GraphicalProperties.pattFill:1
+msgid ""
+"Values must be of type <class "
+"'openpyxl.drawing.fill.PatternFillProperties'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.shapes.GraphicalProperties.prstGeom:1
+msgid ""
+"Values must be of type <class "
+"'openpyxl.drawing.geometry.PresetGeometry2D'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.shapes.GraphicalProperties.scene3d:1
+msgid "Values must be of type <class 'openpyxl.drawing.geometry.Scene3D'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.shapes.GraphicalProperties.solidFill:1
+msgid "Values must be of type <class 'openpyxl.drawing.colors.ColorChoice'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.shapes.GraphicalProperties.sp3d:1
+msgid "Values must be of type <class 'openpyxl.drawing.geometry.Shape3D'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.shapes.GraphicalProperties.xfrm:1
+msgid "Values must be of type <class 'openpyxl.drawing.geometry.Transform2D'>"
+msgstr ""
+

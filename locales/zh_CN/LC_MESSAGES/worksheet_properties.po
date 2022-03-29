@@ -1,0 +1,115 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../worksheet_properties.rst:2
+msgid "Additional Worksheet Properties"
+msgstr ""
+
+#: ../../worksheet_properties.rst:4
+msgid ""
+"These are advanced properties for particular behaviours, the most used "
+"ones are the \"fitTopage\" page setup property and the tabColor that "
+"define the background color of the worksheet tab."
+msgstr ""
+
+#: ../../worksheet_properties.rst:9
+msgid "Available properties for worksheets"
+msgstr ""
+
+#: ../../worksheet_properties.rst:11
+msgid "\"enableFormatConditionsCalculation\""
+msgstr ""
+
+#: ../../worksheet_properties.rst:12
+msgid "\"filterMode\""
+msgstr ""
+
+#: ../../worksheet_properties.rst:13
+msgid "\"published\""
+msgstr ""
+
+#: ../../worksheet_properties.rst:14
+msgid "\"syncHorizontal\""
+msgstr ""
+
+#: ../../worksheet_properties.rst:15
+msgid "\"syncRef\""
+msgstr ""
+
+#: ../../worksheet_properties.rst:16
+msgid "\"syncVertical\""
+msgstr ""
+
+#: ../../worksheet_properties.rst:17
+msgid "\"transitionEvaluation\""
+msgstr ""
+
+#: ../../worksheet_properties.rst:18
+msgid "\"transitionEntry\""
+msgstr ""
+
+#: ../../worksheet_properties.rst:19
+msgid "\"tabColor\""
+msgstr ""
+
+#: ../../worksheet_properties.rst:22
+msgid "Available fields for page setup properties"
+msgstr ""
+
+#: ../../worksheet_properties.rst:24
+msgid "\"autoPageBreaks\" \"fitToPage\""
+msgstr ""
+
+#: ../../worksheet_properties.rst:28
+msgid "Available fields for outlines"
+msgstr ""
+
+#: ../../worksheet_properties.rst:30
+msgid "\"applyStyles\""
+msgstr ""
+
+#: ../../worksheet_properties.rst:31
+msgid "\"summaryBelow\""
+msgstr ""
+
+#: ../../worksheet_properties.rst:32
+msgid "\"summaryRight\""
+msgstr ""
+
+#: ../../worksheet_properties.rst:33
+msgid "\"showOutlineSymbols\""
+msgstr ""
+
+#: ../../worksheet_properties.rst:35
+msgid ""
+"see http://msdn.microsoft.com/en-"
+"us/library/documentformat.openxml.spreadsheet.sheetproperties%28v=office.14%29.aspx_"
+" for details."
+msgstr ""
+
+#: ../../worksheet_properties.rst:38
+msgid ""
+"By default, outline properties are intitialized so you can directly "
+"modify each of their 4 attributes, while page setup properties don't. If "
+"you want modify the latter, you should first initialize a "
+":class:`openpyxl.worksheet.properties.PageSetupProperties` object with "
+"the required parameters. Once done, they can be directly modified by the "
+"routine later if needed."
+msgstr ""
+

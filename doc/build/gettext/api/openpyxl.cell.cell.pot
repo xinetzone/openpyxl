@@ -1,0 +1,137 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/openpyxl.cell.cell.rst:2
+msgid "openpyxl.cell.cell module"
+msgstr ""
+
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell:1
+msgid "Manage individual cells in a spreadsheet."
+msgstr ""
+
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell:3
+msgid "The Cell class is required to know its value and type, display options, and any other features of an Excel cell.  Utilities for referencing cells using Excel's 'A1' column/row nomenclature are also provided."
+msgstr ""
+
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.Cell:1
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.MergedCell:1
+msgid "Bases: :py:class:`openpyxl.styles.styleable.StyleableObject`"
+msgstr ""
+
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.Cell:1
+msgid "Describes cell associated properties."
+msgstr ""
+
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.Cell:3
+msgid "Properties of interest include style, type, value, and address."
+msgstr ""
+
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.Cell.check_error:1
+msgid "Tries to convert Error\" else N/A"
+msgstr ""
+
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.Cell.check_string:1
+msgid "Check string coding, length, and line break character"
+msgstr ""
+
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.Cell.col_idx:1
+msgid "The numerical index of the column"
+msgstr ""
+
+#: ../../docstring of openpyxl.cell.cell.Cell.column:1
+msgid "Column number of this cell (1-based)"
+msgstr ""
+
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.Cell.comment:1
+msgid "Returns the comment associated with this cell"
+msgstr ""
+
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.Cell.comment:0
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.Cell.is_date:0
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.Cell.value:0
+msgid "type"
+msgstr ""
+
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.Cell.comment:3
+msgid ":class:`openpyxl.comments.Comment`"
+msgstr ""
+
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.Cell.coordinate:1
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.MergedCell.coordinate:1
+msgid "This cell's coordinate (ex. 'A5')"
+msgstr ""
+
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.Cell.hyperlink:1
+msgid "Return the hyperlink target or an empty string"
+msgstr ""
+
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.Cell.internal_value:1
+msgid "Always returns the value for excel."
+msgstr ""
+
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.Cell.is_date:1
+msgid "True if the value is formatted as a date"
+msgstr ""
+
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.Cell.is_date:3
+msgid "bool"
+msgstr ""
+
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.Cell.offset:1
+msgid "Returns a cell location relative to this cell."
+msgstr ""
+
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.Cell.offset:0
+msgid "Parameters"
+msgstr ""
+
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.Cell.offset:3
+msgid "number of rows to offset"
+msgstr ""
+
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.Cell.offset:6
+msgid "number of columns to offset"
+msgstr ""
+
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.Cell.offset:0
+msgid "Return type"
+msgstr ""
+
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.Cell.offset:9
+msgid ":class:`openpyxl.cell.Cell`"
+msgstr ""
+
+#: ../../docstring of openpyxl.cell.cell.Cell.row:1
+msgid "Row number of this cell (1-based)"
+msgstr ""
+
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.Cell.value:1
+msgid "Get or set the value held in the cell."
+msgstr ""
+
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.Cell.value:3
+msgid "depends on the value (string, float, int or :class:`datetime.datetime`)"
+msgstr ""
+
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.MergedCell:1
+msgid "Describes the properties of a cell in a merged cell and helps to display the borders of the merged cell."
+msgstr ""
+
+#: ../../../openpyxl/cell/cell.py:docstring of openpyxl.cell.cell.MergedCell:4
+msgid "The value of a MergedCell is always None."
+msgstr ""

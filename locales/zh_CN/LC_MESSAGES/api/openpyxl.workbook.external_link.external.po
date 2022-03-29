@@ -1,0 +1,109 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../api/openpyxl.workbook.external_link.external.rst:2
+msgid "openpyxl.workbook.external\\_link.external module"
+msgstr ""
+
+#: of openpyxl.workbook.external_link.external.ExternalBook:1
+#: openpyxl.workbook.external_link.external.ExternalCell:1
+#: openpyxl.workbook.external_link.external.ExternalDefinedName:1
+#: openpyxl.workbook.external_link.external.ExternalLink:1
+#: openpyxl.workbook.external_link.external.ExternalRow:1
+#: openpyxl.workbook.external_link.external.ExternalSheetData:1
+#: openpyxl.workbook.external_link.external.ExternalSheetDataSet:1
+#: openpyxl.workbook.external_link.external.ExternalSheetNames:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.workbook.external_link.external.ExternalBook.definedNames:1
+msgid "Wrap a sequence in an containing object"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.workbook.external_link.external.ExternalBook.id:1
+#: openpyxl.workbook.external_link.external.ExternalCell.r:1
+#: openpyxl.workbook.external_link.external.ExternalCell.v:1
+#: openpyxl.workbook.external_link.external.ExternalDefinedName.name:1
+#: openpyxl.workbook.external_link.external.ExternalDefinedName.refersTo:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.workbook.external_link.external.ExternalBook.sheetDataSet:1
+msgid ""
+"Values must be of type <class "
+"'openpyxl.workbook.external_link.external.ExternalSheetDataSet'>"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.workbook.external_link.external.ExternalBook.sheetNames:1
+msgid ""
+"Values must be of type <class "
+"'openpyxl.workbook.external_link.external.ExternalSheetNames'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.workbook.external_link.external.ExternalCell.t:1
+msgid "Value must be one of {'n', 'e', 's', 'inlineStr', 'str', 'd', 'b'}"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.workbook.external_link.external.ExternalCell.vm:1
+#: openpyxl.workbook.external_link.external.ExternalDefinedName.sheetId:1
+#: openpyxl.workbook.external_link.external.ExternalRow.r:1
+#: openpyxl.workbook.external_link.external.ExternalSheetData.sheetId:1
+msgid "Values must be of type <class 'int'>"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.workbook.external_link.external.ExternalLink.externalBook:1
+msgid ""
+"Values must be of type <class "
+"'openpyxl.workbook.external_link.external.ExternalBook'>"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.workbook.external_link.external.ExternalLink.file_link:1
+msgid ""
+"Values must be of type <class "
+"'openpyxl.packaging.relationship.Relationship'>"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.workbook.external_link.external.ExternalRow.cell:1
+#: openpyxl.workbook.external_link.external.ExternalSheetData.row:1
+#: openpyxl.workbook.external_link.external.ExternalSheetDataSet.sheetData:1
+msgid ""
+"A sequence (list or tuple) that may only contain objects of the declared "
+"type"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.workbook.external_link.external.ExternalSheetData.refreshError:1
+msgid "Values must be of type <class 'bool'>"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.workbook.external_link.external.ExternalSheetNames.sheetName:1
+msgid ""
+"A sequence of primitive types that are stored as a single attribute. "
+"\"val\" is the default attribute"
+msgstr ""
+

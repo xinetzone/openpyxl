@@ -1,0 +1,87 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/openpyxl.workbook.properties.rst:2
+msgid "openpyxl.workbook.properties module"
+msgstr ""
+
+#: ../../../openpyxl/workbook/properties.py:docstring of openpyxl.workbook.properties.CalcProperties:1
+#: ../../../openpyxl/workbook/properties.py:docstring of openpyxl.workbook.properties.FileVersion:1
+#: ../../../openpyxl/workbook/properties.py:docstring of openpyxl.workbook.properties.WorkbookProperties:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../docstring of openpyxl.workbook.properties.CalcProperties.calcCompleted:1
+#: ../../docstring of openpyxl.workbook.properties.CalcProperties.calcOnSave:1
+#: ../../docstring of openpyxl.workbook.properties.CalcProperties.concurrentCalc:1
+#: ../../docstring of openpyxl.workbook.properties.CalcProperties.forceFullCalc:1
+#: ../../docstring of openpyxl.workbook.properties.CalcProperties.fullCalcOnLoad:1
+#: ../../docstring of openpyxl.workbook.properties.CalcProperties.fullPrecision:1
+#: ../../docstring of openpyxl.workbook.properties.CalcProperties.iterate:1
+#: ../../docstring of openpyxl.workbook.properties.WorkbookProperties.allowRefreshQuery:1
+#: ../../docstring of openpyxl.workbook.properties.WorkbookProperties.autoCompressPictures:1
+#: ../../docstring of openpyxl.workbook.properties.WorkbookProperties.backupFile:1
+#: ../../docstring of openpyxl.workbook.properties.WorkbookProperties.checkCompatibility:1
+#: ../../docstring of openpyxl.workbook.properties.WorkbookProperties.date1904:1
+#: ../../docstring of openpyxl.workbook.properties.WorkbookProperties.dateCompatibility:1
+#: ../../docstring of openpyxl.workbook.properties.WorkbookProperties.filterPrivacy:1
+#: ../../docstring of openpyxl.workbook.properties.WorkbookProperties.hidePivotFieldList:1
+#: ../../docstring of openpyxl.workbook.properties.WorkbookProperties.promptedSolutions:1
+#: ../../docstring of openpyxl.workbook.properties.WorkbookProperties.publishItems:1
+#: ../../docstring of openpyxl.workbook.properties.WorkbookProperties.refreshAllConnections:1
+#: ../../docstring of openpyxl.workbook.properties.WorkbookProperties.saveExternalLinkValues:1
+#: ../../docstring of openpyxl.workbook.properties.WorkbookProperties.showBorderUnselectedTables:1
+#: ../../docstring of openpyxl.workbook.properties.WorkbookProperties.showInkAnnotation:1
+#: ../../docstring of openpyxl.workbook.properties.WorkbookProperties.showPivotChartFilter:1
+msgid "Values must be of type <class 'bool'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.workbook.properties.CalcProperties.calcId:1
+#: ../../docstring of openpyxl.workbook.properties.CalcProperties.concurrentManualCount:1
+#: ../../docstring of openpyxl.workbook.properties.CalcProperties.iterateCount:1
+#: ../../docstring of openpyxl.workbook.properties.WorkbookProperties.defaultThemeVersion:1
+msgid "Values must be of type <class 'int'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.workbook.properties.CalcProperties.calcMode:1
+msgid "Value must be one of {'auto', 'autoNoTable', 'manual'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.workbook.properties.CalcProperties.iterateDelta:1
+msgid "Values must be of type <class 'float'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.workbook.properties.CalcProperties.refMode:1
+msgid "Value must be one of {'A1', 'R1C1'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.workbook.properties.FileVersion.appName:1
+#: ../../docstring of openpyxl.workbook.properties.FileVersion.lastEdited:1
+#: ../../docstring of openpyxl.workbook.properties.FileVersion.lowestEdited:1
+#: ../../docstring of openpyxl.workbook.properties.FileVersion.rupBuild:1
+#: ../../docstring of openpyxl.workbook.properties.WorkbookProperties.codeName:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.workbook.properties.WorkbookProperties.showObjects:1
+msgid "Value must be one of {'placeholders', 'all'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.workbook.properties.WorkbookProperties.updateLinks:1
+msgid "Value must be one of {'always', 'never', 'userSet'}"
+msgstr ""

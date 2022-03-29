@@ -1,0 +1,190 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/openpyxl.worksheet.filters.rst:2
+msgid "openpyxl.worksheet.filters module"
+msgstr ""
+
+#: ../../../openpyxl/worksheet/filters.py:docstring of openpyxl.worksheet.filters.AutoFilter:1
+#: ../../../openpyxl/worksheet/filters.py:docstring of openpyxl.worksheet.filters.ColorFilter:1
+#: ../../../openpyxl/worksheet/filters.py:docstring of openpyxl.worksheet.filters.CustomFilter:1
+#: ../../../openpyxl/worksheet/filters.py:docstring of openpyxl.worksheet.filters.CustomFilters:1
+#: ../../../openpyxl/worksheet/filters.py:docstring of openpyxl.worksheet.filters.DateGroupItem:1
+#: ../../../openpyxl/worksheet/filters.py:docstring of openpyxl.worksheet.filters.DynamicFilter:1
+#: ../../../openpyxl/worksheet/filters.py:docstring of openpyxl.worksheet.filters.FilterColumn:1
+#: ../../../openpyxl/worksheet/filters.py:docstring of openpyxl.worksheet.filters.Filters:1
+#: ../../../openpyxl/worksheet/filters.py:docstring of openpyxl.worksheet.filters.IconFilter:1
+#: ../../../openpyxl/worksheet/filters.py:docstring of openpyxl.worksheet.filters.SortCondition:1
+#: ../../../openpyxl/worksheet/filters.py:docstring of openpyxl.worksheet.filters.SortState:1
+#: ../../../openpyxl/worksheet/filters.py:docstring of openpyxl.worksheet.filters.Top10:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../../openpyxl/worksheet/filters.py:docstring of openpyxl.worksheet.filters.AutoFilter.add_filter_column:1
+msgid "Add row filter for specified column."
+msgstr ""
+
+#: ../../../openpyxl/worksheet/filters.py:docstring of openpyxl.worksheet.filters.AutoFilter.add_filter_column:0
+#: ../../../openpyxl/worksheet/filters.py:docstring of openpyxl.worksheet.filters.AutoFilter.add_sort_condition:0
+msgid "Parameters"
+msgstr ""
+
+#: ../../../openpyxl/worksheet/filters.py:docstring of openpyxl.worksheet.filters.AutoFilter.add_filter_column:3
+msgid "Zero-origin column id. 0 means first column."
+msgstr ""
+
+#: ../../../openpyxl/worksheet/filters.py:docstring of openpyxl.worksheet.filters.AutoFilter.add_filter_column:5
+msgid "Value list to show."
+msgstr ""
+
+#: ../../../openpyxl/worksheet/filters.py:docstring of openpyxl.worksheet.filters.AutoFilter.add_filter_column:7
+msgid "Show rows that have blank cell if True (default=``False``)"
+msgstr ""
+
+#: ../../../openpyxl/worksheet/filters.py:docstring of openpyxl.worksheet.filters.AutoFilter.add_sort_condition:1
+msgid "Add sort condition for cpecified range of cells."
+msgstr ""
+
+#: ../../../openpyxl/worksheet/filters.py:docstring of openpyxl.worksheet.filters.AutoFilter.add_sort_condition:3
+msgid "range of the cells (e.g. 'A2:A150')"
+msgstr ""
+
+#: ../../../openpyxl/worksheet/filters.py:docstring of openpyxl.worksheet.filters.AutoFilter.add_sort_condition:5
+msgid "Descending sort order (default=``False``)"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.filters.AutoFilter.extLst:1
+#: ../../docstring of openpyxl.worksheet.filters.FilterColumn.extLst:1
+#: ../../docstring of openpyxl.worksheet.filters.SortState.extLst:1
+msgid "Values must be of type <class 'openpyxl.descriptors.excel.ExtensionList'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.filters.AutoFilter.filterColumn:1
+#: ../../docstring of openpyxl.worksheet.filters.CustomFilters.customFilter:1
+#: ../../docstring of openpyxl.worksheet.filters.Filters.dateGroupItem:1
+#: ../../docstring of openpyxl.worksheet.filters.SortState.sortCondition:1
+msgid "A sequence (list or tuple) that may only contain objects of the declared type"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.filters.AutoFilter.sortState:1
+msgid "Values must be of type <class 'openpyxl.worksheet.filters.SortState'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.filters.ColorFilter.cellColor:1
+#: ../../docstring of openpyxl.worksheet.filters.FilterColumn.hiddenButton:1
+#: ../../docstring of openpyxl.worksheet.filters.FilterColumn.showButton:1
+#: ../../docstring of openpyxl.worksheet.filters.Filters.blank:1
+#: ../../docstring of openpyxl.worksheet.filters.SortCondition.descending:1
+#: ../../docstring of openpyxl.worksheet.filters.SortState.caseSensitive:1
+#: ../../docstring of openpyxl.worksheet.filters.SortState.columnSort:1
+#: ../../docstring of openpyxl.worksheet.filters.Top10.percent:1
+#: ../../docstring of openpyxl.worksheet.filters.Top10.top:1
+msgid "Values must be of type <class 'bool'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.filters.ColorFilter.dxfId:1
+#: ../../docstring of openpyxl.worksheet.filters.DateGroupItem.second:1
+#: ../../docstring of openpyxl.worksheet.filters.DateGroupItem.year:1
+#: ../../docstring of openpyxl.worksheet.filters.FilterColumn.colId:1
+#: ../../docstring of openpyxl.worksheet.filters.IconFilter.iconId:1
+#: ../../docstring of openpyxl.worksheet.filters.SortCondition.dxfId:1
+#: ../../docstring of openpyxl.worksheet.filters.SortCondition.iconId:1
+msgid "Values must be of type <class 'int'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.filters.CustomFilter.operator:1
+msgid "Value must be one of {'greaterThanOrEqual', 'greaterThan', 'equal', 'lessThan', 'notEqual', 'lessThanOrEqual'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.filters.CustomFilter.val:1
+#: ../../docstring of openpyxl.worksheet.filters.SortCondition.customList:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.filters.DateGroupItem.dateTimeGrouping:1
+msgid "Value must be one of {'day', 'hour', 'month', 'year', 'second', 'minute'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.filters.DateGroupItem.day:1
+#: ../../docstring of openpyxl.worksheet.filters.DateGroupItem.hour:1
+#: ../../docstring of openpyxl.worksheet.filters.DateGroupItem.minute:1
+#: ../../docstring of openpyxl.worksheet.filters.DateGroupItem.month:1
+#: ../../docstring of openpyxl.worksheet.filters.DynamicFilter.maxVal:1
+#: ../../docstring of openpyxl.worksheet.filters.DynamicFilter.val:1
+#: ../../docstring of openpyxl.worksheet.filters.Top10.filterVal:1
+#: ../../docstring of openpyxl.worksheet.filters.Top10.val:1
+msgid "Values must be of type <class 'float'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.filters.DynamicFilter.maxValIso:1
+#: ../../docstring of openpyxl.worksheet.filters.DynamicFilter.valIso:1
+msgid "Values must be of type <class 'datetime.datetime'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.filters.DynamicFilter.type:1
+msgid "Value must be one of {'yesterday', 'thisYear', 'Q1', 'Q4', 'nextMonth', 'yearToDate', 'aboveAverage', 'null', 'M2', 'M3', 'M11', 'tomorrow', 'lastYear', 'nextWeek', 'lastQuarter', 'M6', 'M4', 'M12', 'M10', 'lastWeek', 'M7', 'Q3', 'thisWeek', 'Q2', 'M8', 'M1', 'M5', 'today', 'M9', 'thisMonth', 'nextQuarter', 'belowAverage', 'thisQuarter', 'nextYear', 'lastMonth'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.filters.FilterColumn.col_id:1
+msgid "Aliases can be used when either the desired attribute name is not allowed or confusing in Python (eg. \"type\") or a more descriptve name is desired (eg. \"underline\" for \"u\")"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.filters.FilterColumn.colorFilter:1
+msgid "Values must be of type <class 'openpyxl.worksheet.filters.ColorFilter'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.filters.FilterColumn.customFilters:1
+msgid "Values must be of type <class 'openpyxl.worksheet.filters.CustomFilters'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.filters.FilterColumn.dynamicFilter:1
+msgid "Values must be of type <class 'openpyxl.worksheet.filters.DynamicFilter'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.filters.FilterColumn.filters:1
+msgid "Values must be of type <class 'openpyxl.worksheet.filters.Filters'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.filters.FilterColumn.iconFilter:1
+msgid "Values must be of type <class 'openpyxl.worksheet.filters.IconFilter'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.filters.FilterColumn.top10:1
+msgid "Values must be of type <class 'openpyxl.worksheet.filters.Top10'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.filters.Filters.calendarType:1
+msgid "Value must be one of {'gregorian', 'gregorianUs', 'gregorianXlitFrench', 'gregorianArabic', 'hijri', 'saka', 'gregorianMeFrench', 'thai', 'gregorianXlitEnglish', 'taiwan', 'korea', 'hebrew', 'japan'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.filters.Filters.filter:1
+msgid "A sequence of primitive types that are stored as a single attribute. \"val\" is the default attribute"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.filters.IconFilter.iconSet:1
+#: ../../docstring of openpyxl.worksheet.filters.SortCondition.iconSet:1
+msgid "Value must be one of {'3Symbols', '4Rating', '3TrafficLights2', '3TrafficLights1', '3Symbols2', '3Flags', '4RedToBlack', '5ArrowsGray', '3ArrowsGray', '3Signs', '5Quarters', '4Arrows', '4TrafficLights', '5Rating', '3Arrows', '5Arrows', '4ArrowsGray'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.filters.SortCondition.sortBy:1
+msgid "Value must be one of {'value', 'icon', 'cellColor', 'fontColor'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.filters.SortState.sortMethod:1
+msgid "Value must be one of {'stroke', 'pinYin'}"
+msgstr ""

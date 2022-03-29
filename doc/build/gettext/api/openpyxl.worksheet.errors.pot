@@ -1,0 +1,53 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/openpyxl.worksheet.errors.rst:2
+msgid "openpyxl.worksheet.errors module"
+msgstr ""
+
+#: ../../../openpyxl/worksheet/errors.py:docstring of openpyxl.worksheet.errors.Extension:1
+#: ../../../openpyxl/worksheet/errors.py:docstring of openpyxl.worksheet.errors.ExtensionList:1
+#: ../../../openpyxl/worksheet/errors.py:docstring of openpyxl.worksheet.errors.IgnoredError:1
+#: ../../../openpyxl/worksheet/errors.py:docstring of openpyxl.worksheet.errors.IgnoredErrors:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.errors.Extension.uri:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.errors.ExtensionList.ext:1
+#: ../../docstring of openpyxl.worksheet.errors.IgnoredErrors.ignoredError:1
+msgid "A sequence (list or tuple) that may only contain objects of the declared type"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.errors.IgnoredError.calculatedColumn:1
+#: ../../docstring of openpyxl.worksheet.errors.IgnoredError.emptyCellReference:1
+#: ../../docstring of openpyxl.worksheet.errors.IgnoredError.evalError:1
+#: ../../docstring of openpyxl.worksheet.errors.IgnoredError.formula:1
+#: ../../docstring of openpyxl.worksheet.errors.IgnoredError.formulaRange:1
+#: ../../docstring of openpyxl.worksheet.errors.IgnoredError.listDataValidation:1
+#: ../../docstring of openpyxl.worksheet.errors.IgnoredError.numberStoredAsText:1
+#: ../../docstring of openpyxl.worksheet.errors.IgnoredError.twoDigitTextYear:1
+#: ../../docstring of openpyxl.worksheet.errors.IgnoredError.unlockedFormula:1
+msgid "Values must be of type <class 'bool'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.errors.IgnoredErrors.extLst:1
+msgid "Values must be of type <class 'openpyxl.worksheet.errors.ExtensionList'>"
+msgstr ""

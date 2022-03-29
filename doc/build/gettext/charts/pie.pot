@@ -1,0 +1,66 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../charts/pie.rst:2
+#: ../../charts/pie.rst:6
+msgid "Pie Charts"
+msgstr ""
+
+#: ../../charts/pie.rst:8
+msgid "Pie charts plot data as slices of a circle with each slice representing the percentage of the whole. Slices are plotted in a clockwise direction with 0° being at the top of the circle. Pie charts can only take a single series of data. The title of the chart will default to being the title of the series."
+msgstr ""
+
+#: ../../charts/pie.rst:None
+msgid "\"Sample pie chart\""
+msgstr ""
+
+#: ../../charts/pie.rst:22
+msgid "Projected Pie Charts"
+msgstr ""
+
+#: ../../charts/pie.rst:24
+msgid "Projected pie charts extract some slices from a pie chart and project them into a second pie or bar chart. This is useful when there are several smaller items in the data series. The chart can be split according to percent, val(ue) or pos(ition). If nothing is set then the application decides which to use. In addition custom splits can be defined."
+msgstr ""
+
+#: ../../charts/pie.rst:None
+msgid "\"Sample pie chart with projections\""
+msgstr ""
+
+#: ../../charts/pie.rst:36
+msgid "3D Pie Charts"
+msgstr ""
+
+#: ../../charts/pie.rst:38
+msgid "Pie charts can also be created with a 3D effect."
+msgstr ""
+
+#: ../../charts/pie.rst:None
+msgid "\"Sample 3D pie chart\""
+msgstr ""
+
+#: ../../charts/pie.rst:49
+msgid "Gradient Pie Charts"
+msgstr ""
+
+#: ../../charts/pie.rst:51
+msgid "Pie charts can also be created with gradient series."
+msgstr ""
+
+#: ../../charts/pie.rst:None
+msgid "\"Sampe gradient pie chart\""
+msgstr ""

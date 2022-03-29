@@ -1,0 +1,2955 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../changes.rst:2
+msgid "3.0.10 (unreleased)"
+msgstr ""
+
+#: ../../changes.rst:6
+#: ../../changes.rst:17
+#: ../../changes.rst:39
+#: ../../changes.rst:63
+#: ../../changes.rst:89
+#: ../../changes.rst:105
+#: ../../changes.rst:128
+#: ../../changes.rst:159
+#: ../../changes.rst:186
+#: ../../changes.rst:196
+#: ../../changes.rst:217
+#: ../../changes.rst:233
+#: ../../changes.rst:254
+#: ../../changes.rst:265
+#: ../../changes.rst:305
+#: ../../changes.rst:328
+#: ../../changes.rst:358
+#: ../../changes.rst:375
+#: ../../changes.rst:421
+#: ../../changes.rst:439
+#: ../../changes.rst:457
+#: ../../changes.rst:472
+#: ../../changes.rst:493
+#: ../../changes.rst:522
+#: ../../changes.rst:550
+#: ../../changes.rst:589
+#: ../../changes.rst:605
+#: ../../changes.rst:634
+#: ../../changes.rst:662
+#: ../../changes.rst:684
+#: ../../changes.rst:713
+#: ../../changes.rst:733
+#: ../../changes.rst:742
+#: ../../changes.rst:756
+#: ../../changes.rst:774
+#: ../../changes.rst:1542
+#: ../../changes.rst:1559
+msgid "Bugfixes"
+msgstr ""
+
+#: ../../changes.rst:8
+msgid "`#1684 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1684>`_ Image files not closed when workbooks are saved"
+msgstr ""
+
+#: ../../changes.rst:9
+msgid "`#1778 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1778>`_ Problem with missing scope attribute in Pivot Table formats"
+msgstr ""
+
+#: ../../changes.rst:13
+msgid "3.0.9 (2021-09-22)"
+msgstr ""
+
+#: ../../changes.rst:19
+msgid "`#1284 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1284>`_ Ignore blank ignored in existing Data Validations"
+msgstr ""
+
+#: ../../changes.rst:20
+msgid "`#1539 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1539>`_ Add support for cell protection for merged cell ranges"
+msgstr ""
+
+#: ../../changes.rst:21
+msgid "`#1645 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1645>`_ Timezone-aware datetimes raise an Exception"
+msgstr ""
+
+#: ../../changes.rst:22
+msgid "`#1666 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1666>`_ Improved normalisation of chart series"
+msgstr ""
+
+#: ../../changes.rst:23
+msgid "`#1670 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1670>`_ Catch OverflowError for out of range datetimes"
+msgstr ""
+
+#: ../../changes.rst:24
+msgid "`#1708 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1708>`_ Alignment.relativeIndent can be negative"
+msgstr ""
+
+#: ../../changes.rst:25
+msgid "`#1736 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1769>`_ Incorrect default value `groupBy` attribute"
+msgstr ""
+
+#: ../../changes.rst:29
+msgid "3.0.8 (brown bag)"
+msgstr ""
+
+#: ../../changes.rst:31
+msgid "Deleted because it contained breaking changes from 3.1"
+msgstr ""
+
+#: ../../changes.rst:35
+msgid "3.0.7 (2021-03-09)"
+msgstr ""
+
+#: ../../changes.rst:41
+msgid "`#1510 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1510>`_ Problems with zero time values"
+msgstr ""
+
+#: ../../changes.rst:42
+msgid "`#1588 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1588>`_ Not possible to correctly convert excel dates to timedelta"
+msgstr ""
+
+#: ../../changes.rst:43
+msgid "`#1589 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1589>`_ Exception raised when merging cells which do not have borders all the way round."
+msgstr ""
+
+#: ../../changes.rst:44
+msgid "`#1594 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1594>`_ Python 2 print statement in the tutorial"
+msgstr ""
+
+#: ../../changes.rst:48
+#: ../../changes.rst:77
+#: ../../changes.rst:118
+#: ../../changes.rst:150
+#: ../../changes.rst:165
+#: ../../changes.rst:207
+#: ../../changes.rst:313
+#: ../../changes.rst:337
+#: ../../changes.rst:347
+#: ../../changes.rst:364
+#: ../../changes.rst:383
+#: ../../changes.rst:429
+msgid "Pull Requests"
+msgstr ""
+
+#: ../../changes.rst:50
+msgid "`PR392 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/392/>`_ Add documentation on datetime handling"
+msgstr ""
+
+#: ../../changes.rst:51
+msgid "`PR393 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/393/>`_ Drop dependency on jdcal"
+msgstr ""
+
+#: ../../changes.rst:52
+msgid "`PR394 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/394/>`_ Datetime rounding"
+msgstr ""
+
+#: ../../changes.rst:53
+msgid "`PR395 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/395/>`_ Unify handling of 1900 epoch"
+msgstr ""
+
+#: ../../changes.rst:54
+msgid "`PR397 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/397/>`_ Add explicit support for reading datetime deltas"
+msgstr ""
+
+#: ../../changes.rst:55
+msgid "`PR399 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/399/>`_ Millisecond precision for datetimes"
+msgstr ""
+
+#: ../../changes.rst:59
+msgid "3.0.6 (2021-01-14)"
+msgstr ""
+
+#: ../../changes.rst:65
+msgid "`#1154 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1154>`_ Borders in differential styles are incorrect"
+msgstr ""
+
+#: ../../changes.rst:66
+msgid "`#1287 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1528>`_ Error when opening some pivot tables"
+msgstr ""
+
+#: ../../changes.rst:67
+msgid "`#1366 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1366>`_ Resave breaks the border format in conditional formatting rules"
+msgstr ""
+
+#: ../../changes.rst:68
+msgid "`#1450 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1450>`_ Read-only workbook not closed properly if generator interrupted"
+msgstr ""
+
+#: ../../changes.rst:69
+msgid "`#1547 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1547>`_ Pandas.Multiindex.labels deprecated"
+msgstr ""
+
+#: ../../changes.rst:70
+msgid "`#1552 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1557>`_ Pandas.Multiinex not expanded correctly"
+msgstr ""
+
+#: ../../changes.rst:71
+msgid "`#1557 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1557>`_ Cannot read rows with exponents"
+msgstr ""
+
+#: ../../changes.rst:72
+msgid "`#1568 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1568>`_ numpy.float is deprecated"
+msgstr ""
+
+#: ../../changes.rst:73
+msgid "`#1571 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1571>`_ Cells without coordinate attributes not always correctly handled"
+msgstr ""
+
+#: ../../changes.rst:79
+msgid "`PR385 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/385/>`_ Improved handling of borders for differential styles"
+msgstr ""
+
+#: ../../changes.rst:80
+msgid "`PR386 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/386/>`_ Support subclasses of datetime objects"
+msgstr ""
+
+#: ../../changes.rst:81
+msgid "`PR387 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/387/>`_ Improved handling of cells without coordinates"
+msgstr ""
+
+#: ../../changes.rst:85
+msgid "3.0.5 (2020-08-21)"
+msgstr ""
+
+#: ../../changes.rst:91
+msgid "`#1413 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1413>`_ Incorrectly consider currency format as datetime"
+msgstr ""
+
+#: ../../changes.rst:92
+msgid "`#1490 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1490>`_ Cannot copy worksheets with merged cells"
+msgstr ""
+
+#: ../../changes.rst:93
+msgid "`#1492 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1492>`_ Empty worksheets do not return generators when looping."
+msgstr ""
+
+#: ../../changes.rst:94
+msgid "`#1496 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1496>`_ Hyperlinks duplicated on multiple saves"
+msgstr ""
+
+#: ../../changes.rst:95
+msgid "`#1500 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1500>`_ Incorrectly literal format as datetime"
+msgstr ""
+
+#: ../../changes.rst:96
+msgid "`#1502 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1502>`_ Links set to range of cells not preserved"
+msgstr ""
+
+#: ../../changes.rst:97
+msgid "`#1507 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1507>`_ Exception when opening workbook with chartsheets and tables"
+msgstr ""
+
+#: ../../changes.rst:101
+msgid "3.0.4 (2020-06-24)"
+msgstr ""
+
+#: ../../changes.rst:107
+msgid "`#844 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/844>`_ Find tables by name"
+msgstr ""
+
+#: ../../changes.rst:108
+msgid "`#1414 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1414>`_ Worksheet protection missing in existing files"
+msgstr ""
+
+#: ../../changes.rst:109
+msgid "`#1439 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1439>`_ Exception when reading files with external images"
+msgstr ""
+
+#: ../../changes.rst:110
+msgid "`#1452 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1452>`_ Reading lots of merged cells is very slow."
+msgstr ""
+
+#: ../../changes.rst:111
+msgid "`#1455 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1455>`_ Read support for Bubble Charts."
+msgstr ""
+
+#: ../../changes.rst:112
+msgid "`#1458 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1458>`_ Preserve any indexed colours"
+msgstr ""
+
+#: ../../changes.rst:113
+msgid "`#1473 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1473>`_ Reading many thousand of merged cells is really slow."
+msgstr ""
+
+#: ../../changes.rst:114
+msgid "`#1474 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1474>`_ Adding tables in write-only mode raises an exception."
+msgstr ""
+
+#: ../../changes.rst:120
+msgid "`PR377 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/377/>`_ Add support for finding tables by name or range."
+msgstr ""
+
+#: ../../changes.rst:124
+msgid "3.0.3 (2020-01-20)"
+msgstr ""
+
+#: ../../changes.rst:130
+msgid "`#1260 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1260>`_ Exception when handling merged cells with hyperlinks"
+msgstr ""
+
+#: ../../changes.rst:131
+msgid "`#1373 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1373>`_ Problems when both lxml and defusedxml are installed"
+msgstr ""
+
+#: ../../changes.rst:132
+msgid "`#1385 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1385>`_ CFVO with incorrect values cannot be processed"
+msgstr ""
+
+#: ../../changes.rst:136
+msgid "3.0.2 (2019-11-25)"
+msgstr ""
+
+#: ../../changes.rst:140
+#: ../../changes.rst:807
+#: ../../changes.rst:832
+#: ../../changes.rst:866
+#: ../../changes.rst:874
+#: ../../changes.rst:910
+#: ../../changes.rst:965
+#: ../../changes.rst:985
+#: ../../changes.rst:995
+#: ../../changes.rst:1014
+#: ../../changes.rst:1035
+#: ../../changes.rst:1056
+#: ../../changes.rst:1086
+#: ../../changes.rst:1103
+#: ../../changes.rst:1146
+#: ../../changes.rst:1163
+#: ../../changes.rst:1177
+#: ../../changes.rst:1189
+#: ../../changes.rst:1206
+#: ../../changes.rst:1220
+#: ../../changes.rst:1238
+#: ../../changes.rst:1256
+#: ../../changes.rst:1276
+#: ../../changes.rst:1302
+#: ../../changes.rst:1319
+#: ../../changes.rst:1346
+#: ../../changes.rst:1362
+#: ../../changes.rst:1380
+#: ../../changes.rst:1416
+#: ../../changes.rst:1432
+#: ../../changes.rst:1446
+#: ../../changes.rst:1462
+#: ../../changes.rst:1512
+msgid "Bug fixes"
+msgstr ""
+
+#: ../../changes.rst:142
+msgid "`#1267 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1267>`_ DeprecationError if both defusedxml and lxml are installed"
+msgstr ""
+
+#: ../../changes.rst:143
+msgid "`#1345 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1345>`_ ws._current_row is higher than ws.max_row"
+msgstr ""
+
+#: ../../changes.rst:144
+msgid "`#1365 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1365>`_ Border bottom style is not optional when it should be"
+msgstr ""
+
+#: ../../changes.rst:145
+msgid "`#1367 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1367>`_ Empty cells in read-only, values-only mode are sometimes returned as ReadOnlyCells"
+msgstr ""
+
+#: ../../changes.rst:146
+msgid "`#1368 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1368>`_ Cannot add page breaks to existing worksheets if none exist already"
+msgstr ""
+
+#: ../../changes.rst:152
+msgid "`PR359 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/359/>`_ Improvements to the documentation"
+msgstr ""
+
+#: ../../changes.rst:156
+msgid "3.0.1 (2019-11-14)"
+msgstr ""
+
+#: ../../changes.rst:161
+msgid "`#1250 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1250>`_ Cannot read empty charts."
+msgstr ""
+
+#: ../../changes.rst:167
+msgid "`PR354 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/354/>`_ Fix for #1250"
+msgstr ""
+
+#: ../../changes.rst:168
+msgid "`PR352 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/354/>`_ TableStyleElement is a sequence"
+msgstr ""
+
+#: ../../changes.rst:172
+msgid "3.0.0 (2019-09-25)"
+msgstr ""
+
+#: ../../changes.rst:175
+msgid "Python 3.6+ only release"
+msgstr ""
+
+#: ../../changes.rst:179
+msgid "2.6.4 (2019-09-25)"
+msgstr ""
+
+#: ../../changes.rst:183
+msgid "Final release for Python 2.7 and 3.5"
+msgstr ""
+
+#: ../../changes.rst:188
+msgid "` #1330 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1330>`_ Cannot save workbooks with comments more than once."
+msgstr ""
+
+#: ../../changes.rst:192
+msgid "2.6.3 (2019-08-19)"
+msgstr ""
+
+#: ../../changes.rst:198
+msgid "`#1237 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1237>`_ Fix 3D charts."
+msgstr ""
+
+#: ../../changes.rst:199
+msgid "`#1290 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1290>`_ Minimum for holeSize in Doughnut charts too high"
+msgstr ""
+
+#: ../../changes.rst:200
+msgid "`#1291 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1291>`_ Warning for MergedCells with comments"
+msgstr ""
+
+#: ../../changes.rst:201
+msgid "`#1296 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1296>`_ Pagebreaks duplicated"
+msgstr ""
+
+#: ../../changes.rst:202
+msgid "`#1309 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1309>`_ Workbook has no default CellStyle"
+msgstr ""
+
+#: ../../changes.rst:203
+msgid "`#1330 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1330>`_ Workbooks with comments cannot be saved multiple times"
+msgstr ""
+
+#: ../../changes.rst:209
+msgid "`PR344 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/345/>`_ Make sure NamedStyles number formats are correctly handled"
+msgstr ""
+
+#: ../../changes.rst:213
+msgid "2.6.2 (2019-03-29)"
+msgstr ""
+
+#: ../../changes.rst:219
+msgid "`#1173 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1173>`_ Workbook has no _date_formats attribute"
+msgstr ""
+
+#: ../../changes.rst:220
+msgid "`#1190 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1190>`_ Cannot create charts for worksheets with quotes in the title"
+msgstr ""
+
+#: ../../changes.rst:221
+msgid "`#1228 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1228>`_ MergedCells not removed when range is unmerged"
+msgstr ""
+
+#: ../../changes.rst:222
+msgid "`#1232 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1232>`_ Link to pivot table lost from charts"
+msgstr ""
+
+#: ../../changes.rst:223
+msgid "`#1233 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1233>`_ Chart colours change after saving"
+msgstr ""
+
+#: ../../changes.rst:224
+msgid "`#1236 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1236>`_ Cannot use ws.cell in read-only mode with Python 2.7"
+msgstr ""
+
+#: ../../changes.rst:229
+msgid "2.6.1 (2019-03-04)"
+msgstr ""
+
+#: ../../changes.rst:235
+msgid "`#1174 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1174>`_ ReadOnlyCell.is_date does not work properly"
+msgstr ""
+
+#: ../../changes.rst:236
+msgid "`#1175 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1175>`_ Cannot read Google Docs spreadsheet with a Pivot Table"
+msgstr ""
+
+#: ../../changes.rst:237
+msgid "`#1180 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1180>`_ Charts created with openpyxl cannot be styled"
+msgstr ""
+
+#: ../../changes.rst:238
+msgid "`#1181 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1181>`_ Cannot handle some numpy number types"
+msgstr ""
+
+#: ../../changes.rst:239
+msgid "`#1182 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1182>`_ Exception when reading unknowable number formats"
+msgstr ""
+
+#: ../../changes.rst:240
+msgid "`#1186 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1186>`_ Only last formatting rule for a range loaded"
+msgstr ""
+
+#: ../../changes.rst:241
+msgid "`#1191 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1191>`_ Give MergedCell a `value` attribute"
+msgstr ""
+
+#: ../../changes.rst:242
+msgid "`#1193 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1193>`_ Cannot process worksheets with comments"
+msgstr ""
+
+#: ../../changes.rst:243
+msgid "`#1197 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1197>`_ Cannot process worksheets with both row and page breaks"
+msgstr ""
+
+#: ../../changes.rst:244
+msgid "`#1204 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1204>`_ Cannot reset dimensions in ReadOnlyWorksheets"
+msgstr ""
+
+#: ../../changes.rst:245
+msgid "`#1211 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1211>`_ Incorrect descriptor in ParagraphProperties"
+msgstr ""
+
+#: ../../changes.rst:246
+msgid "`#1213 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1213>`_ Missing `hier` attribute in PageField raises an exception"
+msgstr ""
+
+#: ../../changes.rst:250
+msgid "2.6.0 (2019-02-06)"
+msgstr ""
+
+#: ../../changes.rst:256
+msgid "`#1162 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1162>`_ Exception on tables with names containing spaces."
+msgstr ""
+
+#: ../../changes.rst:257
+msgid "`#1170 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1170>`_ Cannot save files with existing images."
+msgstr ""
+
+#: ../../changes.rst:261
+msgid "2.6.-b1 (2019-01-08)"
+msgstr ""
+
+#: ../../changes.rst:267
+msgid "`#1141 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1141>`_ Cannot use read-only mode with stream"
+msgstr ""
+
+#: ../../changes.rst:268
+msgid "`#1143 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1143>`_ Hyperlinks always set on A1"
+msgstr ""
+
+#: ../../changes.rst:269
+msgid "`#1151 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1151>`_ Internal row counter not initialised when reading files"
+msgstr ""
+
+#: ../../changes.rst:270
+msgid "`#1152 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1152>`_ Exception raised on out of bounds date"
+msgstr ""
+
+#: ../../changes.rst:274
+msgid "2.6-a1 (2018-11-21)"
+msgstr ""
+
+#: ../../changes.rst:278
+#: ../../changes.rst:884
+#: ../../changes.rst:1080
+#: ../../changes.rst:1128
+#: ../../changes.rst:1265
+#: ../../changes.rst:1394
+#: ../../changes.rst:1478
+#: ../../changes.rst:1569
+#: ../../changes.rst:1604
+#: ../../changes.rst:1629
+msgid "Major changes"
+msgstr ""
+
+#: ../../changes.rst:280
+msgid "Implement robust for merged cells so that these can be formatted the way Excel does without confusion. Thanks to Magnus Schieder."
+msgstr ""
+
+#: ../../changes.rst:285
+#: ../../changes.rst:446
+#: ../../changes.rst:483
+#: ../../changes.rst:512
+#: ../../changes.rst:645
+#: ../../changes.rst:724
+#: ../../changes.rst:853
+#: ../../changes.rst:890
+#: ../../changes.rst:904
+#: ../../changes.rst:930
+#: ../../changes.rst:1003
+#: ../../changes.rst:1024
+#: ../../changes.rst:1044
+#: ../../changes.rst:1070
+#: ../../changes.rst:1092
+#: ../../changes.rst:1117
+#: ../../changes.rst:1138
+#: ../../changes.rst:1231
+#: ../../changes.rst:1290
+#: ../../changes.rst:1310
+#: ../../changes.rst:1329
+#: ../../changes.rst:1339
+#: ../../changes.rst:1356
+#: ../../changes.rst:1374
+#: ../../changes.rst:1405
+#: ../../changes.rst:1441
+#: ../../changes.rst:1456
+#: ../../changes.rst:1493
+#: ../../changes.rst:1538
+#: ../../changes.rst:1550
+#: ../../changes.rst:1573
+#: ../../changes.rst:1614
+msgid "Minor changes"
+msgstr ""
+
+#: ../../changes.rst:287
+msgid "Add support for worksheet scenarios"
+msgstr ""
+
+#: ../../changes.rst:288
+msgid "Add read support for chartsheets"
+msgstr ""
+
+#: ../../changes.rst:289
+msgid "Add method for moving ranges of cells on a worksheet"
+msgstr ""
+
+#: ../../changes.rst:290
+msgid "Drop support for Python 3.4"
+msgstr ""
+
+#: ../../changes.rst:291
+msgid "Last version to support Python 2.7"
+msgstr ""
+
+#: ../../changes.rst:295
+#: ../../changes.rst:579
+#: ../../changes.rst:628
+#: ../../changes.rst:860
+#: ../../changes.rst:950
+msgid "Deprecations"
+msgstr ""
+
+#: ../../changes.rst:297
+msgid "Type inference and coercion for cell values"
+msgstr ""
+
+#: ../../changes.rst:301
+msgid "2.5.14 (2019-01-23)"
+msgstr ""
+
+#: ../../changes.rst:307
+msgid "`#1150 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1150>`_ Correct typo in LineProperties"
+msgstr ""
+
+#: ../../changes.rst:308
+msgid "`#1142 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1142>`_ Exception raised for unsupported image files"
+msgstr ""
+
+#: ../../changes.rst:309
+msgid "`#1159 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1159>`_ Exception raised when cannot find source for non-local cache object"
+msgstr ""
+
+#: ../../changes.rst:315
+msgid "`PR301 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/301/>`_ Add support for nested brackets to the tokeniser"
+msgstr ""
+
+#: ../../changes.rst:316
+msgid "`PR303 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/301/>`_ Improvements on handling nested brackets in the tokeniser"
+msgstr ""
+
+#: ../../changes.rst:320
+msgid "2.5.13 (brown bag)"
+msgstr ""
+
+#: ../../changes.rst:324
+msgid "2.5.12 (2018-11-29)"
+msgstr ""
+
+#: ../../changes.rst:330
+msgid "`#1130 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1130>`_ Overwriting default font in Normal style affects library default"
+msgstr ""
+
+#: ../../changes.rst:331
+msgid "`#1133 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1133>`_ Images not added to anchors."
+msgstr ""
+
+#: ../../changes.rst:332
+msgid "`#1134 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1134>`_ Cannot read pivot table formats without dxId"
+msgstr ""
+
+#: ../../changes.rst:333
+msgid "`#1138 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1138>`_ Repeated registration of simple filter could lead to memory leaks"
+msgstr ""
+
+#: ../../changes.rst:339
+msgid "`PR300 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/300/>`_ Use defusedxml if available"
+msgstr ""
+
+#: ../../changes.rst:343
+msgid "2.5.11 (2018-11-21)"
+msgstr ""
+
+#: ../../changes.rst:349
+msgid "`PR295 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/295>`_ Improved handling of missing rows"
+msgstr ""
+
+#: ../../changes.rst:350
+msgid "`PR296 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/296>`_ Add support for defined names to tokeniser"
+msgstr ""
+
+#: ../../changes.rst:354
+msgid "2.5.10 (2018-11-13)"
+msgstr ""
+
+#: ../../changes.rst:360
+msgid "`#1114 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1114>`_ Empty column dimensions should not be saved."
+msgstr ""
+
+#: ../../changes.rst:366
+msgid "`PR285 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/285>`_ Tokenizer failure for quoted sheet name in second half of range"
+msgstr ""
+
+#: ../../changes.rst:367
+msgid "`PR289 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/289>`_ Improved error detection in ranges."
+msgstr ""
+
+#: ../../changes.rst:371
+msgid "2.5.9 (2018-10-19)"
+msgstr ""
+
+#: ../../changes.rst:377
+msgid "`#1000 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1000>`_ Clean AutoFilter name definitions"
+msgstr ""
+
+#: ../../changes.rst:378
+msgid "`#1106 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1106>`_ Attribute missing from Shape object"
+msgstr ""
+
+#: ../../changes.rst:379
+msgid "`#1109 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1109>`_ Failure to read all DrawingML means workbook can't be read"
+msgstr ""
+
+#: ../../changes.rst:385
+msgid "`PR281 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/281>`_ Allow newlines in formulae"
+msgstr ""
+
+#: ../../changes.rst:386
+msgid "`PR284 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/284>`_ Fix whitespace in front of infix operator in formulae"
+msgstr ""
+
+#: ../../changes.rst:390
+msgid "2.5.8 (2018-09-25)"
+msgstr ""
+
+#: ../../changes.rst:393
+msgid "`#877 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/877>`_ Cannot control how missing values are displayed in charts."
+msgstr ""
+
+#: ../../changes.rst:394
+msgid "`#948 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/948>`_ Cell references can't be used for chart titles"
+msgstr ""
+
+#: ../../changes.rst:395
+msgid "`#1095 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1095>`_ Params in iter_cols and iter_rows methods are slightly wrong."
+msgstr ""
+
+#: ../../changes.rst:399
+msgid "2.5.7 (2018-09-13)"
+msgstr ""
+
+#: ../../changes.rst:402
+msgid "`#954 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/954>`_ Sheet title containing % need quoting in references"
+msgstr ""
+
+#: ../../changes.rst:403
+msgid "`#1047 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1047>`_ Cannot set quote prefix"
+msgstr ""
+
+#: ../../changes.rst:404
+msgid "`#1093 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1093>`_ Pandas timestamps raise KeyError"
+msgstr ""
+
+#: ../../changes.rst:408
+msgid "2.5.6 (2018-08-30)"
+msgstr ""
+
+#: ../../changes.rst:411
+msgid "`#832 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/832>`_ Read-only mode can leave find-handles open when reading dimensions"
+msgstr ""
+
+#: ../../changes.rst:412
+msgid "`#933 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/933>`_ Set a worksheet directly as active"
+msgstr ""
+
+#: ../../changes.rst:413
+msgid "`#1086 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1086>`_ Internal row counter not adjusted when rows are deleted or inserted"
+msgstr ""
+
+#: ../../changes.rst:417
+msgid "2.5.5 (2018-08-04)"
+msgstr ""
+
+#: ../../changes.rst:423
+msgid "`#1049 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1049>`_ Files with Mac epoch are read incorrectly"
+msgstr ""
+
+#: ../../changes.rst:424
+msgid "`#1058 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1058>`_ Cannot copy merged cells"
+msgstr ""
+
+#: ../../changes.rst:425
+msgid "`#1066 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1066>`_ Cannot access ws.active_cell"
+msgstr ""
+
+#: ../../changes.rst:431
+msgid "`PR267 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/267/image-read>`_ Introduce read-support for images"
+msgstr ""
+
+#: ../../changes.rst:435
+msgid "2.5.4 (2018-06-07)"
+msgstr ""
+
+#: ../../changes.rst:441
+msgid "`#1025 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1025>`_ Cannot read files with 3D charts."
+msgstr ""
+
+#: ../../changes.rst:442
+msgid "`#1030 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1030>`_ Merged cells take a long time to parse"
+msgstr ""
+
+#: ../../changes.rst:448
+msgid "Improve read support for pivot tables and don't always create a Filters child for filterColumn objects."
+msgstr ""
+
+#: ../../changes.rst:449
+msgid "`Support folding rows` <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/259/fold-rows>`_"
+msgstr ""
+
+#: ../../changes.rst:453
+msgid "2.5.3 (2018-04-18)"
+msgstr ""
+
+#: ../../changes.rst:459
+msgid "`#983 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/983>`_ Warning level too aggressive."
+msgstr ""
+
+#: ../../changes.rst:460
+msgid "`#1015 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1015>`_ Alignment and protection values not saved for named styles."
+msgstr ""
+
+#: ../../changes.rst:461
+msgid "`#1017 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1017>`_ Deleting elements from a legend doesn't work."
+msgstr ""
+
+#: ../../changes.rst:462
+msgid "`#1018 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1018>`_ Index names repeated for every row in dataframe."
+msgstr ""
+
+#: ../../changes.rst:463
+msgid "`#1020 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1020>`_ Worksheet protection not being stored."
+msgstr ""
+
+#: ../../changes.rst:464
+msgid "`#1023 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1023>`_ Exception raised when reading a tooltip."
+msgstr ""
+
+#: ../../changes.rst:468
+msgid "2.5.2 (2018-04-06)"
+msgstr ""
+
+#: ../../changes.rst:474
+msgid "`#949 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/949>`_ High memory use when reading text-heavy files."
+msgstr ""
+
+#: ../../changes.rst:475
+msgid "`#970 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/970>`_ Copying merged cells copies references."
+msgstr ""
+
+#: ../../changes.rst:476
+msgid "`#978 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/978>`_ Cannot set comment size."
+msgstr ""
+
+#: ../../changes.rst:477
+msgid "`#985 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/895>`_ Exception when trying to save workbooks with no views."
+msgstr ""
+
+#: ../../changes.rst:478
+msgid "`#995 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/995>`_ Cannot delete last row or column."
+msgstr ""
+
+#: ../../changes.rst:479
+msgid "`#1002 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/1002>`_ Cannot read Drawings containing embedded images."
+msgstr ""
+
+#: ../../changes.rst:485
+msgid "Support for dataframes with multiple columns and multiple indices."
+msgstr ""
+
+#: ../../changes.rst:489
+msgid "2.5.1 (2018-03-12)"
+msgstr ""
+
+#: ../../changes.rst:495
+msgid "`#934 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/934>`_ Headers and footers not included in write-only mode."
+msgstr ""
+
+#: ../../changes.rst:496
+msgid "`#960 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/960>`_ Deprecation warning raised when using ad-hoc access in read-only mode."
+msgstr ""
+
+#: ../../changes.rst:497
+msgid "`#964 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/964>`_ Not all cells removed when deleting multiple rows."
+msgstr ""
+
+#: ../../changes.rst:498
+msgid "`#966 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/966>`_ Cannot read 3d bar chart correctly."
+msgstr ""
+
+#: ../../changes.rst:499
+msgid "`#967 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/967>`_ Problems reading some charts."
+msgstr ""
+
+#: ../../changes.rst:500
+msgid "`#968 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/968>`_ Worksheets with SHA protection become corrupted after saving."
+msgstr ""
+
+#: ../../changes.rst:501
+msgid "`#974 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/974>`_ Problem when deleting ragged rows or columns."
+msgstr ""
+
+#: ../../changes.rst:502
+msgid "`#976 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/976>`_ GroupTransforms and GroupShapeProperties have incorrect descriptors"
+msgstr ""
+
+#: ../../changes.rst:503
+msgid "Make sure that headers and footers in chartsheets are included in the file"
+msgstr ""
+
+#: ../../changes.rst:508
+msgid "2.5.0 (2018-01-24)"
+msgstr ""
+
+#: ../../changes.rst:514
+msgid "Correct definition for Connection Shapes. Related to # 958"
+msgstr ""
+
+#: ../../changes.rst:518
+msgid "2.5.0-b2 (2018-01-19)"
+msgstr ""
+
+#: ../../changes.rst:524
+msgid "`#915 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/915>`_ TableStyleInfo has no required attributes"
+msgstr ""
+
+#: ../../changes.rst:525
+msgid "`#925 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/925>`_ Cannot read files with 3D drawings"
+msgstr ""
+
+#: ../../changes.rst:526
+msgid "`#926 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/926>`_ Incorrect version check in installer"
+msgstr ""
+
+#: ../../changes.rst:527
+msgid "Cell merging uses transposed parameters"
+msgstr ""
+
+#: ../../changes.rst:528
+msgid "`#928 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/928>`_ ExtLst missing keyword for PivotFields"
+msgstr ""
+
+#: ../../changes.rst:529
+msgid "`#932 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/932>`_ Inf causes problems for Excel"
+msgstr ""
+
+#: ../../changes.rst:530
+msgid "`#952 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/952>`_ Cannot load table styles with custom names"
+msgstr ""
+
+#: ../../changes.rst:534
+#: ../../changes.rst:565
+#: ../../changes.rst:599
+#: ../../changes.rst:622
+msgid "Major Changes"
+msgstr ""
+
+#: ../../changes.rst:536
+msgid "You can now insert and delete rows and columns in worksheets"
+msgstr ""
+
+#: ../../changes.rst:540
+#: ../../changes.rst:571
+#: ../../changes.rst:786
+#: ../../changes.rst:822
+msgid "Minor Changes"
+msgstr ""
+
+#: ../../changes.rst:542
+msgid "pip now handles which Python versions can be used."
+msgstr ""
+
+#: ../../changes.rst:546
+msgid "2.5.0-b1 (2017-10-19)"
+msgstr ""
+
+#: ../../changes.rst:551
+msgid "`#812 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/812>`_ Explicitly support for multiple cell ranges in conditonal formatting"
+msgstr ""
+
+#: ../../changes.rst:552
+msgid "`#827 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/827>`_ Non-contiguous cell ranges in validators get merged"
+msgstr ""
+
+#: ../../changes.rst:553
+msgid "`#837 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/837>`_ Empty data validators create invalid Excel files"
+msgstr ""
+
+#: ../../changes.rst:554
+msgid "`#860 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/860>`_ Large validation ranges use lots of memory"
+msgstr ""
+
+#: ../../changes.rst:555
+msgid "`#876 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/876>`_ Unicode in chart axes not handled correctly in Python 2"
+msgstr ""
+
+#: ../../changes.rst:556
+msgid "`#882 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/882>`_ ScatterCharts have defective axes"
+msgstr ""
+
+#: ../../changes.rst:557
+msgid "`#885 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/885>`_ Charts with empty numVal elements cannot be read"
+msgstr ""
+
+#: ../../changes.rst:558
+msgid "`#894 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/894>`_ Scaling options from existing files ignored"
+msgstr ""
+
+#: ../../changes.rst:559
+msgid "`#895 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/895>`_ Charts with PivotSource cannot be read"
+msgstr ""
+
+#: ../../changes.rst:560
+msgid "`#903 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/903>`_ Cannot read gradient fills"
+msgstr ""
+
+#: ../../changes.rst:561
+msgid "`#904 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/904>`_ Quotes in number formats could be treated as datetimes"
+msgstr ""
+
+#: ../../changes.rst:567
+msgid "`worksheet.cell()` no longer accepts a `coordinate` parameter. The syntax is now `ws.cell(row, column, value=None)`"
+msgstr ""
+
+#: ../../changes.rst:573
+msgid "Added CellRange and MultiCellRange types (thanks to Laurent LaPorte for the suggestion) as a utility type for things like data validations, conditional formatting and merged cells."
+msgstr ""
+
+#: ../../changes.rst:581
+msgid "ws.merged_cell_ranges has been deprecated because MultiCellRange provides sufficient functionality"
+msgstr ""
+
+#: ../../changes.rst:585
+msgid "2.5.0-a3 (2017-08-14)"
+msgstr ""
+
+#: ../../changes.rst:590
+msgid "`#848 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/848>`_ Reading workbooks with Pie Charts raises an exception"
+msgstr ""
+
+#: ../../changes.rst:591
+msgid "`#857 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/857>`_ Pivot Tables without Worksheet Sources raise an exception"
+msgstr ""
+
+#: ../../changes.rst:595
+msgid "2.5.0-a2 (2017-06-25)"
+msgstr ""
+
+#: ../../changes.rst:601
+msgid "Read support for charts"
+msgstr ""
+
+#: ../../changes.rst:606
+msgid "`#833 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/833>`_ Cannot access chartsheets by title"
+msgstr ""
+
+#: ../../changes.rst:607
+msgid "`#834 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/834>`_ Preserve workbook views"
+msgstr ""
+
+#: ../../changes.rst:608
+msgid "`#841 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/841>`_ Incorrect classification of a datetime"
+msgstr ""
+
+#: ../../changes.rst:612
+msgid "2.5.0-a1 (2017-05-30)"
+msgstr ""
+
+#: ../../changes.rst:616
+#: ../../changes.rst:1599
+#: ../../changes.rst:1635
+msgid "Compatibility"
+msgstr ""
+
+#: ../../changes.rst:618
+msgid "Dropped support for Python 2.6 and 3.3. openpyxl will not run with Python 2.6"
+msgstr ""
+
+#: ../../changes.rst:624
+msgid "Read/write support for pivot tables"
+msgstr ""
+
+#: ../../changes.rst:630
+msgid "Dropped the anchor method from images and additional constructor arguments"
+msgstr ""
+
+#: ../../changes.rst:635
+msgid "`#779 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/779>`_ Fails to recognise Chinese date format`"
+msgstr ""
+
+#: ../../changes.rst:636
+msgid "`#828 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/828>`_ Include hidden cells in charts`"
+msgstr ""
+
+#: ../../changes.rst:640
+#: ../../changes.rst:671
+#: ../../changes.rst:699
+#: ../../changes.rst:763
+#: ../../changes.rst:792
+#: ../../changes.rst:1503
+msgid "Pull requests"
+msgstr ""
+
+#: ../../changes.rst:641
+msgid "`163 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/163>`_ Improved GradientFill"
+msgstr ""
+
+#: ../../changes.rst:647
+msgid "Remove deprecated methods from Cell"
+msgstr ""
+
+#: ../../changes.rst:648
+msgid "Remove deprecated methods from Worksheet"
+msgstr ""
+
+#: ../../changes.rst:649
+msgid "Added read/write support for the datetime type for cells"
+msgstr ""
+
+#: ../../changes.rst:653
+msgid "2.4.11 (2018-01-24)"
+msgstr ""
+
+#: ../../changes.rst:655
+msgid "#957 `<https://foss.heptapod.net/openpyxl/openpyxl/-/issues/957>`_ Relationship type for tables is borked"
+msgstr ""
+
+#: ../../changes.rst:659
+msgid "2.4.10 (2018-01-19)"
+msgstr ""
+
+#: ../../changes.rst:664
+msgid "#912 `<https://foss.heptapod.net/openpyxl/openpyxl/-/issues/912>`_ Copying objects uses shallow copy"
+msgstr ""
+
+#: ../../changes.rst:665
+msgid "#921 `<https://foss.heptapod.net/openpyxl/openpyxl/-/issues/921>`_ API documentation not generated automatically"
+msgstr ""
+
+#: ../../changes.rst:666
+msgid "#927 `<https://foss.heptapod.net/openpyxl/openpyxl/-/issues/927>`_ Exception raised when adding coloured borders together"
+msgstr ""
+
+#: ../../changes.rst:667
+msgid "#931 `<https://foss.heptapod.net/openpyxl/openpyxl/-/issues/931>`_ Number formats not correctly deduplicated"
+msgstr ""
+
+#: ../../changes.rst:673
+msgid "203 `<https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/203/>`_ Correction to worksheet protection description"
+msgstr ""
+
+#: ../../changes.rst:674
+msgid "210 `<https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/210/>`_ Some improvements to the API docs"
+msgstr ""
+
+#: ../../changes.rst:675
+msgid "211 `<https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/211/>`_ Improved deprecation decorator"
+msgstr ""
+
+#: ../../changes.rst:676
+msgid "218 `<https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/218/>`_ Fix problems with deepcopy"
+msgstr ""
+
+#: ../../changes.rst:680
+msgid "2.4.9 (2017-10-19)"
+msgstr ""
+
+#: ../../changes.rst:686
+msgid "`#809 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/809>`_ Incomplete documentation of `copy_worksheet` method"
+msgstr ""
+
+#: ../../changes.rst:687
+msgid "`#811 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/811>`_ Scoped definedNames not removed when worksheet is deleted"
+msgstr ""
+
+#: ../../changes.rst:688
+msgid "`#824 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/824>`_ Raise an exception if a chart is used in multiple sheets"
+msgstr ""
+
+#: ../../changes.rst:689
+msgid "`#842 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/842>`_ Non-ASCII table column headings cause an exception in Python 2"
+msgstr ""
+
+#: ../../changes.rst:690
+msgid "`#846 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/846>`_ Conditional formats not supported in write-only mode"
+msgstr ""
+
+#: ../../changes.rst:691
+msgid "`#849 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/849>`_ Conditional formats with no sqref cause an exception"
+msgstr ""
+
+#: ../../changes.rst:692
+msgid "`#859 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/859>`_ Headers that start with a number conflict with font size"
+msgstr ""
+
+#: ../../changes.rst:693
+msgid "`#902 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/902>`_ TableStyleElements don't always have a condtional format"
+msgstr ""
+
+#: ../../changes.rst:694
+msgid "`#908 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/908>`_ Read-only mode sometimes returns too many cells"
+msgstr ""
+
+#: ../../changes.rst:701
+msgid "`#179 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/179>`_ Cells kept in a set"
+msgstr ""
+
+#: ../../changes.rst:702
+msgid "`#180 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/180>`_ Support for Workbook protection"
+msgstr ""
+
+#: ../../changes.rst:703
+msgid "`#182 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/182>`_ Read support for page breaks"
+msgstr ""
+
+#: ../../changes.rst:704
+msgid "`#183 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/183>`_ Improve documentation of `copy_worksheet` method"
+msgstr ""
+
+#: ../../changes.rst:705
+msgid "`#198 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/198>`_ Fix for #908"
+msgstr ""
+
+#: ../../changes.rst:709
+msgid "2.4.8 (2017-05-30)"
+msgstr ""
+
+#: ../../changes.rst:715
+msgid "AutoFilter.sortState being assignd to the ws.sortState"
+msgstr ""
+
+#: ../../changes.rst:716
+msgid "`#766 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/666>`_ Sheetnames with apostrophes need additional escaping"
+msgstr ""
+
+#: ../../changes.rst:717
+msgid "`#729 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/729>`_ Cannot open files created by Microsoft Dynamics"
+msgstr ""
+
+#: ../../changes.rst:718
+msgid "`#819 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/819>`_ Negative percents not case correctly"
+msgstr ""
+
+#: ../../changes.rst:719
+msgid "`#821 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/821>`_ Runtime imports can cause deadlock"
+msgstr ""
+
+#: ../../changes.rst:720
+msgid "`#855 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/855>`_ Print area containing only columns leads to corrupt file"
+msgstr ""
+
+#: ../../changes.rst:725
+msgid "Preserve any table styles"
+msgstr ""
+
+#: ../../changes.rst:729
+msgid "2.4.7 (2017-04-24)"
+msgstr ""
+
+#: ../../changes.rst:734
+msgid "`#807 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/807>`_ Sample files being included by mistake in sdist"
+msgstr ""
+
+#: ../../changes.rst:738
+msgid "2.4.6 (2017-04-14)"
+msgstr ""
+
+#: ../../changes.rst:743
+msgid "`#776 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/776>`_ Cannot apply formatting to plot area"
+msgstr ""
+
+#: ../../changes.rst:744
+msgid "`#780 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/780>`_ Exception when element attributes are Python keywords"
+msgstr ""
+
+#: ../../changes.rst:745
+msgid "`#781 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/781>`_ Exception raised when saving files with styled columns"
+msgstr ""
+
+#: ../../changes.rst:746
+msgid "`#785 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/785>`_ Number formats for data labels are incorrect"
+msgstr ""
+
+#: ../../changes.rst:747
+msgid "`#788 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/788>`_ Worksheet titles not quoted in defined names"
+msgstr ""
+
+#: ../../changes.rst:748
+msgid "`#800 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/800>`_ Font underlines not read correctly"
+msgstr ""
+
+#: ../../changes.rst:752
+msgid "2.4.5 (2017-03-07)"
+msgstr ""
+
+#: ../../changes.rst:757
+msgid "`#750 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/750>`_ Adding images keeps file handles open"
+msgstr ""
+
+#: ../../changes.rst:758
+msgid "`#772 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/772>`_ Exception for column-only ranges"
+msgstr ""
+
+#: ../../changes.rst:759
+msgid "`#773 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/773>`_ Cannot copy worksheets with non-ascii titles on Python 2"
+msgstr ""
+
+#: ../../changes.rst:765
+msgid "`161 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/161>`_ Support for non-standard names for Workbook part."
+msgstr ""
+
+#: ../../changes.rst:766
+msgid "`162 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/162>`_ Documentation correction"
+msgstr ""
+
+#: ../../changes.rst:770
+msgid "2.4.4 (2017-02-23)"
+msgstr ""
+
+#: ../../changes.rst:776
+msgid "`#673 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/673>`_ Add close method to workbooks"
+msgstr ""
+
+#: ../../changes.rst:777
+msgid "`#762 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/762>`_ openpyxl can create files with invalid style indices"
+msgstr ""
+
+#: ../../changes.rst:778
+msgid "`#729 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/729>`_ Allow images in write-only mode"
+msgstr ""
+
+#: ../../changes.rst:779
+msgid "`#744 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/744>`_ Rounded corners for charts"
+msgstr ""
+
+#: ../../changes.rst:780
+msgid "`#747 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/747>`_ Use repr when handling non-convertible objects"
+msgstr ""
+
+#: ../../changes.rst:781
+msgid "`#764 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/764>`_ Hashing function is incorrect"
+msgstr ""
+
+#: ../../changes.rst:782
+msgid "`#765 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/765>`_ Named styles share underlying array"
+msgstr ""
+
+#: ../../changes.rst:788
+msgid "Add roundtrip support for worksheet tables."
+msgstr ""
+
+#: ../../changes.rst:794
+msgid "`160 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/160>`_ Don't init mimetypes more than once."
+msgstr ""
+
+#: ../../changes.rst:798
+msgid "2.4.3 (unreleased)"
+msgstr ""
+
+#: ../../changes.rst:799
+msgid "bad release"
+msgstr ""
+
+#: ../../changes.rst:803
+msgid "2.4.2 (2017-01-31)"
+msgstr ""
+
+#: ../../changes.rst:809
+msgid "`#727 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/727>`_ DeprecationWarning is incorrect"
+msgstr ""
+
+#: ../../changes.rst:810
+msgid "`#734 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/734>`_ Exception raised if userName is missing"
+msgstr ""
+
+#: ../../changes.rst:811
+msgid "`#739 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/739>`_ Always provide a date1904 attribute"
+msgstr ""
+
+#: ../../changes.rst:812
+msgid "`#740 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/740>`_ Hashes should be stored as Base64"
+msgstr ""
+
+#: ../../changes.rst:813
+msgid "`#743 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/743>`_ Print titles broken on sheetnames with spaces"
+msgstr ""
+
+#: ../../changes.rst:814
+msgid "`#748 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/748>`_ Workbook breaks when active sheet is removed"
+msgstr ""
+
+#: ../../changes.rst:815
+msgid "`#754 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/754>`_ Incorrect descriptor for Filter values"
+msgstr ""
+
+#: ../../changes.rst:816
+msgid "`#756 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/756>`_ Potential XXE vulerability"
+msgstr ""
+
+#: ../../changes.rst:817
+msgid "`#758 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/758>`_ Cannot create files with page breaks and charts"
+msgstr ""
+
+#: ../../changes.rst:818
+msgid "`#759 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/759>`_ Problems with worksheets with commas in their titles"
+msgstr ""
+
+#: ../../changes.rst:824
+msgid "Add unicode support for sheet name incrementation."
+msgstr ""
+
+#: ../../changes.rst:828
+msgid "2.4.1 (2016-11-23)"
+msgstr ""
+
+#: ../../changes.rst:834
+msgid "`#643 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/643>`_ Make checking for duplicate sheet titles case insensitive"
+msgstr ""
+
+#: ../../changes.rst:835
+msgid "`#647 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/647>`_ Trouble handling LibreOffice files with named styles"
+msgstr ""
+
+#: ../../changes.rst:836
+msgid "`#687 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/682>`_ Directly assigned new named styles always refer to \"Normal\""
+msgstr ""
+
+#: ../../changes.rst:837
+msgid "`#690 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/690>`_ Cannot parse print titles with multiple sheet names"
+msgstr ""
+
+#: ../../changes.rst:838
+msgid "`#691 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/691>`_ Cannot work with macro files created by LibreOffice"
+msgstr ""
+
+#: ../../changes.rst:839
+msgid "Prevent duplicate differential styles"
+msgstr ""
+
+#: ../../changes.rst:840
+msgid "`#694 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/694>`_ Allow sheet titles longer than 31 characters"
+msgstr ""
+
+#: ../../changes.rst:841
+msgid "`#697 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/697>`_ Cannot unset hyperlinks"
+msgstr ""
+
+#: ../../changes.rst:842
+msgid "`#699 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/699>`_ Exception raised when format objects use cell references"
+msgstr ""
+
+#: ../../changes.rst:843
+msgid "`#703 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/703>`_ Copy height and width when copying comments"
+msgstr ""
+
+#: ../../changes.rst:844
+msgid "`#705 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/705>`_ Incorrect content type for VBA macros"
+msgstr ""
+
+#: ../../changes.rst:845
+msgid "`#707 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/707>`_ IndexError raised in read-only mode when accessing individual cells"
+msgstr ""
+
+#: ../../changes.rst:846
+msgid "`#711 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/711>`_ Files with external links become corrupted"
+msgstr ""
+
+#: ../../changes.rst:847
+msgid "`#715 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/715>`_ Cannot read files containing macro sheets"
+msgstr ""
+
+#: ../../changes.rst:848
+msgid "`#717 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/717>`_ Details from named styles not preserved when reading files"
+msgstr ""
+
+#: ../../changes.rst:849
+msgid "`#722 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/722>`_ Remove broken Print Title and Print Area definitions"
+msgstr ""
+
+#: ../../changes.rst:855
+msgid "Add support for Python 3.6"
+msgstr ""
+
+#: ../../changes.rst:856
+msgid "Correct documentation for headers and footers"
+msgstr ""
+
+#: ../../changes.rst:862
+msgid "Worksheet methods `get_named_range()` and `get_sqaured_range()`"
+msgstr ""
+
+#: ../../changes.rst:870
+msgid "2.4.0 (2016-09-15)"
+msgstr ""
+
+#: ../../changes.rst:876
+msgid "`#652 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/652>`_ Exception raised when epoch is 1904"
+msgstr ""
+
+#: ../../changes.rst:877
+msgid "`#642 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/642>`_ Cannot handle unicode in headers and footers in Python 2"
+msgstr ""
+
+#: ../../changes.rst:878
+msgid "`#646 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/646>`_ Cannot handle unicode sheetnames in Python 2"
+msgstr ""
+
+#: ../../changes.rst:879
+msgid "`#658 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/658>`_ Chart styles, and axis units should not be 0"
+msgstr ""
+
+#: ../../changes.rst:880
+msgid "`#663 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/663>`_ Strings in external workbooks not unicode"
+msgstr ""
+
+#: ../../changes.rst:886
+msgid "Add support for builtin styles and include one for Pandas"
+msgstr ""
+
+#: ../../changes.rst:892
+msgid "Add a `keep_links` option to `load_workbook`. External links contain cached copies of the external workbooks. If these are big it can be advantageous to be able to disable them."
+msgstr ""
+
+#: ../../changes.rst:895
+msgid "Provide an example for using cell ranges in DataValidation."
+msgstr ""
+
+#: ../../changes.rst:896
+msgid "PR 138 - add copy support to comments."
+msgstr ""
+
+#: ../../changes.rst:900
+msgid "2.4.0-b1 (2016-06-08)"
+msgstr ""
+
+#: ../../changes.rst:906
+msgid "Add an the alias `hide_drop_down` to DataValidation for `showDropDown` because that is how Excel works."
+msgstr ""
+
+#: ../../changes.rst:912
+msgid "`#625 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/625>`_ Exception raises when inspecting EmptyCells in read-only mode"
+msgstr ""
+
+#: ../../changes.rst:913
+msgid "`#547 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/547>`_ Functions for handling OOXML \"escaped\" ST_XStrings"
+msgstr ""
+
+#: ../../changes.rst:914
+msgid "`#629 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/629>`_ Row Dimensions not supported in write-only mode"
+msgstr ""
+
+#: ../../changes.rst:915
+msgid "`#530 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/530>`_ Problems when removing worksheets with charts"
+msgstr ""
+
+#: ../../changes.rst:916
+msgid "`#630 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/630>`_ Cannot use SheetProtection in write-only mode"
+msgstr ""
+
+#: ../../changes.rst:920
+msgid "Features"
+msgstr ""
+
+#: ../../changes.rst:922
+msgid "Add write support for worksheet tables"
+msgstr ""
+
+#: ../../changes.rst:926
+msgid "2.4.0-a1 (2016-04-11)"
+msgstr ""
+
+#: ../../changes.rst:932
+msgid "Remove deprecated methods from DataValidation"
+msgstr ""
+
+#: ../../changes.rst:933
+msgid "Remove deprecated methods from PrintPageSetup"
+msgstr ""
+
+#: ../../changes.rst:934
+msgid "Convert AutoFilter to Serialisable and extend support for filters"
+msgstr ""
+
+#: ../../changes.rst:935
+msgid "Add support for SortState"
+msgstr ""
+
+#: ../../changes.rst:936
+msgid "Removed `use_iterators` keyword when loading workbooks. Use `read_only` instead."
+msgstr ""
+
+#: ../../changes.rst:937
+msgid "Removed `optimized_write` keyword for new workbooks. Use `write_only` instead."
+msgstr ""
+
+#: ../../changes.rst:938
+msgid "Improve print title support"
+msgstr ""
+
+#: ../../changes.rst:939
+msgid "Add print area support"
+msgstr ""
+
+#: ../../changes.rst:940
+msgid "New implementation of defined names"
+msgstr ""
+
+#: ../../changes.rst:941
+msgid "New implementation of page headers and footers"
+msgstr ""
+
+#: ../../changes.rst:942
+msgid "Add support for Python's NaN"
+msgstr ""
+
+#: ../../changes.rst:943
+msgid "Added iter_cols method for worksheets"
+msgstr ""
+
+#: ../../changes.rst:944
+msgid "ws.rows and ws.columns now always return generators and start at the top of the worksheet"
+msgstr ""
+
+#: ../../changes.rst:945
+msgid "Add a `values` property for worksheets"
+msgstr ""
+
+#: ../../changes.rst:946
+msgid "Default column width changed to 8 as per the specification"
+msgstr ""
+
+#: ../../changes.rst:952
+msgid "Cell anchor method"
+msgstr ""
+
+#: ../../changes.rst:953
+msgid "Worksheet point_pos method"
+msgstr ""
+
+#: ../../changes.rst:954
+msgid "Worksheet add_print_title method"
+msgstr ""
+
+#: ../../changes.rst:955
+msgid "Worksheet HeaderFooter attribute, replaced by individual ones"
+msgstr ""
+
+#: ../../changes.rst:956
+msgid "Flatten function for cells"
+msgstr ""
+
+#: ../../changes.rst:957
+msgid "Workbook get_named_range, add_named_range, remove_named_range, get_sheet_names, get_sheet_by_name"
+msgstr ""
+
+#: ../../changes.rst:958
+msgid "Comment text attribute"
+msgstr ""
+
+#: ../../changes.rst:959
+msgid "Use of range strings deprecated for ws.iter_rows()"
+msgstr ""
+
+#: ../../changes.rst:960
+msgid "Use of coordinates deprecated for ws.cell()"
+msgstr ""
+
+#: ../../changes.rst:961
+msgid "Deprecate .copy() method for StyleProxy objects"
+msgstr ""
+
+#: ../../changes.rst:967
+msgid "`#152 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/152>`_ Hyperlinks lost when reading files"
+msgstr ""
+
+#: ../../changes.rst:968
+msgid "`#171 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/171>`_ Add function for copying worksheets"
+msgstr ""
+
+#: ../../changes.rst:969
+msgid "`#386 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/386>`_ Cells with inline strings considered empty"
+msgstr ""
+
+#: ../../changes.rst:970
+msgid "`#397 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/397>`_ Add support for ranges of rows and columns"
+msgstr ""
+
+#: ../../changes.rst:971
+msgid "`#446 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/446>`_ Workbook with definedNames corrupted by openpyxl"
+msgstr ""
+
+#: ../../changes.rst:972
+msgid "`#481 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/481>`_ \"safe\" reserved ranges are not read from workbooks"
+msgstr ""
+
+#: ../../changes.rst:973
+msgid "`#501 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/501>`_ Discarding named ranges can lead to corrupt files"
+msgstr ""
+
+#: ../../changes.rst:974
+msgid "`#574 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/574>`_ Exception raised when using the class method to parse Relationships"
+msgstr ""
+
+#: ../../changes.rst:975
+msgid "`#579 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/579>`_ Crashes when reading defined names with no content"
+msgstr ""
+
+#: ../../changes.rst:976
+msgid "`#597 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/597>`_ Cannot read worksheets without coordinates"
+msgstr ""
+
+#: ../../changes.rst:977
+msgid "`#617 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/617>`_ Customised named styles not correctly preserved"
+msgstr ""
+
+#: ../../changes.rst:981
+msgid "2.3.5 (2016-04-11)"
+msgstr ""
+
+#: ../../changes.rst:987
+msgid "`#618 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/618>`_ Comments not written in write-only mode"
+msgstr ""
+
+#: ../../changes.rst:991
+msgid "2.3.4 (2016-03-16)"
+msgstr ""
+
+#: ../../changes.rst:997
+msgid "`#594 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/594>`_ Content types might be missing when keeping VBA"
+msgstr ""
+
+#: ../../changes.rst:998
+msgid "`#599 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/599>`_ Cells with only one cell look empty"
+msgstr ""
+
+#: ../../changes.rst:999
+msgid "`#607 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/607>`_ Serialise NaN as ''"
+msgstr ""
+
+#: ../../changes.rst:1005
+msgid "Preserve the order of external references because formualae use numerical indices."
+msgstr ""
+
+#: ../../changes.rst:1006
+msgid "Typo corrected in cell unit tests (PR 118)"
+msgstr ""
+
+#: ../../changes.rst:1010
+msgid "2.3.3 (2016-01-18)"
+msgstr ""
+
+#: ../../changes.rst:1016
+msgid "`#540 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/540>`_ Cannot read merged cells in read-only mode"
+msgstr ""
+
+#: ../../changes.rst:1017
+msgid "`#565 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/565>`_ Empty styled text blocks cannot be parsed"
+msgstr ""
+
+#: ../../changes.rst:1018
+msgid "`#569 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/569>`_ Issue warning rather than raise Exception raised for unparsable definedNames"
+msgstr ""
+
+#: ../../changes.rst:1019
+msgid "`#575 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/575>`_ Cannot open workbooks with embdedded OLE files"
+msgstr ""
+
+#: ../../changes.rst:1020
+msgid "`#584 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/584>`_ Exception when saving borders with attributes"
+msgstr ""
+
+#: ../../changes.rst:1026
+msgid "`PR 103 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/103/>`_ Documentation about chart scaling and axis limits"
+msgstr ""
+
+#: ../../changes.rst:1027
+msgid "Raise an exception when trying to copy cells from other workbooks."
+msgstr ""
+
+#: ../../changes.rst:1031
+msgid "2.3.2 (2015-12-07)"
+msgstr ""
+
+#: ../../changes.rst:1037
+msgid "`#554 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/554>`_ Cannot add comments to a worksheet when preserving VBA"
+msgstr ""
+
+#: ../../changes.rst:1038
+msgid "`#561 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/561>`_ Exception when reading phonetic text"
+msgstr ""
+
+#: ../../changes.rst:1039
+msgid "`#562 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/562>`_ DARKBLUE is the same as RED"
+msgstr ""
+
+#: ../../changes.rst:1040
+msgid "`#563 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/563>`_ Minimum for row and column indexes not enforced"
+msgstr ""
+
+#: ../../changes.rst:1046
+msgid "`PR 97 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/97/>`_ One VML file per worksheet."
+msgstr ""
+
+#: ../../changes.rst:1047
+msgid "`PR 96 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/96/>`_ Correct descriptor for CharacterProperties.rtl"
+msgstr ""
+
+#: ../../changes.rst:1048
+msgid "`#498 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/498>`_ Metadata is not essential to use the package."
+msgstr ""
+
+#: ../../changes.rst:1052
+msgid "2.3.1 (2015-11-20)"
+msgstr ""
+
+#: ../../changes.rst:1058
+msgid "`#534 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/534>`_ Exception when using columns property in read-only mode."
+msgstr ""
+
+#: ../../changes.rst:1059
+msgid "`#536 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/536>`_ Incorrectly handle comments from Google Docs files."
+msgstr ""
+
+#: ../../changes.rst:1060
+msgid "`#539 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/539>`_ Flexible value types for conditional formatting."
+msgstr ""
+
+#: ../../changes.rst:1061
+msgid "`#542 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/542>`_ Missing content types for images."
+msgstr ""
+
+#: ../../changes.rst:1062
+msgid "`#543 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/543>`_ Make sure images fit containers on all OSes."
+msgstr ""
+
+#: ../../changes.rst:1063
+msgid "`#544 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/544>`_ Gracefully handle missing cell styles."
+msgstr ""
+
+#: ../../changes.rst:1064
+msgid "`#546 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/546>`_ ExternalLink duplicated when editing a file with macros."
+msgstr ""
+
+#: ../../changes.rst:1065
+msgid "`#548 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/548>`_ Exception with non-ASCII worksheet titles"
+msgstr ""
+
+#: ../../changes.rst:1066
+msgid "`#551 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/551>`_ Combine multiple LineCharts"
+msgstr ""
+
+#: ../../changes.rst:1072
+msgid "`PR 88 <https://foss.heptapod.net/openpyxl/openpyxl/-/merge_requests/88/>`_ Fix page margins in parser."
+msgstr ""
+
+#: ../../changes.rst:1076
+msgid "2.3.0 (2015-10-20)"
+msgstr ""
+
+#: ../../changes.rst:1082
+msgid "Support the creation of chartsheets"
+msgstr ""
+
+#: ../../changes.rst:1088
+msgid "`#532 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/532>`_ Problems when cells have no style in read-only mode."
+msgstr ""
+
+#: ../../changes.rst:1094
+msgid "PR 79 Make PlotArea editable in charts"
+msgstr ""
+
+#: ../../changes.rst:1095
+msgid "Use graphicalProperties as the alias for spPr"
+msgstr ""
+
+#: ../../changes.rst:1099
+msgid "2.3.0-b2 (2015-09-04)"
+msgstr ""
+
+#: ../../changes.rst:1105
+msgid "`#488 <https://bitbucket.org/openpyxl/openpyxl/issue/488>`_ Support hashValue attribute for sheetProtection"
+msgstr ""
+
+#: ../../changes.rst:1106
+msgid "`#493 <https://bitbucket.org/openpyxl/openpyxl/issue/493>`_ Warn that unsupported extensions will be dropped"
+msgstr ""
+
+#: ../../changes.rst:1107
+msgid "`#494 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/494/>`_ Cells with exponentials causes a ValueError"
+msgstr ""
+
+#: ../../changes.rst:1108
+msgid "`#497 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/497/>`_ Scatter charts are broken"
+msgstr ""
+
+#: ../../changes.rst:1109
+msgid "`#499 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/499/>`_ Inconsistent conversion of localised datetimes"
+msgstr ""
+
+#: ../../changes.rst:1110
+msgid "`#500 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/500/>`_ Adding images leads to unreadable files"
+msgstr ""
+
+#: ../../changes.rst:1111
+msgid "`#509 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/509/>`_ Improve handling of sheet names"
+msgstr ""
+
+#: ../../changes.rst:1112
+msgid "`#515 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/515/>`_ Non-ascii titles have bad repr"
+msgstr ""
+
+#: ../../changes.rst:1113
+msgid "`#516 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/516/>`_ Ignore unassigned worksheets"
+msgstr ""
+
+#: ../../changes.rst:1119
+msgid "Worksheets are now iterable by row."
+msgstr ""
+
+#: ../../changes.rst:1120
+msgid "Assign individual cell styles only if they are explicitly set."
+msgstr ""
+
+#: ../../changes.rst:1124
+msgid "2.3.0-b1 (2015-06-29)"
+msgstr ""
+
+#: ../../changes.rst:1130
+msgid "Shift to using (row, column) indexing for cells. Cells will at some point *lose* coordinates."
+msgstr ""
+
+#: ../../changes.rst:1131
+msgid "New implementation of conditional formatting. Databars now partially preserved."
+msgstr ""
+
+#: ../../changes.rst:1132
+msgid "et_xmlfile is now a standalone library."
+msgstr ""
+
+#: ../../changes.rst:1133
+msgid "Complete rewrite of chart package"
+msgstr ""
+
+#: ../../changes.rst:1134
+msgid "Include a tokenizer for fomulae to be able to adjust cell references in them. PR 63"
+msgstr ""
+
+#: ../../changes.rst:1140
+msgid "Read-only and write-only worksheets renamed."
+msgstr ""
+
+#: ../../changes.rst:1141
+msgid "Write-only workbooks support charts and images."
+msgstr ""
+
+#: ../../changes.rst:1142
+msgid "`PR76 <https://bitbucket.org/openpyxl/openpyxl/pull-request/76>`_ Prevent comment images from conflicting with VBA"
+msgstr ""
+
+#: ../../changes.rst:1148
+msgid "`#81 <https://bitbucket.org/openpyxl/openpyxl/issue/81>`_ Support stacked bar charts"
+msgstr ""
+
+#: ../../changes.rst:1149
+msgid "`#88 <https://bitbucket.org/openpyxl/openpyxl/issue/88>`_ Charts break hyperlinks"
+msgstr ""
+
+#: ../../changes.rst:1150
+msgid "`#97 <https://bitbucket.org/openpyxl/openpyxl/issue/97>`_ Pie and combination charts"
+msgstr ""
+
+#: ../../changes.rst:1151
+msgid "`#99 <https://bitbucket.org/openpyxl/openpyxl/issue/99>`_ Quote worksheet names in chart references"
+msgstr ""
+
+#: ../../changes.rst:1152
+msgid "`#150 <https://bitbucket.org/openpyxl/openpyxl/issue/150>`_ Support additional chart options"
+msgstr ""
+
+#: ../../changes.rst:1153
+msgid "`#172 <https://bitbucket.org/openpyxl/openpyxl/issue/172>`_ Support surface charts"
+msgstr ""
+
+#: ../../changes.rst:1154
+msgid "`#381 <https://bitbucket.org/openpyxl/openpyxl/issue/381>`_ Preserve named styles"
+msgstr ""
+
+#: ../../changes.rst:1155
+msgid "`#470 <https://bitbucket.org/openpyxl/openpyxl/issue/470>`_ Adding more than 10 worksheets with the same name leads to duplicates sheet names and an invalid file"
+msgstr ""
+
+#: ../../changes.rst:1159
+msgid "2.2.6 (unreleased)"
+msgstr ""
+
+#: ../../changes.rst:1165
+msgid "`#502 <https://bitbucket.org/openpyxl/openpyxl/issue/502>`_ Unexpected keyword \"mergeCell\""
+msgstr ""
+
+#: ../../changes.rst:1166
+msgid "`#503 <https://bitbucket.org/openpyxl/openpyxl/issue/503>`_ tostring missing in dump_worksheet"
+msgstr ""
+
+#: ../../changes.rst:1167
+msgid "`#506 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/506>`_ Non-ASCII formulae cannot be parsed"
+msgstr ""
+
+#: ../../changes.rst:1168
+msgid "`#508 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues/508>`_ Cannot save files with coloured tabs"
+msgstr ""
+
+#: ../../changes.rst:1169
+msgid "Regex for ignoring named ranges is wrong (character class instead of prefix)"
+msgstr ""
+
+#: ../../changes.rst:1173
+msgid "2.2.5 (2015-06-29)"
+msgstr ""
+
+#: ../../changes.rst:1179
+msgid "`#463 <https://bitbucket.org/openpyxl/openpyxl/issue/463>`_ Unexpected keyword \"mergeCell\""
+msgstr ""
+
+#: ../../changes.rst:1180
+msgid "`#484 <https://bitbucket.org/openpyxl/openpyxl/issue/484>`_ Unusual dimensions breaks read-only mode"
+msgstr ""
+
+#: ../../changes.rst:1181
+msgid "`#485 <https://bitbucket.org/openpyxl/openpyxl/issue/485>`_ Move return out of loop"
+msgstr ""
+
+#: ../../changes.rst:1185
+msgid "2.2.4 (2015-06-17)"
+msgstr ""
+
+#: ../../changes.rst:1191
+msgid "`#464 <https://bitbucket.org/openpyxl/openpyxl/issue/464>`_ Cannot use images when preserving macros"
+msgstr ""
+
+#: ../../changes.rst:1192
+msgid "`#465 <https://bitbucket.org/openpyxl/openpyxl/issue/465>`_ ws.cell() returns an empty cell on read-only workbooks"
+msgstr ""
+
+#: ../../changes.rst:1193
+msgid "`#467 <https://bitbucket.org/openpyxl/openpyxl/issue/467>`_ Cannot edit a file with ActiveX components"
+msgstr ""
+
+#: ../../changes.rst:1194
+msgid "`#471 <https://bitbucket.org/openpyxl/openpyxl/issue/471>`_ Sheet properties elements must be in order"
+msgstr ""
+
+#: ../../changes.rst:1195
+msgid "`#475 <https://bitbucket.org/openpyxl/openpyxl/issue/475>`_ Do not redefine class __slots__ in subclasses"
+msgstr ""
+
+#: ../../changes.rst:1196
+msgid "`#477 <https://bitbucket.org/openpyxl/openpyxl/issue/477>`_ Write-only support for SheetProtection"
+msgstr ""
+
+#: ../../changes.rst:1197
+msgid "`#478 <https://bitbucket.org/openpyxl/openpyxl/issue/477>`_ Write-only support for DataValidation"
+msgstr ""
+
+#: ../../changes.rst:1198
+msgid "Improved regex when checking for datetime formats"
+msgstr ""
+
+#: ../../changes.rst:1202
+msgid "2.2.3 (2015-05-26)"
+msgstr ""
+
+#: ../../changes.rst:1208
+msgid "`#451 <https://bitbucket.org/openpyxl/openpyxl/issue/451>`_ fitToPage setting ignored"
+msgstr ""
+
+#: ../../changes.rst:1209
+msgid "`#458 <https://bitbucket.org/openpyxl/openpyxl/issue/458>`_ Trailing spaces lost when saving files."
+msgstr ""
+
+#: ../../changes.rst:1210
+msgid "`#459 <https://bitbucket.org/openpyxl/openpyxl/issue/459>`_ setup.py install fails with Python 3"
+msgstr ""
+
+#: ../../changes.rst:1211
+msgid "`#462 <https://bitbucket.org/openpyxl/openpyxl/issue/462>`_ Vestigial rId conflicts when adding charts, images or comments"
+msgstr ""
+
+#: ../../changes.rst:1212
+msgid "`#455 <https://bitbucket.org/openpyxl/openpyxl/issue/455>`_ Enable Zip64 extensions for all versions of Python"
+msgstr ""
+
+#: ../../changes.rst:1216
+msgid "2.2.2 (2015-04-28)"
+msgstr ""
+
+#: ../../changes.rst:1222
+msgid "`#447 <https://bitbucket.org/openpyxl/openpyxl/issue/447>`_ Uppercase datetime number formats not recognised."
+msgstr ""
+
+#: ../../changes.rst:1223
+msgid "`#453 <https://bitbucket.org/openpyxl/openpyxl/issue/453>`_ Borders broken in shared_styles."
+msgstr ""
+
+#: ../../changes.rst:1227
+msgid "2.2.1 (2015-03-31)"
+msgstr ""
+
+#: ../../changes.rst:1233
+msgid "`PR54 <https://bitbucket.org/openpyxl/openpyxl/pull-request/54>`_ Improved precision on times near midnight."
+msgstr ""
+
+#: ../../changes.rst:1234
+msgid "`PR55 <https://bitbucket.org/openpyxl/openpyxl/pull-request/55>`_ Preserve macro buttons"
+msgstr ""
+
+#: ../../changes.rst:1240
+msgid "`#429 <https://bitbucket.org/openpyxl/openpyxl/issue/429>`_ Workbook fails to load because header and footers cannot be parsed."
+msgstr ""
+
+#: ../../changes.rst:1241
+msgid "`#433 <https://bitbucket.org/openpyxl/openpyxl/issue/433>`_ File-like object with encoding=None"
+msgstr ""
+
+#: ../../changes.rst:1242
+msgid "`#434 <https://bitbucket.org/openpyxl/openpyxl/issue/434>`_ SyntaxError when writing page breaks."
+msgstr ""
+
+#: ../../changes.rst:1243
+msgid "`#436 <https://bitbucket.org/openpyxl/openpyxl/issue/436>`_ Read-only mode duplicates empty rows."
+msgstr ""
+
+#: ../../changes.rst:1244
+msgid "`#437 <https://bitbucket.org/openpyxl/openpyxl/issue/437>`_ Cell.offset raises an exception"
+msgstr ""
+
+#: ../../changes.rst:1245
+msgid "`#438 <https://bitbucket.org/openpyxl/openpyxl/issue/438>`_ Cells with pivotButton and quotePrefix styles cannot be read"
+msgstr ""
+
+#: ../../changes.rst:1246
+msgid "`#440 <https://bitbucket.org/openpyxl/openpyxl/issue/440>`_ Error when customised versions of builtin formats"
+msgstr ""
+
+#: ../../changes.rst:1247
+msgid "`#442 <https://bitbucket.org/openpyxl/openpyxl/issue/442>`_ Exception raised when a fill element contains no children"
+msgstr ""
+
+#: ../../changes.rst:1248
+msgid "`#444 <https://bitbucket.org/openpyxl/openpyxl/issue/442>`_ Styles cannot be copied"
+msgstr ""
+
+#: ../../changes.rst:1252
+msgid "2.2.0 (2015-03-11)"
+msgstr ""
+
+#: ../../changes.rst:1257
+msgid "`#415 <https://bitbucket.org/openpyxl/openpyxl/issue/415>`_ Improved exception when passing in invalid in memory files."
+msgstr ""
+
+#: ../../changes.rst:1261
+msgid "2.2.0-b1 (2015-02-18)"
+msgstr ""
+
+#: ../../changes.rst:1266
+msgid "Cell styles deprecated, use formatting objects (fonts, fills, borders, etc.) directly instead"
+msgstr ""
+
+#: ../../changes.rst:1267
+msgid "Charts will no longer try and calculate axes by default"
+msgstr ""
+
+#: ../../changes.rst:1268
+msgid "Support for template file types - PR21"
+msgstr ""
+
+#: ../../changes.rst:1269
+msgid "Moved ancillary functions and classes into utils package - single place of reference"
+msgstr ""
+
+#: ../../changes.rst:1270
+msgid "`PR 34 <https://bitbucket.org/openpyxl/openpyxl/pull-request/34/>`_ Fully support page setup"
+msgstr ""
+
+#: ../../changes.rst:1271
+msgid "Removed SAX-based XML Generator. Special thanks to Elias Rabel for implementing xmlfile for xml.etree"
+msgstr ""
+
+#: ../../changes.rst:1272
+msgid "Preserve sheet view definitions in existing files (frozen panes, zoom, etc.)"
+msgstr ""
+
+#: ../../changes.rst:1277
+msgid "`#103 <https://bitbucket.org/openpyxl/openpyxl/issue/103>`_ Set the zoom of a sheet"
+msgstr ""
+
+#: ../../changes.rst:1278
+msgid "`#199 <https://bitbucket.org/openpyxl/openpyxl/issue/199>`_ Hide gridlines"
+msgstr ""
+
+#: ../../changes.rst:1279
+msgid "`#215 <https://bitbucket.org/openpyxl/openpyxl/issue/215>`_ Preserve sheet view setings"
+msgstr ""
+
+#: ../../changes.rst:1280
+msgid "`#262 <https://bitbucket.org/openpyxl/openpyxl/issue/262>`_ Set the zoom of a sheet"
+msgstr ""
+
+#: ../../changes.rst:1281
+msgid "`#392 <https://bitbucket.org/openpyxl/openpyxl/issue/392>`_ Worksheet header not read"
+msgstr ""
+
+#: ../../changes.rst:1282
+msgid "`#387 <https://bitbucket.org/openpyxl/openpyxl/issue/387>`_ Cannot read files without styles.xml"
+msgstr ""
+
+#: ../../changes.rst:1283
+msgid "`#410 <https://bitbucket.org/openpyxl/openpyxl/issue/410>`_ Exception when preserving whitespace in strings"
+msgstr ""
+
+#: ../../changes.rst:1284
+msgid "`#417 <https://bitbucket.org/openpyxl/openpyxl/issue/417>`_ Cannot create print titles"
+msgstr ""
+
+#: ../../changes.rst:1285
+msgid "`#420 <https://bitbucket.org/openpyxl/openpyxl/issue/420>`_ Rename confusing constants"
+msgstr ""
+
+#: ../../changes.rst:1286
+msgid "`#422 <https://bitbucket.org/openpyxl/openpyxl/issue/422>`_ Preserve color index in a workbook if it differs from the standard"
+msgstr ""
+
+#: ../../changes.rst:1291
+msgid "Use a 2-way cache for column index lookups"
+msgstr ""
+
+#: ../../changes.rst:1292
+msgid "Clean up tests in cells"
+msgstr ""
+
+#: ../../changes.rst:1293
+msgid "`PR 40 <https://bitbucket.org/openpyxl/openpyxl/pull-request/40/>`_ Support frozen panes and autofilter in write-only mode"
+msgstr ""
+
+#: ../../changes.rst:1294
+msgid "Use ws.calculate_dimension(force=True) in read-only mode for unsized worksheets"
+msgstr ""
+
+#: ../../changes.rst:1298
+msgid "2.1.5 (2015-02-18)"
+msgstr ""
+
+#: ../../changes.rst:1303
+msgid "`#403 <https://bitbucket.org/openpyxl/openpyxl/issue/403>`_ Cannot add comments in write-only mode"
+msgstr ""
+
+#: ../../changes.rst:1304
+msgid "`#401 <https://bitbucket.org/openpyxl/openpyxl/issue/401>`_ Creating cells in an empty row raises an exception"
+msgstr ""
+
+#: ../../changes.rst:1305
+msgid "`#408 <https://bitbucket.org/openpyxl/openpyxl/issue/408>`_ from_excel adjustment for Julian dates 1 < x < 60"
+msgstr ""
+
+#: ../../changes.rst:1306
+msgid "`#409 <https://bitbucket.org/openpyxl/openpyxl/issue/409>`_ refersTo is an optional attribute"
+msgstr ""
+
+#: ../../changes.rst:1311
+msgid "Allow cells to be appended to standard worksheets for code compatibility with write-only mode."
+msgstr ""
+
+#: ../../changes.rst:1315
+msgid "2.1.4 (2014-12-16)"
+msgstr ""
+
+#: ../../changes.rst:1321
+msgid "`#393 <https://bitbucket.org/openpyxl/openpyxl/issue/393>`_ IterableWorksheet skips empty cells in rows"
+msgstr ""
+
+#: ../../changes.rst:1322
+msgid "`#394 <https://bitbucket.org/openpyxl/openpyxl/issue/394>`_ Date format is applied to all columns (while only first column contains dates)"
+msgstr ""
+
+#: ../../changes.rst:1323
+msgid "`#395 <https://bitbucket.org/openpyxl/openpyxl/issue/395>`_ temporary files not cleaned properly"
+msgstr ""
+
+#: ../../changes.rst:1324
+msgid "`#396 <https://bitbucket.org/openpyxl/openpyxl/issue/396>`_ Cannot write \"=\" in Excel file"
+msgstr ""
+
+#: ../../changes.rst:1325
+msgid "`#398 <https://bitbucket.org/openpyxl/openpyxl/issue/398>`_ Cannot write empty rows in write-only mode with LXML installed"
+msgstr ""
+
+#: ../../changes.rst:1330
+msgid "Add relation namespace to root element for compatibility with iWork"
+msgstr ""
+
+#: ../../changes.rst:1331
+msgid "Serialize comments relation in LXML-backend"
+msgstr ""
+
+#: ../../changes.rst:1335
+msgid "2.1.3 (2014-12-09)"
+msgstr ""
+
+#: ../../changes.rst:1340
+msgid "`PR 31 <https://bitbucket.org/openpyxl/openpyxl/pull-request/31/>`_ Correct tutorial"
+msgstr ""
+
+#: ../../changes.rst:1341
+msgid "`PR 32 <https://bitbucket.org/openpyxl/openpyxl/pull-request/32/>`_ See #380"
+msgstr ""
+
+#: ../../changes.rst:1342
+msgid "`PR 37 <https://bitbucket.org/openpyxl/openpyxl/pull-request/37/>`_ Bind worksheet to ColumnDimension objects"
+msgstr ""
+
+#: ../../changes.rst:1347
+msgid "`#379 <https://bitbucket.org/openpyxl/openpyxl/issue/379>`_ ws.append() doesn't set RowDimension Correctly"
+msgstr ""
+
+#: ../../changes.rst:1348
+msgid "`#380 <https://bitbucket.org/openpyxl/openpyxl/issue/379>`_ empty cells formatted as datetimes raise exceptions"
+msgstr ""
+
+#: ../../changes.rst:1352
+msgid "2.1.2 (2014-10-23)"
+msgstr ""
+
+#: ../../changes.rst:1357
+msgid "`PR 30 <https://bitbucket.org/openpyxl/openpyxl/pull-request/30/>`_ Fix regex for positive exponentials"
+msgstr ""
+
+#: ../../changes.rst:1358
+msgid "`PR 28 <https://bitbucket.org/openpyxl/openpyxl/pull-request/28/>`_ Fix for #328"
+msgstr ""
+
+#: ../../changes.rst:1363
+msgid "`#120 <https://bitbucket.org/openpyxl/openpyxl/issue/120>`_, `#168 <https://bitbucket.org/openpyxl/openpyxl/issue/168>`_ defined names with formulae raise exceptions, `#292 <https://bitbucket.org/openpyxl/openpyxl/issue/292>`_"
+msgstr ""
+
+#: ../../changes.rst:1364
+msgid "`#328 <https://bitbucket.org/openpyxl/openpyxl/issue/328/>`_ ValueError when reading cells with hyperlinks"
+msgstr ""
+
+#: ../../changes.rst:1365
+msgid "`#369 <https://bitbucket.org/openpyxl/openpyxl/issue/369>`_ IndexError when reading definedNames"
+msgstr ""
+
+#: ../../changes.rst:1366
+msgid "`#372 <https://bitbucket.org/openpyxl/openpyxl/issue/372>`_ number_format not consistently applied from styles"
+msgstr ""
+
+#: ../../changes.rst:1370
+msgid "2.1.1 (2014-10-08)"
+msgstr ""
+
+#: ../../changes.rst:1375
+msgid "PR 20 Support different workbook code names"
+msgstr ""
+
+#: ../../changes.rst:1376
+msgid "Allow auto_axis keyword for ScatterCharts"
+msgstr ""
+
+#: ../../changes.rst:1382
+msgid "`#332 <https://bitbucket.org/openpyxl/openpyxl/issue/332>`_ Fills lost in ConditionalFormatting"
+msgstr ""
+
+#: ../../changes.rst:1383
+msgid "`#360 <https://bitbucket.org/openpyxl/openpyxl/issue/360>`_ Support value=\"none\" in attributes"
+msgstr ""
+
+#: ../../changes.rst:1384
+msgid "`#363 <https://bitbucket.org/openpyxl/openpyxl/issue/363>`_ Support undocumented value for textRotation"
+msgstr ""
+
+#: ../../changes.rst:1385
+msgid "`#364 <https://bitbucket.org/openpyxl/openpyxl/issue/364>`_ Preserve integers in read-only mode"
+msgstr ""
+
+#: ../../changes.rst:1386
+msgid "`#366 <https://bitbucket.org/openpyxl/openpyxl/issue/366>`_ Complete read support for DataValidation"
+msgstr ""
+
+#: ../../changes.rst:1387
+msgid "`#367 <https://bitbucket.org/openpyxl/openpyxl/issue/367>`_ Iterate over unsized worksheets"
+msgstr ""
+
+#: ../../changes.rst:1391
+msgid "2.1.0 (2014-09-21)"
+msgstr ""
+
+#: ../../changes.rst:1395
+msgid "\"read_only\" and \"write_only\" new flags for workbooks"
+msgstr ""
+
+#: ../../changes.rst:1396
+msgid "Support for reading and writing worksheet protection"
+msgstr ""
+
+#: ../../changes.rst:1397
+msgid "Support for reading hidden rows"
+msgstr ""
+
+#: ../../changes.rst:1398
+msgid "Cells now manage their styles directly"
+msgstr ""
+
+#: ../../changes.rst:1399
+msgid "ColumnDimension and RowDimension object manage their styles directly"
+msgstr ""
+
+#: ../../changes.rst:1400
+msgid "Use xmlfile for writing worksheets if available - around 3 times faster"
+msgstr ""
+
+#: ../../changes.rst:1401
+msgid "Datavalidation now part of the worksheet package"
+msgstr ""
+
+#: ../../changes.rst:1406
+msgid "Number formats are now just strings"
+msgstr ""
+
+#: ../../changes.rst:1407
+msgid "Strings can be used for RGB and aRGB colours for Fonts, Fills and Borders"
+msgstr ""
+
+#: ../../changes.rst:1408
+msgid "Create all style tags in a single pass"
+msgstr ""
+
+#: ../../changes.rst:1409
+msgid "Performance improvement when appending rows"
+msgstr ""
+
+#: ../../changes.rst:1410
+msgid "Cleaner conversion of Python to Excel values"
+msgstr ""
+
+#: ../../changes.rst:1411
+msgid "PR6 reserve formatting for empty rows"
+msgstr ""
+
+#: ../../changes.rst:1412
+msgid "standard worksheets can append from ranges and generators"
+msgstr ""
+
+#: ../../changes.rst:1417
+msgid "`#153 <https://bitbucket.org/openpyxl/openpyxl/issue/153>`_ Cannot read visibility of sheets and rows"
+msgstr ""
+
+#: ../../changes.rst:1418
+msgid "`#181 <https://bitbucket.org/openpyxl/openpyxl/issue/181>`_ No content type for worksheets"
+msgstr ""
+
+#: ../../changes.rst:1419
+msgid "`241 <https://bitbucket.org/openpyxl/openpyxl/issue/241>`_ Cannot read sheets with inline strings"
+msgstr ""
+
+#: ../../changes.rst:1420
+msgid "`322 <https://bitbucket.org/openpyxl/openpyxl/issue/322>`_ 1-indexing for merged cells"
+msgstr ""
+
+#: ../../changes.rst:1421
+msgid "`339 <https://bitbucket.org/openpyxl/openpyxl/issue/339>`_ Correctly handle removal of cell protection"
+msgstr ""
+
+#: ../../changes.rst:1422
+msgid "`341 <https://bitbucket.org/openpyxl/openpyxl/issue/341>`_ Cells with formulae do not round-trip"
+msgstr ""
+
+#: ../../changes.rst:1423
+msgid "`347 <https://bitbucket.org/openpyxl/openpyxl/issue/347>`_ Read DataValidations"
+msgstr ""
+
+#: ../../changes.rst:1424
+msgid "`353 <https://bitbucket.org/openpyxl/openpyxl/issue/353>`_ Support Defined Named Ranges to external workbooks"
+msgstr ""
+
+#: ../../changes.rst:1428
+msgid "2.0.5 (2014-08-08)"
+msgstr ""
+
+#: ../../changes.rst:1433
+msgid "`#348 <https://bitbucket.org/openpyxl/openpyxl/issue/348>`_ incorrect casting of boolean strings"
+msgstr ""
+
+#: ../../changes.rst:1434
+msgid "`#349 <https://bitbucket.org/openpyxl/openpyxl/issue/349>`_ roundtripping cells with formulae"
+msgstr ""
+
+#: ../../changes.rst:1438
+msgid "2.0.4 (2014-06-25)"
+msgstr ""
+
+#: ../../changes.rst:1442
+msgid "Add a sample file illustrating colours"
+msgstr ""
+
+#: ../../changes.rst:1448
+msgid "`#331 <https://bitbucket.org/openpyxl/openpyxl/issue/331>`_ DARKYELLOW was incorrect"
+msgstr ""
+
+#: ../../changes.rst:1449
+msgid "Correctly handle extend attribute for fonts"
+msgstr ""
+
+#: ../../changes.rst:1453
+msgid "2.0.3 (2014-05-22)"
+msgstr ""
+
+#: ../../changes.rst:1458
+msgid "Updated docs"
+msgstr ""
+
+#: ../../changes.rst:1464
+msgid "`#319 <https://bitbucket.org/openpyxl/openpyxl/issue/319>`_ Cannot load Workbooks with vertAlign styling for fonts"
+msgstr ""
+
+#: ../../changes.rst:1468
+msgid "2.0.2 (2014-05-13)"
+msgstr ""
+
+#: ../../changes.rst:1471
+msgid "2.0.1 (2014-05-13)  brown bag"
+msgstr ""
+
+#: ../../changes.rst:1474
+msgid "2.0.0 (2014-05-13)  brown bag"
+msgstr ""
+
+#: ../../changes.rst:1480
+msgid "This is last release that will support Python 3.2"
+msgstr ""
+
+#: ../../changes.rst:1481
+msgid "Cells are referenced with 1-indexing: A1 == cell(row=1, column=1)"
+msgstr ""
+
+#: ../../changes.rst:1482
+msgid "Use jdcal for more efficient and reliable conversion of datetimes"
+msgstr ""
+
+#: ../../changes.rst:1483
+msgid "Significant speed up when reading files"
+msgstr ""
+
+#: ../../changes.rst:1484
+msgid "Merged immutable styles"
+msgstr ""
+
+#: ../../changes.rst:1485
+msgid "Type inference is disabled by default"
+msgstr ""
+
+#: ../../changes.rst:1486
+msgid "RawCell renamed ReadOnlyCell"
+msgstr ""
+
+#: ../../changes.rst:1487
+msgid "ReadOnlyCell.internal_value and ReadOnlyCell.value now behave the same as Cell"
+msgstr ""
+
+#: ../../changes.rst:1488
+msgid "Provide no size information on unsized worksheets"
+msgstr ""
+
+#: ../../changes.rst:1489
+msgid "Lower memory footprint when reading files"
+msgstr ""
+
+#: ../../changes.rst:1495
+msgid "All tests converted to pytest"
+msgstr ""
+
+#: ../../changes.rst:1496
+msgid "Pyflakes used for static code analysis"
+msgstr ""
+
+#: ../../changes.rst:1497
+msgid "Sample code in the documentation is automatically run"
+msgstr ""
+
+#: ../../changes.rst:1498
+msgid "Support GradientFills"
+msgstr ""
+
+#: ../../changes.rst:1499
+msgid "BaseColWidth set"
+msgstr ""
+
+#: ../../changes.rst:1504
+msgid "#70 Add filterColumn, sortCondition support to AutoFilter"
+msgstr ""
+
+#: ../../changes.rst:1505
+msgid "#80 Reorder worksheets parts"
+msgstr ""
+
+#: ../../changes.rst:1506
+msgid "#82 Update API for conditional formatting"
+msgstr ""
+
+#: ../../changes.rst:1507
+msgid "#87 Add support for writing Protection styles, others"
+msgstr ""
+
+#: ../../changes.rst:1508
+msgid "#89 Better handling of content types when preserving macros"
+msgstr ""
+
+#: ../../changes.rst:1513
+msgid "`#46 <https://bitbucket.org/openpyxl/openpyxl/issue/46>`_ ColumnDimension style error"
+msgstr ""
+
+#: ../../changes.rst:1514
+msgid "`#86 <https://bitbucket.org/openpyxl/openpyxl/issue/86>`_ reader.worksheet.fast_parse sets booleans to integers"
+msgstr ""
+
+#: ../../changes.rst:1515
+msgid "`#98 <https://bitbucket.org/openpyxl/openpyxl/issue/98>`_ Auto sizing column widths does not work"
+msgstr ""
+
+#: ../../changes.rst:1516
+msgid "`#137 <https://bitbucket.org/openpyxl/openpyxl/issue/137>`_ Workbooks with chartsheets"
+msgstr ""
+
+#: ../../changes.rst:1517
+msgid "`#185 <https://bitbucket.org/openpyxl/openpyxl/issue/185>`_  Invalid PageMargins"
+msgstr ""
+
+#: ../../changes.rst:1518
+msgid "`#230 <https://bitbucket.org/openpyxl/openpyxl/issue/230>`_ Using \\v in cells creates invalid files"
+msgstr ""
+
+#: ../../changes.rst:1519
+msgid "`#243 <https://bitbucket.org/openpyxl/openpyxl/issue/243>`_ - IndexError when loading workbook"
+msgstr ""
+
+#: ../../changes.rst:1520
+msgid "`#263 <https://bitbucket.org/openpyxl/openpyxl/issue/263>`_ - Forded conversion of line breaks"
+msgstr ""
+
+#: ../../changes.rst:1521
+msgid "`#267 <https://bitbucket.org/openpyxl/openpyxl/issue/267>`_ - Raise exceptions when passed invalid types"
+msgstr ""
+
+#: ../../changes.rst:1522
+msgid "`#270 <https://bitbucket.org/openpyxl/openpyxl/issue/270>`_ - Cannot open files which use non-standard sheet names or reference Ids"
+msgstr ""
+
+#: ../../changes.rst:1523
+msgid "`#269 <https://bitbucket.org/openpyxl/openpyxl/issue/269>`_ - Handling unsized worksheets in IterableWorksheet"
+msgstr ""
+
+#: ../../changes.rst:1524
+msgid "`#270 <https://bitbucket.org/openpyxl/openpyxl/issue/270>`_ - Handling Workbooks with non-standard references"
+msgstr ""
+
+#: ../../changes.rst:1525
+msgid "`#275 <https://bitbucket.org/openpyxl/openpyxl/issue/275>`_ - Handling auto filters where there are only custom filters"
+msgstr ""
+
+#: ../../changes.rst:1526
+msgid "`#277 <https://bitbucket.org/openpyxl/openpyxl/issue/277>`_ - Harmonise chart and cell coordinates"
+msgstr ""
+
+#: ../../changes.rst:1527
+msgid "`#280 <https://bitbucket.org/openpyxl/openpyxl/issue/280>`_- Explicit exception raising for invalid characters"
+msgstr ""
+
+#: ../../changes.rst:1528
+msgid "`#286 <https://bitbucket.org/openpyxl/openpyxl/issue/286>`_ - Optimized writer can not handle a datetime.time value"
+msgstr ""
+
+#: ../../changes.rst:1529
+msgid "`#296 <https://bitbucket.org/openpyxl/openpyxl/issue/296>`_ - Cell coordinates not consistent with documentation"
+msgstr ""
+
+#: ../../changes.rst:1530
+msgid "`#300 <https://bitbucket.org/openpyxl/openpyxl/issue/300>`_ - Missing column width causes load_workbook() exception"
+msgstr ""
+
+#: ../../changes.rst:1531
+msgid "`#304 <https://bitbucket.org/openpyxl/openpyxl/issue/304>`_ - Handling Workbooks with absolute paths for worksheets (from Sharepoint)"
+msgstr ""
+
+#: ../../changes.rst:1535
+msgid "1.8.6 (2014-05-05)"
+msgstr ""
+
+#: ../../changes.rst:1539
+msgid "Fixed typo for import Elementtree"
+msgstr ""
+
+#: ../../changes.rst:1543
+msgid "`#279 <https://bitbucket.org/openpyxl/openpyxl/issue/279>`_ Incorrect path for comments files on Windows"
+msgstr ""
+
+#: ../../changes.rst:1547
+msgid "1.8.5 (2014-03-25)"
+msgstr ""
+
+#: ../../changes.rst:1551
+msgid "The '=' string is no longer interpreted as a formula"
+msgstr ""
+
+#: ../../changes.rst:1552
+msgid "When a client writes empty xml tags for cells (e.g. <c r='A1'></c>), reader will not crash"
+msgstr ""
+
+#: ../../changes.rst:1556
+msgid "1.8.4 (2014-02-25)"
+msgstr ""
+
+#: ../../changes.rst:1560
+msgid "`#260 <https://bitbucket.org/openpyxl/openpyxl/issue/260>`_ better handling of undimensioned worksheets"
+msgstr ""
+
+#: ../../changes.rst:1561
+msgid "`#268 <https://bitbucket.org/openpyxl/openpyxl/issue/268>`_ non-ascii in formualae"
+msgstr ""
+
+#: ../../changes.rst:1562
+msgid "`#282 <https://bitbucket.org/openpyxl/openpyxl/issue/282>`_ correct implementation of register_namepsace for Python 2.6"
+msgstr ""
+
+#: ../../changes.rst:1566
+msgid "1.8.3 (2014-02-09)"
+msgstr ""
+
+#: ../../changes.rst:1570
+msgid "Always parse using cElementTree"
+msgstr ""
+
+#: ../../changes.rst:1574
+msgid "Slight improvements in memory use when parsing"
+msgstr ""
+
+#: ../../changes.rst:1576
+msgid "`#256 <https://bitbucket.org/openpyxl/openpyxl/issue/256>`_ - error when trying to read comments with optimised reader"
+msgstr ""
+
+#: ../../changes.rst:1577
+msgid "`#260 <https://bitbucket.org/openpyxl/openpyxl/issue/260>`_ - unsized worksheets"
+msgstr ""
+
+#: ../../changes.rst:1578
+msgid "`#264 <https://bitbucket.org/openpyxl/openpyxl/issue/264>`_ - only numeric cells can be dates"
+msgstr ""
+
+#: ../../changes.rst:1582
+msgid "1.8.2 (2014-01-17)"
+msgstr ""
+
+#: ../../changes.rst:1584
+msgid "`#247 <https://bitbucket.org/openpyxl/openpyxl/issue/247>`_ - iterable worksheets open too many files"
+msgstr ""
+
+#: ../../changes.rst:1585
+msgid "`#252 <https://bitbucket.org/openpyxl/openpyxl/issue/252>`_ - improved handling of lxml"
+msgstr ""
+
+#: ../../changes.rst:1586
+msgid "`#253 <https://bitbucket.org/openpyxl/openpyxl/issue/253>`_ - better handling of unique sheetnames"
+msgstr ""
+
+#: ../../changes.rst:1590
+msgid "1.8.1 (2014-01-14)"
+msgstr ""
+
+#: ../../changes.rst:1592
+msgid "`#246 <https://bitbucket.org/openpyxl/openpyxl/issue/246>`_"
+msgstr ""
+
+#: ../../changes.rst:1596
+msgid "1.8.0 (2014-01-08)"
+msgstr ""
+
+#: ../../changes.rst:1601
+msgid "Support for Python 2.5 dropped."
+msgstr ""
+
+#: ../../changes.rst:1606
+msgid "Support conditional formatting"
+msgstr ""
+
+#: ../../changes.rst:1607
+msgid "Support lxml as backend"
+msgstr ""
+
+#: ../../changes.rst:1608
+msgid "Support reading and writing comments"
+msgstr ""
+
+#: ../../changes.rst:1609
+msgid "pytest as testrunner now required"
+msgstr ""
+
+#: ../../changes.rst:1610
+msgid "Improvements in charts: new types, more reliable"
+msgstr ""
+
+#: ../../changes.rst:1616
+msgid "load_workbook now accepts data_only to allow extracting values only from formulae. Default is false."
+msgstr ""
+
+#: ../../changes.rst:1618
+msgid "Images can now be anchored to cells"
+msgstr ""
+
+#: ../../changes.rst:1619
+#: ../../changes.rst:1675
+msgid "Docs updated"
+msgstr ""
+
+#: ../../changes.rst:1620
+msgid "Provisional benchmarking"
+msgstr ""
+
+#: ../../changes.rst:1621
+msgid "Added convenience methods for accessing worksheets and cells by key"
+msgstr ""
+
+#: ../../changes.rst:1625
+msgid "1.7.0 (2013-10-31)"
+msgstr ""
+
+#: ../../changes.rst:1631
+msgid "Drops support for Python < 2.5 and last version to support Python 2.5"
+msgstr ""
+
+#: ../../changes.rst:1637
+msgid "Tests run on Python 2.5, 2.6, 2.7, 3.2, 3.3"
+msgstr ""
+
+#: ../../changes.rst:1641
+msgid "Merged pull requests"
+msgstr ""
+
+#: ../../changes.rst:1643
+msgid "27 Include more metadata"
+msgstr ""
+
+#: ../../changes.rst:1644
+msgid "41 Able to read files with chart sheets"
+msgstr ""
+
+#: ../../changes.rst:1645
+msgid "45 Configurable Worksheet classes"
+msgstr ""
+
+#: ../../changes.rst:1646
+msgid "3 Correct serialisation of Decimal"
+msgstr ""
+
+#: ../../changes.rst:1647
+msgid "36 Preserve VBA macros when reading files"
+msgstr ""
+
+#: ../../changes.rst:1648
+msgid "44 Handle empty oddheader and oddFooter tags"
+msgstr ""
+
+#: ../../changes.rst:1649
+msgid "43 Fixed issue that the reader never set the active sheet"
+msgstr ""
+
+#: ../../changes.rst:1650
+msgid "33 Reader set value and type explicitly and TYPE_ERROR checking"
+msgstr ""
+
+#: ../../changes.rst:1651
+msgid "22 added page breaks, fixed formula serialization"
+msgstr ""
+
+#: ../../changes.rst:1652
+msgid "39 Fix Python 2.6 compatibility"
+msgstr ""
+
+#: ../../changes.rst:1653
+msgid "47 Improvements in styling"
+msgstr ""
+
+#: ../../changes.rst:1657
+msgid "Known bugfixes"
+msgstr ""
+
+#: ../../changes.rst:1659
+#: ../../changes.rst:1664
+msgid "`#109 <https://bitbucket.org/openpyxl/openpyxl/issue/109>`_"
+msgstr ""
+
+#: ../../changes.rst:1660
+msgid "`#165 <https://bitbucket.org/openpyxl/openpyxl/issue/165>`_"
+msgstr ""
+
+#: ../../changes.rst:1661
+msgid "`#209 <https://bitbucket.org/openpyxl/openpyxl/issue/209>`_"
+msgstr ""
+
+#: ../../changes.rst:1662
+msgid "`#112 <https://bitbucket.org/openpyxl/openpyxl/issue/112>`_"
+msgstr ""
+
+#: ../../changes.rst:1663
+msgid "`#166 <https://bitbucket.org/openpyxl/openpyxl/issue/166>`_"
+msgstr ""
+
+#: ../../changes.rst:1665
+msgid "`#223 <https://bitbucket.org/openpyxl/openpyxl/issue/223>`_"
+msgstr ""
+
+#: ../../changes.rst:1666
+msgid "`#124 <https://bitbucket.org/openpyxl/openpyxl/issue/124>`_"
+msgstr ""
+
+#: ../../changes.rst:1667
+msgid "`#157 <https://bitbucket.org/openpyxl/openpyxl/issue/157>`_"
+msgstr ""
+
+#: ../../changes.rst:1671
+msgid "Miscellaneous"
+msgstr ""
+
+#: ../../changes.rst:1673
+msgid "Performance improvements in optimised writer"
+msgstr ""

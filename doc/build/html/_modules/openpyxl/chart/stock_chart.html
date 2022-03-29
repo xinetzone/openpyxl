@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>openpyxl.chart.stock_chart &#8212; openpyxl 3.0.9 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/nature.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.chart.stock_chart</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for openpyxl.chart.stock_chart</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2010-2022 openpyxl</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.serialisable</span> <span class="kn">import</span> <span class="n">Serialisable</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Typed</span><span class="p">,</span>
+    <span class="n">Sequence</span><span class="p">,</span>
+    <span class="n">Alias</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.excel</span> <span class="kn">import</span> <span class="n">ExtensionList</span>
+
+<span class="kn">from</span> <span class="nn">._chart</span> <span class="kn">import</span> <span class="n">ChartBase</span>
+<span class="kn">from</span> <span class="nn">.axis</span> <span class="kn">import</span> <span class="n">TextAxis</span><span class="p">,</span> <span class="n">NumericAxis</span><span class="p">,</span> <span class="n">ChartLines</span>
+<span class="kn">from</span> <span class="nn">.updown_bars</span> <span class="kn">import</span> <span class="n">UpDownBars</span>
+<span class="kn">from</span> <span class="nn">.label</span> <span class="kn">import</span> <span class="n">DataLabelList</span>
+<span class="kn">from</span> <span class="nn">.series</span> <span class="kn">import</span> <span class="n">Series</span>
+
+
+<div class="viewcode-block" id="StockChart"><a class="viewcode-back" href="../../../api/openpyxl.chart.stock_chart.html#openpyxl.chart.stock_chart.StockChart">[docs]</a><span class="k">class</span> <span class="nc">StockChart</span><span class="p">(</span><span class="n">ChartBase</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;stockChart&quot;</span>
+
+    <span class="n">ser</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Series</span><span class="p">)</span> <span class="c1">#min 3, max4</span>
+    <span class="n">dLbls</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">DataLabelList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dataLabels</span> <span class="o">=</span> <span class="n">Alias</span><span class="p">(</span><span class="s1">&#39;dLbls&#39;</span><span class="p">)</span>
+    <span class="n">dropLines</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ChartLines</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">hiLowLines</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ChartLines</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">upDownBars</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">UpDownBars</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">x_axis</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">TextAxis</span><span class="p">)</span>
+    <span class="n">y_axis</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">NumericAxis</span><span class="p">)</span>
+
+    <span class="n">_series_type</span> <span class="o">=</span> <span class="s2">&quot;line&quot;</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;ser&#39;</span><span class="p">,</span> <span class="s1">&#39;dLbls&#39;</span><span class="p">,</span> <span class="s1">&#39;dropLines&#39;</span><span class="p">,</span> <span class="s1">&#39;hiLowLines&#39;</span><span class="p">,</span> <span class="s1">&#39;upDownBars&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;axId&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">ser</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">dLbls</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">dropLines</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">hiLowLines</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">upDownBars</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">kw</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ser</span> <span class="o">=</span> <span class="n">ser</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dLbls</span> <span class="o">=</span> <span class="n">dLbls</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dropLines</span> <span class="o">=</span> <span class="n">dropLines</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hiLowLines</span> <span class="o">=</span> <span class="n">hiLowLines</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">upDownBars</span> <span class="o">=</span> <span class="n">upDownBars</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x_axis</span> <span class="o">=</span> <span class="n">TextAxis</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y_axis</span> <span class="o">=</span> <span class="n">NumericAxis</span><span class="p">()</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">StockChart</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kw</span><span class="p">)</span></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.chart.stock_chart</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2010 - 2022, See AUTHORS.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

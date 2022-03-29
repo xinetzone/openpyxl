@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>openpyxl.cell.text &#8212; openpyxl 3.0.9 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/nature.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.cell.text</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for openpyxl.cell.text</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2010-2022 openpyxl</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Richtext definition</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.serialisable</span> <span class="kn">import</span> <span class="n">Serialisable</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Alias</span><span class="p">,</span>
+    <span class="n">Typed</span><span class="p">,</span>
+    <span class="n">Integer</span><span class="p">,</span>
+    <span class="n">Set</span><span class="p">,</span>
+    <span class="n">NoneSet</span><span class="p">,</span>
+    <span class="n">Bool</span><span class="p">,</span>
+    <span class="n">String</span><span class="p">,</span>
+    <span class="n">Sequence</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.nested</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">NestedBool</span><span class="p">,</span>
+    <span class="n">NestedInteger</span><span class="p">,</span>
+    <span class="n">NestedString</span><span class="p">,</span>
+    <span class="n">NestedText</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">openpyxl.styles.fonts</span> <span class="kn">import</span> <span class="n">Font</span>
+
+
+<div class="viewcode-block" id="PhoneticProperties"><a class="viewcode-back" href="../../../api/openpyxl.cell.text.html#openpyxl.cell.text.PhoneticProperties">[docs]</a><span class="k">class</span> <span class="nc">PhoneticProperties</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;phoneticPr&quot;</span>
+
+    <span class="n">fontId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="nb">type</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;halfwidthKatakana&#39;</span><span class="p">,</span> <span class="s1">&#39;fullwidthKatakana&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;Hiragana&#39;</span><span class="p">,</span> <span class="s1">&#39;noConversion&#39;</span><span class="p">]))</span>
+    <span class="n">alignment</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;noControl&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="s1">&#39;distributed&#39;</span><span class="p">]))</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">fontId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">alignment</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fontId</span> <span class="o">=</span> <span class="n">fontId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="nb">type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">alignment</span> <span class="o">=</span> <span class="n">alignment</span></div>
+
+
+<div class="viewcode-block" id="PhoneticText"><a class="viewcode-back" href="../../../api/openpyxl.cell.text.html#openpyxl.cell.text.PhoneticText">[docs]</a><span class="k">class</span> <span class="nc">PhoneticText</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;rPh&quot;</span>
+
+    <span class="n">sb</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">eb</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">NestedText</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">Alias</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">sb</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">eb</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sb</span> <span class="o">=</span> <span class="n">sb</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eb</span> <span class="o">=</span> <span class="n">eb</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">t</span></div>
+
+
+<div class="viewcode-block" id="InlineFont"><a class="viewcode-back" href="../../../api/openpyxl.cell.text.html#openpyxl.cell.text.InlineFont">[docs]</a><span class="k">class</span> <span class="nc">InlineFont</span><span class="p">(</span><span class="n">Font</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Font for inline text because, yes what you need are different objects with the same elements but different constraints.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;RPrElt&quot;</span>
+
+    <span class="n">rFont</span> <span class="o">=</span> <span class="n">NestedString</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">charset</span> <span class="o">=</span> <span class="n">Font</span><span class="o">.</span><span class="n">charset</span>
+    <span class="n">family</span> <span class="o">=</span> <span class="n">Font</span><span class="o">.</span><span class="n">family</span>
+    <span class="n">b</span> <span class="o">=</span><span class="n">Font</span><span class="o">.</span><span class="n">b</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">Font</span><span class="o">.</span><span class="n">i</span>
+    <span class="n">strike</span> <span class="o">=</span> <span class="n">Font</span><span class="o">.</span><span class="n">strike</span>
+    <span class="n">outline</span> <span class="o">=</span> <span class="n">Font</span><span class="o">.</span><span class="n">outline</span>
+    <span class="n">shadow</span> <span class="o">=</span> <span class="n">Font</span><span class="o">.</span><span class="n">shadow</span>
+    <span class="n">condense</span> <span class="o">=</span> <span class="n">Font</span><span class="o">.</span><span class="n">condense</span>
+    <span class="n">extend</span> <span class="o">=</span> <span class="n">Font</span><span class="o">.</span><span class="n">extend</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="n">Font</span><span class="o">.</span><span class="n">color</span>
+    <span class="n">sz</span> <span class="o">=</span> <span class="n">Font</span><span class="o">.</span><span class="n">sz</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">Font</span><span class="o">.</span><span class="n">u</span>
+    <span class="n">vertAlign</span> <span class="o">=</span> <span class="n">Font</span><span class="o">.</span><span class="n">vertAlign</span>
+    <span class="n">scheme</span> <span class="o">=</span> <span class="n">Font</span><span class="o">.</span><span class="n">scheme</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;rFont&#39;</span><span class="p">,</span> <span class="s1">&#39;charset&#39;</span><span class="p">,</span> <span class="s1">&#39;family&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;strike&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;outline&#39;</span><span class="p">,</span> <span class="s1">&#39;shadow&#39;</span><span class="p">,</span> <span class="s1">&#39;condense&#39;</span><span class="p">,</span> <span class="s1">&#39;extend&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">,</span> <span class="s1">&#39;sz&#39;</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;vertAlign&#39;</span><span class="p">,</span> <span class="s1">&#39;scheme&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">rFont</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">charset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">family</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">b</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">i</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">strike</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">outline</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">shadow</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">condense</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extend</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">sz</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">u</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">vertAlign</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">scheme</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rFont</span> <span class="o">=</span> <span class="n">rFont</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">charset</span> <span class="o">=</span> <span class="n">charset</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">family</span> <span class="o">=</span> <span class="n">family</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">b</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">i</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">strike</span> <span class="o">=</span> <span class="n">strike</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">outline</span> <span class="o">=</span> <span class="n">outline</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shadow</span> <span class="o">=</span> <span class="n">shadow</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">condense</span> <span class="o">=</span> <span class="n">condense</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extend</span> <span class="o">=</span> <span class="n">extend</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sz</span> <span class="o">=</span> <span class="n">sz</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">u</span> <span class="o">=</span> <span class="n">u</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vertAlign</span> <span class="o">=</span> <span class="n">vertAlign</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scheme</span> <span class="o">=</span> <span class="n">scheme</span></div>
+
+
+<div class="viewcode-block" id="RichText"><a class="viewcode-back" href="../../../api/openpyxl.cell.text.html#openpyxl.cell.text.RichText">[docs]</a><span class="k">class</span> <span class="nc">RichText</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;RElt&quot;</span>
+
+    <span class="n">rPr</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">InlineFont</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">font</span> <span class="o">=</span> <span class="n">Alias</span><span class="p">(</span><span class="s2">&quot;rPr&quot;</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">NestedText</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">Alias</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;rPr&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">rPr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rPr</span> <span class="o">=</span> <span class="n">rPr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">t</span></div>
+
+
+<div class="viewcode-block" id="Text"><a class="viewcode-back" href="../../../api/openpyxl.cell.text.html#openpyxl.cell.text.Text">[docs]</a><span class="k">class</span> <span class="nc">Text</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;text&quot;</span>
+
+    <span class="n">t</span> <span class="o">=</span> <span class="n">NestedText</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">expected_type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+    <span class="n">plain</span> <span class="o">=</span> <span class="n">Alias</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">RichText</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">formatted</span> <span class="o">=</span> <span class="n">Alias</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+    <span class="n">rPh</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">PhoneticText</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">phonetic</span> <span class="o">=</span> <span class="n">Alias</span><span class="p">(</span><span class="s2">&quot;rPh&quot;</span><span class="p">)</span>
+    <span class="n">phoneticPr</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">PhoneticProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">PhoneticProperties</span> <span class="o">=</span> <span class="n">Alias</span><span class="p">(</span><span class="s2">&quot;phoneticPr&quot;</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;rPh&#39;</span><span class="p">,</span> <span class="s1">&#39;phoneticPr&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">r</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">rPh</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">phoneticPr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">t</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">r</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rPh</span> <span class="o">=</span> <span class="n">rPh</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phoneticPr</span> <span class="o">=</span> <span class="n">phoneticPr</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">content</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Text stripped of all formatting</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">snippets</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">plain</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">snippets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">plain</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatted</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">block</span><span class="o">.</span><span class="n">t</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">snippets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
+        <span class="k">return</span> <span class="sa">u</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">snippets</span><span class="p">)</span></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.cell.text</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2010 - 2022, See AUTHORS.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

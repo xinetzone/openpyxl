@@ -1,0 +1,58 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/openpyxl.workbook.web.rst:2
+msgid "openpyxl.workbook.web module"
+msgstr ""
+
+#: ../../../openpyxl/workbook/web.py:docstring of openpyxl.workbook.web.WebPublishObject:1
+#: ../../../openpyxl/workbook/web.py:docstring of openpyxl.workbook.web.WebPublishObjectList:1
+#: ../../../openpyxl/workbook/web.py:docstring of openpyxl.workbook.web.WebPublishing:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../docstring of openpyxl.workbook.web.WebPublishObject.autoRepublish:1
+#: ../../docstring of openpyxl.workbook.web.WebPublishing.allowPng:1
+#: ../../docstring of openpyxl.workbook.web.WebPublishing.css:1
+#: ../../docstring of openpyxl.workbook.web.WebPublishing.longFileNames:1
+#: ../../docstring of openpyxl.workbook.web.WebPublishing.thicket:1
+#: ../../docstring of openpyxl.workbook.web.WebPublishing.vml:1
+msgid "Values must be of type <class 'bool'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.workbook.web.WebPublishObject.destinationFile:1
+#: ../../docstring of openpyxl.workbook.web.WebPublishObject.divId:1
+#: ../../docstring of openpyxl.workbook.web.WebPublishObject.sourceObject:1
+#: ../../docstring of openpyxl.workbook.web.WebPublishObject.title:1
+#: ../../docstring of openpyxl.workbook.web.WebPublishing.characterSet:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.workbook.web.WebPublishObject.id:1
+#: ../../docstring of openpyxl.workbook.web.WebPublishing.codePage:1
+#: ../../docstring of openpyxl.workbook.web.WebPublishing.dpi:1
+msgid "Values must be of type <class 'int'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.workbook.web.WebPublishObjectList.webPublishObject:1
+msgid "A sequence (list or tuple) that may only contain objects of the declared type"
+msgstr ""
+
+#: ../../docstring of openpyxl.workbook.web.WebPublishing.targetScreenSize:1
+msgid "Value must be one of {'1600x1200', '720x512', '1024x768', '1152x882', '1152x900', '1800x1440', '544x376', '1280x1024', '1920x1200', '800x600', '640x480'}"
+msgstr ""

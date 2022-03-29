@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>openpyxl.drawing.spreadsheet_drawing module &#8212; openpyxl 3.0.9 文档</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nature.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="openpyxl.drawing.text module" href="openpyxl.drawing.text.html" />
+    <link rel="prev" title="openpyxl.drawing.relation module" href="openpyxl.drawing.relation.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.drawing.text.html" title="openpyxl.drawing.text module"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.drawing.relation.html" title="openpyxl.drawing.relation module"
+             accesskey="P">上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.drawing.html" accesskey="U">openpyxl.drawing package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.drawing.spreadsheet_drawing module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-openpyxl.drawing.spreadsheet_drawing">
+<span id="openpyxl-drawing-spreadsheet-drawing-module"></span><h1>openpyxl.drawing.spreadsheet_drawing module<a class="headerlink" href="#module-openpyxl.drawing.spreadsheet_drawing" title="永久链接至标题">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.drawing.spreadsheet_drawing.</span></span><span class="sig-name descname"><span class="pre">AbsoluteAnchor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ext</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/drawing/spreadsheet_drawing.html#AbsoluteAnchor"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.drawing.spreadsheet_drawing._AnchorBase</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.clientData">
+<span class="sig-name descname"><span class="pre">clientData</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.clientData" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.spreadsheet_drawing.AnchorClientData’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.contentPart">
+<span class="sig-name descname"><span class="pre">contentPart</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.contentPart" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.cxnSp">
+<span class="sig-name descname"><span class="pre">cxnSp</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.cxnSp" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.connector.Shape’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.ext">
+<span class="sig-name descname"><span class="pre">ext</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.ext" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.xdr.XDRPositiveSize2D’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.graphicFrame">
+<span class="sig-name descname"><span class="pre">graphicFrame</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.graphicFrame" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.graphic.GraphicFrame’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.grpSp">
+<span class="sig-name descname"><span class="pre">grpSp</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.grpSp" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.graphic.GroupShape’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.pic">
+<span class="sig-name descname"><span class="pre">pic</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.pic" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.picture.PictureFrame’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.pos">
+<span class="sig-name descname"><span class="pre">pos</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.pos" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.xdr.XDRPoint2D’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.sp">
+<span class="sig-name descname"><span class="pre">sp</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.sp" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.connector.Shape’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'absoluteAnchor'</span></em><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.AnchorClientData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.drawing.spreadsheet_drawing.</span></span><span class="sig-name descname"><span class="pre">AnchorClientData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fLocksWithSheet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fPrintsWithSheet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/drawing/spreadsheet_drawing.html#AnchorClientData"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.AnchorClientData" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.AnchorClientData.fLocksWithSheet">
+<span class="sig-name descname"><span class="pre">fLocksWithSheet</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.AnchorClientData.fLocksWithSheet" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.AnchorClientData.fPrintsWithSheet">
+<span class="sig-name descname"><span class="pre">fPrintsWithSheet</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.AnchorClientData.fPrintsWithSheet" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.AnchorMarker">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.drawing.spreadsheet_drawing.</span></span><span class="sig-name descname"><span class="pre">AnchorMarker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colOff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rowOff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/drawing/spreadsheet_drawing.html#AnchorMarker"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.AnchorMarker" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.AnchorMarker.col">
+<span class="sig-name descname"><span class="pre">col</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.AnchorMarker.col" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.AnchorMarker.colOff">
+<span class="sig-name descname"><span class="pre">colOff</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.AnchorMarker.colOff" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.AnchorMarker.row">
+<span class="sig-name descname"><span class="pre">row</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.AnchorMarker.row" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.AnchorMarker.rowOff">
+<span class="sig-name descname"><span class="pre">rowOff</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.AnchorMarker.rowOff" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.AnchorMarker.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'marker'</span></em><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.AnchorMarker.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.OneCellAnchor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.drawing.spreadsheet_drawing.</span></span><span class="sig-name descname"><span class="pre">OneCellAnchor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_from</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ext</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/drawing/spreadsheet_drawing.html#OneCellAnchor"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.OneCellAnchor" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.drawing.spreadsheet_drawing._AnchorBase</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.OneCellAnchor.clientData">
+<span class="sig-name descname"><span class="pre">clientData</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.OneCellAnchor.clientData" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.spreadsheet_drawing.AnchorClientData’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.OneCellAnchor.contentPart">
+<span class="sig-name descname"><span class="pre">contentPart</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.OneCellAnchor.contentPart" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.OneCellAnchor.cxnSp">
+<span class="sig-name descname"><span class="pre">cxnSp</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.OneCellAnchor.cxnSp" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.connector.Shape’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.OneCellAnchor.ext">
+<span class="sig-name descname"><span class="pre">ext</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.OneCellAnchor.ext" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.xdr.XDRPositiveSize2D’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.OneCellAnchor.graphicFrame">
+<span class="sig-name descname"><span class="pre">graphicFrame</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.OneCellAnchor.graphicFrame" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.graphic.GraphicFrame’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.OneCellAnchor.grpSp">
+<span class="sig-name descname"><span class="pre">grpSp</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.OneCellAnchor.grpSp" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.graphic.GroupShape’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.OneCellAnchor.pic">
+<span class="sig-name descname"><span class="pre">pic</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.OneCellAnchor.pic" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.picture.PictureFrame’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.OneCellAnchor.sp">
+<span class="sig-name descname"><span class="pre">sp</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.OneCellAnchor.sp" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.connector.Shape’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.OneCellAnchor.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'oneCellAnchor'</span></em><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.OneCellAnchor.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.SpreadsheetDrawing">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.drawing.spreadsheet_drawing.</span></span><span class="sig-name descname"><span class="pre">SpreadsheetDrawing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">twoCellAnchor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oneCellAnchor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">absoluteAnchor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/drawing/spreadsheet_drawing.html#SpreadsheetDrawing"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.SpreadsheetDrawing" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.SpreadsheetDrawing.PartName">
+<span class="sig-name descname"><span class="pre">PartName</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/xl/drawings/drawing{0}.xml'</span></em><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.SpreadsheetDrawing.PartName" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.SpreadsheetDrawing.absoluteAnchor">
+<span class="sig-name descname"><span class="pre">absoluteAnchor</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.SpreadsheetDrawing.absoluteAnchor" title="永久链接至目标">¶</a></dt>
+<dd><p>A sequence (list or tuple) that may only contain objects of the declared
+type</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.SpreadsheetDrawing.mime_type">
+<span class="sig-name descname"><span class="pre">mime_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'application/vnd.openxmlformats-officedocument.drawing+xml'</span></em><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.SpreadsheetDrawing.mime_type" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.SpreadsheetDrawing.oneCellAnchor">
+<span class="sig-name descname"><span class="pre">oneCellAnchor</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.SpreadsheetDrawing.oneCellAnchor" title="永久链接至目标">¶</a></dt>
+<dd><p>A sequence (list or tuple) that may only contain objects of the declared
+type</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.SpreadsheetDrawing.path">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">path</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.SpreadsheetDrawing.path" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.SpreadsheetDrawing.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'wsDr'</span></em><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.SpreadsheetDrawing.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.SpreadsheetDrawing.twoCellAnchor">
+<span class="sig-name descname"><span class="pre">twoCellAnchor</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.SpreadsheetDrawing.twoCellAnchor" title="永久链接至目标">¶</a></dt>
+<dd><p>A sequence (list or tuple) that may only contain objects of the declared
+type</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.drawing.spreadsheet_drawing.</span></span><span class="sig-name descname"><span class="pre">TwoCellAnchor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">editAs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_from</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/drawing/spreadsheet_drawing.html#TwoCellAnchor"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.drawing.spreadsheet_drawing._AnchorBase</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.clientData">
+<span class="sig-name descname"><span class="pre">clientData</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.clientData" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.spreadsheet_drawing.AnchorClientData’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.contentPart">
+<span class="sig-name descname"><span class="pre">contentPart</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.contentPart" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.cxnSp">
+<span class="sig-name descname"><span class="pre">cxnSp</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.cxnSp" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.connector.Shape’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.editAs">
+<span class="sig-name descname"><span class="pre">editAs</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.editAs" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘oneCell’, ‘absolute’, ‘twoCell’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.graphicFrame">
+<span class="sig-name descname"><span class="pre">graphicFrame</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.graphicFrame" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.graphic.GraphicFrame’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.grpSp">
+<span class="sig-name descname"><span class="pre">grpSp</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.grpSp" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.graphic.GroupShape’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.pic">
+<span class="sig-name descname"><span class="pre">pic</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.pic" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.picture.PictureFrame’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.sp">
+<span class="sig-name descname"><span class="pre">sp</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.sp" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.connector.Shape’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'twoCellAnchor'</span></em><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.to">
+<span class="sig-name descname"><span class="pre">to</span></span><a class="headerlink" href="#openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.to" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.spreadsheet_drawing.AnchorMarker’&gt;</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="openpyxl.drawing.relation.html"
+                          title="上一章">openpyxl.drawing.relation module</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="openpyxl.drawing.text.html"
+                          title="下一章">openpyxl.drawing.text module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/openpyxl.drawing.spreadsheet_drawing.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.drawing.text.html" title="openpyxl.drawing.text module"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.drawing.relation.html" title="openpyxl.drawing.relation module"
+             >上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.drawing.html" >openpyxl.drawing package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.drawing.spreadsheet_drawing module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2010 - 2022, See AUTHORS.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+  </body>
+</html>

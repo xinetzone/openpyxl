@@ -1,0 +1,81 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/openpyxl.packaging.extended.rst:2
+msgid "openpyxl.packaging.extended module"
+msgstr ""
+
+#: ../../../openpyxl/packaging/extended.py:docstring of openpyxl.packaging.extended.DigSigBlob:1
+#: ../../../openpyxl/packaging/extended.py:docstring of openpyxl.packaging.extended.ExtendedProperties:1
+#: ../../../openpyxl/packaging/extended.py:docstring of openpyxl.packaging.extended.VectorLpstr:1
+#: ../../../openpyxl/packaging/extended.py:docstring of openpyxl.packaging.extended.VectorVariant:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../../openpyxl/packaging/extended.py:docstring of openpyxl.packaging.extended.ExtendedProperties:1
+msgid "See 22.2"
+msgstr ""
+
+#: ../../../openpyxl/packaging/extended.py:docstring of openpyxl.packaging.extended.ExtendedProperties:3
+msgid "Most of this is irrelevant"
+msgstr ""
+
+#: ../../docstring of openpyxl.packaging.extended.ExtendedProperties.AppVersion:1
+#: ../../docstring of openpyxl.packaging.extended.ExtendedProperties.Application:1
+#: ../../docstring of openpyxl.packaging.extended.ExtendedProperties.Company:1
+#: ../../docstring of openpyxl.packaging.extended.ExtendedProperties.HyperlinkBase:1
+#: ../../docstring of openpyxl.packaging.extended.ExtendedProperties.Manager:1
+#: ../../docstring of openpyxl.packaging.extended.ExtendedProperties.PresentationFormat:1
+#: ../../docstring of openpyxl.packaging.extended.ExtendedProperties.Template:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.packaging.extended.ExtendedProperties.Characters:1
+#: ../../docstring of openpyxl.packaging.extended.ExtendedProperties.CharactersWithSpaces:1
+#: ../../docstring of openpyxl.packaging.extended.ExtendedProperties.DocSecurity:1
+#: ../../docstring of openpyxl.packaging.extended.ExtendedProperties.HiddenSlides:1
+#: ../../docstring of openpyxl.packaging.extended.ExtendedProperties.Lines:1
+#: ../../docstring of openpyxl.packaging.extended.ExtendedProperties.MMClips:1
+#: ../../docstring of openpyxl.packaging.extended.ExtendedProperties.Notes:1
+#: ../../docstring of openpyxl.packaging.extended.ExtendedProperties.Pages:1
+#: ../../docstring of openpyxl.packaging.extended.ExtendedProperties.Paragraphs:1
+#: ../../docstring of openpyxl.packaging.extended.ExtendedProperties.Slides:1
+#: ../../docstring of openpyxl.packaging.extended.ExtendedProperties.TotalTime:1
+#: ../../docstring of openpyxl.packaging.extended.ExtendedProperties.Words:1
+msgid "Values must be of type <class 'int'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.packaging.extended.ExtendedProperties.DigSig:1
+msgid "Values must be of type <class 'openpyxl.packaging.extended.DigSigBlob'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.packaging.extended.ExtendedProperties.HLinks:1
+#: ../../docstring of openpyxl.packaging.extended.ExtendedProperties.HeadingPairs:1
+msgid "Values must be of type <class 'openpyxl.packaging.extended.VectorVariant'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.packaging.extended.ExtendedProperties.HyperlinksChanged:1
+#: ../../docstring of openpyxl.packaging.extended.ExtendedProperties.LinksUpToDate:1
+#: ../../docstring of openpyxl.packaging.extended.ExtendedProperties.ScaleCrop:1
+#: ../../docstring of openpyxl.packaging.extended.ExtendedProperties.SharedDoc:1
+msgid "Values must be of type <class 'bool'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.packaging.extended.ExtendedProperties.TitlesOfParts:1
+msgid "Values must be of type <class 'openpyxl.packaging.extended.VectorLpstr'>"
+msgstr ""

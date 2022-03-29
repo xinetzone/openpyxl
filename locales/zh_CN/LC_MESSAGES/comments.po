@@ -1,0 +1,77 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../comments.rst:2
+msgid "Comments"
+msgstr ""
+
+#: ../../comments.rst:6
+msgid ""
+"Openpyxl currently supports the reading and writing of comment text only."
+" Formatting information is lost. Comment dimensions are lost upon "
+"reading, but can be written. Comments are not currently supported if "
+"`read_only=True` is used."
+msgstr ""
+
+#: ../../comments.rst:13
+msgid "Adding a comment to a cell"
+msgstr ""
+
+#: ../../comments.rst:15
+msgid ""
+"Comments have a text attribute and an author attribute, which must both "
+"be set"
+msgstr ""
+
+#: ../../comments.rst:30
+msgid ""
+"If you assign the same comment to multiple cells then openpyxl will "
+"automatically create copies"
+msgstr ""
+
+#: ../../comments.rst:48
+msgid "Loading and saving comments"
+msgstr ""
+
+#: ../../comments.rst:50
+msgid ""
+"Comments present in a workbook when loaded are stored in the comment "
+"attribute of their respective cells automatically. Formatting information"
+" such as font size, bold and italics are lost, as are the original "
+"dimensions and position of the comment's container box."
+msgstr ""
+
+#: ../../comments.rst:55
+msgid ""
+"Comments remaining in a workbook when it is saved are automatically saved"
+" to the workbook file."
+msgstr ""
+
+#: ../../comments.rst:58
+msgid ""
+"Comment dimensions can be specified for write-only. Comment dimension are"
+" in pixels."
+msgstr ""
+
+#: ../../comments.rst:79
+msgid ""
+"If needed, ``openpyxl.utils.units`` contains helper functions for "
+"converting from other measurements such as mm or points to pixels:"
+msgstr ""
+

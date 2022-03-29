@@ -1,0 +1,66 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/openpyxl.worksheet.merge.rst:2
+msgid "openpyxl.worksheet.merge module"
+msgstr ""
+
+#: ../../../openpyxl/worksheet/merge.py:docstring of openpyxl.worksheet.merge.MergeCell:1
+#: ../../../openpyxl/worksheet/merge.py:docstring of openpyxl.worksheet.merge.MergedCellRange:1
+msgid "Bases: :py:class:`openpyxl.worksheet.cell_range.CellRange`"
+msgstr ""
+
+#: ../../../openpyxl/worksheet/merge.py:docstring of openpyxl.worksheet.merge.MergeCell.ref:1
+msgid "Excel-style representation of the range"
+msgstr ""
+
+#: ../../../openpyxl/worksheet/merge.py:docstring of openpyxl.worksheet.merge.MergeCells:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.merge.MergeCells.mergeCell:1
+msgid "A sequence (list or tuple) that may only contain objects of the declared type"
+msgstr ""
+
+#: ../../../openpyxl/worksheet/merge.py:docstring of openpyxl.worksheet.merge.MergedCellRange:1
+msgid "MergedCellRange stores the border information of a merged cell in the top left cell of the merged cell. The remaining cells in the merged cell are stored as MergedCell objects and get their border information from the upper left cell."
+msgstr ""
+
+#: ../../../openpyxl/worksheet/merge.py:docstring of openpyxl.worksheet.merge.MergedCellRange.format:1
+msgid "Each cell of the merged cell is created as MergedCell if it does not already exist."
+msgstr ""
+
+#: ../../../openpyxl/worksheet/merge.py:docstring of openpyxl.worksheet.merge.MergedCellRange.format:4
+msgid "The MergedCells at the edge of the merged cell gets its borders from the upper left cell."
+msgstr ""
+
+#: ../../../openpyxl/worksheet/merge.py:docstring of openpyxl.worksheet.merge.MergedCellRange.format:7
+msgid "The top MergedCells get the top border from the top left cell."
+msgstr ""
+
+#: ../../../openpyxl/worksheet/merge.py:docstring of openpyxl.worksheet.merge.MergedCellRange.format:8
+msgid "The bottom MergedCells get the bottom border from the top left cell."
+msgstr ""
+
+#: ../../../openpyxl/worksheet/merge.py:docstring of openpyxl.worksheet.merge.MergedCellRange.format:9
+msgid "The left MergedCells get the left border from the top left cell."
+msgstr ""
+
+#: ../../../openpyxl/worksheet/merge.py:docstring of openpyxl.worksheet.merge.MergedCellRange.format:10
+msgid "The right MergedCells get the right border from the top left cell."
+msgstr ""

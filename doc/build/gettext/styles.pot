@@ -1,0 +1,397 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../styles.rst:2
+msgid "Working with styles"
+msgstr ""
+
+#: ../../styles.rst:5
+msgid "Introduction"
+msgstr ""
+
+#: ../../styles.rst:7
+msgid "Styles are used to change the look of your data while displayed on screen. They are also used to determine the formatting for numbers."
+msgstr ""
+
+#: ../../styles.rst:10
+msgid "Styles can be applied to the following aspects:"
+msgstr ""
+
+#: ../../styles.rst:12
+msgid "font to set font size, color, underlining, etc."
+msgstr ""
+
+#: ../../styles.rst:13
+msgid "fill to set a pattern or color gradient"
+msgstr ""
+
+#: ../../styles.rst:14
+msgid "border to set borders on a cell"
+msgstr ""
+
+#: ../../styles.rst:15
+msgid "cell alignment"
+msgstr ""
+
+#: ../../styles.rst:16
+msgid "protection"
+msgstr ""
+
+#: ../../styles.rst:18
+msgid "The following are the default values"
+msgstr ""
+
+#: ../../styles.rst:64
+msgid "Cell Styles and Named Styles"
+msgstr ""
+
+#: ../../styles.rst:66
+msgid "There are two types of styles: cell styles and named styles, also known as style templates."
+msgstr ""
+
+#: ../../styles.rst:69
+msgid "Cell Styles"
+msgstr ""
+
+#: ../../styles.rst:71
+msgid "Cell styles are shared between objects and once they have been assigned they cannot be changed. This stops unwanted side-effects such as changing the style for lots of cells when only one changes."
+msgstr ""
+
+#: ../../styles.rst:97
+msgid "Copying styles"
+msgstr ""
+
+#: ../../styles.rst:99
+msgid "Styles can also be copied"
+msgstr ""
+
+#: ../../styles.rst:118
+msgid "Colours"
+msgstr ""
+
+#: ../../styles.rst:119
+msgid "Colours for fonts, backgrounds, borders, etc. can be set in three ways: indexed, aRGB or theme. Indexed colours are the legacy implementation and the colours themselves depend upon the index provided with the workbook or with the application default. Theme colours are useful for complementary shades of colours but also depend upon the theme being present in the workbook. It is, therefore, advisable to use aRGB colours."
+msgstr ""
+
+#: ../../styles.rst:124
+msgid "aRGB colours"
+msgstr ""
+
+#: ../../styles.rst:126
+msgid "RGB colours are set using hexadecimal values for red, green and blue."
+msgstr ""
+
+#: ../../styles.rst:131
+msgid "The alpha value refers in theory to the transparency of the colour but this is not relevant for cell styles. The default of 00 will prepended to any simple RGB value:"
+msgstr ""
+
+#: ../../styles.rst:138
+msgid "There is also support for legacy indexed colours as well as themes and tints."
+msgstr ""
+
+#: ../../styles.rst:145
+msgid "Indexed Colours"
+msgstr ""
+
+#: ../../styles.rst:150
+msgid "The indices 64 and 65 cannot be set and are reserved for the system foreground and background colours respectively."
+msgstr ""
+
+#: ../../styles.rst:153
+msgid "Applying Styles"
+msgstr ""
+
+#: ../../styles.rst:154
+msgid "Styles are applied directly to cells"
+msgstr ""
+
+#: ../../styles.rst:165
+msgid "Styles can also applied to columns and rows but note that this applies only to cells created (in Excel) after the file is closed. If you want to apply styles to entire rows and columns then you must apply the style to each cell yourself. This is a restriction of the file format::"
+msgstr ""
+
+#: ../../styles.rst:178
+msgid "Styling Merged Cells"
+msgstr ""
+
+#: ../../styles.rst:180
+msgid "The merged cell behaves similarly to other cell ojects. Its value and format is defined in its top-left cell. In order to change the border of the whole merged cell, change the border of its top-left cell. The formatting is generated for the purpose of writing."
+msgstr ""
+
+#: ../../styles.rst:211
+msgid "Edit Page Setup"
+msgstr ""
+
+#: ../../styles.rst:226
+msgid "Named Styles"
+msgstr ""
+
+#: ../../styles.rst:228
+msgid "In contrast to Cell Styles, Named Styles are mutable. They make sense when you want to apply formatting to lots of different cells at once. NB. once you have assigned a named style to a cell, additional changes to the style will **not** affect the cell."
+msgstr ""
+
+#: ../../styles.rst:233
+msgid "Once a named style has been registered with a workbook, it can be referred to simply by name."
+msgstr ""
+
+#: ../../styles.rst:237
+msgid "Creating a Named Style"
+msgstr ""
+
+#: ../../styles.rst:247
+msgid "Once a named style has been created, it can be registered with the workbook:"
+msgstr ""
+
+#: ../../styles.rst:251
+msgid "But named styles will also be registered automatically the first time they are assigned to a cell:"
+msgstr ""
+
+#: ../../styles.rst:255
+msgid "Once registered, assign the style using just the name:"
+msgstr ""
+
+#: ../../styles.rst:261
+msgid "Using builtin styles"
+msgstr ""
+
+#: ../../styles.rst:263
+msgid "The specification includes some builtin styles which can also be used. Unfortunately, the names for these styles are stored in their localised forms. openpyxl will only recognise the English names and only exactly as written here. These are as follows:"
+msgstr ""
+
+#: ../../styles.rst:269
+msgid "'Normal' # same as no style"
+msgstr ""
+
+#: ../../styles.rst:272
+msgid "Number formats"
+msgstr ""
+
+#: ../../styles.rst:274
+msgid "'Comma'"
+msgstr ""
+
+#: ../../styles.rst:275
+msgid "'Comma [0]'"
+msgstr ""
+
+#: ../../styles.rst:276
+msgid "'Currency'"
+msgstr ""
+
+#: ../../styles.rst:277
+msgid "'Currency [0]'"
+msgstr ""
+
+#: ../../styles.rst:278
+msgid "'Percent'"
+msgstr ""
+
+#: ../../styles.rst:281
+msgid "Informative"
+msgstr ""
+
+#: ../../styles.rst:283
+msgid "'Calculation'"
+msgstr ""
+
+#: ../../styles.rst:284
+msgid "'Total'"
+msgstr ""
+
+#: ../../styles.rst:285
+msgid "'Note'"
+msgstr ""
+
+#: ../../styles.rst:286
+msgid "'Warning Text'"
+msgstr ""
+
+#: ../../styles.rst:287
+msgid "'Explanatory Text'"
+msgstr ""
+
+#: ../../styles.rst:290
+msgid "Text styles"
+msgstr ""
+
+#: ../../styles.rst:292
+msgid "'Title'"
+msgstr ""
+
+#: ../../styles.rst:293
+msgid "'Headline 1'"
+msgstr ""
+
+#: ../../styles.rst:294
+msgid "'Headline 2'"
+msgstr ""
+
+#: ../../styles.rst:295
+msgid "'Headline 3'"
+msgstr ""
+
+#: ../../styles.rst:296
+msgid "'Headline 4'"
+msgstr ""
+
+#: ../../styles.rst:297
+msgid "'Hyperlink'"
+msgstr ""
+
+#: ../../styles.rst:298
+msgid "'Followed Hyperlink'"
+msgstr ""
+
+#: ../../styles.rst:299
+msgid "'Linked Cell'"
+msgstr ""
+
+#: ../../styles.rst:302
+msgid "Comparisons"
+msgstr ""
+
+#: ../../styles.rst:304
+msgid "'Input'"
+msgstr ""
+
+#: ../../styles.rst:305
+msgid "'Output'"
+msgstr ""
+
+#: ../../styles.rst:306
+msgid "'Check Cell'"
+msgstr ""
+
+#: ../../styles.rst:307
+msgid "'Good'"
+msgstr ""
+
+#: ../../styles.rst:308
+msgid "'Bad'"
+msgstr ""
+
+#: ../../styles.rst:309
+msgid "'Neutral'"
+msgstr ""
+
+#: ../../styles.rst:312
+msgid "Highlights"
+msgstr ""
+
+#: ../../styles.rst:314
+msgid "'Accent1'"
+msgstr ""
+
+#: ../../styles.rst:315
+msgid "'20 % - Accent1'"
+msgstr ""
+
+#: ../../styles.rst:316
+msgid "'40 % - Accent1'"
+msgstr ""
+
+#: ../../styles.rst:317
+msgid "'60 % - Accent1'"
+msgstr ""
+
+#: ../../styles.rst:318
+msgid "'Accent2'"
+msgstr ""
+
+#: ../../styles.rst:319
+msgid "'20 % - Accent2'"
+msgstr ""
+
+#: ../../styles.rst:320
+msgid "'40 % - Accent2'"
+msgstr ""
+
+#: ../../styles.rst:321
+msgid "'60 % - Accent2'"
+msgstr ""
+
+#: ../../styles.rst:322
+msgid "'Accent3'"
+msgstr ""
+
+#: ../../styles.rst:323
+msgid "'20 % - Accent3'"
+msgstr ""
+
+#: ../../styles.rst:324
+msgid "'40 % - Accent3'"
+msgstr ""
+
+#: ../../styles.rst:325
+msgid "'60 % - Accent3'"
+msgstr ""
+
+#: ../../styles.rst:326
+msgid "'Accent4'"
+msgstr ""
+
+#: ../../styles.rst:327
+msgid "'20 % - Accent4'"
+msgstr ""
+
+#: ../../styles.rst:328
+msgid "'40 % - Accent4'"
+msgstr ""
+
+#: ../../styles.rst:329
+msgid "'60 % - Accent4'"
+msgstr ""
+
+#: ../../styles.rst:330
+msgid "'Accent5'"
+msgstr ""
+
+#: ../../styles.rst:331
+msgid "'20 % - Accent5'"
+msgstr ""
+
+#: ../../styles.rst:332
+msgid "'40 % - Accent5'"
+msgstr ""
+
+#: ../../styles.rst:333
+msgid "'60 % - Accent5'"
+msgstr ""
+
+#: ../../styles.rst:334
+msgid "'Accent6'"
+msgstr ""
+
+#: ../../styles.rst:335
+msgid "'20 % - Accent6'"
+msgstr ""
+
+#: ../../styles.rst:336
+msgid "'40 % - Accent6'"
+msgstr ""
+
+#: ../../styles.rst:337
+msgid "'60 % - Accent6'"
+msgstr ""
+
+#: ../../styles.rst:338
+msgid "'Pandas'"
+msgstr ""
+
+#: ../../styles.rst:340
+msgid "For more information about the builtin styles please refer to the :mod:`openpyxl.styles.builtins`"
+msgstr ""

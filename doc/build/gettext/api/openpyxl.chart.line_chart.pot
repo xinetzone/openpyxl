@@ -1,0 +1,88 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/openpyxl.chart.line_chart.rst:2
+msgid "openpyxl.chart.line\\_chart module"
+msgstr ""
+
+#: ../../../openpyxl/chart/line_chart.py:docstring of openpyxl.chart.line_chart.LineChart:1
+#: ../../../openpyxl/chart/line_chart.py:docstring of openpyxl.chart.line_chart.LineChart3D:1
+msgid "Bases: :py:class:`openpyxl.chart.line_chart._LineChartBase`"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.line_chart.LineChart.dLbls:1
+#: ../../docstring of openpyxl.chart.line_chart.LineChart3D.dLbls:1
+msgid "Values must be of type <class 'openpyxl.chart.label.DataLabelList'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.line_chart.LineChart.dropLines:1
+#: ../../docstring of openpyxl.chart.line_chart.LineChart.hiLowLines:1
+#: ../../docstring of openpyxl.chart.line_chart.LineChart3D.dropLines:1
+#: ../../docstring of openpyxl.chart.line_chart.LineChart3D.hiLowLines:1
+msgid "Values must be of type <class 'openpyxl.chart.axis.ChartLines'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.line_chart.LineChart.extLst:1
+#: ../../docstring of openpyxl.chart.line_chart.LineChart3D.extLst:1
+msgid "Values must be of type <class 'openpyxl.descriptors.excel.ExtensionList'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.line_chart.LineChart.grouping:1
+#: ../../docstring of openpyxl.chart.line_chart.LineChart3D.grouping:1
+msgid "Value must be one of {'stacked', 'percentStacked', 'standard'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.line_chart.LineChart.marker:1
+#: ../../docstring of openpyxl.chart.line_chart.LineChart.smooth:1
+#: ../../docstring of openpyxl.chart.line_chart.LineChart.varyColors:1
+#: ../../docstring of openpyxl.chart.line_chart.LineChart3D.marker:1
+#: ../../docstring of openpyxl.chart.line_chart.LineChart3D.smooth:1
+#: ../../docstring of openpyxl.chart.line_chart.LineChart3D.varyColors:1
+msgid "Values must be of type <class 'bool'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.line_chart.LineChart.ser:1
+#: ../../docstring of openpyxl.chart.line_chart.LineChart3D.ser:1
+msgid "A sequence (list or tuple) that may only contain objects of the declared type"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.line_chart.LineChart.upDownBars:1
+#: ../../docstring of openpyxl.chart.line_chart.LineChart3D.upDownBars:1
+msgid "Values must be of type <class 'openpyxl.chart.updown_bars.UpDownBars'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.line_chart.LineChart.x_axis:1
+msgid "Values must be of type <class 'openpyxl.chart.axis._BaseAxis'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.line_chart.LineChart.y_axis:1
+#: ../../docstring of openpyxl.chart.line_chart.LineChart3D.y_axis:1
+msgid "Values must be of type <class 'openpyxl.chart.axis.NumericAxis'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.line_chart.LineChart3D.gapDepth:1
+msgid "Values must be of type <class 'float'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.line_chart.LineChart3D.x_axis:1
+msgid "Values must be of type <class 'openpyxl.chart.axis.TextAxis'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.line_chart.LineChart3D.z_axis:1
+msgid "Values must be of type <class 'openpyxl.chart.axis.SeriesAxis'>"
+msgstr ""

@@ -1,0 +1,54 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/openpyxl.styles.numbers.rst:2
+msgid "openpyxl.styles.numbers module"
+msgstr ""
+
+#: ../../../openpyxl/styles/numbers.py:docstring of openpyxl.styles.numbers.NumberFormat:1
+#: ../../../openpyxl/styles/numbers.py:docstring of openpyxl.styles.numbers.NumberFormatList:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../docstring of openpyxl.styles.numbers.NumberFormat.formatCode:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.styles.numbers.NumberFormat.numFmtId:1
+msgid "Values must be of type <class 'int'>"
+msgstr ""
+
+#: ../../../openpyxl/styles/numbers.py:docstring of openpyxl.styles.numbers.NumberFormatDescriptor:1
+msgid "Bases: :py:class:`openpyxl.descriptors.base.String`"
+msgstr ""
+
+#: ../../docstring of openpyxl.styles.numbers.NumberFormatList.numFmt:1
+msgid "A sequence (list or tuple) that may only contain objects of the declared type"
+msgstr ""
+
+#: ../../../openpyxl/styles/numbers.py:docstring of openpyxl.styles.numbers.builtin_format_code:1
+msgid "Return one of the standard format codes by index."
+msgstr ""
+
+#: ../../../openpyxl/styles/numbers.py:docstring of openpyxl.styles.numbers.builtin_format_id:1
+msgid "Return the id of a standard style."
+msgstr ""
+
+#: ../../../openpyxl/styles/numbers.py:docstring of openpyxl.styles.numbers.is_datetime:1
+msgid "Return date, time or datetime"
+msgstr ""

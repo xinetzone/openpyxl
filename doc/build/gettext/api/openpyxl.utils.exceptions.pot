@@ -1,0 +1,63 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/openpyxl.utils.exceptions.rst:2
+msgid "openpyxl.utils.exceptions module"
+msgstr ""
+
+#: ../../../openpyxl/utils/exceptions.py:docstring of openpyxl.utils.exceptions:1
+msgid "Definitions for openpyxl shared exception classes."
+msgstr ""
+
+#: ../../../openpyxl/utils/exceptions.py:docstring of openpyxl.utils.exceptions.CellCoordinatesException:1
+#: ../../../openpyxl/utils/exceptions.py:docstring of openpyxl.utils.exceptions.IllegalCharacterError:1
+#: ../../../openpyxl/utils/exceptions.py:docstring of openpyxl.utils.exceptions.InvalidFileException:1
+#: ../../../openpyxl/utils/exceptions.py:docstring of openpyxl.utils.exceptions.NamedRangeException:1
+#: ../../../openpyxl/utils/exceptions.py:docstring of openpyxl.utils.exceptions.ReadOnlyWorkbookException:1
+#: ../../../openpyxl/utils/exceptions.py:docstring of openpyxl.utils.exceptions.SheetTitleException:1
+#: ../../../openpyxl/utils/exceptions.py:docstring of openpyxl.utils.exceptions.WorkbookAlreadySaved:1
+msgid "Bases: :py:class:`Exception`"
+msgstr ""
+
+#: ../../../openpyxl/utils/exceptions.py:docstring of openpyxl.utils.exceptions.CellCoordinatesException:1
+msgid "Error for converting between numeric and A1-style cell references."
+msgstr ""
+
+#: ../../../openpyxl/utils/exceptions.py:docstring of openpyxl.utils.exceptions.IllegalCharacterError:1
+msgid "The data submitted which cannot be used directly in Excel files. It must be removed or escaped."
+msgstr ""
+
+#: ../../../openpyxl/utils/exceptions.py:docstring of openpyxl.utils.exceptions.InvalidFileException:1
+msgid "Error for trying to open a non-ooxml file."
+msgstr ""
+
+#: ../../../openpyxl/utils/exceptions.py:docstring of openpyxl.utils.exceptions.NamedRangeException:1
+msgid "Error for badly formatted named ranges."
+msgstr ""
+
+#: ../../../openpyxl/utils/exceptions.py:docstring of openpyxl.utils.exceptions.ReadOnlyWorkbookException:1
+msgid "Error for trying to modify a read-only workbook"
+msgstr ""
+
+#: ../../../openpyxl/utils/exceptions.py:docstring of openpyxl.utils.exceptions.SheetTitleException:1
+msgid "Error for bad sheet names."
+msgstr ""
+
+#: ../../../openpyxl/utils/exceptions.py:docstring of openpyxl.utils.exceptions.WorkbookAlreadySaved:1
+msgid "Error when attempting to perform operations on a dump workbook while it has already been dumped once"
+msgstr ""

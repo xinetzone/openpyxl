@@ -1,0 +1,41 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/openpyxl.utils.bound_dictionary.rst:2
+msgid "openpyxl.utils.bound\\_dictionary module"
+msgstr ""
+
+#: ../../../openpyxl/utils/bound_dictionary.py:docstring of openpyxl.utils.bound_dictionary.BoundDictionary:1
+msgid "Bases: :py:class:`collections.defaultdict`"
+msgstr ""
+
+#: ../../../openpyxl/utils/bound_dictionary.py:docstring of openpyxl.utils.bound_dictionary.BoundDictionary:1
+msgid "A default dictionary where elements are tightly coupled."
+msgstr ""
+
+#: ../../../openpyxl/utils/bound_dictionary.py:docstring of openpyxl.utils.bound_dictionary.BoundDictionary:3
+msgid "The factory method is responsible for binding the parent object to the child."
+msgstr ""
+
+#: ../../../openpyxl/utils/bound_dictionary.py:docstring of openpyxl.utils.bound_dictionary.BoundDictionary:5
+msgid "If a reference attribute is assigned then child objects will have the key assigned to this."
+msgstr ""
+
+#: ../../../openpyxl/utils/bound_dictionary.py:docstring of openpyxl.utils.bound_dictionary.BoundDictionary:7
+msgid "Otherwise it's just a defaultdict."
+msgstr ""

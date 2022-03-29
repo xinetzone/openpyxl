@@ -1,0 +1,66 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/openpyxl.packaging.relationship.rst:2
+msgid "openpyxl.packaging.relationship module"
+msgstr ""
+
+#: ../../../openpyxl/packaging/relationship.py:docstring of openpyxl.packaging.relationship.Relationship:1
+#: ../../../openpyxl/packaging/relationship.py:docstring of openpyxl.packaging.relationship.RelationshipList:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../../openpyxl/packaging/relationship.py:docstring of openpyxl.packaging.relationship.Relationship:1
+msgid "Represents many kinds of relationships."
+msgstr ""
+
+#: ../../docstring of openpyxl.packaging.relationship.Relationship.Id:1
+#: ../../docstring of openpyxl.packaging.relationship.Relationship.Target:1
+#: ../../docstring of openpyxl.packaging.relationship.Relationship.TargetMode:1
+#: ../../docstring of openpyxl.packaging.relationship.Relationship.Type:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.packaging.relationship.Relationship.id:1
+#: ../../docstring of openpyxl.packaging.relationship.Relationship.target:1
+msgid "Aliases can be used when either the desired attribute name is not allowed or confusing in Python (eg. \"type\") or a more descriptve name is desired (eg. \"underline\" for \"u\")"
+msgstr ""
+
+#: ../../docstring of openpyxl.packaging.relationship.RelationshipList.Relationship:1
+msgid "A sequence (list or tuple) that may only contain objects of the declared type"
+msgstr ""
+
+#: ../../../openpyxl/packaging/relationship.py:docstring of openpyxl.packaging.relationship.RelationshipList.find:1
+msgid "Find relationships by content-type NB. these content-types namespaced objects and different to the MIME-types in the package manifest :-("
+msgstr ""
+
+#: ../../../openpyxl/packaging/relationship.py:docstring of openpyxl.packaging.relationship.get_dependents:1
+msgid "Normalise dependency file paths to absolute ones"
+msgstr ""
+
+#: ../../../openpyxl/packaging/relationship.py:docstring of openpyxl.packaging.relationship.get_dependents:3
+msgid "Relative paths are relative to parent object"
+msgstr ""
+
+#: ../../../openpyxl/packaging/relationship.py:docstring of openpyxl.packaging.relationship.get_rel:1
+msgid "Get related object based on id or rel_type"
+msgstr ""
+
+#: ../../../openpyxl/packaging/relationship.py:docstring of openpyxl.packaging.relationship.get_rels_path:1
+msgid "Convert relative path to absolutes that can be loaded from a zip archive. The path to be passed in is that of containing object (workbook, worksheet, etc.)"
+msgstr ""

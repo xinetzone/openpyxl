@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>openpyxl.worksheet.page module &#8212; openpyxl 3.0.9 文档</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nature.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="openpyxl.worksheet.pagebreak module" href="openpyxl.worksheet.pagebreak.html" />
+    <link rel="prev" title="openpyxl.worksheet.ole module" href="openpyxl.worksheet.ole.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.worksheet.pagebreak.html" title="openpyxl.worksheet.pagebreak module"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.worksheet.ole.html" title="openpyxl.worksheet.ole module"
+             accesskey="P">上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.worksheet.html" accesskey="U">openpyxl.worksheet package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.worksheet.page module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-openpyxl.worksheet.page">
+<span id="openpyxl-worksheet-page-module"></span><h1>openpyxl.worksheet.page module<a class="headerlink" href="#module-openpyxl.worksheet.page" title="永久链接至标题">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PageMargins">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.worksheet.page.</span></span><span class="sig-name descname"><span class="pre">PageMargins</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">left</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bottom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">footer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/worksheet/page.html#PageMargins"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.worksheet.page.PageMargins" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<p>Information about page margins for view/print layouts.
+Standard values (in inches)
+left, right = 0.75
+top, bottom = 1
+header, footer = 0.5</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PageMargins.bottom">
+<span class="sig-name descname"><span class="pre">bottom</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PageMargins.bottom" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PageMargins.footer">
+<span class="sig-name descname"><span class="pre">footer</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PageMargins.footer" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PageMargins.header">
+<span class="sig-name descname"><span class="pre">header</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PageMargins.header" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PageMargins.left">
+<span class="sig-name descname"><span class="pre">left</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PageMargins.left" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PageMargins.right">
+<span class="sig-name descname"><span class="pre">right</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PageMargins.right" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PageMargins.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pageMargins'</span></em><a class="headerlink" href="#openpyxl.worksheet.page.PageMargins.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PageMargins.top">
+<span class="sig-name descname"><span class="pre">top</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PageMargins.top" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintOptions">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.worksheet.page.</span></span><span class="sig-name descname"><span class="pre">PrintOptions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">horizontalCentered</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verticalCentered</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gridLines</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gridLinesSet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/worksheet/page.html#PrintOptions"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.worksheet.page.PrintOptions" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<p>Worksheet print options</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintOptions.gridLines">
+<span class="sig-name descname"><span class="pre">gridLines</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PrintOptions.gridLines" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintOptions.gridLinesSet">
+<span class="sig-name descname"><span class="pre">gridLinesSet</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PrintOptions.gridLinesSet" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintOptions.headings">
+<span class="sig-name descname"><span class="pre">headings</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PrintOptions.headings" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintOptions.horizontalCentered">
+<span class="sig-name descname"><span class="pre">horizontalCentered</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PrintOptions.horizontalCentered" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintOptions.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'printOptions'</span></em><a class="headerlink" href="#openpyxl.worksheet.page.PrintOptions.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintOptions.verticalCentered">
+<span class="sig-name descname"><span class="pre">verticalCentered</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PrintOptions.verticalCentered" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintPageSetup">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.worksheet.page.</span></span><span class="sig-name descname"><span class="pre">PrintPageSetup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">worksheet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">paperSize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fitToHeight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fitToWidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firstPageNumber</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">useFirstPageNumber</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">paperHeight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">paperWidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pageOrder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">usePrinterDefaults</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blackAndWhite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">draft</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cellComments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">horizontalDpi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verticalDpi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/worksheet/page.html#PrintPageSetup"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.worksheet.page.PrintPageSetup" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<p>Worksheet print page setup</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintPageSetup.autoPageBreaks">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">autoPageBreaks</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PrintPageSetup.autoPageBreaks" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintPageSetup.blackAndWhite">
+<span class="sig-name descname"><span class="pre">blackAndWhite</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PrintPageSetup.blackAndWhite" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintPageSetup.cellComments">
+<span class="sig-name descname"><span class="pre">cellComments</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PrintPageSetup.cellComments" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘atEnd’, ‘asDisplayed’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintPageSetup.copies">
+<span class="sig-name descname"><span class="pre">copies</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PrintPageSetup.copies" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintPageSetup.draft">
+<span class="sig-name descname"><span class="pre">draft</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PrintPageSetup.draft" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintPageSetup.errors">
+<span class="sig-name descname"><span class="pre">errors</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PrintPageSetup.errors" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘displayed’, ‘dash’, ‘blank’, ‘NA’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintPageSetup.firstPageNumber">
+<span class="sig-name descname"><span class="pre">firstPageNumber</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PrintPageSetup.firstPageNumber" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintPageSetup.fitToHeight">
+<span class="sig-name descname"><span class="pre">fitToHeight</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PrintPageSetup.fitToHeight" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintPageSetup.fitToPage">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fitToPage</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PrintPageSetup.fitToPage" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintPageSetup.fitToWidth">
+<span class="sig-name descname"><span class="pre">fitToWidth</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PrintPageSetup.fitToWidth" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintPageSetup.from_tree">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/worksheet/page.html#PrintPageSetup.from_tree"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.worksheet.page.PrintPageSetup.from_tree" title="永久链接至目标">¶</a></dt>
+<dd><p>Create object from XML</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintPageSetup.horizontalDpi">
+<span class="sig-name descname"><span class="pre">horizontalDpi</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PrintPageSetup.horizontalDpi" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintPageSetup.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PrintPageSetup.id" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintPageSetup.orientation">
+<span class="sig-name descname"><span class="pre">orientation</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PrintPageSetup.orientation" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘portrait’, ‘default’, ‘landscape’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintPageSetup.pageOrder">
+<span class="sig-name descname"><span class="pre">pageOrder</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PrintPageSetup.pageOrder" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘overThenDown’, ‘downThenOver’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintPageSetup.paperHeight">
+<span class="sig-name descname"><span class="pre">paperHeight</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PrintPageSetup.paperHeight" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintPageSetup.paperSize">
+<span class="sig-name descname"><span class="pre">paperSize</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PrintPageSetup.paperSize" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintPageSetup.paperWidth">
+<span class="sig-name descname"><span class="pre">paperWidth</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PrintPageSetup.paperWidth" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintPageSetup.scale">
+<span class="sig-name descname"><span class="pre">scale</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PrintPageSetup.scale" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintPageSetup.sheet_properties">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sheet_properties</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PrintPageSetup.sheet_properties" title="永久链接至目标">¶</a></dt>
+<dd><p>Proxy property</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintPageSetup.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pageSetup'</span></em><a class="headerlink" href="#openpyxl.worksheet.page.PrintPageSetup.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintPageSetup.useFirstPageNumber">
+<span class="sig-name descname"><span class="pre">useFirstPageNumber</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PrintPageSetup.useFirstPageNumber" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintPageSetup.usePrinterDefaults">
+<span class="sig-name descname"><span class="pre">usePrinterDefaults</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PrintPageSetup.usePrinterDefaults" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.page.PrintPageSetup.verticalDpi">
+<span class="sig-name descname"><span class="pre">verticalDpi</span></span><a class="headerlink" href="#openpyxl.worksheet.page.PrintPageSetup.verticalDpi" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="openpyxl.worksheet.ole.html"
+                          title="上一章">openpyxl.worksheet.ole module</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="openpyxl.worksheet.pagebreak.html"
+                          title="下一章">openpyxl.worksheet.pagebreak module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/openpyxl.worksheet.page.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.worksheet.pagebreak.html" title="openpyxl.worksheet.pagebreak module"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.worksheet.ole.html" title="openpyxl.worksheet.ole module"
+             >上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.worksheet.html" >openpyxl.worksheet package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.worksheet.page module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2010 - 2022, See AUTHORS.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+  </body>
+</html>

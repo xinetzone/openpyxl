@@ -1,0 +1,403 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/openpyxl.pivot.cache.rst:2
+msgid "openpyxl.pivot.cache module"
+msgstr ""
+
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.CacheDefinition:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.CacheField:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.CacheHierarchy:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.CacheSource:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.CalculatedItem:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.CalculatedMember:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.Consolidation:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.DiscretePr:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.FieldGroup:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.FieldUsage:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.FieldsUsage:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.GroupItems:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.GroupLevel:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.GroupLevels:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.GroupMember:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.GroupMembers:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.Groups:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.LevelGroup:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.MeasureDimensionMap:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.MeasureGroup:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.OLAPSet:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.OLAPSets:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.PCDKPI:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.PCDSDTCEntries:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.Page:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.PageItem:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.PivotDimension:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.Query:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.QueryCache:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.RangePr:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.RangeSet:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.ServerFormat:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.ServerFormatList:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.SharedItems:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.TupleCache:1
+#: ../../../openpyxl/pivot/cache.py:docstring of openpyxl.pivot.cache.WorksheetSource:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.backgroundQuery:1
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.enableRefresh:1
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.invalid:1
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.optimizeMemory:1
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.refreshOnLoad:1
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.saveData:1
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.supportAdvancedDrill:1
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.supportSubquery:1
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.upgradeOnRefresh:1
+#: ../../docstring of openpyxl.pivot.cache.CacheField.databaseField:1
+#: ../../docstring of openpyxl.pivot.cache.CacheField.memberPropertyField:1
+#: ../../docstring of openpyxl.pivot.cache.CacheField.serverField:1
+#: ../../docstring of openpyxl.pivot.cache.CacheField.uniqueList:1
+#: ../../docstring of openpyxl.pivot.cache.CacheHierarchy.attribute:1
+#: ../../docstring of openpyxl.pivot.cache.CacheHierarchy.hidden:1
+#: ../../docstring of openpyxl.pivot.cache.CacheHierarchy.keyAttribute:1
+#: ../../docstring of openpyxl.pivot.cache.CacheHierarchy.measure:1
+#: ../../docstring of openpyxl.pivot.cache.CacheHierarchy.measures:1
+#: ../../docstring of openpyxl.pivot.cache.CacheHierarchy.oneField:1
+#: ../../docstring of openpyxl.pivot.cache.CacheHierarchy.set:1
+#: ../../docstring of openpyxl.pivot.cache.CacheHierarchy.time:1
+#: ../../docstring of openpyxl.pivot.cache.CacheHierarchy.unbalanced:1
+#: ../../docstring of openpyxl.pivot.cache.CacheHierarchy.unbalancedGroup:1
+#: ../../docstring of openpyxl.pivot.cache.CalculatedMember.set:1
+#: ../../docstring of openpyxl.pivot.cache.Consolidation.autoPage:1
+#: ../../docstring of openpyxl.pivot.cache.GroupLevel.customRollUp:1
+#: ../../docstring of openpyxl.pivot.cache.GroupLevel.user:1
+#: ../../docstring of openpyxl.pivot.cache.GroupMember.group:1
+#: ../../docstring of openpyxl.pivot.cache.OLAPSet.queryFailed:1
+#: ../../docstring of openpyxl.pivot.cache.PivotDimension.measure:1
+#: ../../docstring of openpyxl.pivot.cache.RangePr.autoEnd:1
+#: ../../docstring of openpyxl.pivot.cache.RangePr.autoStart:1
+#: ../../docstring of openpyxl.pivot.cache.SharedItems.containsBlank:1
+#: ../../docstring of openpyxl.pivot.cache.SharedItems.containsDate:1
+#: ../../docstring of openpyxl.pivot.cache.SharedItems.containsInteger:1
+#: ../../docstring of openpyxl.pivot.cache.SharedItems.containsMixedTypes:1
+#: ../../docstring of openpyxl.pivot.cache.SharedItems.containsNonDate:1
+#: ../../docstring of openpyxl.pivot.cache.SharedItems.containsNumber:1
+#: ../../docstring of openpyxl.pivot.cache.SharedItems.containsSemiMixedTypes:1
+#: ../../docstring of openpyxl.pivot.cache.SharedItems.containsString:1
+#: ../../docstring of openpyxl.pivot.cache.SharedItems.longText:1
+msgid "Values must be of type <class 'bool'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.cacheFields:1
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.cacheHierarchies:1
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.calculatedItems:1
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.calculatedMembers:1
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.dimensions:1
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.kpis:1
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.maps:1
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.measureGroups:1
+#: ../../docstring of openpyxl.pivot.cache.Consolidation.pages:1
+#: ../../docstring of openpyxl.pivot.cache.Consolidation.rangeSets:1
+msgid "Wrap a sequence in an containing object"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.cacheSource:1
+msgid "Values must be of type <class 'openpyxl.pivot.cache.CacheSource'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.createdVersion:1
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.minRefreshableVersion:1
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.missingItemsLimit:1
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.recordCount:1
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.refreshedVersion:1
+#: ../../docstring of openpyxl.pivot.cache.CacheField.hierarchy:1
+#: ../../docstring of openpyxl.pivot.cache.CacheField.level:1
+#: ../../docstring of openpyxl.pivot.cache.CacheField.mappingCount:1
+#: ../../docstring of openpyxl.pivot.cache.CacheField.mpMap:1
+#: ../../docstring of openpyxl.pivot.cache.CacheField.numFmtId:1
+#: ../../docstring of openpyxl.pivot.cache.CacheField.sqlType:1
+#: ../../docstring of openpyxl.pivot.cache.CacheHierarchy.count:1
+#: ../../docstring of openpyxl.pivot.cache.CacheHierarchy.iconSet:1
+#: ../../docstring of openpyxl.pivot.cache.CacheHierarchy.memberValueDatatype:1
+#: ../../docstring of openpyxl.pivot.cache.CacheHierarchy.parentSet:1
+#: ../../docstring of openpyxl.pivot.cache.CacheSource.connectionId:1
+#: ../../docstring of openpyxl.pivot.cache.CalculatedItem.field:1
+#: ../../docstring of openpyxl.pivot.cache.CalculatedMember.solveOrder:1
+#: ../../docstring of openpyxl.pivot.cache.DiscretePr.count:1
+#: ../../docstring of openpyxl.pivot.cache.DiscretePr.x:1
+#: ../../docstring of openpyxl.pivot.cache.FieldGroup.base:1
+#: ../../docstring of openpyxl.pivot.cache.FieldGroup.par:1
+#: ../../docstring of openpyxl.pivot.cache.FieldUsage.x:1
+#: ../../docstring of openpyxl.pivot.cache.FieldsUsage.count:1
+#: ../../docstring of openpyxl.pivot.cache.GroupLevels.count:1
+#: ../../docstring of openpyxl.pivot.cache.GroupMembers.count:1
+#: ../../docstring of openpyxl.pivot.cache.Groups.count:1
+#: ../../docstring of openpyxl.pivot.cache.LevelGroup.id:1
+#: ../../docstring of openpyxl.pivot.cache.MeasureDimensionMap.dimension:1
+#: ../../docstring of openpyxl.pivot.cache.MeasureDimensionMap.measureGroup:1
+#: ../../docstring of openpyxl.pivot.cache.OLAPSet.count:1
+#: ../../docstring of openpyxl.pivot.cache.OLAPSet.maxRank:1
+#: ../../docstring of openpyxl.pivot.cache.OLAPSets.count:1
+#: ../../docstring of openpyxl.pivot.cache.PCDSDTCEntries.count:1
+#: ../../docstring of openpyxl.pivot.cache.QueryCache.count:1
+#: ../../docstring of openpyxl.pivot.cache.RangeSet.i1:1
+#: ../../docstring of openpyxl.pivot.cache.RangeSet.i2:1
+#: ../../docstring of openpyxl.pivot.cache.RangeSet.i3:1
+#: ../../docstring of openpyxl.pivot.cache.RangeSet.i4:1
+msgid "Values must be of type <class 'int'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.extLst:1
+#: ../../docstring of openpyxl.pivot.cache.CacheField.extLst:1
+#: ../../docstring of openpyxl.pivot.cache.CacheHierarchy.extLst:1
+#: ../../docstring of openpyxl.pivot.cache.CacheSource.extLst:1
+#: ../../docstring of openpyxl.pivot.cache.CalculatedItem.extLst:1
+#: ../../docstring of openpyxl.pivot.cache.CalculatedMember.extLst:1
+#: ../../docstring of openpyxl.pivot.cache.GroupLevel.extLst:1
+#: ../../docstring of openpyxl.pivot.cache.TupleCache.extLst:1
+msgid "Values must be of type <class 'openpyxl.descriptors.excel.ExtensionList'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.id:1
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.refreshedBy:1
+#: ../../docstring of openpyxl.pivot.cache.CacheField.caption:1
+#: ../../docstring of openpyxl.pivot.cache.CacheField.formula:1
+#: ../../docstring of openpyxl.pivot.cache.CacheField.name:1
+#: ../../docstring of openpyxl.pivot.cache.CacheField.propertyName:1
+#: ../../docstring of openpyxl.pivot.cache.CacheHierarchy.allCaption:1
+#: ../../docstring of openpyxl.pivot.cache.CacheHierarchy.allUniqueName:1
+#: ../../docstring of openpyxl.pivot.cache.CacheHierarchy.caption:1
+#: ../../docstring of openpyxl.pivot.cache.CacheHierarchy.defaultMemberUniqueName:1
+#: ../../docstring of openpyxl.pivot.cache.CacheHierarchy.dimensionUniqueName:1
+#: ../../docstring of openpyxl.pivot.cache.CacheHierarchy.displayFolder:1
+#: ../../docstring of openpyxl.pivot.cache.CacheHierarchy.measureGroup:1
+#: ../../docstring of openpyxl.pivot.cache.CacheHierarchy.uniqueName:1
+#: ../../docstring of openpyxl.pivot.cache.CalculatedItem.formula:1
+#: ../../docstring of openpyxl.pivot.cache.CalculatedMember.hierarchy:1
+#: ../../docstring of openpyxl.pivot.cache.CalculatedMember.mdx:1
+#: ../../docstring of openpyxl.pivot.cache.CalculatedMember.memberName:1
+#: ../../docstring of openpyxl.pivot.cache.CalculatedMember.name:1
+#: ../../docstring of openpyxl.pivot.cache.CalculatedMember.parent:1
+#: ../../docstring of openpyxl.pivot.cache.GroupLevel.caption:1
+#: ../../docstring of openpyxl.pivot.cache.GroupLevel.uniqueName:1
+#: ../../docstring of openpyxl.pivot.cache.GroupMember.uniqueName:1
+#: ../../docstring of openpyxl.pivot.cache.LevelGroup.caption:1
+#: ../../docstring of openpyxl.pivot.cache.LevelGroup.name:1
+#: ../../docstring of openpyxl.pivot.cache.LevelGroup.uniqueName:1
+#: ../../docstring of openpyxl.pivot.cache.LevelGroup.uniqueParent:1
+#: ../../docstring of openpyxl.pivot.cache.MeasureGroup.caption:1
+#: ../../docstring of openpyxl.pivot.cache.MeasureGroup.name:1
+#: ../../docstring of openpyxl.pivot.cache.OLAPSet.setDefinition:1
+#: ../../docstring of openpyxl.pivot.cache.PCDKPI.caption:1
+#: ../../docstring of openpyxl.pivot.cache.PCDKPI.displayFolder:1
+#: ../../docstring of openpyxl.pivot.cache.PCDKPI.goal:1
+#: ../../docstring of openpyxl.pivot.cache.PCDKPI.measureGroup:1
+#: ../../docstring of openpyxl.pivot.cache.PCDKPI.parent:1
+#: ../../docstring of openpyxl.pivot.cache.PCDKPI.status:1
+#: ../../docstring of openpyxl.pivot.cache.PCDKPI.time:1
+#: ../../docstring of openpyxl.pivot.cache.PCDKPI.trend:1
+#: ../../docstring of openpyxl.pivot.cache.PCDKPI.uniqueName:1
+#: ../../docstring of openpyxl.pivot.cache.PCDKPI.value:1
+#: ../../docstring of openpyxl.pivot.cache.PCDKPI.weight:1
+#: ../../docstring of openpyxl.pivot.cache.PageItem.name:1
+#: ../../docstring of openpyxl.pivot.cache.PivotDimension.caption:1
+#: ../../docstring of openpyxl.pivot.cache.PivotDimension.name:1
+#: ../../docstring of openpyxl.pivot.cache.PivotDimension.uniqueName:1
+#: ../../docstring of openpyxl.pivot.cache.Query.mdx:1
+#: ../../docstring of openpyxl.pivot.cache.RangeSet.name:1
+#: ../../docstring of openpyxl.pivot.cache.RangeSet.ref:1
+#: ../../docstring of openpyxl.pivot.cache.RangeSet.sheet:1
+#: ../../docstring of openpyxl.pivot.cache.ServerFormat.culture:1
+#: ../../docstring of openpyxl.pivot.cache.ServerFormat.format:1
+#: ../../docstring of openpyxl.pivot.cache.WorksheetSource.name:1
+#: ../../docstring of openpyxl.pivot.cache.WorksheetSource.ref:1
+#: ../../docstring of openpyxl.pivot.cache.WorksheetSource.sheet:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.refreshedDate:1
+#: ../../docstring of openpyxl.pivot.cache.RangePr.endNum:1
+#: ../../docstring of openpyxl.pivot.cache.RangePr.groupInterval:1
+#: ../../docstring of openpyxl.pivot.cache.RangePr.startNum:1
+#: ../../docstring of openpyxl.pivot.cache.SharedItems.maxValue:1
+#: ../../docstring of openpyxl.pivot.cache.SharedItems.minValue:1
+msgid "Values must be of type <class 'float'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.refreshedDateIso:1
+#: ../../docstring of openpyxl.pivot.cache.RangePr.endDate:1
+#: ../../docstring of openpyxl.pivot.cache.RangePr.startDate:1
+#: ../../docstring of openpyxl.pivot.cache.SharedItems.maxDate:1
+#: ../../docstring of openpyxl.pivot.cache.SharedItems.minDate:1
+msgid "Values must be of type <class 'datetime.datetime'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.CacheDefinition.tupleCache:1
+msgid "Values must be of type <class 'openpyxl.pivot.cache.TupleCache'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.CacheField.fieldGroup:1
+msgid "Values must be of type <class 'openpyxl.pivot.cache.FieldGroup'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.CacheField.sharedItems:1
+msgid "Values must be of type <class 'openpyxl.pivot.cache.SharedItems'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.CacheHierarchy.fieldsUsage:1
+msgid "Values must be of type <class 'openpyxl.pivot.cache.FieldsUsage'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.CacheHierarchy.groupLevels:1
+msgid "Values must be of type <class 'openpyxl.pivot.cache.GroupLevels'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.CacheSource.consolidation:1
+msgid "Values must be of type <class 'openpyxl.pivot.cache.Consolidation'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.CacheSource.type:1
+msgid "Value must be one of {'worksheet', 'consolidation', 'external', 'scenario'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.CacheSource.worksheetSource:1
+msgid "Values must be of type <class 'openpyxl.pivot.cache.WorksheetSource'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.CalculatedItem.pivotArea:1
+msgid "Values must be of type <class 'openpyxl.pivot.table.PivotArea'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.FieldGroup.discretePr:1
+msgid "Values must be of type <class 'openpyxl.pivot.cache.DiscretePr'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.FieldGroup.groupItems:1
+msgid "Values must be of type <class 'openpyxl.pivot.cache.GroupItems'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.FieldGroup.rangePr:1
+msgid "Values must be of type <class 'openpyxl.pivot.cache.RangePr'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.FieldsUsage.fieldUsage:1
+msgid "Values must be of type <class 'openpyxl.pivot.cache.FieldUsage'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.GroupItems.b:1
+#: ../../docstring of openpyxl.pivot.cache.GroupItems.d:1
+#: ../../docstring of openpyxl.pivot.cache.GroupItems.e:1
+#: ../../docstring of openpyxl.pivot.cache.GroupItems.m:1
+#: ../../docstring of openpyxl.pivot.cache.GroupItems.n:1
+#: ../../docstring of openpyxl.pivot.cache.GroupItems.s:1
+#: ../../docstring of openpyxl.pivot.cache.Page.pageItem:1
+#: ../../docstring of openpyxl.pivot.cache.ServerFormatList.serverFormat:1
+msgid "A sequence (list or tuple) that may only contain objects of the declared type"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.GroupLevel.groups:1
+msgid "Values must be of type <class 'openpyxl.pivot.cache.Groups'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.GroupLevels.groupLevel:1
+msgid "Values must be of type <class 'openpyxl.pivot.cache.GroupLevel'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.GroupMembers.groupMember:1
+msgid "Values must be of type <class 'openpyxl.pivot.cache.GroupMember'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.Groups.group:1
+msgid "Values must be of type <class 'openpyxl.pivot.cache.LevelGroup'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.LevelGroup.groupMembers:1
+msgid "Values must be of type <class 'openpyxl.pivot.cache.GroupMembers'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.OLAPSet.sortByTuple:1
+#: ../../docstring of openpyxl.pivot.cache.OLAPSet.tpls:1
+#: ../../docstring of openpyxl.pivot.cache.Query.tpls:1
+msgid "Values must be of type <class 'openpyxl.pivot.fields.TupleList'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.OLAPSet.sortType:1
+msgid "Value must be one of {'descending', 'ascending', 'descendingAlpha', 'ascendingAlpha', 'ascendingNatural', 'descendingNatural'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.OLAPSets.set:1
+msgid "Values must be of type <class 'openpyxl.pivot.cache.OLAPSet'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.PCDSDTCEntries.e:1
+msgid "Values must be of type <class 'openpyxl.pivot.fields.Error'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.PCDSDTCEntries.m:1
+msgid "Values must be of type <class 'openpyxl.pivot.fields.Missing'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.PCDSDTCEntries.n:1
+msgid "Values must be of type <class 'openpyxl.pivot.fields.Number'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.PCDSDTCEntries.s:1
+msgid "Values must be of type <class 'openpyxl.pivot.fields.Text'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.QueryCache.query:1
+msgid "Values must be of type <class 'openpyxl.pivot.cache.Query'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.RangePr.groupBy:1
+msgid "Value must be one of {'months', 'quarters', 'hours', 'years', 'minutes', 'days', 'range', 'seconds'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.SharedItems.b:1
+#: ../../docstring of openpyxl.pivot.cache.SharedItems.d:1
+#: ../../docstring of openpyxl.pivot.cache.SharedItems.e:1
+#: ../../docstring of openpyxl.pivot.cache.SharedItems.m:1
+#: ../../docstring of openpyxl.pivot.cache.SharedItems.n:1
+#: ../../docstring of openpyxl.pivot.cache.SharedItems.s:1
+msgid "Allow a multisequence to be built up from parts"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.SharedItems.b:3
+#: ../../docstring of openpyxl.pivot.cache.SharedItems.d:3
+#: ../../docstring of openpyxl.pivot.cache.SharedItems.e:3
+#: ../../docstring of openpyxl.pivot.cache.SharedItems.m:3
+#: ../../docstring of openpyxl.pivot.cache.SharedItems.n:3
+#: ../../docstring of openpyxl.pivot.cache.SharedItems.s:3
+msgid "Excluded from the instance __elements__ or __attrs__ as is effectively an Alias"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.TupleCache.entries:1
+msgid "Values must be of type <class 'openpyxl.pivot.cache.PCDSDTCEntries'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.TupleCache.queryCache:1
+msgid "Values must be of type <class 'openpyxl.pivot.cache.QueryCache'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.TupleCache.serverFormats:1
+msgid "Values must be of type <class 'openpyxl.pivot.cache.ServerFormatList'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.cache.TupleCache.sets:1
+msgid "Values must be of type <class 'openpyxl.pivot.cache.OLAPSets'>"
+msgstr ""

@@ -1,0 +1,100 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../worksheet_tables.rst:2
+msgid "Worksheet Tables"
+msgstr ""
+
+#: ../../worksheet_tables.rst:5
+msgid ""
+"Worksheet tables are references to groups of cells. This makes certain "
+"operations such as styling the cells in a table easier."
+msgstr ""
+
+#: ../../worksheet_tables.rst:10
+msgid "Creating a table"
+msgstr ""
+
+#: ../../worksheet_tables.rst:15
+msgid ""
+"Table names must be unique within a workbook. By default tables are "
+"created with a header from the first row and filters for all the columns "
+"and table headers and column headings must always contain strings."
+msgstr ""
+
+#: ../../worksheet_tables.rst:19
+msgid ""
+"In write-only mode you must add column headings to tables manually and "
+"the values must always be the same as the values of the corresponding "
+"cells (ee below for an example of how to do this), otherwise Excel may "
+"consider the file invalid and remove the table."
+msgstr ""
+
+#: ../../worksheet_tables.rst:21
+msgid ""
+"Styles are managed using the the `TableStyleInfo` object. This allows you"
+" to stripe rows or columns and apply the different colour schemes."
+msgstr ""
+
+#: ../../worksheet_tables.rst:26
+msgid "Working with Tables"
+msgstr ""
+
+#: ../../worksheet_tables.rst:28
+msgid ""
+"``ws.tables`` is a dictionary-like object of all the tables in a "
+"particular worksheet::"
+msgstr ""
+
+#: ../../worksheet_tables.rst:35
+msgid "Get Table by name or range"
+msgstr ""
+
+#: ../../worksheet_tables.rst:45
+msgid "Iterate through all tables in a worksheet"
+msgstr ""
+
+#: ../../worksheet_tables.rst:54
+msgid "Get table name and range of all tables in a worksheet"
+msgstr ""
+
+#: ../../worksheet_tables.rst:56
+msgid "Returns a list of table name and their ranges."
+msgstr ""
+
+#: ../../worksheet_tables.rst:65
+msgid "Delete a table"
+msgstr ""
+
+#: ../../worksheet_tables.rst:73
+msgid "The number of tables in a worksheet"
+msgstr ""
+
+#: ../../worksheet_tables.rst:82
+msgid "Manually adding column headings"
+msgstr ""
+
+#: ../../worksheet_tables.rst:84
+msgid "In write-only mode you can either only add tables without headings::"
+msgstr ""
+
+#: ../../worksheet_tables.rst:88
+msgid "Or initialise the column headings manually::"
+msgstr ""
+

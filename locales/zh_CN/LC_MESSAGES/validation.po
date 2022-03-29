@@ -1,0 +1,84 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../validation.rst:2
+msgid "Validating cells"
+msgstr ""
+
+#: ../../validation.rst:4
+msgid ""
+"Data validators can be applied to ranges of cells but are not enforced or"
+" evaluated. Ranges do not have to be contiguous: eg. \"A1 B2:B5\" is "
+"contains A1 and the cells B2 to B5 but not A2 or B2."
+msgstr ""
+
+#: ../../validation.rst:8
+msgid "Examples"
+msgstr ""
+
+#: ../../validation.rst:51
+msgid ""
+"Validations without any cell ranges will be ignored when saving a "
+"workbook."
+msgstr ""
+
+#: ../../validation.rst:54
+msgid "Other validation examples"
+msgstr ""
+
+#: ../../validation.rst:56
+msgid "Any whole number: ::"
+msgstr ""
+
+#: ../../validation.rst:61
+msgid "Any whole number above 100: ::"
+msgstr ""
+
+#: ../../validation.rst:68
+msgid "Any decimal number: ::"
+msgstr ""
+
+#: ../../validation.rst:73
+msgid "Any decimal number between 0 and 1: ::"
+msgstr ""
+
+#: ../../validation.rst:81
+msgid "Any date: ::"
+msgstr ""
+
+#: ../../validation.rst:86
+msgid "or time: ::"
+msgstr ""
+
+#: ../../validation.rst:91
+msgid "Any string at most 15 characters: ::"
+msgstr ""
+
+#: ../../validation.rst:98
+msgid "Cell range validation: ::"
+msgstr ""
+
+#: ../../validation.rst:106
+msgid "Custom rule: ::"
+msgstr ""
+
+#: ../../validation.rst:113
+msgid "See http://www.contextures.com/xlDataVal07.html for custom rules"
+msgstr ""
+

@@ -1,0 +1,49 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../api/openpyxl.utils.indexed_list.rst:2
+msgid "openpyxl.utils.indexed\\_list module"
+msgstr ""
+
+#: of openpyxl.utils.indexed_list.IndexedList:1
+msgid "Bases: :py:class:`list`"
+msgstr ""
+
+#: of openpyxl.utils.indexed_list.IndexedList:1
+msgid "List with optimised access by value Based on Alex Martelli's recipe"
+msgstr ""
+
+#: of openpyxl.utils.indexed_list.IndexedList:4
+msgid ""
+"http://code.activestate.com/recipes/52303-the-auxiliary-dictionary-idiom-"
+"for-sequences-with-/"
+msgstr ""
+
+#: of openpyxl.utils.indexed_list.IndexedList.append:1
+msgid "Append object to the end of the list."
+msgstr ""
+
+#: of openpyxl.utils.indexed_list.IndexedList.index:1
+msgid "Return first index of value."
+msgstr ""
+
+#: of openpyxl.utils.indexed_list.IndexedList.index:3
+msgid "Raises ValueError if the value is not present."
+msgstr ""
+

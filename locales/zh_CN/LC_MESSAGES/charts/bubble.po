@@ -1,0 +1,38 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../charts/bubble.rst:2
+msgid "Bubble Charts"
+msgstr ""
+
+#: ../../charts/bubble.rst:4
+msgid ""
+"Bubble charts are similar to scatter charts but use a third dimension to "
+"determine the size of the bubbles. Charts can include multiple series."
+msgstr ""
+
+#: ../../charts/bubble.rst:10
+msgid ""
+"This will produce a bubble chart with two series and should look "
+"something like this:"
+msgstr ""
+
+msgid "\"Sample bubble chart\""
+msgstr ""
+

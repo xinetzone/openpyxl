@@ -1,0 +1,123 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../api/openpyxl.drawing.spreadsheet_drawing.rst:2
+msgid "openpyxl.drawing.spreadsheet\\_drawing module"
+msgstr ""
+
+#: of openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor:1
+#: openpyxl.drawing.spreadsheet_drawing.OneCellAnchor:1
+#: openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor:1
+msgid "Bases: :py:class:`openpyxl.drawing.spreadsheet_drawing._AnchorBase`"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.clientData:1
+#: openpyxl.drawing.spreadsheet_drawing.OneCellAnchor.clientData:1
+#: openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.clientData:1
+msgid ""
+"Values must be of type <class "
+"'openpyxl.drawing.spreadsheet_drawing.AnchorClientData'>"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.contentPart:1
+#: openpyxl.drawing.spreadsheet_drawing.OneCellAnchor.contentPart:1
+#: openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.contentPart:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.cxnSp:1
+#: openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.sp:1
+#: openpyxl.drawing.spreadsheet_drawing.OneCellAnchor.cxnSp:1
+#: openpyxl.drawing.spreadsheet_drawing.OneCellAnchor.sp:1
+#: openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.cxnSp:1
+#: openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.sp:1
+msgid "Values must be of type <class 'openpyxl.drawing.connector.Shape'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.ext:1
+#: openpyxl.drawing.spreadsheet_drawing.OneCellAnchor.ext:1
+msgid "Values must be of type <class 'openpyxl.drawing.xdr.XDRPositiveSize2D'>"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.graphicFrame:1
+#: openpyxl.drawing.spreadsheet_drawing.OneCellAnchor.graphicFrame:1
+#: openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.graphicFrame:1
+msgid "Values must be of type <class 'openpyxl.drawing.graphic.GraphicFrame'>"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.grpSp:1
+#: openpyxl.drawing.spreadsheet_drawing.OneCellAnchor.grpSp:1
+#: openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.grpSp:1
+msgid "Values must be of type <class 'openpyxl.drawing.graphic.GroupShape'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.pic:1
+#: openpyxl.drawing.spreadsheet_drawing.OneCellAnchor.pic:1
+#: openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.pic:1
+msgid "Values must be of type <class 'openpyxl.drawing.picture.PictureFrame'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor.pos:1
+msgid "Values must be of type <class 'openpyxl.drawing.xdr.XDRPoint2D'>"
+msgstr ""
+
+#: of openpyxl.drawing.spreadsheet_drawing.AnchorClientData:1
+#: openpyxl.drawing.spreadsheet_drawing.AnchorMarker:1
+#: openpyxl.drawing.spreadsheet_drawing.SpreadsheetDrawing:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.drawing.spreadsheet_drawing.AnchorClientData.fLocksWithSheet:1
+#: openpyxl.drawing.spreadsheet_drawing.AnchorClientData.fPrintsWithSheet:1
+msgid "Values must be of type <class 'bool'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.spreadsheet_drawing.AnchorMarker.col:1
+#: openpyxl.drawing.spreadsheet_drawing.AnchorMarker.colOff:1
+#: openpyxl.drawing.spreadsheet_drawing.AnchorMarker.row:1
+#: openpyxl.drawing.spreadsheet_drawing.AnchorMarker.rowOff:1
+msgid "Values must be of type <class 'int'>"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.drawing.spreadsheet_drawing.SpreadsheetDrawing.absoluteAnchor:1
+#: openpyxl.drawing.spreadsheet_drawing.SpreadsheetDrawing.oneCellAnchor:1
+#: openpyxl.drawing.spreadsheet_drawing.SpreadsheetDrawing.twoCellAnchor:1
+msgid ""
+"A sequence (list or tuple) that may only contain objects of the declared "
+"type"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.editAs:1
+msgid "Value must be one of {'absolute', 'twoCell', 'oneCell'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor.to:1
+msgid ""
+"Values must be of type <class "
+"'openpyxl.drawing.spreadsheet_drawing.AnchorMarker'>"
+msgstr ""
+

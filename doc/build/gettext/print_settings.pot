@@ -1,0 +1,57 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../print_settings.rst:2
+msgid "Print Settings"
+msgstr ""
+
+#: ../../print_settings.rst:4
+msgid "openpyxl provides reasonably full support for print settings."
+msgstr ""
+
+#: ../../print_settings.rst:8
+msgid "Edit Print Options"
+msgstr ""
+
+#: ../../print_settings.rst:21
+msgid "Headers and Footers"
+msgstr ""
+
+#: ../../print_settings.rst:23
+msgid "Headers and footers use their own formatting language. This is fully supported when writing them but, due to the complexity and the possibility of nesting, only partially when reading them. There is support for the font, size and color for a left, centre/center, or right element. Granular control (highlighting individuals words) will require applying control codes manually."
+msgstr ""
+
+#: ../../print_settings.rst:44
+msgid "Also supported are `evenHeader` and `evenFooter` as well as `firstHeader` and `firstFooter`."
+msgstr ""
+
+#: ../../print_settings.rst:48
+msgid "Add Print Titles"
+msgstr ""
+
+#: ../../print_settings.rst:50
+msgid "You can print titles on every page to ensure that the data is properly labelled."
+msgstr ""
+
+#: ../../print_settings.rst:65
+msgid "Add a Print Area"
+msgstr ""
+
+#: ../../print_settings.rst:67
+msgid "You can select a part of a worksheet as the only part that you want to print"
+msgstr ""

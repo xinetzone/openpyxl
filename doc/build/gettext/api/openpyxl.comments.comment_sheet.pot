@@ -1,0 +1,104 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/openpyxl.comments.comment_sheet.rst:2
+msgid "openpyxl.comments.comment\\_sheet module"
+msgstr ""
+
+#: ../../../openpyxl/comments/comment_sheet.py:docstring of openpyxl.comments.comment_sheet.CommentRecord:1
+#: ../../../openpyxl/comments/comment_sheet.py:docstring of openpyxl.comments.comment_sheet.CommentSheet:1
+#: ../../../openpyxl/comments/comment_sheet.py:docstring of openpyxl.comments.comment_sheet.Properties:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../docstring of openpyxl.comments.comment_sheet.CommentRecord.author:1
+#: ../../docstring of openpyxl.comments.comment_sheet.CommentRecord.ref:1
+#: ../../docstring of openpyxl.comments.comment_sheet.Properties.altText:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.comments.comment_sheet.CommentRecord.authorId:1
+#: ../../docstring of openpyxl.comments.comment_sheet.CommentRecord.shapeId:1
+msgid "Values must be of type <class 'int'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.comments.comment_sheet.CommentRecord.commentPr:1
+msgid "Values must be of type <class 'openpyxl.comments.comment_sheet.Properties'>"
+msgstr ""
+
+#: ../../../openpyxl/comments/comment_sheet.py:docstring of openpyxl.comments.comment_sheet.CommentRecord.content:1
+msgid "Remove all inline formatting and stuff"
+msgstr ""
+
+#: ../../../openpyxl/comments/comment_sheet.py:docstring of openpyxl.comments.comment_sheet.CommentRecord.from_cell:1
+msgid "Class method to convert cell comment"
+msgstr ""
+
+#: ../../docstring of openpyxl.comments.comment_sheet.CommentRecord.text:1
+msgid "Values must be of type <class 'openpyxl.cell.text.Text'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.comments.comment_sheet.CommentSheet.authors:1
+msgid "Values must be of type <class 'openpyxl.comments.author.AuthorList'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.comments.comment_sheet.CommentSheet.commentList:1
+msgid "Wrap a sequence in an containing object"
+msgstr ""
+
+#: ../../../openpyxl/comments/comment_sheet.py:docstring of openpyxl.comments.comment_sheet.CommentSheet.comments:1
+msgid "Return a dictionary of comments keyed by coord"
+msgstr ""
+
+#: ../../docstring of openpyxl.comments.comment_sheet.CommentSheet.extLst:1
+msgid "Values must be of type <class 'openpyxl.descriptors.excel.ExtensionList'>"
+msgstr ""
+
+#: ../../../openpyxl/comments/comment_sheet.py:docstring of openpyxl.comments.comment_sheet.CommentSheet.from_comments:1
+msgid "Create a comment sheet from a list of comments for a particular worksheet"
+msgstr ""
+
+#: ../../../openpyxl/comments/comment_sheet.py:docstring of openpyxl.comments.comment_sheet.CommentSheet.path:1
+msgid "Return path within the archive"
+msgstr ""
+
+#: ../../../openpyxl/comments/comment_sheet.py:docstring of openpyxl.comments.comment_sheet.CommentSheet.write_shapes:1
+msgid "Create the VML for comments"
+msgstr ""
+
+#: ../../docstring of openpyxl.comments.comment_sheet.Properties.autoFill:1
+#: ../../docstring of openpyxl.comments.comment_sheet.Properties.autoLine:1
+#: ../../docstring of openpyxl.comments.comment_sheet.Properties.autoScale:1
+#: ../../docstring of openpyxl.comments.comment_sheet.Properties.colHidden:1
+#: ../../docstring of openpyxl.comments.comment_sheet.Properties.defaultSize:1
+#: ../../docstring of openpyxl.comments.comment_sheet.Properties.disabled:1
+#: ../../docstring of openpyxl.comments.comment_sheet.Properties.justLastX:1
+#: ../../docstring of openpyxl.comments.comment_sheet.Properties.lockText:1
+#: ../../docstring of openpyxl.comments.comment_sheet.Properties.locked:1
+#: ../../docstring of openpyxl.comments.comment_sheet.Properties.rowHidden:1
+#: ../../docstring of openpyxl.comments.comment_sheet.Properties.uiObject:1
+msgid "Values must be of type <class 'bool'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.comments.comment_sheet.Properties.textHAlign:1
+msgid "Value must be one of {'center', 'justify', 'left', 'right', 'distributed'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.comments.comment_sheet.Properties.textVAlign:1
+msgid "Value must be one of {'center', 'justify', 'top', 'bottom', 'distributed'}"
+msgstr ""

@@ -1,0 +1,144 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../formatting.rst:2
+msgid "Conditional Formatting"
+msgstr ""
+
+#: ../../formatting.rst:4
+msgid "Excel supports three different types of conditional formatting: builtins, standard and custom. Builtins combine specific rules with predefined styles. Standard conditional formats combine specific rules with custom formatting. In additional it is possible to define custom formulae for applying custom formats using differential styles."
+msgstr ""
+
+#: ../../formatting.rst:8
+msgid "The syntax for the different rules varies so much that it is not possible for openpyxl to know whether a rule makes sense or not."
+msgstr ""
+
+#: ../../formatting.rst:12
+msgid "The basic syntax for creating a formatting rule is:"
+msgstr ""
+
+#: ../../formatting.rst:22
+msgid "Because the signatures for some rules can be quite verbose there are also some convenience factories for creating them."
+msgstr ""
+
+#: ../../formatting.rst:25
+msgid "Builtin formats"
+msgstr ""
+
+#: ../../formatting.rst:27
+msgid "The builtins conditional formats are:"
+msgstr ""
+
+#: ../../formatting.rst:29
+#: ../../formatting.rst:37
+msgid "ColorScale"
+msgstr ""
+
+#: ../../formatting.rst:30
+#: ../../formatting.rst:71
+msgid "IconSet"
+msgstr ""
+
+#: ../../formatting.rst:31
+#: ../../formatting.rst:97
+msgid "DataBar"
+msgstr ""
+
+#: ../../formatting.rst:33
+msgid "Builtin formats contain a sequence of formatting settings which combine a type with an integer for comparison. Possible types are: `'num', 'percent', 'max', 'min', 'formula', 'percentile'`."
+msgstr ""
+
+#: ../../formatting.rst:39
+msgid "You can have color scales with 2 or 3 colors. 2 color scales produce a gradient from one color to another; 3 color scales use an additional color for 2 gradients."
+msgstr ""
+
+#: ../../formatting.rst:41
+msgid "The full syntax for creating a ColorScale rule is:"
+msgstr ""
+
+#: ../../formatting.rst:60
+msgid "There is a convenience function for creating ColorScale rules"
+msgstr ""
+
+#: ../../formatting.rst:73
+msgid "Choose from the following set of icons: `'3Arrows', '3ArrowsGray', '3Flags', '3TrafficLights1', '3TrafficLights2', '3Signs', '3Symbols', '3Symbols2', '4Arrows', '4ArrowsGray', '4RedToBlack', '4Rating', '4TrafficLights', '5Arrows', '5ArrowsGray', '5Rating', '5Quarters'`"
+msgstr ""
+
+#: ../../formatting.rst:75
+msgid "The full syntax for creating an IconSet rule is:"
+msgstr ""
+
+#: ../../formatting.rst:88
+msgid "There is a convenience function for creating IconSet rules:"
+msgstr ""
+
+#: ../../formatting.rst:99
+msgid "Currently, openpyxl supports the DataBars as defined in the original specification. Borders and directions were added in a later extension."
+msgstr ""
+
+#: ../../formatting.rst:101
+msgid "The full syntax for creating a DataBar rule is:"
+msgstr ""
+
+#: ../../formatting.rst:113
+msgid "There is a convenience function for creating DataBar rules:"
+msgstr ""
+
+#: ../../formatting.rst:123
+msgid "Standard conditional formats"
+msgstr ""
+
+#: ../../formatting.rst:125
+msgid "The standard conditional formats are:"
+msgstr ""
+
+#: ../../formatting.rst:127
+msgid "Average"
+msgstr ""
+
+#: ../../formatting.rst:128
+msgid "Percent"
+msgstr ""
+
+#: ../../formatting.rst:129
+msgid "Unique or duplicate"
+msgstr ""
+
+#: ../../formatting.rst:130
+msgid "Value"
+msgstr ""
+
+#: ../../formatting.rst:131
+msgid "Rank"
+msgstr ""
+
+#: ../../formatting.rst:193
+msgid "Formatting Entire Rows"
+msgstr ""
+
+#: ../../formatting.rst:195
+msgid "Sometimes you want to apply a conditional format to more than one cell, say a row of cells which contain a particular value."
+msgstr ""
+
+#: ../../formatting.rst:203
+msgid "We want to higlight the rows where the developer is Microsoft. We do this by creating an expression rule and using a formula to identify which rows contain software developed by Microsoft."
+msgstr ""
+
+#: ../../formatting.rst:213
+msgid "The formula uses an **absolute** reference to the column referred to, ``B`` in this case; but a **relative** row number, in this case ``1`` to the range over which the format is applied. It can be tricky to get this right but the rule can be adjusted even after it has been added to the worksheet's condidtional format collection."
+msgstr ""

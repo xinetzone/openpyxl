@@ -1,0 +1,66 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/openpyxl.descriptors.sequence.rst:2
+msgid "openpyxl.descriptors.sequence module"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/sequence.py:docstring of openpyxl.descriptors.sequence.MultiSequence:1
+#: ../../../openpyxl/descriptors/sequence.py:docstring of openpyxl.descriptors.sequence.NestedSequence:1
+#: ../../../openpyxl/descriptors/sequence.py:docstring of openpyxl.descriptors.sequence.ValueSequence:1
+msgid "Bases: :py:class:`openpyxl.descriptors.sequence.Sequence`"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/sequence.py:docstring of openpyxl.descriptors.sequence.MultiSequence:1
+msgid "Sequences can contain objects with different tags"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/sequence.py:docstring of openpyxl.descriptors.sequence.MultiSequence.to_tree:1
+#: ../../../openpyxl/descriptors/sequence.py:docstring of openpyxl.descriptors.sequence.NestedSequence.to_tree:1
+#: ../../../openpyxl/descriptors/sequence.py:docstring of openpyxl.descriptors.sequence.Sequence.to_tree:1
+#: ../../../openpyxl/descriptors/sequence.py:docstring of openpyxl.descriptors.sequence.ValueSequence.to_tree:1
+msgid "Convert the sequence represented by the descriptor to an XML element"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/sequence.py:docstring of openpyxl.descriptors.sequence.MultiSequencePart:1
+msgid "Bases: :py:class:`openpyxl.descriptors.base.Alias`"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/sequence.py:docstring of openpyxl.descriptors.sequence.MultiSequencePart:1
+msgid "Allow a multisequence to be built up from parts"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/sequence.py:docstring of openpyxl.descriptors.sequence.MultiSequencePart:3
+msgid "Excluded from the instance __elements__ or __attrs__ as is effectively an Alias"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/sequence.py:docstring of openpyxl.descriptors.sequence.NestedSequence:1
+msgid "Wrap a sequence in an containing object"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/sequence.py:docstring of openpyxl.descriptors.sequence.Sequence:1
+msgid "Bases: :py:class:`openpyxl.descriptors.base.Descriptor`"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/sequence.py:docstring of openpyxl.descriptors.sequence.Sequence:1
+msgid "A sequence (list or tuple) that may only contain objects of the declared type"
+msgstr ""
+
+#: ../../../openpyxl/descriptors/sequence.py:docstring of openpyxl.descriptors.sequence.ValueSequence:1
+msgid "A sequence of primitive types that are stored as a single attribute. \"val\" is the default attribute"
+msgstr ""

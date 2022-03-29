@@ -1,0 +1,73 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../performance.rst:2
+msgid "Performance"
+msgstr ""
+
+#: ../../performance.rst:4
+msgid "openpyxl attempts to balance functionality and performance. Where in doubt, we have focused on functionality over optimisation: performance tweaks are easier once an API has been established. Memory use is fairly high in comparison with other libraries and applications and is approximately 50 times the original file size, e.g. 2.5 GB for a 50 MB Excel file. As many use cases involve either only reading or writing files, the :doc:`optimized` modes mean this is less of a problem."
+msgstr ""
+
+#: ../../performance.rst:14
+msgid "Benchmarks"
+msgstr ""
+
+#: ../../performance.rst:16
+msgid "All benchmarks are synthetic and extremely dependent upon the hardware but they can nevertheless give an indication."
+msgstr ""
+
+#: ../../performance.rst:21
+msgid "Write Performance"
+msgstr ""
+
+#: ../../performance.rst:23
+msgid "The `benchmark code <https://foss.heptapod.net/openpyxl/openpyxl/-/snippets/66>`_ can be adjusted to use more sheets and adjust the proportion of data that is strings. Because the version of Python being used can also significantly affect performance, a `driver script <https://foss.heptapod.net/openpyxl/openpyxl/-/snippets/67>`_ can also be used to test with different Python versions with a tox environment."
+msgstr ""
+
+#: ../../performance.rst:32
+msgid "Performance is compared with the excellent alternative library xlsxwriter"
+msgstr ""
+
+#: ../../performance.rst:38
+msgid "Read Performance"
+msgstr ""
+
+#: ../../performance.rst:40
+msgid "Performance is measured using a file provided with a previous `bug report <https://bitbucket.org/openpyxl/openpyxl/issues/494/>`_ and compared with the older xlrd library. xlrd is primarily for the older BIFF file format of .XLS files but it does have limited support for XLSX."
+msgstr ""
+
+#: ../../performance.rst:45
+msgid "The code for the `benchmark <https://foss.heptapod.net/openpyxl/openpyxl/-/snippets/68>`_ shows the importance of choosing the right options when working with a file. In this case disabling external links stops openpyxl opening cached copies of the linked worksheets."
+msgstr ""
+
+#: ../../performance.rst:50
+msgid "One major difference between the libraries is that openpyxl's read-only mode opens a workbook almost immediately making it suitable for multiple processes, this also readuces memory use significantly. xlrd does also not automatically convert dates and times into Python datetimes, though it does annotate cells accordingly but to do this in client code significantly reduces performance."
+msgstr ""
+
+#: ../../performance.rst:62
+msgid "Parallelisation"
+msgstr ""
+
+#: ../../performance.rst:64
+msgid "Reading worksheets is fairly CPU-intensive which limits any benefits to be gained by parallelisation. However, if you are mainly interested in dumping the contents of a workbook then you can use openpyxl's read-only mode and open multiple instances of a workbook and take advantage of multiple CPUs."
+msgstr ""
+
+#: ../../performance.rst:69
+msgid "`Sample code <https://foss.heptapod.net/openpyxl/openpyxl/-/snippets/69>`_ using the same source file as for read performance shows that performance scales reasonably with only a slight overhead due to creating additional Python processes."
+msgstr ""

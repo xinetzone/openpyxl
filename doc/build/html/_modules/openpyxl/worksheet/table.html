@@ -1,0 +1,468 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>openpyxl.worksheet.table &#8212; openpyxl 3.0.9 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/nature.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.worksheet.table</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for openpyxl.worksheet.table</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2010-2022 openpyxl</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.serialisable</span> <span class="kn">import</span> <span class="n">Serialisable</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Descriptor</span><span class="p">,</span>
+    <span class="n">Alias</span><span class="p">,</span>
+    <span class="n">Typed</span><span class="p">,</span>
+    <span class="n">Bool</span><span class="p">,</span>
+    <span class="n">Integer</span><span class="p">,</span>
+    <span class="n">NoneSet</span><span class="p">,</span>
+    <span class="n">String</span><span class="p">,</span>
+    <span class="n">Sequence</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.excel</span> <span class="kn">import</span> <span class="n">ExtensionList</span><span class="p">,</span> <span class="n">CellRange</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.sequence</span> <span class="kn">import</span> <span class="n">NestedSequence</span>
+<span class="kn">from</span> <span class="nn">openpyxl.xml.constants</span> <span class="kn">import</span> <span class="n">SHEET_MAIN_NS</span><span class="p">,</span> <span class="n">REL_NS</span>
+<span class="kn">from</span> <span class="nn">openpyxl.xml.functions</span> <span class="kn">import</span> <span class="n">tostring</span>
+<span class="kn">from</span> <span class="nn">openpyxl.utils</span> <span class="kn">import</span> <span class="n">range_boundaries</span>
+<span class="kn">from</span> <span class="nn">openpyxl.utils.escape</span> <span class="kn">import</span> <span class="n">escape</span><span class="p">,</span> <span class="n">unescape</span>
+
+<span class="kn">from</span> <span class="nn">.related</span> <span class="kn">import</span> <span class="n">Related</span>
+
+<span class="kn">from</span> <span class="nn">.filters</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">AutoFilter</span><span class="p">,</span>
+    <span class="n">SortState</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">TABLESTYLES</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">&quot;TableStyleMedium</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">29</span><span class="p">)]</span>
+    <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;TableStyleLight</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">22</span><span class="p">)]</span>
+    <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;TableStyleDark</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">)]</span>
+<span class="p">)</span>
+
+<span class="n">PIVOTSTYLES</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">&quot;PivotStyleMedium</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">29</span><span class="p">)]</span>
+    <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;PivotStyleLight</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">29</span><span class="p">)]</span>
+    <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;PivotStyleDark</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">29</span><span class="p">)]</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="TableStyleInfo"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.table.html#openpyxl.worksheet.table.TableStyleInfo">[docs]</a><span class="k">class</span> <span class="nc">TableStyleInfo</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;tableStyleInfo&quot;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">showFirstColumn</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">showLastColumn</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">showRowStripes</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">showColumnStripes</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">showFirstColumn</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">showLastColumn</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">showRowStripes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">showColumnStripes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showFirstColumn</span> <span class="o">=</span> <span class="n">showFirstColumn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showLastColumn</span> <span class="o">=</span> <span class="n">showLastColumn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showRowStripes</span> <span class="o">=</span> <span class="n">showRowStripes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showColumnStripes</span> <span class="o">=</span> <span class="n">showColumnStripes</span></div>
+
+
+<div class="viewcode-block" id="XMLColumnProps"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.table.html#openpyxl.worksheet.table.XMLColumnProps">[docs]</a><span class="k">class</span> <span class="nc">XMLColumnProps</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;xmlColumnPr&quot;</span>
+
+    <span class="n">mapId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">xpath</span> <span class="o">=</span> <span class="n">String</span><span class="p">()</span>
+    <span class="n">denormalized</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">xmlDataType</span> <span class="o">=</span> <span class="n">String</span><span class="p">()</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">mapId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">xpath</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">denormalized</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">xmlDataType</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mapId</span> <span class="o">=</span> <span class="n">mapId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xpath</span> <span class="o">=</span> <span class="n">xpath</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">denormalized</span> <span class="o">=</span> <span class="n">denormalized</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xmlDataType</span> <span class="o">=</span> <span class="n">xmlDataType</span></div>
+
+
+<div class="viewcode-block" id="TableFormula"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.table.html#openpyxl.worksheet.table.TableFormula">[docs]</a><span class="k">class</span> <span class="nc">TableFormula</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;tableFormula&quot;</span>
+
+    <span class="c1">## Note formula is stored as the text value</span>
+
+    <span class="n">array</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">attr_text</span> <span class="o">=</span> <span class="n">Descriptor</span><span class="p">()</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">Alias</span><span class="p">(</span><span class="s1">&#39;attr_text&#39;</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">array</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">attr_text</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">array</span> <span class="o">=</span> <span class="n">array</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attr_text</span> <span class="o">=</span> <span class="n">attr_text</span></div>
+
+
+<div class="viewcode-block" id="TableColumn"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.table.html#openpyxl.worksheet.table.TableColumn">[docs]</a><span class="k">class</span> <span class="nc">TableColumn</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;tableColumn&quot;</span>
+
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">uniqueName</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">String</span><span class="p">()</span>
+    <span class="n">totalsRowFunction</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="s1">&#39;average&#39;</span><span class="p">,</span>
+                                         <span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;countNums&#39;</span><span class="p">,</span> <span class="s1">&#39;stdDev&#39;</span><span class="p">,</span> <span class="s1">&#39;var&#39;</span><span class="p">,</span> <span class="s1">&#39;custom&#39;</span><span class="p">]))</span>
+    <span class="n">totalsRowLabel</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">queryTableFieldId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">headerRowDxfId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dataDxfId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">totalsRowDxfId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">headerRowCellStyle</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dataCellStyle</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">totalsRowCellStyle</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">calculatedColumnFormula</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">TableFormula</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">totalsRowFormula</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">TableFormula</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">xmlColumnPr</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">XMLColumnProps</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;calculatedColumnFormula&#39;</span><span class="p">,</span> <span class="s1">&#39;totalsRowFormula&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;xmlColumnPr&#39;</span><span class="p">,</span> <span class="s1">&#39;extLst&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">uniqueName</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">totalsRowFunction</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">totalsRowLabel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">queryTableFieldId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">headerRowDxfId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">dataDxfId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">totalsRowDxfId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">headerRowCellStyle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">dataCellStyle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">totalsRowCellStyle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">calculatedColumnFormula</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">totalsRowFormula</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">xmlColumnPr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uniqueName</span> <span class="o">=</span> <span class="n">uniqueName</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">totalsRowFunction</span> <span class="o">=</span> <span class="n">totalsRowFunction</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">totalsRowLabel</span> <span class="o">=</span> <span class="n">totalsRowLabel</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queryTableFieldId</span> <span class="o">=</span> <span class="n">queryTableFieldId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">headerRowDxfId</span> <span class="o">=</span> <span class="n">headerRowDxfId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataDxfId</span> <span class="o">=</span> <span class="n">dataDxfId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">totalsRowDxfId</span> <span class="o">=</span> <span class="n">totalsRowDxfId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">headerRowCellStyle</span> <span class="o">=</span> <span class="n">headerRowCellStyle</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataCellStyle</span> <span class="o">=</span> <span class="n">dataCellStyle</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">totalsRowCellStyle</span> <span class="o">=</span> <span class="n">totalsRowCellStyle</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">calculatedColumnFormula</span> <span class="o">=</span> <span class="n">calculatedColumnFormula</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">totalsRowFormula</span> <span class="o">=</span> <span class="n">totalsRowFormula</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xmlColumnPr</span> <span class="o">=</span> <span class="n">xmlColumnPr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extLst</span> <span class="o">=</span> <span class="n">extLst</span>
+
+
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">super</span><span class="p">(</span><span class="n">TableColumn</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__iter__</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="n">escape</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+            <span class="k">yield</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span>
+
+
+<div class="viewcode-block" id="TableColumn.from_tree"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.table.html#openpyxl.worksheet.table.TableColumn.from_tree">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_tree</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="bp">self</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">TableColumn</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span><span class="o">.</span><span class="n">from_tree</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">unescape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div></div>
+
+
+<div class="viewcode-block" id="TableNameDescriptor"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.table.html#openpyxl.worksheet.table.TableNameDescriptor">[docs]</a><span class="k">class</span> <span class="nc">TableNameDescriptor</span><span class="p">(</span><span class="n">String</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Table names cannot have spaces in them</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="s2">&quot; &quot;</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Table names cannot have spaces&quot;</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">TableNameDescriptor</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__set__</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Table"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.table.html#openpyxl.worksheet.table.Table">[docs]</a><span class="k">class</span> <span class="nc">Table</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">_path</span> <span class="o">=</span> <span class="s2">&quot;/tables/table</span><span class="si">{0}</span><span class="s2">.xml&quot;</span>
+    <span class="n">mime_type</span> <span class="o">=</span> <span class="s2">&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.table+xml&quot;</span>
+    <span class="n">_rel_type</span> <span class="o">=</span> <span class="n">REL_NS</span> <span class="o">+</span> <span class="s2">&quot;/table&quot;</span>
+    <span class="n">_rel_id</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;table&quot;</span>
+
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">displayName</span> <span class="o">=</span> <span class="n">TableNameDescriptor</span><span class="p">()</span>
+    <span class="n">comment</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ref</span> <span class="o">=</span> <span class="n">CellRange</span><span class="p">()</span>
+    <span class="n">tableType</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;worksheet&#39;</span><span class="p">,</span> <span class="s1">&#39;xml&#39;</span><span class="p">,</span> <span class="s1">&#39;queryTable&#39;</span><span class="p">]))</span>
+    <span class="n">headerRowCount</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">insertRow</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">insertRowShift</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">totalsRowCount</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">totalsRowShown</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">published</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">headerRowDxfId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dataDxfId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">totalsRowDxfId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">headerRowBorderDxfId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">tableBorderDxfId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">totalsRowBorderDxfId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">headerRowCellStyle</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dataCellStyle</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">totalsRowCellStyle</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">connectionId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">autoFilter</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">AutoFilter</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">sortState</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">SortState</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">tableColumns</span> <span class="o">=</span> <span class="n">NestedSequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">TableColumn</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">tableStyleInfo</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">TableStyleInfo</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;autoFilter&#39;</span><span class="p">,</span> <span class="s1">&#39;sortState&#39;</span><span class="p">,</span> <span class="s1">&#39;tableColumns&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;tableStyleInfo&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="nb">id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                 <span class="n">displayName</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">ref</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">comment</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">tableType</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">headerRowCount</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                 <span class="n">insertRow</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">insertRowShift</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">totalsRowCount</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">totalsRowShown</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">published</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">headerRowDxfId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">dataDxfId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">totalsRowDxfId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">headerRowBorderDxfId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">tableBorderDxfId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">totalsRowBorderDxfId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">headerRowCellStyle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">dataCellStyle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">totalsRowCellStyle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">connectionId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">autoFilter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">sortState</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">tableColumns</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">tableStyleInfo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">displayName</span> <span class="o">=</span> <span class="n">displayName</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">displayName</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">comment</span> <span class="o">=</span> <span class="n">comment</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="n">ref</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tableType</span> <span class="o">=</span> <span class="n">tableType</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">headerRowCount</span> <span class="o">=</span> <span class="n">headerRowCount</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">insertRow</span> <span class="o">=</span> <span class="n">insertRow</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">insertRowShift</span> <span class="o">=</span> <span class="n">insertRowShift</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">totalsRowCount</span> <span class="o">=</span> <span class="n">totalsRowCount</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">totalsRowShown</span> <span class="o">=</span> <span class="n">totalsRowShown</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">published</span> <span class="o">=</span> <span class="n">published</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">headerRowDxfId</span> <span class="o">=</span> <span class="n">headerRowDxfId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataDxfId</span> <span class="o">=</span> <span class="n">dataDxfId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">totalsRowDxfId</span> <span class="o">=</span> <span class="n">totalsRowDxfId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">headerRowBorderDxfId</span> <span class="o">=</span> <span class="n">headerRowBorderDxfId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tableBorderDxfId</span> <span class="o">=</span> <span class="n">tableBorderDxfId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">totalsRowBorderDxfId</span> <span class="o">=</span> <span class="n">totalsRowBorderDxfId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">headerRowCellStyle</span> <span class="o">=</span> <span class="n">headerRowCellStyle</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataCellStyle</span> <span class="o">=</span> <span class="n">dataCellStyle</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">totalsRowCellStyle</span> <span class="o">=</span> <span class="n">totalsRowCellStyle</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connectionId</span> <span class="o">=</span> <span class="n">connectionId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">autoFilter</span> <span class="o">=</span> <span class="n">autoFilter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sortState</span> <span class="o">=</span> <span class="n">sortState</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tableColumns</span> <span class="o">=</span> <span class="n">tableColumns</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tableStyleInfo</span> <span class="o">=</span> <span class="n">tableStyleInfo</span>
+
+
+<div class="viewcode-block" id="Table.to_tree"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.table.html#openpyxl.worksheet.table.Table.to_tree">[docs]</a>    <span class="k">def</span> <span class="nf">to_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">tree</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">Table</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">to_tree</span><span class="p">()</span>
+        <span class="n">tree</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;xmlns&quot;</span><span class="p">,</span> <span class="n">SHEET_MAIN_NS</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">tree</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">path</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return path within the archive</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;/xl&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_path</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">_write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">archive</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Serialise to XML and write to archive</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">xml</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_tree</span><span class="p">()</span>
+        <span class="n">archive</span><span class="o">.</span><span class="n">writestr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">tostring</span><span class="p">(</span><span class="n">xml</span><span class="p">))</span>
+
+
+    <span class="k">def</span> <span class="nf">_initialise_columns</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a list of table columns from a cell range</span>
+<span class="sd">        Always set a ref if we have headers (the default)</span>
+<span class="sd">        Column headings must be strings and must match cells in the worksheet.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">min_col</span><span class="p">,</span> <span class="n">min_row</span><span class="p">,</span> <span class="n">max_col</span><span class="p">,</span> <span class="n">max_row</span> <span class="o">=</span> <span class="n">range_boundaries</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ref</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">min_col</span><span class="p">,</span> <span class="n">max_col</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">col</span> <span class="o">=</span> <span class="n">TableColumn</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">idx</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Column</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">idx</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tableColumns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">headerRowCount</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">autoFilter</span> <span class="o">=</span> <span class="n">AutoFilter</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ref</span><span class="p">)</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">column_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">column</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tableColumns</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="TablePartList"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.table.html#openpyxl.worksheet.table.TablePartList">[docs]</a><span class="k">class</span> <span class="nc">TablePartList</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;tableParts&quot;</span>
+
+    <span class="n">count</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">tablePart</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Related</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;tablePart&#39;</span><span class="p">,)</span>
+    <span class="n">__attrs__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">count</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">tablePart</span><span class="o">=</span><span class="p">(),</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tablePart</span> <span class="o">=</span> <span class="n">tablePart</span>
+
+
+<div class="viewcode-block" id="TablePartList.append"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.table.html#openpyxl.worksheet.table.TablePartList.append">[docs]</a>    <span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">part</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tablePart</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">part</span><span class="p">)</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tablePart</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="fm">__bool__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tablePart</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TableList"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.table.html#openpyxl.worksheet.table.TableList">[docs]</a><span class="k">class</span> <span class="nc">TableList</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
+
+
+<div class="viewcode-block" id="TableList.add"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.table.html#openpyxl.worksheet.table.TableList.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">Table</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;You can only add tables&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">[</span><span class="n">table</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">table</span></div>
+
+
+<div class="viewcode-block" id="TableList.get"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.table.html#openpyxl.worksheet.table.TableList.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">table_range</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">table_range</span> <span class="o">==</span> <span class="n">table</span><span class="o">.</span><span class="n">ref</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">table</span></div>
+
+
+<div class="viewcode-block" id="TableList.items"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.table.html#openpyxl.worksheet.table.TableList.items">[docs]</a>    <span class="k">def</span> <span class="nf">items</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[(</span><span class="n">name</span><span class="p">,</span> <span class="n">table</span><span class="o">.</span><span class="n">ref</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">table</span> <span class="ow">in</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span></div></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.worksheet.table</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2010 - 2022, See AUTHORS.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

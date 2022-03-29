@@ -1,0 +1,205 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/openpyxl.drawing.effect.rst:2
+msgid "openpyxl.drawing.effect module"
+msgstr ""
+
+#: ../../../openpyxl/drawing/effect.py:docstring of openpyxl.drawing.effect.AlphaBiLevelEffect:1
+#: ../../../openpyxl/drawing/effect.py:docstring of openpyxl.drawing.effect.AlphaCeilingEffect:1
+#: ../../../openpyxl/drawing/effect.py:docstring of openpyxl.drawing.effect.AlphaFloorEffect:1
+#: ../../../openpyxl/drawing/effect.py:docstring of openpyxl.drawing.effect.AlphaInverseEffect:1
+#: ../../../openpyxl/drawing/effect.py:docstring of openpyxl.drawing.effect.AlphaModulateEffect:1
+#: ../../../openpyxl/drawing/effect.py:docstring of openpyxl.drawing.effect.AlphaModulateFixedEffect:1
+#: ../../../openpyxl/drawing/effect.py:docstring of openpyxl.drawing.effect.AlphaReplaceEffect:1
+#: ../../../openpyxl/drawing/effect.py:docstring of openpyxl.drawing.effect.BiLevelEffect:1
+#: ../../../openpyxl/drawing/effect.py:docstring of openpyxl.drawing.effect.BlurEffect:1
+#: ../../../openpyxl/drawing/effect.py:docstring of openpyxl.drawing.effect.Color:1
+#: ../../../openpyxl/drawing/effect.py:docstring of openpyxl.drawing.effect.ColorChangeEffect:1
+#: ../../../openpyxl/drawing/effect.py:docstring of openpyxl.drawing.effect.ColorReplaceEffect:1
+#: ../../../openpyxl/drawing/effect.py:docstring of openpyxl.drawing.effect.DuotoneEffect:1
+#: ../../../openpyxl/drawing/effect.py:docstring of openpyxl.drawing.effect.EffectContainer:1
+#: ../../../openpyxl/drawing/effect.py:docstring of openpyxl.drawing.effect.EffectList:1
+#: ../../../openpyxl/drawing/effect.py:docstring of openpyxl.drawing.effect.FillOverlayEffect:1
+#: ../../../openpyxl/drawing/effect.py:docstring of openpyxl.drawing.effect.GrayscaleEffect:1
+#: ../../../openpyxl/drawing/effect.py:docstring of openpyxl.drawing.effect.HSLEffect:1
+#: ../../../openpyxl/drawing/effect.py:docstring of openpyxl.drawing.effect.LuminanceEffect:1
+#: ../../../openpyxl/drawing/effect.py:docstring of openpyxl.drawing.effect.ReflectionEffect:1
+#: ../../../openpyxl/drawing/effect.py:docstring of openpyxl.drawing.effect.SoftEdgesEffect:1
+#: ../../../openpyxl/drawing/effect.py:docstring of openpyxl.drawing.effect.TintEffect:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.effect.AlphaBiLevelEffect.thresh:1
+#: ../../docstring of openpyxl.drawing.effect.AlphaModulateFixedEffect.amt:1
+#: ../../docstring of openpyxl.drawing.effect.AlphaReplaceEffect.a:1
+#: ../../docstring of openpyxl.drawing.effect.BiLevelEffect.thresh:1
+#: ../../docstring of openpyxl.drawing.effect.HSLEffect.hue:1
+#: ../../docstring of openpyxl.drawing.effect.HSLEffect.lum:1
+#: ../../docstring of openpyxl.drawing.effect.HSLEffect.sat:1
+#: ../../docstring of openpyxl.drawing.effect.InnerShadowEffect.dir:1
+#: ../../docstring of openpyxl.drawing.effect.LuminanceEffect.bright:1
+#: ../../docstring of openpyxl.drawing.effect.LuminanceEffect.contrast:1
+#: ../../docstring of openpyxl.drawing.effect.OuterShadow.dir:1
+#: ../../docstring of openpyxl.drawing.effect.OuterShadow.kx:1
+#: ../../docstring of openpyxl.drawing.effect.OuterShadow.ky:1
+#: ../../docstring of openpyxl.drawing.effect.OuterShadow.sx:1
+#: ../../docstring of openpyxl.drawing.effect.OuterShadow.sy:1
+#: ../../docstring of openpyxl.drawing.effect.PresetShadowEffect.dir:1
+#: ../../docstring of openpyxl.drawing.effect.ReflectionEffect.dir:1
+#: ../../docstring of openpyxl.drawing.effect.ReflectionEffect.endA:1
+#: ../../docstring of openpyxl.drawing.effect.ReflectionEffect.endPos:1
+#: ../../docstring of openpyxl.drawing.effect.ReflectionEffect.fadeDir:1
+#: ../../docstring of openpyxl.drawing.effect.ReflectionEffect.kx:1
+#: ../../docstring of openpyxl.drawing.effect.ReflectionEffect.ky:1
+#: ../../docstring of openpyxl.drawing.effect.ReflectionEffect.stA:1
+#: ../../docstring of openpyxl.drawing.effect.ReflectionEffect.stPos:1
+#: ../../docstring of openpyxl.drawing.effect.ReflectionEffect.sx:1
+#: ../../docstring of openpyxl.drawing.effect.ReflectionEffect.sy:1
+#: ../../docstring of openpyxl.drawing.effect.TintEffect.amt:1
+#: ../../docstring of openpyxl.drawing.effect.TintEffect.hue:1
+msgid "Values must be of type <class 'int'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.effect.AlphaModulateEffect.cont:1
+msgid "Values must be of type <class 'openpyxl.drawing.effect.EffectContainer'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.effect.BlurEffect.grow:1
+#: ../../docstring of openpyxl.drawing.effect.ColorChangeEffect.useA:1
+#: ../../docstring of openpyxl.drawing.effect.OuterShadow.rotWithShape:1
+#: ../../docstring of openpyxl.drawing.effect.ReflectionEffect.rotWithShape:1
+msgid "Values must be of type <class 'bool'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.effect.BlurEffect.rad:1
+#: ../../docstring of openpyxl.drawing.effect.GlowEffect.rad:1
+#: ../../docstring of openpyxl.drawing.effect.InnerShadowEffect.blurRad:1
+#: ../../docstring of openpyxl.drawing.effect.InnerShadowEffect.dist:1
+#: ../../docstring of openpyxl.drawing.effect.OuterShadow.blurRad:1
+#: ../../docstring of openpyxl.drawing.effect.OuterShadow.dist:1
+#: ../../docstring of openpyxl.drawing.effect.PresetShadowEffect.dist:1
+#: ../../docstring of openpyxl.drawing.effect.ReflectionEffect.blurRad:1
+#: ../../docstring of openpyxl.drawing.effect.ReflectionEffect.dist:1
+#: ../../docstring of openpyxl.drawing.effect.SoftEdgesEffect.rad:1
+msgid "Values must be of type <class 'float'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.effect.ColorChangeEffect.clrFrom:1
+#: ../../docstring of openpyxl.drawing.effect.ColorChangeEffect.clrTo:1
+msgid "Values must be of type <class 'openpyxl.drawing.effect.Color'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.effect.EffectContainer.name:1
+#: ../../docstring of openpyxl.drawing.effect.GlowEffect.srgbClr:1
+#: ../../docstring of openpyxl.drawing.effect.InnerShadowEffect.srgbClr:1
+#: ../../docstring of openpyxl.drawing.effect.OuterShadow.srgbClr:1
+#: ../../docstring of openpyxl.drawing.effect.PresetShadowEffect.srgbClr:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.effect.EffectContainer.type:1
+msgid "Value must be one of {'sib', 'tree'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.effect.EffectList.blur:1
+msgid "Values must be of type <class 'openpyxl.drawing.effect.BlurEffect'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.effect.EffectList.fillOverlay:1
+msgid "Values must be of type <class 'openpyxl.drawing.effect.FillOverlayEffect'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.effect.EffectList.glow:1
+msgid "Values must be of type <class 'openpyxl.drawing.effect.GlowEffect'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.effect.EffectList.innerShdw:1
+msgid "Values must be of type <class 'openpyxl.drawing.effect.InnerShadowEffect'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.effect.EffectList.outerShdw:1
+msgid "Values must be of type <class 'openpyxl.drawing.effect.OuterShadow'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.effect.EffectList.prstShdw:1
+msgid "Values must be of type <class 'openpyxl.drawing.effect.PresetShadowEffect'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.effect.EffectList.reflection:1
+msgid "Values must be of type <class 'openpyxl.drawing.effect.ReflectionEffect'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.effect.EffectList.softEdge:1
+msgid "Values must be of type <class 'openpyxl.drawing.effect.SoftEdgesEffect'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.effect.FillOverlayEffect.blend:1
+msgid "Value must be one of {'lighten', 'darken', 'screen', 'over', 'mult'}"
+msgstr ""
+
+#: ../../../openpyxl/drawing/effect.py:docstring of openpyxl.drawing.effect.GlowEffect:1
+#: ../../../openpyxl/drawing/effect.py:docstring of openpyxl.drawing.effect.InnerShadowEffect:1
+#: ../../../openpyxl/drawing/effect.py:docstring of openpyxl.drawing.effect.OuterShadow:1
+#: ../../../openpyxl/drawing/effect.py:docstring of openpyxl.drawing.effect.PresetShadowEffect:1
+msgid "Bases: :py:class:`openpyxl.drawing.colors.ColorChoice`"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.effect.GlowEffect.hslClr:1
+#: ../../docstring of openpyxl.drawing.effect.InnerShadowEffect.hslClr:1
+#: ../../docstring of openpyxl.drawing.effect.OuterShadow.hslClr:1
+#: ../../docstring of openpyxl.drawing.effect.PresetShadowEffect.hslClr:1
+msgid "Values must be of type <class 'openpyxl.drawing.colors.HSLColor'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.effect.GlowEffect.prstClr:1
+#: ../../docstring of openpyxl.drawing.effect.InnerShadowEffect.prstClr:1
+#: ../../docstring of openpyxl.drawing.effect.OuterShadow.prstClr:1
+#: ../../docstring of openpyxl.drawing.effect.PresetShadowEffect.prstClr:1
+msgid "Value must be one of {'aquamarine', 'darkOrchid', 'blueViolet', 'indianRed', 'lightSlateGrey', 'dkTurquoise', 'dkOliveGreen', 'lightSkyBlue', 'cornsilk', 'darkKhaki', 'ltPink', 'snow', 'paleGoldenrod', 'medBlue', 'khaki', 'linen', 'indigo', 'royalBlue', 'ltSteelBlue', 'lightGray', 'sandyBrown', 'ltSkyBlue', 'medTurquoise', 'medSeaGreen', 'coral', 'ltSlateGrey', 'navy', 'orange', 'tomato', 'floralWhite', 'lightGrey', 'burlyWood', 'lightYellow', 'ltGrey', 'ltSeaGreen', 'whiteSmoke', 'pink', 'ltSalmon', 'dkSalmon', 'orangeRed', 'thistle', 'springGreen', 'medOrchid', 'dkKhaki', 'crimson', 'maroon', 'medPurple', 'midnightBlue', 'darkBlue', 'lightSalmon', 'plum', 'mediumSlateBlue', 'purple', 'dkSlateGrey', 'dkCyan', 'ivory', 'lightCyan', 'cyan', 'medSpringGreen', 'white', 'navajoWhite', 'paleVioletRed', 'steelBlue', 'dkMagenta', 'brown', 'aqua', 'ltCoral', 'lemonChiffon', 'mediumSeaGreen', 'beige', 'powderBlue', 'grey', 'black', 'ghostWhite', 'oliveDrab', 'darkSeaGreen', 'dkGreen', 'ltSlateGray', 'orchid', 'slateBlue', 'peru', 'seaGreen', 'yellowGreen', 'chocolate', 'lawnGreen', 'paleTurquoise', 'darkViolet', 'lightSteelBlue', 'mediumOrchid', 'teal', 'darkTurquoise', 'paleGreen', 'slateGrey', 'dkOrange', 'lavender', 'deepSkyBlue', 'yellow', 'blanchedAlmond', 'mistyRose', 'red', 'rosyBrown', 'dkBlue', 'ltGray', 'ltGoldenrodYellow', 'gray', 'azure', 'darkSlateBlue', 'dkSeaGreen', 'lavenderBlush', 'deepPink', 'wheat', 'mintCream', 'lightCoral', 'dkSlateBlue', 'mediumPurple', 'dkSlateGray', 'ltGreen', 'forestGreen', 'ltCyan', 'darkGray', 'chartreuse', 'dkViolet', 'fuchsia', 'darkSlateGray', 'sienna', 'darkMagenta', 'hotPink', 'saddleBrown', 'lightGoldenrodYellow', 'gainsboro', 'honeydew', 'dodgerBlue', 'darkSalmon', 'mediumBlue', 'slateGray', 'dkOrchid', 'goldenrod', 'cadetBlue', 'dkGray', 'greenYellow', 'ltYellow', 'peachPuff', 'lightBlue', 'aliceBlue', 'darkGrey', 'green', 'tan', 'turquoise', 'lightPink', 'mediumTurquoise', 'darkGreen', 'dimGrey', 'blue', 'seaShell', 'papayaWhip', 'mediumAquamarine', 'lightSlateGray', 'ltBlue', 'darkRed', 'medAquamarine', 'medVioletRed', 'skyBlue', 'firebrick', 'limeGreen', 'magenta', 'silver', 'dkRed', 'lightSeaGreen', 'violet', 'dkGrey', 'dkGoldenrod', 'oldLace', 'darkOrange', 'gold', 'bisque', 'lightGreen', 'medSlateBlue', 'mediumVioletRed', 'salmon', 'olive', 'darkOliveGreen', 'dimGray', 'antiqueWhite', 'darkCyan', 'cornflowerBlue', 'lime', 'moccasin', 'mediumSpringGreen', 'darkSlateGrey', 'darkGoldenrod'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.effect.GlowEffect.schemeClr:1
+#: ../../docstring of openpyxl.drawing.effect.InnerShadowEffect.schemeClr:1
+#: ../../docstring of openpyxl.drawing.effect.OuterShadow.schemeClr:1
+#: ../../docstring of openpyxl.drawing.effect.PresetShadowEffect.schemeClr:1
+msgid "Values must be of type <class 'openpyxl.drawing.colors.SchemeColor'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.effect.GlowEffect.scrgbClr:1
+#: ../../docstring of openpyxl.drawing.effect.InnerShadowEffect.scrgbClr:1
+#: ../../docstring of openpyxl.drawing.effect.OuterShadow.scrgbClr:1
+#: ../../docstring of openpyxl.drawing.effect.PresetShadowEffect.scrgbClr:1
+msgid "Values must be of type <class 'openpyxl.drawing.colors.RGBPercent'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.effect.GlowEffect.sysClr:1
+#: ../../docstring of openpyxl.drawing.effect.InnerShadowEffect.sysClr:1
+#: ../../docstring of openpyxl.drawing.effect.OuterShadow.sysClr:1
+#: ../../docstring of openpyxl.drawing.effect.PresetShadowEffect.sysClr:1
+msgid "Values must be of type <class 'openpyxl.drawing.colors.SystemColor'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.effect.OuterShadow.algn:1
+#: ../../docstring of openpyxl.drawing.effect.ReflectionEffect.algn:1
+msgid "Value must be one of {'l', 'r', 'tr', 'tl', 'bl', 'b', 't', 'ctr', 'br'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.drawing.effect.PresetShadowEffect.prst:1
+msgid "Value must be one of {'shdw11', 'shdw3', 'shdw18', 'shdw4', 'shdw13', 'shdw20', 'shdw1', 'shdw14', 'shdw17', 'shdw10', 'shdw12', 'shdw7', 'shdw8', 'shdw5', 'shdw15', 'shdw16', 'shdw2', 'shdw19', 'shdw9', 'shdw6'}"
+msgstr ""

@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>openpyxl.comments.shape_writer &#8212; openpyxl 3.0.9 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/nature.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.comments.shape_writer</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for openpyxl.comments.shape_writer</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2010-2022 openpyxl</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.xml.functions</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Element</span><span class="p">,</span>
+    <span class="n">SubElement</span><span class="p">,</span>
+    <span class="n">tostring</span><span class="p">,</span>
+    <span class="n">fromstring</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.utils</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">column_index_from_string</span><span class="p">,</span>
+    <span class="n">coordinate_to_tuple</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">vmlns</span> <span class="o">=</span> <span class="s2">&quot;urn:schemas-microsoft-com:vml&quot;</span>
+<span class="n">officens</span> <span class="o">=</span> <span class="s2">&quot;urn:schemas-microsoft-com:office:office&quot;</span>
+<span class="n">excelns</span> <span class="o">=</span> <span class="s2">&quot;urn:schemas-microsoft-com:office:excel&quot;</span>
+
+
+<div class="viewcode-block" id="ShapeWriter"><a class="viewcode-back" href="../../../api/openpyxl.comments.shape_writer.html#openpyxl.comments.shape_writer.ShapeWriter">[docs]</a><span class="k">class</span> <span class="nc">ShapeWriter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create VML for comments</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">vml</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">vml_path</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comments</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">comments</span> <span class="o">=</span> <span class="n">comments</span>
+
+
+<div class="viewcode-block" id="ShapeWriter.add_comment_shapetype"><a class="viewcode-back" href="../../../api/openpyxl.comments.shape_writer.html#openpyxl.comments.shape_writer.ShapeWriter.add_comment_shapetype">[docs]</a>    <span class="k">def</span> <span class="nf">add_comment_shapetype</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
+        <span class="n">shape_layout</span> <span class="o">=</span> <span class="n">SubElement</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;{</span><span class="si">%s</span><span class="s2">}shapelayout&quot;</span> <span class="o">%</span> <span class="n">officens</span><span class="p">,</span>
+                                  <span class="p">{</span><span class="s2">&quot;{</span><span class="si">%s</span><span class="s2">}ext&quot;</span> <span class="o">%</span> <span class="n">vmlns</span><span class="p">:</span> <span class="s2">&quot;edit&quot;</span><span class="p">})</span>
+        <span class="n">SubElement</span><span class="p">(</span><span class="n">shape_layout</span><span class="p">,</span>
+                   <span class="s2">&quot;{</span><span class="si">%s</span><span class="s2">}idmap&quot;</span> <span class="o">%</span> <span class="n">officens</span><span class="p">,</span>
+                   <span class="p">{</span><span class="s2">&quot;{</span><span class="si">%s</span><span class="s2">}ext&quot;</span> <span class="o">%</span> <span class="n">vmlns</span><span class="p">:</span> <span class="s2">&quot;edit&quot;</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">})</span>
+        <span class="n">shape_type</span> <span class="o">=</span> <span class="n">SubElement</span><span class="p">(</span><span class="n">root</span><span class="p">,</span>
+                                <span class="s2">&quot;{</span><span class="si">%s</span><span class="s2">}shapetype&quot;</span> <span class="o">%</span> <span class="n">vmlns</span><span class="p">,</span>
+                                <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;_x0000_t202&quot;</span><span class="p">,</span>
+                                 <span class="s2">&quot;coordsize&quot;</span><span class="p">:</span> <span class="s2">&quot;21600,21600&quot;</span><span class="p">,</span>
+                                 <span class="s2">&quot;{</span><span class="si">%s</span><span class="s2">}spt&quot;</span> <span class="o">%</span> <span class="n">officens</span><span class="p">:</span> <span class="s2">&quot;202&quot;</span><span class="p">,</span>
+                                 <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;m,l,21600r21600,l21600,xe&quot;</span><span class="p">})</span>
+        <span class="n">SubElement</span><span class="p">(</span><span class="n">shape_type</span><span class="p">,</span> <span class="s2">&quot;{</span><span class="si">%s</span><span class="s2">}stroke&quot;</span> <span class="o">%</span> <span class="n">vmlns</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;joinstyle&quot;</span><span class="p">:</span> <span class="s2">&quot;miter&quot;</span><span class="p">})</span>
+        <span class="n">SubElement</span><span class="p">(</span><span class="n">shape_type</span><span class="p">,</span>
+                   <span class="s2">&quot;{</span><span class="si">%s</span><span class="s2">}path&quot;</span> <span class="o">%</span> <span class="n">vmlns</span><span class="p">,</span>
+                   <span class="p">{</span><span class="s2">&quot;gradientshapeok&quot;</span><span class="p">:</span> <span class="s2">&quot;t&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;{</span><span class="si">%s</span><span class="s2">}connecttype&quot;</span> <span class="o">%</span> <span class="n">officens</span><span class="p">:</span> <span class="s2">&quot;rect&quot;</span><span class="p">})</span></div>
+
+
+<div class="viewcode-block" id="ShapeWriter.add_comment_shape"><a class="viewcode-back" href="../../../api/openpyxl.comments.shape_writer.html#openpyxl.comments.shape_writer.ShapeWriter.add_comment_shape">[docs]</a>    <span class="k">def</span> <span class="nf">add_comment_shape</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
+        <span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="n">coordinate_to_tuple</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+        <span class="n">row</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">col</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">shape</span> <span class="o">=</span> <span class="n">_shape_factory</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span>
+
+        <span class="n">shape</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s2">&quot;_x0000_s</span><span class="si">%04d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">idx</span><span class="p">)</span>
+        <span class="n">root</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ShapeWriter.write"><a class="viewcode-back" href="../../../api/openpyxl.comments.shape_writer.html#openpyxl.comments.shape_writer.ShapeWriter.write">[docs]</a>    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;findall&quot;</span><span class="p">):</span>
+            <span class="n">root</span> <span class="o">=</span> <span class="n">Element</span><span class="p">(</span><span class="s2">&quot;xml&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Remove any existing comment shapes</span>
+        <span class="n">comments</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;{</span><span class="si">%s</span><span class="s2">}shape[@type=&#39;#_x0000_t202&#39;]&quot;</span> <span class="o">%</span> <span class="n">vmlns</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">comments</span><span class="p">:</span>
+            <span class="n">root</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+
+        <span class="c1"># check whether comments shape type already exists</span>
+        <span class="n">shape_types</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;{</span><span class="si">%s</span><span class="s2">}shapetype[@id=&#39;_x0000_t202&#39;]&quot;</span> <span class="o">%</span> <span class="n">vmlns</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">shape_types</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_comment_shapetype</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">comment</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">comments</span><span class="p">,</span> <span class="mi">1026</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_comment_shape</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="n">comment</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">comment</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">tostring</span><span class="p">(</span><span class="n">root</span><span class="p">)</span></div></div>
+
+
+<span class="k">def</span> <span class="nf">_shape_factory</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
+    <span class="n">style</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;position:absolute; &quot;</span>
+             <span class="s2">&quot;margin-left:59.25pt;&quot;</span>
+             <span class="s2">&quot;margin-top:1.5pt;&quot;</span>
+             <span class="s2">&quot;width:</span><span class="si">{width}</span><span class="s2">px;&quot;</span>
+             <span class="s2">&quot;height:</span><span class="si">{height}</span><span class="s2">px;&quot;</span>
+             <span class="s2">&quot;z-index:1;&quot;</span>
+             <span class="s2">&quot;visibility:hidden&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">,</span>
+                                         <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">)</span>
+    <span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;#_x0000_t202&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;style&quot;</span><span class="p">:</span> <span class="n">style</span><span class="p">,</span>
+        <span class="s2">&quot;fillcolor&quot;</span><span class="p">:</span> <span class="s2">&quot;#ffffe1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;{</span><span class="si">%s</span><span class="s2">}insetmode&quot;</span> <span class="o">%</span> <span class="n">officens</span><span class="p">:</span> <span class="s2">&quot;auto&quot;</span>
+    <span class="p">}</span>
+    <span class="n">shape</span> <span class="o">=</span> <span class="n">Element</span><span class="p">(</span><span class="s2">&quot;{</span><span class="si">%s</span><span class="s2">}shape&quot;</span> <span class="o">%</span> <span class="n">vmlns</span><span class="p">,</span> <span class="n">attrs</span><span class="p">)</span>
+
+    <span class="n">SubElement</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;{</span><span class="si">%s</span><span class="s2">}fill&quot;</span> <span class="o">%</span> <span class="n">vmlns</span><span class="p">,</span>
+               <span class="p">{</span><span class="s2">&quot;color2&quot;</span><span class="p">:</span> <span class="s2">&quot;#ffffe1&quot;</span><span class="p">})</span>
+    <span class="n">SubElement</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;{</span><span class="si">%s</span><span class="s2">}shadow&quot;</span> <span class="o">%</span> <span class="n">vmlns</span><span class="p">,</span>
+               <span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="s2">&quot;obscured&quot;</span><span class="p">:</span> <span class="s2">&quot;t&quot;</span><span class="p">})</span>
+    <span class="n">SubElement</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;{</span><span class="si">%s</span><span class="s2">}path&quot;</span> <span class="o">%</span> <span class="n">vmlns</span><span class="p">,</span>
+               <span class="p">{</span><span class="s2">&quot;{</span><span class="si">%s</span><span class="s2">}connecttype&quot;</span> <span class="o">%</span> <span class="n">officens</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span><span class="p">})</span>
+    <span class="n">textbox</span> <span class="o">=</span> <span class="n">SubElement</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;{</span><span class="si">%s</span><span class="s2">}textbox&quot;</span> <span class="o">%</span> <span class="n">vmlns</span><span class="p">,</span>
+                         <span class="p">{</span><span class="s2">&quot;style&quot;</span><span class="p">:</span> <span class="s2">&quot;mso-direction-alt:auto&quot;</span><span class="p">})</span>
+    <span class="n">SubElement</span><span class="p">(</span><span class="n">textbox</span><span class="p">,</span> <span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;style&quot;</span><span class="p">:</span> <span class="s2">&quot;text-align:left&quot;</span><span class="p">})</span>
+    <span class="n">client_data</span> <span class="o">=</span> <span class="n">SubElement</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;{</span><span class="si">%s</span><span class="s2">}ClientData&quot;</span> <span class="o">%</span> <span class="n">excelns</span><span class="p">,</span>
+                             <span class="p">{</span><span class="s2">&quot;ObjectType&quot;</span><span class="p">:</span> <span class="s2">&quot;Note&quot;</span><span class="p">})</span>
+    <span class="n">SubElement</span><span class="p">(</span><span class="n">client_data</span><span class="p">,</span> <span class="s2">&quot;{</span><span class="si">%s</span><span class="s2">}MoveWithCells&quot;</span> <span class="o">%</span> <span class="n">excelns</span><span class="p">)</span>
+    <span class="n">SubElement</span><span class="p">(</span><span class="n">client_data</span><span class="p">,</span> <span class="s2">&quot;{</span><span class="si">%s</span><span class="s2">}SizeWithCells&quot;</span> <span class="o">%</span> <span class="n">excelns</span><span class="p">)</span>
+    <span class="n">SubElement</span><span class="p">(</span><span class="n">client_data</span><span class="p">,</span> <span class="s2">&quot;{</span><span class="si">%s</span><span class="s2">}AutoFill&quot;</span> <span class="o">%</span> <span class="n">excelns</span><span class="p">)</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;False&quot;</span>
+    <span class="n">SubElement</span><span class="p">(</span><span class="n">client_data</span><span class="p">,</span> <span class="s2">&quot;{</span><span class="si">%s</span><span class="s2">}Row&quot;</span> <span class="o">%</span> <span class="n">excelns</span><span class="p">)</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    <span class="n">SubElement</span><span class="p">(</span><span class="n">client_data</span><span class="p">,</span> <span class="s2">&quot;{</span><span class="si">%s</span><span class="s2">}Column&quot;</span> <span class="o">%</span> <span class="n">excelns</span><span class="p">)</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">shape</span>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.comments.shape_writer</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2010 - 2022, See AUTHORS.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,118 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/openpyxl.pivot.fields.rst:2
+msgid "openpyxl.pivot.fields module"
+msgstr ""
+
+#: ../../../openpyxl/pivot/fields.py:docstring of openpyxl.pivot.fields.Boolean:1
+#: ../../../openpyxl/pivot/fields.py:docstring of openpyxl.pivot.fields.DateTimeField:1
+#: ../../../openpyxl/pivot/fields.py:docstring of openpyxl.pivot.fields.Error:1
+#: ../../../openpyxl/pivot/fields.py:docstring of openpyxl.pivot.fields.Index:1
+#: ../../../openpyxl/pivot/fields.py:docstring of openpyxl.pivot.fields.Missing:1
+#: ../../../openpyxl/pivot/fields.py:docstring of openpyxl.pivot.fields.Number:1
+#: ../../../openpyxl/pivot/fields.py:docstring of openpyxl.pivot.fields.Text:1
+#: ../../../openpyxl/pivot/fields.py:docstring of openpyxl.pivot.fields.Tuple:1
+#: ../../../openpyxl/pivot/fields.py:docstring of openpyxl.pivot.fields.TupleList:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.fields.Boolean.c:1
+#: ../../docstring of openpyxl.pivot.fields.DateTimeField.c:1
+#: ../../docstring of openpyxl.pivot.fields.Error.c:1
+#: ../../docstring of openpyxl.pivot.fields.Error.v:1
+#: ../../docstring of openpyxl.pivot.fields.Missing.c:1
+#: ../../docstring of openpyxl.pivot.fields.Number.c:1
+#: ../../docstring of openpyxl.pivot.fields.Text.c:1
+#: ../../docstring of openpyxl.pivot.fields.Text.v:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.fields.Boolean.cp:1
+#: ../../docstring of openpyxl.pivot.fields.DateTimeField.cp:1
+#: ../../docstring of openpyxl.pivot.fields.Error.cp:1
+#: ../../docstring of openpyxl.pivot.fields.Index.v:1
+#: ../../docstring of openpyxl.pivot.fields.Missing.cp:1
+#: ../../docstring of openpyxl.pivot.fields.Number.cp:1
+#: ../../docstring of openpyxl.pivot.fields.Text.cp:1
+#: ../../docstring of openpyxl.pivot.fields.Tuple.fld:1
+#: ../../docstring of openpyxl.pivot.fields.Tuple.hier:1
+#: ../../docstring of openpyxl.pivot.fields.Tuple.item:1
+#: ../../docstring of openpyxl.pivot.fields.TupleList.c:1
+msgid "Values must be of type <class 'int'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.fields.Boolean.f:1
+#: ../../docstring of openpyxl.pivot.fields.Boolean.u:1
+#: ../../docstring of openpyxl.pivot.fields.Boolean.v:1
+#: ../../docstring of openpyxl.pivot.fields.DateTimeField.f:1
+#: ../../docstring of openpyxl.pivot.fields.DateTimeField.u:1
+#: ../../docstring of openpyxl.pivot.fields.Error.b:1
+#: ../../docstring of openpyxl.pivot.fields.Error.f:1
+#: ../../docstring of openpyxl.pivot.fields.Error.i:1
+#: ../../docstring of openpyxl.pivot.fields.Error.st:1
+#: ../../docstring of openpyxl.pivot.fields.Error.u:1
+#: ../../docstring of openpyxl.pivot.fields.Error.un:1
+#: ../../docstring of openpyxl.pivot.fields.Missing.b:1
+#: ../../docstring of openpyxl.pivot.fields.Missing.f:1
+#: ../../docstring of openpyxl.pivot.fields.Missing.i:1
+#: ../../docstring of openpyxl.pivot.fields.Missing.st:1
+#: ../../docstring of openpyxl.pivot.fields.Missing.u:1
+#: ../../docstring of openpyxl.pivot.fields.Missing.un:1
+#: ../../docstring of openpyxl.pivot.fields.Number.b:1
+#: ../../docstring of openpyxl.pivot.fields.Number.f:1
+#: ../../docstring of openpyxl.pivot.fields.Number.i:1
+#: ../../docstring of openpyxl.pivot.fields.Number.st:1
+#: ../../docstring of openpyxl.pivot.fields.Number.u:1
+#: ../../docstring of openpyxl.pivot.fields.Number.un:1
+#: ../../docstring of openpyxl.pivot.fields.Text.b:1
+#: ../../docstring of openpyxl.pivot.fields.Text.f:1
+#: ../../docstring of openpyxl.pivot.fields.Text.i:1
+#: ../../docstring of openpyxl.pivot.fields.Text.st:1
+#: ../../docstring of openpyxl.pivot.fields.Text.u:1
+#: ../../docstring of openpyxl.pivot.fields.Text.un:1
+msgid "Values must be of type <class 'bool'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.fields.Boolean.x:1
+#: ../../docstring of openpyxl.pivot.fields.DateTimeField.x:1
+#: ../../docstring of openpyxl.pivot.fields.Error.x:1
+#: ../../docstring of openpyxl.pivot.fields.Missing.tpls:1
+#: ../../docstring of openpyxl.pivot.fields.Missing.x:1
+#: ../../docstring of openpyxl.pivot.fields.Number.tpls:1
+#: ../../docstring of openpyxl.pivot.fields.Number.x:1
+#: ../../docstring of openpyxl.pivot.fields.Text.tpls:1
+#: ../../docstring of openpyxl.pivot.fields.Text.x:1
+msgid "A sequence (list or tuple) that may only contain objects of the declared type"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.fields.DateTimeField.v:1
+msgid "Values must be of type <class 'datetime.datetime'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.fields.Error.tpls:1
+msgid "Values must be of type <class 'openpyxl.pivot.fields.TupleList'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.fields.Number.v:1
+msgid "Values must be of type <class 'float'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.fields.TupleList.tpl:1
+msgid "Values must be of type <class 'openpyxl.pivot.fields.Tuple'>"
+msgstr ""

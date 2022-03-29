@@ -1,0 +1,142 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/openpyxl.formatting.rule.rst:2
+msgid "openpyxl.formatting.rule module"
+msgstr ""
+
+#: ../../../openpyxl/formatting/rule.py:docstring of openpyxl.formatting.rule.CellIsRule:1
+msgid "Conditional formatting rule based on cell contents."
+msgstr ""
+
+#: ../../../openpyxl/formatting/rule.py:docstring of openpyxl.formatting.rule.ColorScale:1
+#: ../../../openpyxl/formatting/rule.py:docstring of openpyxl.formatting.rule.DataBar:1
+#: ../../../openpyxl/formatting/rule.py:docstring of openpyxl.formatting.rule.IconSet:1
+msgid "Bases: :py:class:`openpyxl.formatting.rule.RuleType`"
+msgstr ""
+
+#: ../../docstring of openpyxl.formatting.rule.ColorScale.color:1
+#: ../../docstring of openpyxl.formatting.rule.Rule.formula:1
+#: ../../docstring of openpyxl.formatting.rule.RuleType.cfvo:1
+msgid "A sequence (list or tuple) that may only contain objects of the declared type"
+msgstr ""
+
+#: ../../../openpyxl/formatting/rule.py:docstring of openpyxl.formatting.rule.ColorScaleRule:1
+msgid "Backwards compatibility"
+msgstr ""
+
+#: ../../docstring of openpyxl.formatting.rule.DataBar.color:1
+msgid "Values must be of type <class 'openpyxl.styles.colors.Color'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.formatting.rule.DataBar.maxLength:1
+#: ../../docstring of openpyxl.formatting.rule.DataBar.minLength:1
+#: ../../docstring of openpyxl.formatting.rule.Rule.dxfId:1
+#: ../../docstring of openpyxl.formatting.rule.Rule.priority:1
+#: ../../docstring of openpyxl.formatting.rule.Rule.rank:1
+#: ../../docstring of openpyxl.formatting.rule.Rule.stdDev:1
+msgid "Values must be of type <class 'int'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.formatting.rule.DataBar.showValue:1
+#: ../../docstring of openpyxl.formatting.rule.FormatObject.gte:1
+#: ../../docstring of openpyxl.formatting.rule.IconSet.percent:1
+#: ../../docstring of openpyxl.formatting.rule.IconSet.reverse:1
+#: ../../docstring of openpyxl.formatting.rule.IconSet.showValue:1
+#: ../../docstring of openpyxl.formatting.rule.Rule.aboveAverage:1
+#: ../../docstring of openpyxl.formatting.rule.Rule.bottom:1
+#: ../../docstring of openpyxl.formatting.rule.Rule.equalAverage:1
+#: ../../docstring of openpyxl.formatting.rule.Rule.percent:1
+#: ../../docstring of openpyxl.formatting.rule.Rule.stopIfTrue:1
+msgid "Values must be of type <class 'bool'>"
+msgstr ""
+
+#: ../../../openpyxl/formatting/rule.py:docstring of openpyxl.formatting.rule.FormatObject:1
+#: ../../../openpyxl/formatting/rule.py:docstring of openpyxl.formatting.rule.Rule:1
+#: ../../../openpyxl/formatting/rule.py:docstring of openpyxl.formatting.rule.RuleType:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../docstring of openpyxl.formatting.rule.FormatObject.extLst:1
+#: ../../docstring of openpyxl.formatting.rule.Rule.extLst:1
+msgid "Values must be of type <class 'openpyxl.descriptors.excel.ExtensionList'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.formatting.rule.FormatObject.type:1
+msgid "Value must be one of {'percentile', 'formula', 'num', 'min', 'max', 'percent'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.formatting.rule.FormatObject.val:1
+msgid "Values must be of type <class 'float'>"
+msgstr ""
+
+#: ../../../openpyxl/formatting/rule.py:docstring of openpyxl.formatting.rule.FormulaRule:1
+msgid "Conditional formatting with custom differential style"
+msgstr ""
+
+#: ../../docstring of openpyxl.formatting.rule.IconSet.iconSet:1
+msgid "Value must be one of {'3Symbols', '4Rating', '3TrafficLights2', '3TrafficLights1', '3Symbols2', '3Flags', '4RedToBlack', '5ArrowsGray', '3ArrowsGray', '3Signs', '5Quarters', '4Arrows', '4TrafficLights', '5Rating', '3Arrows', '5Arrows', '4ArrowsGray'}"
+msgstr ""
+
+#: ../../../openpyxl/formatting/rule.py:docstring of openpyxl.formatting.rule.IconSetRule:1
+msgid "Convenience function for creating icon set rules"
+msgstr ""
+
+#: ../../docstring of openpyxl.formatting.rule.Rule.colorScale:1
+msgid "Values must be of type <class 'openpyxl.formatting.rule.ColorScale'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.formatting.rule.Rule.dataBar:1
+msgid "Values must be of type <class 'openpyxl.formatting.rule.DataBar'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.formatting.rule.Rule.dxf:1
+msgid "Values must be of type <class 'openpyxl.styles.differential.DifferentialStyle'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.formatting.rule.Rule.iconSet:1
+msgid "Values must be of type <class 'openpyxl.formatting.rule.IconSet'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.formatting.rule.Rule.operator:1
+msgid "Value must be one of {'containsText', 'beginsWith', 'greaterThanOrEqual', 'greaterThan', 'between', 'equal', 'notBetween', 'lessThan', 'notEqual', 'lessThanOrEqual', 'notContains', 'endsWith'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.formatting.rule.Rule.text:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.formatting.rule.Rule.timePeriod:1
+msgid "Value must be one of {'yesterday', 'thisWeek', 'last7Days', 'nextMonth', 'today', 'lastWeek', 'tomorrow', 'nextWeek', 'thisMonth', 'lastMonth'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.formatting.rule.Rule.type:1
+msgid "Value must be one of {'containsText', 'beginsWith', 'dataBar', 'timePeriod', 'uniqueValues', 'duplicateValues', 'notContainsErrors', 'containsErrors', 'aboveAverage', 'iconSet', 'cellIs', 'notContainsText', 'notContainsBlanks', 'top10', 'endsWith', 'colorScale', 'containsBlanks', 'expression'}"
+msgstr ""
+
+#: ../../../openpyxl/formatting/rule.py:docstring of openpyxl.formatting.rule.ValueDescriptor:1
+msgid "Bases: :py:class:`openpyxl.descriptors.base.Float`"
+msgstr ""
+
+#: ../../../openpyxl/formatting/rule.py:docstring of openpyxl.formatting.rule.ValueDescriptor:1
+msgid "Expected type depends upon type attribue of parent :-("
+msgstr ""
+
+#: ../../../openpyxl/formatting/rule.py:docstring of openpyxl.formatting.rule.ValueDescriptor:3
+msgid "Most values should be numeric BUT they can also be cell references"
+msgstr ""

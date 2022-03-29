@@ -1,0 +1,67 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../api/openpyxl.chart.bubble_chart.rst:2
+msgid "openpyxl.chart.bubble\\_chart module"
+msgstr ""
+
+#: of openpyxl.chart.bubble_chart.BubbleChart:1
+msgid "Bases: :py:class:`openpyxl.chart._chart.ChartBase`"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.bubble_chart.BubbleChart.bubble3D:1
+#: openpyxl.chart.bubble_chart.BubbleChart.showNegBubbles:1
+#: openpyxl.chart.bubble_chart.BubbleChart.varyColors:1
+msgid "Values must be of type <class 'bool'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.bubble_chart.BubbleChart.bubbleScale:1
+msgid "Values must be of type <class 'float'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.bubble_chart.BubbleChart.dLbls:1
+msgid "Values must be of type <class 'openpyxl.chart.label.DataLabelList'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.bubble_chart.BubbleChart.dataLabels:1
+msgid ""
+"Aliases can be used when either the desired attribute name is not allowed"
+" or confusing in Python (eg. \"type\") or a more descriptve name is "
+"desired (eg. \"underline\" for \"u\")"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.bubble_chart.BubbleChart.extLst:1
+msgid "Values must be of type <class 'openpyxl.descriptors.excel.ExtensionList'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.bubble_chart.BubbleChart.ser:1
+msgid ""
+"A sequence (list or tuple) that may only contain objects of the declared "
+"type"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.bubble_chart.BubbleChart.sizeRepresents:1
+msgid "Value must be one of {'area', 'w'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.chart.bubble_chart.BubbleChart.x_axis:1
+#: openpyxl.chart.bubble_chart.BubbleChart.y_axis:1
+msgid "Values must be of type <class 'openpyxl.chart.axis.NumericAxis'>"
+msgstr ""
+

@@ -1,0 +1,79 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../api/openpyxl.workbook.defined_name.rst:2
+msgid "openpyxl.workbook.defined\\_name module"
+msgstr ""
+
+#: of openpyxl.workbook.defined_name.DefinedName:1
+#: openpyxl.workbook.defined_name.DefinedNameList:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../docstring of openpyxl.workbook.defined_name.DefinedName.comment:1
+#: openpyxl.workbook.defined_name.DefinedName.customMenu:1
+#: openpyxl.workbook.defined_name.DefinedName.description:1
+#: openpyxl.workbook.defined_name.DefinedName.help:1
+#: openpyxl.workbook.defined_name.DefinedName.name:1
+#: openpyxl.workbook.defined_name.DefinedName.shortcutKey:1
+#: openpyxl.workbook.defined_name.DefinedName.statusBar:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.workbook.defined_name.DefinedName.function:1
+#: openpyxl.workbook.defined_name.DefinedName.hidden:1
+#: openpyxl.workbook.defined_name.DefinedName.publishToServer:1
+#: openpyxl.workbook.defined_name.DefinedName.vbProcedure:1
+#: openpyxl.workbook.defined_name.DefinedName.workbookParameter:1
+#: openpyxl.workbook.defined_name.DefinedName.xlm:1
+msgid "Values must be of type <class 'bool'>"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.workbook.defined_name.DefinedName.functionGroupId:1
+#: openpyxl.workbook.defined_name.DefinedName.localSheetId:1
+msgid "Values must be of type <class 'int'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.workbook.defined_name.DefinedName.value:1
+msgid ""
+"Aliases can be used when either the desired attribute name is not allowed"
+" or confusing in Python (eg. \"type\") or a more descriptve name is "
+"desired (eg. \"underline\" for \"u\")"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.workbook.defined_name.DefinedNameList.definedName:1
+msgid ""
+"A sequence (list or tuple) that may only contain objects of the declared "
+"type"
+msgstr ""
+
+#: of openpyxl.workbook.defined_name.DefinedNameList.delete:1
+msgid "Delete a name assigned to a specific or global"
+msgstr ""
+
+#: of openpyxl.workbook.defined_name.DefinedNameList.get:1
+msgid "Get the name assigned to a specicic sheet or global"
+msgstr ""
+
+#: of openpyxl.workbook.defined_name.DefinedNameList.localnames:1
+msgid "Provide a list of all names for a particular worksheet"
+msgstr ""
+

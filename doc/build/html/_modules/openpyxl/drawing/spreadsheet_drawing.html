@@ -1,0 +1,464 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>openpyxl.drawing.spreadsheet_drawing &#8212; openpyxl 3.0.9 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/nature.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.drawing.spreadsheet_drawing</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for openpyxl.drawing.spreadsheet_drawing</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2010-2022 openpyxl</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.serialisable</span> <span class="kn">import</span> <span class="n">Serialisable</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Typed</span><span class="p">,</span>
+    <span class="n">Bool</span><span class="p">,</span>
+    <span class="n">NoneSet</span><span class="p">,</span>
+    <span class="n">Integer</span><span class="p">,</span>
+    <span class="n">Sequence</span><span class="p">,</span>
+    <span class="n">Alias</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.nested</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">NestedText</span><span class="p">,</span>
+    <span class="n">NestedNoneSet</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.excel</span> <span class="kn">import</span> <span class="n">Relation</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.packaging.relationship</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Relationship</span><span class="p">,</span>
+    <span class="n">RelationshipList</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">openpyxl.utils</span> <span class="kn">import</span> <span class="n">coordinate_to_tuple</span>
+<span class="kn">from</span> <span class="nn">openpyxl.utils.units</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">cm_to_EMU</span><span class="p">,</span>
+    <span class="n">pixels_to_EMU</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">openpyxl.drawing.image</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.xml.constants</span> <span class="kn">import</span> <span class="n">SHEET_DRAWING_NS</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.chart._chart</span> <span class="kn">import</span> <span class="n">ChartBase</span>
+<span class="kn">from</span> <span class="nn">.xdr</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">XDRPoint2D</span><span class="p">,</span>
+    <span class="n">XDRPositiveSize2D</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">.fill</span> <span class="kn">import</span> <span class="n">Blip</span>
+<span class="kn">from</span> <span class="nn">.connector</span> <span class="kn">import</span> <span class="n">Shape</span>
+<span class="kn">from</span> <span class="nn">.graphic</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">GroupShape</span><span class="p">,</span>
+    <span class="n">GraphicFrame</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="kn">from</span> <span class="nn">.geometry</span> <span class="kn">import</span> <span class="n">PresetGeometry2D</span>
+<span class="kn">from</span> <span class="nn">.picture</span> <span class="kn">import</span> <span class="n">PictureFrame</span>
+<span class="kn">from</span> <span class="nn">.relation</span> <span class="kn">import</span> <span class="n">ChartRelation</span>
+
+
+<div class="viewcode-block" id="AnchorClientData"><a class="viewcode-back" href="../../../api/openpyxl.drawing.spreadsheet_drawing.html#openpyxl.drawing.spreadsheet_drawing.AnchorClientData">[docs]</a><span class="k">class</span> <span class="nc">AnchorClientData</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">fLocksWithSheet</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">fPrintsWithSheet</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">fLocksWithSheet</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">fPrintsWithSheet</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fLocksWithSheet</span> <span class="o">=</span> <span class="n">fLocksWithSheet</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fPrintsWithSheet</span> <span class="o">=</span> <span class="n">fPrintsWithSheet</span></div>
+
+
+<div class="viewcode-block" id="AnchorMarker"><a class="viewcode-back" href="../../../api/openpyxl.drawing.spreadsheet_drawing.html#openpyxl.drawing.spreadsheet_drawing.AnchorMarker">[docs]</a><span class="k">class</span> <span class="nc">AnchorMarker</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;marker&quot;</span>
+
+    <span class="n">col</span> <span class="o">=</span> <span class="n">NestedText</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">colOff</span> <span class="o">=</span> <span class="n">NestedText</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="n">NestedText</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">rowOff</span> <span class="o">=</span> <span class="n">NestedText</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                 <span class="n">colOff</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                 <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                 <span class="n">rowOff</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                 <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">col</span> <span class="o">=</span> <span class="n">col</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">colOff</span> <span class="o">=</span> <span class="n">colOff</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">row</span> <span class="o">=</span> <span class="n">row</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rowOff</span> <span class="o">=</span> <span class="n">rowOff</span></div>
+
+
+<span class="k">class</span> <span class="nc">_AnchorBase</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="c1">#one of</span>
+    <span class="n">sp</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Shape</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">shape</span> <span class="o">=</span> <span class="n">Alias</span><span class="p">(</span><span class="s2">&quot;sp&quot;</span><span class="p">)</span>
+    <span class="n">grpSp</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">GroupShape</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">groupShape</span> <span class="o">=</span> <span class="n">Alias</span><span class="p">(</span><span class="s2">&quot;grpSp&quot;</span><span class="p">)</span>
+    <span class="n">graphicFrame</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">GraphicFrame</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">cxnSp</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Shape</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">connectionShape</span> <span class="o">=</span> <span class="n">Alias</span><span class="p">(</span><span class="s2">&quot;cxnSp&quot;</span><span class="p">)</span>
+    <span class="n">pic</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">PictureFrame</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">contentPart</span> <span class="o">=</span> <span class="n">Relation</span><span class="p">()</span>
+
+    <span class="n">clientData</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">AnchorClientData</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;sp&#39;</span><span class="p">,</span> <span class="s1">&#39;grpSp&#39;</span><span class="p">,</span> <span class="s1">&#39;graphicFrame&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;cxnSp&#39;</span><span class="p">,</span> <span class="s1">&#39;pic&#39;</span><span class="p">,</span> <span class="s1">&#39;contentPart&#39;</span><span class="p">,</span> <span class="s1">&#39;clientData&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">clientData</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">sp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">grpSp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">graphicFrame</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">cxnSp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">pic</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">contentPart</span><span class="o">=</span><span class="kc">None</span>
+                 <span class="p">):</span>
+        <span class="k">if</span> <span class="n">clientData</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">clientData</span> <span class="o">=</span> <span class="n">AnchorClientData</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clientData</span> <span class="o">=</span> <span class="n">clientData</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sp</span> <span class="o">=</span> <span class="n">sp</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grpSp</span> <span class="o">=</span> <span class="n">grpSp</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">graphicFrame</span> <span class="o">=</span> <span class="n">graphicFrame</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cxnSp</span> <span class="o">=</span> <span class="n">cxnSp</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pic</span> <span class="o">=</span> <span class="n">pic</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">contentPart</span> <span class="o">=</span> <span class="n">contentPart</span>
+
+
+<div class="viewcode-block" id="AbsoluteAnchor"><a class="viewcode-back" href="../../../api/openpyxl.drawing.spreadsheet_drawing.html#openpyxl.drawing.spreadsheet_drawing.AbsoluteAnchor">[docs]</a><span class="k">class</span> <span class="nc">AbsoluteAnchor</span><span class="p">(</span><span class="n">_AnchorBase</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;absoluteAnchor&quot;</span>
+
+    <span class="n">pos</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">XDRPoint2D</span><span class="p">)</span>
+    <span class="n">ext</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">XDRPositiveSize2D</span><span class="p">)</span>
+
+    <span class="n">sp</span> <span class="o">=</span> <span class="n">_AnchorBase</span><span class="o">.</span><span class="n">sp</span>
+    <span class="n">grpSp</span> <span class="o">=</span> <span class="n">_AnchorBase</span><span class="o">.</span><span class="n">grpSp</span>
+    <span class="n">graphicFrame</span> <span class="o">=</span> <span class="n">_AnchorBase</span><span class="o">.</span><span class="n">graphicFrame</span>
+    <span class="n">cxnSp</span> <span class="o">=</span> <span class="n">_AnchorBase</span><span class="o">.</span><span class="n">cxnSp</span>
+    <span class="n">pic</span> <span class="o">=</span> <span class="n">_AnchorBase</span><span class="o">.</span><span class="n">pic</span>
+    <span class="n">contentPart</span> <span class="o">=</span> <span class="n">_AnchorBase</span><span class="o">.</span><span class="n">contentPart</span>
+    <span class="n">clientData</span> <span class="o">=</span> <span class="n">_AnchorBase</span><span class="o">.</span><span class="n">clientData</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;pos&#39;</span><span class="p">,</span> <span class="s1">&#39;ext&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">_AnchorBase</span><span class="o">.</span><span class="n">__elements__</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">pos</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">ext</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">kw</span>
+                <span class="p">):</span>
+        <span class="k">if</span> <span class="n">pos</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">pos</span> <span class="o">=</span> <span class="n">XDRPoint2D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="n">pos</span>
+        <span class="k">if</span> <span class="n">ext</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ext</span> <span class="o">=</span> <span class="n">XDRPositiveSize2D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ext</span> <span class="o">=</span> <span class="n">ext</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">AbsoluteAnchor</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kw</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="OneCellAnchor"><a class="viewcode-back" href="../../../api/openpyxl.drawing.spreadsheet_drawing.html#openpyxl.drawing.spreadsheet_drawing.OneCellAnchor">[docs]</a><span class="k">class</span> <span class="nc">OneCellAnchor</span><span class="p">(</span><span class="n">_AnchorBase</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;oneCellAnchor&quot;</span>
+
+    <span class="n">_from</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">AnchorMarker</span><span class="p">)</span>
+    <span class="n">ext</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">XDRPositiveSize2D</span><span class="p">)</span>
+
+    <span class="n">sp</span> <span class="o">=</span> <span class="n">_AnchorBase</span><span class="o">.</span><span class="n">sp</span>
+    <span class="n">grpSp</span> <span class="o">=</span> <span class="n">_AnchorBase</span><span class="o">.</span><span class="n">grpSp</span>
+    <span class="n">graphicFrame</span> <span class="o">=</span> <span class="n">_AnchorBase</span><span class="o">.</span><span class="n">graphicFrame</span>
+    <span class="n">cxnSp</span> <span class="o">=</span> <span class="n">_AnchorBase</span><span class="o">.</span><span class="n">cxnSp</span>
+    <span class="n">pic</span> <span class="o">=</span> <span class="n">_AnchorBase</span><span class="o">.</span><span class="n">pic</span>
+    <span class="n">contentPart</span> <span class="o">=</span> <span class="n">_AnchorBase</span><span class="o">.</span><span class="n">contentPart</span>
+    <span class="n">clientData</span> <span class="o">=</span> <span class="n">_AnchorBase</span><span class="o">.</span><span class="n">clientData</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;_from&#39;</span><span class="p">,</span> <span class="s1">&#39;ext&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">_AnchorBase</span><span class="o">.</span><span class="n">__elements__</span>
+
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">_from</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">ext</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">kw</span>
+                <span class="p">):</span>
+        <span class="k">if</span> <span class="n">_from</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_from</span> <span class="o">=</span> <span class="n">AnchorMarker</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_from</span> <span class="o">=</span> <span class="n">_from</span>
+        <span class="k">if</span> <span class="n">ext</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ext</span> <span class="o">=</span> <span class="n">XDRPositiveSize2D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ext</span> <span class="o">=</span> <span class="n">ext</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">OneCellAnchor</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kw</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TwoCellAnchor"><a class="viewcode-back" href="../../../api/openpyxl.drawing.spreadsheet_drawing.html#openpyxl.drawing.spreadsheet_drawing.TwoCellAnchor">[docs]</a><span class="k">class</span> <span class="nc">TwoCellAnchor</span><span class="p">(</span><span class="n">_AnchorBase</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;twoCellAnchor&quot;</span>
+
+    <span class="n">editAs</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;twoCell&#39;</span><span class="p">,</span> <span class="s1">&#39;oneCell&#39;</span><span class="p">,</span> <span class="s1">&#39;absolute&#39;</span><span class="p">]))</span>
+    <span class="n">_from</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">AnchorMarker</span><span class="p">)</span>
+    <span class="n">to</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">AnchorMarker</span><span class="p">)</span>
+
+    <span class="n">sp</span> <span class="o">=</span> <span class="n">_AnchorBase</span><span class="o">.</span><span class="n">sp</span>
+    <span class="n">grpSp</span> <span class="o">=</span> <span class="n">_AnchorBase</span><span class="o">.</span><span class="n">grpSp</span>
+    <span class="n">graphicFrame</span> <span class="o">=</span> <span class="n">_AnchorBase</span><span class="o">.</span><span class="n">graphicFrame</span>
+    <span class="n">cxnSp</span> <span class="o">=</span> <span class="n">_AnchorBase</span><span class="o">.</span><span class="n">cxnSp</span>
+    <span class="n">pic</span> <span class="o">=</span> <span class="n">_AnchorBase</span><span class="o">.</span><span class="n">pic</span>
+    <span class="n">contentPart</span> <span class="o">=</span> <span class="n">_AnchorBase</span><span class="o">.</span><span class="n">contentPart</span>
+    <span class="n">clientData</span> <span class="o">=</span> <span class="n">_AnchorBase</span><span class="o">.</span><span class="n">clientData</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;_from&#39;</span><span class="p">,</span> <span class="s1">&#39;to&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">_AnchorBase</span><span class="o">.</span><span class="n">__elements__</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">editAs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">_from</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">to</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">kw</span>
+                 <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">editAs</span> <span class="o">=</span> <span class="n">editAs</span>
+        <span class="k">if</span> <span class="n">_from</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_from</span> <span class="o">=</span> <span class="n">AnchorMarker</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_from</span> <span class="o">=</span> <span class="n">_from</span>
+        <span class="k">if</span> <span class="n">to</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">to</span> <span class="o">=</span> <span class="n">AnchorMarker</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">to</span> <span class="o">=</span> <span class="n">to</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">TwoCellAnchor</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kw</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">_check_anchor</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check whether an object has an existing Anchor object</span>
+<span class="sd">    If not create a OneCellAnchor using the provided coordinate</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">anchor</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">anchor</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">anchor</span><span class="p">,</span> <span class="n">_AnchorBase</span><span class="p">):</span>
+        <span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="n">coordinate_to_tuple</span><span class="p">(</span><span class="n">anchor</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+        <span class="n">anchor</span> <span class="o">=</span> <span class="n">OneCellAnchor</span><span class="p">()</span>
+        <span class="n">anchor</span><span class="o">.</span><span class="n">_from</span><span class="o">.</span><span class="n">row</span> <span class="o">=</span> <span class="n">row</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="n">anchor</span><span class="o">.</span><span class="n">_from</span><span class="o">.</span><span class="n">col</span> <span class="o">=</span> <span class="n">col</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">ChartBase</span><span class="p">):</span>
+            <span class="n">anchor</span><span class="o">.</span><span class="n">ext</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">cm_to_EMU</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
+            <span class="n">anchor</span><span class="o">.</span><span class="n">ext</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">cm_to_EMU</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">Image</span><span class="p">):</span>
+            <span class="n">anchor</span><span class="o">.</span><span class="n">ext</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">pixels_to_EMU</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
+            <span class="n">anchor</span><span class="o">.</span><span class="n">ext</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">pixels_to_EMU</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">anchor</span>
+
+
+<div class="viewcode-block" id="SpreadsheetDrawing"><a class="viewcode-back" href="../../../api/openpyxl.drawing.spreadsheet_drawing.html#openpyxl.drawing.spreadsheet_drawing.SpreadsheetDrawing">[docs]</a><span class="k">class</span> <span class="nc">SpreadsheetDrawing</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;wsDr&quot;</span>
+    <span class="n">mime_type</span> <span class="o">=</span> <span class="s2">&quot;application/vnd.openxmlformats-officedocument.drawing+xml&quot;</span>
+    <span class="n">_rel_type</span> <span class="o">=</span> <span class="s2">&quot;http://schemas.openxmlformats.org/officeDocument/2006/relationships/drawing&quot;</span>
+    <span class="n">_path</span> <span class="o">=</span> <span class="n">PartName</span><span class="o">=</span><span class="s2">&quot;/xl/drawings/drawing</span><span class="si">{0}</span><span class="s2">.xml&quot;</span>
+    <span class="n">_id</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="n">twoCellAnchor</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">TwoCellAnchor</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">oneCellAnchor</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">OneCellAnchor</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">absoluteAnchor</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">AbsoluteAnchor</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;twoCellAnchor&quot;</span><span class="p">,</span> <span class="s2">&quot;oneCellAnchor&quot;</span><span class="p">,</span> <span class="s2">&quot;absoluteAnchor&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">twoCellAnchor</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">oneCellAnchor</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">absoluteAnchor</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">twoCellAnchor</span> <span class="o">=</span> <span class="n">twoCellAnchor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">oneCellAnchor</span> <span class="o">=</span> <span class="n">oneCellAnchor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">absoluteAnchor</span> <span class="o">=</span> <span class="n">absoluteAnchor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">charts</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">images</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rels</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+    <span class="k">def</span> <span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Just need to check for identity</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="fm">__bool__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">charts</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">images</span><span class="p">)</span>
+
+
+
+    <span class="k">def</span> <span class="nf">_write</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        create required structure and the serialise</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">anchors</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">obj</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">charts</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">images</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">anchor</span> <span class="o">=</span> <span class="n">_check_anchor</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">ChartBase</span><span class="p">):</span>
+                <span class="n">rel</span> <span class="o">=</span> <span class="n">Relationship</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;chart&quot;</span><span class="p">,</span> <span class="n">Target</span><span class="o">=</span><span class="n">obj</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+                <span class="n">anchor</span><span class="o">.</span><span class="n">graphicFrame</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chart_frame</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">Image</span><span class="p">):</span>
+                <span class="n">rel</span> <span class="o">=</span> <span class="n">Relationship</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="n">Target</span><span class="o">=</span><span class="n">obj</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+                <span class="n">child</span> <span class="o">=</span> <span class="n">anchor</span><span class="o">.</span><span class="n">pic</span> <span class="ow">or</span> <span class="n">anchor</span><span class="o">.</span><span class="n">groupShape</span> <span class="ow">and</span> <span class="n">anchor</span><span class="o">.</span><span class="n">groupShape</span><span class="o">.</span><span class="n">pic</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">child</span><span class="p">:</span>
+                    <span class="n">anchor</span><span class="o">.</span><span class="n">pic</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_picture_frame</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">child</span><span class="o">.</span><span class="n">blipFill</span><span class="o">.</span><span class="n">blip</span><span class="o">.</span><span class="n">embed</span> <span class="o">=</span> <span class="s2">&quot;rId</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+
+            <span class="n">anchors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">anchor</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_rels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rel</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">anchors</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">OneCellAnchor</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">oneCellAnchor</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">TwoCellAnchor</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">twoCellAnchor</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">absoluteAnchor</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+        <span class="n">tree</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_tree</span><span class="p">()</span>
+        <span class="n">tree</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;xmlns&#39;</span><span class="p">,</span> <span class="n">SHEET_DRAWING_NS</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">tree</span>
+
+
+    <span class="k">def</span> <span class="nf">_chart_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
+        <span class="n">chart_rel</span> <span class="o">=</span> <span class="n">ChartRelation</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;rId</span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">frame</span> <span class="o">=</span> <span class="n">GraphicFrame</span><span class="p">()</span>
+        <span class="n">nv</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">nvGraphicFramePr</span><span class="o">.</span><span class="n">cNvPr</span>
+        <span class="n">nv</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">idx</span>
+        <span class="n">nv</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Chart </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+        <span class="n">frame</span><span class="o">.</span><span class="n">graphic</span><span class="o">.</span><span class="n">graphicData</span><span class="o">.</span><span class="n">chart</span> <span class="o">=</span> <span class="n">chart_rel</span>
+        <span class="k">return</span> <span class="n">frame</span>
+
+
+    <span class="k">def</span> <span class="nf">_picture_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
+        <span class="n">pic</span> <span class="o">=</span> <span class="n">PictureFrame</span><span class="p">()</span>
+        <span class="n">pic</span><span class="o">.</span><span class="n">nvPicPr</span><span class="o">.</span><span class="n">cNvPr</span><span class="o">.</span><span class="n">descr</span> <span class="o">=</span> <span class="s2">&quot;Picture&quot;</span>
+        <span class="n">pic</span><span class="o">.</span><span class="n">nvPicPr</span><span class="o">.</span><span class="n">cNvPr</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">idx</span>
+        <span class="n">pic</span><span class="o">.</span><span class="n">nvPicPr</span><span class="o">.</span><span class="n">cNvPr</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Image </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+
+        <span class="n">pic</span><span class="o">.</span><span class="n">blipFill</span><span class="o">.</span><span class="n">blip</span> <span class="o">=</span> <span class="n">Blip</span><span class="p">()</span>
+        <span class="n">pic</span><span class="o">.</span><span class="n">blipFill</span><span class="o">.</span><span class="n">blip</span><span class="o">.</span><span class="n">embed</span> <span class="o">=</span> <span class="s2">&quot;rId</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+        <span class="n">pic</span><span class="o">.</span><span class="n">blipFill</span><span class="o">.</span><span class="n">blip</span><span class="o">.</span><span class="n">cstate</span> <span class="o">=</span> <span class="s2">&quot;print&quot;</span>
+
+        <span class="n">pic</span><span class="o">.</span><span class="n">spPr</span><span class="o">.</span><span class="n">prstGeom</span> <span class="o">=</span> <span class="n">PresetGeometry2D</span><span class="p">(</span><span class="n">prst</span><span class="o">=</span><span class="s2">&quot;rect&quot;</span><span class="p">)</span>
+        <span class="n">pic</span><span class="o">.</span><span class="n">spPr</span><span class="o">.</span><span class="n">ln</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">pic</span>
+
+
+    <span class="k">def</span> <span class="nf">_write_rels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">rels</span> <span class="o">=</span> <span class="n">RelationshipList</span><span class="p">()</span>
+        <span class="n">rels</span><span class="o">.</span><span class="n">Relationship</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rels</span>
+        <span class="k">return</span> <span class="n">rels</span><span class="o">.</span><span class="n">to_tree</span><span class="p">()</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">path</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_path</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_id</span><span class="p">)</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">_chart_rels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get relationship information for each chart and bind anchor to it</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">rels</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">anchors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">absoluteAnchor</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">oneCellAnchor</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">twoCellAnchor</span>
+        <span class="k">for</span> <span class="n">anchor</span> <span class="ow">in</span> <span class="n">anchors</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">anchor</span><span class="o">.</span><span class="n">graphicFrame</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">graphic</span> <span class="o">=</span> <span class="n">anchor</span><span class="o">.</span><span class="n">graphicFrame</span><span class="o">.</span><span class="n">graphic</span>
+                <span class="n">rel</span> <span class="o">=</span> <span class="n">graphic</span><span class="o">.</span><span class="n">graphicData</span><span class="o">.</span><span class="n">chart</span>
+                <span class="k">if</span> <span class="n">rel</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">rel</span><span class="o">.</span><span class="n">anchor</span> <span class="o">=</span> <span class="n">anchor</span>
+                    <span class="n">rel</span><span class="o">.</span><span class="n">anchor</span><span class="o">.</span><span class="n">graphicFrame</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="n">rels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rel</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">rels</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">_blip_rels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get relationship information for each blip and bind anchor to it</span>
+
+<span class="sd">        Images that are not part of the XLSX package will be ignored.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">rels</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">anchors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">absoluteAnchor</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">oneCellAnchor</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">twoCellAnchor</span>
+
+        <span class="k">for</span> <span class="n">anchor</span> <span class="ow">in</span> <span class="n">anchors</span><span class="p">:</span>
+            <span class="n">child</span> <span class="o">=</span> <span class="n">anchor</span><span class="o">.</span><span class="n">pic</span> <span class="ow">or</span> <span class="n">anchor</span><span class="o">.</span><span class="n">groupShape</span> <span class="ow">and</span> <span class="n">anchor</span><span class="o">.</span><span class="n">groupShape</span><span class="o">.</span><span class="n">pic</span>
+            <span class="k">if</span> <span class="n">child</span> <span class="ow">and</span> <span class="n">child</span><span class="o">.</span><span class="n">blipFill</span><span class="p">:</span>
+                <span class="n">rel</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">blipFill</span><span class="o">.</span><span class="n">blip</span>
+                <span class="k">if</span> <span class="n">rel</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">rel</span><span class="o">.</span><span class="n">embed</span><span class="p">:</span>
+                    <span class="n">rel</span><span class="o">.</span><span class="n">anchor</span> <span class="o">=</span> <span class="n">anchor</span>
+                    <span class="n">rels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rel</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">rels</span></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.drawing.spreadsheet_drawing</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2010 - 2022, See AUTHORS.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

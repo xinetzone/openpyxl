@@ -1,0 +1,79 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../charts/introduction.rst:2
+msgid "Charts"
+msgstr ""
+
+#: ../../charts/introduction.rst:6
+msgid "Chart types"
+msgstr ""
+
+#: ../../charts/introduction.rst:8
+msgid "The following charts are available:"
+msgstr ""
+
+#: ../../charts/introduction.rst:25
+msgid "Creating a chart"
+msgstr ""
+
+#: ../../charts/introduction.rst:27
+msgid ""
+"Charts are composed of at least one series of one or more data points. "
+"Series themselves are comprised of references to cell ranges."
+msgstr ""
+
+#: ../../charts/introduction.rst:46
+msgid ""
+"By default the top-left corner of a chart is anchored to cell E15 and the"
+" size is 15 x 7.5 cm (approximately 5 columns by 14 rows). This can be "
+"changed by setting the `anchor`, `width` and `height` properties of the "
+"chart. The actual size will depend on operating system and device. Other "
+"anchors are possible; see :mod:`openpyxl.drawing.spreadsheet_drawing` for"
+" further information."
+msgstr ""
+
+#: ../../charts/introduction.rst:54
+msgid "Working with axes"
+msgstr ""
+
+#: ../../charts/introduction.rst:63
+msgid "Change the chart layout"
+msgstr ""
+
+#: ../../charts/introduction.rst:71
+msgid "Styling charts"
+msgstr ""
+
+#: ../../charts/introduction.rst:79
+msgid "Advanced charts"
+msgstr ""
+
+#: ../../charts/introduction.rst:81
+msgid "Charts can be combined to create new charts:"
+msgstr ""
+
+#: ../../charts/introduction.rst:89
+msgid "Using chartsheets"
+msgstr ""
+
+#: ../../charts/introduction.rst:91
+msgid "Charts can be added to special worksheets called chartsheets:"
+msgstr ""
+

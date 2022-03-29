@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>openpyxl.worksheet.datavalidation &#8212; openpyxl 3.0.9 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/nature.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.worksheet.datavalidation</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for openpyxl.worksheet.datavalidation</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2010-2022 openpyxl</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span>
+<span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">itemgetter</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.serialisable</span> <span class="kn">import</span> <span class="n">Serialisable</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Bool</span><span class="p">,</span>
+    <span class="n">NoneSet</span><span class="p">,</span>
+    <span class="n">String</span><span class="p">,</span>
+    <span class="n">Sequence</span><span class="p">,</span>
+    <span class="n">Alias</span><span class="p">,</span>
+    <span class="n">Integer</span><span class="p">,</span>
+    <span class="n">Convertible</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.nested</span> <span class="kn">import</span> <span class="n">NestedText</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.utils</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">rows_from_range</span><span class="p">,</span>
+    <span class="n">coordinate_to_tuple</span><span class="p">,</span>
+    <span class="n">get_column_letter</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="collapse_cell_addresses"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.datavalidation.html#openpyxl.worksheet.datavalidation.collapse_cell_addresses">[docs]</a><span class="k">def</span> <span class="nf">collapse_cell_addresses</span><span class="p">(</span><span class="n">cells</span><span class="p">,</span> <span class="n">input_ranges</span><span class="o">=</span><span class="p">()):</span>
+    <span class="sd">&quot;&quot;&quot; Collapse a collection of cell co-ordinates down into an optimal</span>
+<span class="sd">        range or collection of ranges.</span>
+
+<span class="sd">        E.g. Cells A1, A2, A3, B1, B2 and B3 should have the data-validation</span>
+<span class="sd">        object applied, attempt to collapse down to a single range, A1:B3.</span>
+
+<span class="sd">        Currently only collapsing contiguous vertical ranges (i.e. above</span>
+<span class="sd">        example results in A1:A3 B1:B3).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">ranges</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">input_ranges</span><span class="p">)</span>
+
+    <span class="c1"># convert cell into row, col tuple</span>
+    <span class="n">raw_coords</span> <span class="o">=</span> <span class="p">(</span><span class="n">coordinate_to_tuple</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span> <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">cells</span><span class="p">)</span>
+
+    <span class="c1"># group by column in order</span>
+    <span class="n">grouped_coords</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">raw_coords</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">)):</span>
+        <span class="n">grouped_coords</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+
+    <span class="c1"># create range string from first and last row in column</span>
+    <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">cells</span> <span class="ow">in</span> <span class="n">grouped_coords</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">col</span> <span class="o">=</span> <span class="n">get_column_letter</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+        <span class="n">fmt</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0}{1}</span><span class="s2">:</span><span class="si">{2}{3}</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cells</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">fmt</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0}{1}</span><span class="s2">&quot;</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">fmt</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">cells</span><span class="p">),</span> <span class="n">col</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">cells</span><span class="p">))</span>
+        <span class="n">ranges</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ranges</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="expand_cell_ranges"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.datavalidation.html#openpyxl.worksheet.datavalidation.expand_cell_ranges">[docs]</a><span class="k">def</span> <span class="nf">expand_cell_ranges</span><span class="p">(</span><span class="n">range_string</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Expand cell ranges to a sequence of addresses.</span>
+<span class="sd">    Reverse of collapse_cell_addresses</span>
+<span class="sd">    Eg. converts &quot;A1:A2 B1:B2&quot; to (A1, A2, B1, B2)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># expand ranges to rows and then flatten</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="p">(</span><span class="n">rows_from_range</span><span class="p">(</span><span class="n">rs</span><span class="p">)</span> <span class="k">for</span> <span class="n">rs</span> <span class="ow">in</span> <span class="n">range_string</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> <span class="c1"># list of rows</span>
+    <span class="n">cells</span> <span class="o">=</span> <span class="p">(</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">row</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">)</span> <span class="c1"># flatten rows</span>
+    <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">cells</span><span class="p">))</span></div>
+
+
+<span class="kn">from</span> <span class="nn">.cell_range</span> <span class="kn">import</span> <span class="n">MultiCellRange</span>
+
+
+<div class="viewcode-block" id="DataValidation"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.datavalidation.html#openpyxl.worksheet.datavalidation.DataValidation">[docs]</a><span class="k">class</span> <span class="nc">DataValidation</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;dataValidation&quot;</span>
+
+    <span class="n">sqref</span> <span class="o">=</span> <span class="n">Convertible</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">MultiCellRange</span><span class="p">)</span>
+    <span class="n">cells</span> <span class="o">=</span> <span class="n">Alias</span><span class="p">(</span><span class="s2">&quot;sqref&quot;</span><span class="p">)</span>
+    <span class="n">ranges</span> <span class="o">=</span> <span class="n">Alias</span><span class="p">(</span><span class="s2">&quot;sqref&quot;</span><span class="p">)</span>
+
+    <span class="n">showErrorMessage</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">showDropDown</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">hide_drop_down</span> <span class="o">=</span> <span class="n">Alias</span><span class="p">(</span><span class="s1">&#39;showDropDown&#39;</span><span class="p">)</span>
+    <span class="n">showInputMessage</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">showErrorMessage</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">allowBlank</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">allow_blank</span> <span class="o">=</span> <span class="n">Alias</span><span class="p">(</span><span class="s1">&#39;allowBlank&#39;</span><span class="p">)</span>
+
+    <span class="n">errorTitle</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="n">promptTitle</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="n">prompt</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="n">formula1</span> <span class="o">=</span> <span class="n">NestedText</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">expected_type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+    <span class="n">formula2</span> <span class="o">=</span> <span class="n">NestedText</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">expected_type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+
+    <span class="nb">type</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;whole&quot;</span><span class="p">,</span> <span class="s2">&quot;decimal&quot;</span><span class="p">,</span> <span class="s2">&quot;list&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span>
+                           <span class="s2">&quot;textLength&quot;</span><span class="p">,</span> <span class="s2">&quot;custom&quot;</span><span class="p">))</span>
+    <span class="n">errorStyle</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;stop&quot;</span><span class="p">,</span> <span class="s2">&quot;warning&quot;</span><span class="p">,</span> <span class="s2">&quot;information&quot;</span><span class="p">))</span>
+    <span class="n">imeMode</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;noControl&quot;</span><span class="p">,</span> <span class="s2">&quot;off&quot;</span><span class="p">,</span> <span class="s2">&quot;on&quot;</span><span class="p">,</span> <span class="s2">&quot;disabled&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;hiragana&quot;</span><span class="p">,</span> <span class="s2">&quot;fullKatakana&quot;</span><span class="p">,</span> <span class="s2">&quot;halfKatakana&quot;</span><span class="p">,</span> <span class="s2">&quot;fullAlpha&quot;</span><span class="p">,</span><span class="s2">&quot;halfAlpha&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;fullHangul&quot;</span><span class="p">,</span> <span class="s2">&quot;halfHangul&quot;</span><span class="p">))</span>
+    <span class="n">operator</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;between&quot;</span><span class="p">,</span> <span class="s2">&quot;notBetween&quot;</span><span class="p">,</span> <span class="s2">&quot;equal&quot;</span><span class="p">,</span> <span class="s2">&quot;notEqual&quot;</span><span class="p">,</span>
+                               <span class="s2">&quot;lessThan&quot;</span><span class="p">,</span> <span class="s2">&quot;lessThanOrEqual&quot;</span><span class="p">,</span> <span class="s2">&quot;greaterThan&quot;</span><span class="p">,</span> <span class="s2">&quot;greaterThanOrEqual&quot;</span><span class="p">))</span>
+    <span class="n">validation_type</span> <span class="o">=</span> <span class="n">Alias</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">formula1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">formula2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">showErrorMessage</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">showInputMessage</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">showDropDown</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">allowBlank</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">sqref</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">promptTitle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">errorStyle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">error</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">prompt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">errorTitle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">imeMode</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">operator</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">allow_blank</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sqref</span> <span class="o">=</span> <span class="n">sqref</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showDropDown</span> <span class="o">=</span> <span class="n">showDropDown</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">imeMode</span> <span class="o">=</span> <span class="n">imeMode</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">operator</span> <span class="o">=</span> <span class="n">operator</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">formula1</span> <span class="o">=</span> <span class="n">formula1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">formula2</span> <span class="o">=</span> <span class="n">formula2</span>
+        <span class="k">if</span> <span class="n">allow_blank</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">allowBlank</span> <span class="o">=</span> <span class="n">allow_blank</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">allowBlank</span> <span class="o">=</span> <span class="n">allowBlank</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showErrorMessage</span> <span class="o">=</span> <span class="n">showErrorMessage</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showInputMessage</span> <span class="o">=</span> <span class="n">showInputMessage</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="nb">type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">promptTitle</span> <span class="o">=</span> <span class="n">promptTitle</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errorStyle</span> <span class="o">=</span> <span class="n">errorStyle</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="n">error</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prompt</span> <span class="o">=</span> <span class="n">prompt</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errorTitle</span> <span class="o">=</span> <span class="n">errorTitle</span>
+
+
+<div class="viewcode-block" id="DataValidation.add"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.datavalidation.html#openpyxl.worksheet.datavalidation.DataValidation.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cell</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Adds a cell or cell coordinate to this validator&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="s2">&quot;coordinate&quot;</span><span class="p">):</span>
+            <span class="n">cell</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">coordinate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sqref</span> <span class="o">+=</span> <span class="n">cell</span></div>
+
+
+    <span class="k">def</span> <span class="fm">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cell</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="s2">&quot;coordinate&quot;</span><span class="p">):</span>
+            <span class="n">cell</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">coordinate</span>
+        <span class="k">return</span> <span class="n">cell</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sqref</span></div>
+
+
+<div class="viewcode-block" id="DataValidationList"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.datavalidation.html#openpyxl.worksheet.datavalidation.DataValidationList">[docs]</a><span class="k">class</span> <span class="nc">DataValidationList</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;dataValidations&quot;</span>
+
+    <span class="n">disablePrompts</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">xWindow</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">yWindow</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dataValidation</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">DataValidation</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;dataValidation&#39;</span><span class="p">,)</span>
+    <span class="n">__attrs__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;disablePrompts&#39;</span><span class="p">,</span> <span class="s1">&#39;xWindow&#39;</span><span class="p">,</span> <span class="s1">&#39;yWindow&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">disablePrompts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">xWindow</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">yWindow</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">count</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">dataValidation</span><span class="o">=</span><span class="p">(),</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">disablePrompts</span> <span class="o">=</span> <span class="n">disablePrompts</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xWindow</span> <span class="o">=</span> <span class="n">xWindow</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">yWindow</span> <span class="o">=</span> <span class="n">yWindow</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataValidation</span> <span class="o">=</span> <span class="n">dataValidation</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataValidation</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="DataValidationList.append"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.datavalidation.html#openpyxl.worksheet.datavalidation.DataValidationList.append">[docs]</a>    <span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dv</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataValidation</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dv</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataValidationList.to_tree"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.datavalidation.html#openpyxl.worksheet.datavalidation.DataValidationList.to_tree">[docs]</a>    <span class="k">def</span> <span class="nf">to_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tagname</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Need to skip validations that have no cell ranges</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ranges</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataValidation</span> <span class="c1"># copy</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataValidation</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataValidation</span> <span class="k">if</span> <span class="nb">bool</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">sqref</span><span class="p">)]</span>
+        <span class="n">xml</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">DataValidationList</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">to_tree</span><span class="p">(</span><span class="n">tagname</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataValidation</span> <span class="o">=</span> <span class="n">ranges</span>
+        <span class="k">return</span> <span class="n">xml</span></div></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.worksheet.datavalidation</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2010 - 2022, See AUTHORS.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

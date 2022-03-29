@@ -1,0 +1,64 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../api/openpyxl.descriptors.excel.rst:2
+msgid "openpyxl.descriptors.excel module"
+msgstr ""
+
+#: of openpyxl.descriptors.excel:1
+msgid "Excel specific descriptors"
+msgstr ""
+
+#: of openpyxl.descriptors.excel.Base64Binary:1
+#: openpyxl.descriptors.excel.CellRange:1 openpyxl.descriptors.excel.Guid:1
+#: openpyxl.descriptors.excel.HexBinary:1
+#: openpyxl.descriptors.excel.UniversalMeasure:1
+msgid "Bases: :py:class:`openpyxl.descriptors.base.MatchPattern`"
+msgstr ""
+
+#: of openpyxl.descriptors.excel.Extension:1
+#: openpyxl.descriptors.excel.ExtensionList:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../docstring of openpyxl.descriptors.excel.Extension.uri:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.descriptors.excel.ExtensionList.ext:1
+msgid ""
+"A sequence (list or tuple) that may only contain objects of the declared "
+"type"
+msgstr ""
+
+#: of openpyxl.descriptors.excel.Percentage:1
+#: openpyxl.descriptors.excel.TextPoint:1
+msgid "Bases: :py:class:`openpyxl.descriptors.base.MinMax`"
+msgstr ""
+
+#: of openpyxl.descriptors.excel.Relation:1
+msgid "Bases: :py:class:`openpyxl.descriptors.base.String`"
+msgstr ""
+
+#: of openpyxl.descriptors.excel.TextPoint:1
+msgid ""
+"Size in hundredths of points. In theory other units of measurement can be"
+" used but these are unbounded"
+msgstr ""
+

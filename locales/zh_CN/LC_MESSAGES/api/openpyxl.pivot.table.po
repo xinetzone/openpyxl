@@ -1,0 +1,400 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../api/openpyxl.pivot.table.rst:2
+msgid "openpyxl.pivot.table module"
+msgstr ""
+
+#: of openpyxl.pivot.table.AutoSortScope:1 openpyxl.pivot.table.ChartFormat:1
+#: openpyxl.pivot.table.ColHierarchiesUsage:1
+#: openpyxl.pivot.table.ConditionalFormat:1 openpyxl.pivot.table.DataField:1
+#: openpyxl.pivot.table.FieldItem:1 openpyxl.pivot.table.Format:1
+#: openpyxl.pivot.table.HierarchyUsage:1 openpyxl.pivot.table.Location:1
+#: openpyxl.pivot.table.MemberList:1 openpyxl.pivot.table.MemberProperty:1
+#: openpyxl.pivot.table.PageField:1 openpyxl.pivot.table.PivotArea:1
+#: openpyxl.pivot.table.PivotField:1 openpyxl.pivot.table.PivotFilter:1
+#: openpyxl.pivot.table.PivotFilters:1 openpyxl.pivot.table.PivotHierarchy:1
+#: openpyxl.pivot.table.PivotTableStyle:1 openpyxl.pivot.table.Reference:1
+#: openpyxl.pivot.table.RowColField:1 openpyxl.pivot.table.RowColItem:1
+#: openpyxl.pivot.table.RowHierarchiesUsage:1
+#: openpyxl.pivot.table.TableDefinition:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.table.AutoSortScope.pivotArea:1
+#: openpyxl.pivot.table.ChartFormat.pivotArea:1
+#: openpyxl.pivot.table.Format.pivotArea:1
+msgid "Values must be of type <class 'openpyxl.pivot.table.PivotArea'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.table.ChartFormat.chart:1
+#: openpyxl.pivot.table.ChartFormat.format:1
+#: openpyxl.pivot.table.ConditionalFormat.priority:1
+#: openpyxl.pivot.table.DataField.baseField:1
+#: openpyxl.pivot.table.DataField.baseItem:1
+#: openpyxl.pivot.table.DataField.fld:1
+#: openpyxl.pivot.table.DataField.numFmtId:1 openpyxl.pivot.table.FieldItem.x:1
+#: openpyxl.pivot.table.Format.dxfId:1
+#: openpyxl.pivot.table.HierarchyUsage.hierarchyUsage:1
+#: openpyxl.pivot.table.Location.colPageCount:1
+#: openpyxl.pivot.table.Location.firstDataCol:1
+#: openpyxl.pivot.table.Location.firstDataRow:1
+#: openpyxl.pivot.table.Location.firstHeaderRow:1
+#: openpyxl.pivot.table.Location.rowPageCount:1
+#: openpyxl.pivot.table.MemberList.level:1
+#: openpyxl.pivot.table.MemberProperty.field:1
+#: openpyxl.pivot.table.MemberProperty.level:1
+#: openpyxl.pivot.table.MemberProperty.nameLen:1
+#: openpyxl.pivot.table.MemberProperty.pLen:1
+#: openpyxl.pivot.table.MemberProperty.pPos:1
+#: openpyxl.pivot.table.PageField.fld:1 openpyxl.pivot.table.PageField.hier:1
+#: openpyxl.pivot.table.PageField.item:1 openpyxl.pivot.table.PivotArea.field:1
+#: openpyxl.pivot.table.PivotArea.fieldPosition:1
+#: openpyxl.pivot.table.PivotField.itemPageCount:1
+#: openpyxl.pivot.table.PivotField.numFmtId:1
+#: openpyxl.pivot.table.PivotField.rankBy:1
+#: openpyxl.pivot.table.PivotFilter.evalOrder:1
+#: openpyxl.pivot.table.PivotFilter.fld:1
+#: openpyxl.pivot.table.PivotFilter.iMeasureFld:1
+#: openpyxl.pivot.table.PivotFilter.iMeasureHier:1
+#: openpyxl.pivot.table.PivotFilter.id:1
+#: openpyxl.pivot.table.PivotFilter.mpFld:1
+#: openpyxl.pivot.table.PivotFilters.count:1
+#: openpyxl.pivot.table.Reference.field:1 openpyxl.pivot.table.Reference.x:1
+#: openpyxl.pivot.table.RowColField.x:1 openpyxl.pivot.table.RowColItem.i:1
+#: openpyxl.pivot.table.RowColItem.r:1
+#: openpyxl.pivot.table.TableDefinition.autoFormatId:1
+#: openpyxl.pivot.table.TableDefinition.cacheId:1
+#: openpyxl.pivot.table.TableDefinition.chartFormat:1
+#: openpyxl.pivot.table.TableDefinition.createdVersion:1
+#: openpyxl.pivot.table.TableDefinition.dataPosition:1
+#: openpyxl.pivot.table.TableDefinition.indent:1
+#: openpyxl.pivot.table.TableDefinition.minRefreshableVersion:1
+#: openpyxl.pivot.table.TableDefinition.pageWrap:1
+#: openpyxl.pivot.table.TableDefinition.updatedVersion:1
+msgid "Values must be of type <class 'int'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.table.ChartFormat.series:1
+#: openpyxl.pivot.table.FieldItem.c:1 openpyxl.pivot.table.FieldItem.d:1
+#: openpyxl.pivot.table.FieldItem.e:1 openpyxl.pivot.table.FieldItem.f:1
+#: openpyxl.pivot.table.FieldItem.h:1 openpyxl.pivot.table.FieldItem.m:1
+#: openpyxl.pivot.table.FieldItem.s:1 openpyxl.pivot.table.FieldItem.sd:1
+#: openpyxl.pivot.table.MemberProperty.showAsCaption:1
+#: openpyxl.pivot.table.MemberProperty.showCell:1
+#: openpyxl.pivot.table.MemberProperty.showTip:1
+#: openpyxl.pivot.table.PivotArea.cacheIndex:1
+#: openpyxl.pivot.table.PivotArea.collapsedLevelsAreSubtotals:1
+#: openpyxl.pivot.table.PivotArea.dataOnly:1
+#: openpyxl.pivot.table.PivotArea.grandCol:1
+#: openpyxl.pivot.table.PivotArea.grandRow:1
+#: openpyxl.pivot.table.PivotArea.labelOnly:1
+#: openpyxl.pivot.table.PivotArea.outline:1
+#: openpyxl.pivot.table.PivotField.allDrilled:1
+#: openpyxl.pivot.table.PivotField.autoShow:1
+#: openpyxl.pivot.table.PivotField.avgSubtotal:1
+#: openpyxl.pivot.table.PivotField.compact:1
+#: openpyxl.pivot.table.PivotField.countASubtotal:1
+#: openpyxl.pivot.table.PivotField.countSubtotal:1
+#: openpyxl.pivot.table.PivotField.dataField:1
+#: openpyxl.pivot.table.PivotField.dataSourceSort:1
+#: openpyxl.pivot.table.PivotField.defaultAttributeDrillState:1
+#: openpyxl.pivot.table.PivotField.defaultSubtotal:1
+#: openpyxl.pivot.table.PivotField.dragOff:1
+#: openpyxl.pivot.table.PivotField.dragToCol:1
+#: openpyxl.pivot.table.PivotField.dragToData:1
+#: openpyxl.pivot.table.PivotField.dragToPage:1
+#: openpyxl.pivot.table.PivotField.dragToRow:1
+#: openpyxl.pivot.table.PivotField.hiddenLevel:1
+#: openpyxl.pivot.table.PivotField.hideNewItems:1
+#: openpyxl.pivot.table.PivotField.includeNewItemsInFilter:1
+#: openpyxl.pivot.table.PivotField.insertBlankRow:1
+#: openpyxl.pivot.table.PivotField.insertPageBreak:1
+#: openpyxl.pivot.table.PivotField.maxSubtotal:1
+#: openpyxl.pivot.table.PivotField.measureFilter:1
+#: openpyxl.pivot.table.PivotField.minSubtotal:1
+#: openpyxl.pivot.table.PivotField.multipleItemSelectionAllowed:1
+#: openpyxl.pivot.table.PivotField.nonAutoSortDefault:1
+#: openpyxl.pivot.table.PivotField.outline:1
+#: openpyxl.pivot.table.PivotField.productSubtotal:1
+#: openpyxl.pivot.table.PivotField.serverField:1
+#: openpyxl.pivot.table.PivotField.showAll:1
+#: openpyxl.pivot.table.PivotField.showDropDowns:1
+#: openpyxl.pivot.table.PivotField.showPropAsCaption:1
+#: openpyxl.pivot.table.PivotField.showPropCell:1
+#: openpyxl.pivot.table.PivotField.showPropTip:1
+#: openpyxl.pivot.table.PivotField.stdDevPSubtotal:1
+#: openpyxl.pivot.table.PivotField.stdDevSubtotal:1
+#: openpyxl.pivot.table.PivotField.subtotalTop:1
+#: openpyxl.pivot.table.PivotField.sumSubtotal:1
+#: openpyxl.pivot.table.PivotField.topAutoShow:1
+#: openpyxl.pivot.table.PivotField.varPSubtotal:1
+#: openpyxl.pivot.table.PivotField.varSubtotal:1
+#: openpyxl.pivot.table.PivotHierarchy.dragOff:1
+#: openpyxl.pivot.table.PivotHierarchy.dragToCol:1
+#: openpyxl.pivot.table.PivotHierarchy.dragToData:1
+#: openpyxl.pivot.table.PivotHierarchy.dragToPage:1
+#: openpyxl.pivot.table.PivotHierarchy.dragToRow:1
+#: openpyxl.pivot.table.PivotHierarchy.includeNewItemsInFilter:1
+#: openpyxl.pivot.table.PivotHierarchy.multipleItemSelectionAllowed:1
+#: openpyxl.pivot.table.PivotHierarchy.outline:1
+#: openpyxl.pivot.table.PivotHierarchy.showInFieldList:1
+#: openpyxl.pivot.table.PivotHierarchy.subtotalTop:1
+#: openpyxl.pivot.table.PivotTableStyle.showColHeaders:1
+#: openpyxl.pivot.table.PivotTableStyle.showColStripes:1
+#: openpyxl.pivot.table.PivotTableStyle.showLastColumn:1
+#: openpyxl.pivot.table.PivotTableStyle.showRowHeaders:1
+#: openpyxl.pivot.table.PivotTableStyle.showRowStripes:1
+#: openpyxl.pivot.table.Reference.avgSubtotal:1
+#: openpyxl.pivot.table.Reference.byPosition:1
+#: openpyxl.pivot.table.Reference.countASubtotal:1
+#: openpyxl.pivot.table.Reference.countSubtotal:1
+#: openpyxl.pivot.table.Reference.defaultSubtotal:1
+#: openpyxl.pivot.table.Reference.maxSubtotal:1
+#: openpyxl.pivot.table.Reference.minSubtotal:1
+#: openpyxl.pivot.table.Reference.productSubtotal:1
+#: openpyxl.pivot.table.Reference.relative:1
+#: openpyxl.pivot.table.Reference.selected:1
+#: openpyxl.pivot.table.Reference.stdDevPSubtotal:1
+#: openpyxl.pivot.table.Reference.stdDevSubtotal:1
+#: openpyxl.pivot.table.Reference.sumSubtotal:1
+#: openpyxl.pivot.table.Reference.varPSubtotal:1
+#: openpyxl.pivot.table.Reference.varSubtotal:1
+#: openpyxl.pivot.table.TableDefinition.applyAlignmentFormats:1
+#: openpyxl.pivot.table.TableDefinition.applyBorderFormats:1
+#: openpyxl.pivot.table.TableDefinition.applyFontFormats:1
+#: openpyxl.pivot.table.TableDefinition.applyNumberFormats:1
+#: openpyxl.pivot.table.TableDefinition.applyPatternFormats:1
+#: openpyxl.pivot.table.TableDefinition.applyWidthHeightFormats:1
+#: openpyxl.pivot.table.TableDefinition.asteriskTotals:1
+#: openpyxl.pivot.table.TableDefinition.colGrandTotals:1
+#: openpyxl.pivot.table.TableDefinition.compact:1
+#: openpyxl.pivot.table.TableDefinition.compactData:1
+#: openpyxl.pivot.table.TableDefinition.customListSort:1
+#: openpyxl.pivot.table.TableDefinition.dataOnRows:1
+#: openpyxl.pivot.table.TableDefinition.disableFieldList:1
+#: openpyxl.pivot.table.TableDefinition.editData:1
+#: openpyxl.pivot.table.TableDefinition.enableDrill:1
+#: openpyxl.pivot.table.TableDefinition.enableFieldProperties:1
+#: openpyxl.pivot.table.TableDefinition.enableWizard:1
+#: openpyxl.pivot.table.TableDefinition.fieldListSortAscending:1
+#: openpyxl.pivot.table.TableDefinition.fieldPrintTitles:1
+#: openpyxl.pivot.table.TableDefinition.gridDropZones:1
+#: openpyxl.pivot.table.TableDefinition.immersive:1
+#: openpyxl.pivot.table.TableDefinition.itemPrintTitles:1
+#: openpyxl.pivot.table.TableDefinition.mdxSubqueries:1
+#: openpyxl.pivot.table.TableDefinition.mergeItem:1
+#: openpyxl.pivot.table.TableDefinition.multipleFieldFilters:1
+#: openpyxl.pivot.table.TableDefinition.outline:1
+#: openpyxl.pivot.table.TableDefinition.outlineData:1
+#: openpyxl.pivot.table.TableDefinition.pageOverThenDown:1
+#: openpyxl.pivot.table.TableDefinition.preserveFormatting:1
+#: openpyxl.pivot.table.TableDefinition.printDrill:1
+#: openpyxl.pivot.table.TableDefinition.published:1
+#: openpyxl.pivot.table.TableDefinition.rowGrandTotals:1
+#: openpyxl.pivot.table.TableDefinition.showCalcMbrs:1
+#: openpyxl.pivot.table.TableDefinition.showDataDropDown:1
+#: openpyxl.pivot.table.TableDefinition.showDataTips:1
+#: openpyxl.pivot.table.TableDefinition.showDrill:1
+#: openpyxl.pivot.table.TableDefinition.showDropZones:1
+#: openpyxl.pivot.table.TableDefinition.showEmptyCol:1
+#: openpyxl.pivot.table.TableDefinition.showEmptyRow:1
+#: openpyxl.pivot.table.TableDefinition.showError:1
+#: openpyxl.pivot.table.TableDefinition.showHeaders:1
+#: openpyxl.pivot.table.TableDefinition.showItems:1
+#: openpyxl.pivot.table.TableDefinition.showMemberPropertyTips:1
+#: openpyxl.pivot.table.TableDefinition.showMissing:1
+#: openpyxl.pivot.table.TableDefinition.showMultipleLabel:1
+#: openpyxl.pivot.table.TableDefinition.subtotalHiddenItems:1
+#: openpyxl.pivot.table.TableDefinition.useAutoFormatting:1
+#: openpyxl.pivot.table.TableDefinition.visualTotals:1
+msgid "Values must be of type <class 'bool'>"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.pivot.table.ColHierarchiesUsage.colHierarchyUsage:1
+#: openpyxl.pivot.table.RowColItem.x:1
+#: openpyxl.pivot.table.RowHierarchiesUsage.rowHierarchyUsage:1
+msgid ""
+"A sequence (list or tuple) that may only contain objects of the declared "
+"type"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.table.ConditionalFormat.extLst:1
+#: openpyxl.pivot.table.DataField.extLst:1 openpyxl.pivot.table.Format.extLst:1
+#: openpyxl.pivot.table.PageField.extLst:1
+#: openpyxl.pivot.table.PivotArea.extLst:1
+#: openpyxl.pivot.table.PivotField.extLst:1
+#: openpyxl.pivot.table.PivotFilter.extLst:1
+#: openpyxl.pivot.table.PivotHierarchy.extLst:1
+#: openpyxl.pivot.table.Reference.extLst:1
+#: openpyxl.pivot.table.TableDefinition.extLst:1
+msgid "Values must be of type <class 'openpyxl.descriptors.excel.ExtensionList'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.table.ConditionalFormat.pivotAreas:1
+#: openpyxl.pivot.table.MemberList.member:1
+#: openpyxl.pivot.table.PivotArea.references:1
+#: openpyxl.pivot.table.PivotField.items:1
+#: openpyxl.pivot.table.PivotHierarchy.mps:1
+#: openpyxl.pivot.table.TableDefinition.chartFormats:1
+#: openpyxl.pivot.table.TableDefinition.colFields:1
+#: openpyxl.pivot.table.TableDefinition.colItems:1
+#: openpyxl.pivot.table.TableDefinition.conditionalFormats:1
+#: openpyxl.pivot.table.TableDefinition.dataFields:1
+#: openpyxl.pivot.table.TableDefinition.filters:1
+#: openpyxl.pivot.table.TableDefinition.formats:1
+#: openpyxl.pivot.table.TableDefinition.pageFields:1
+#: openpyxl.pivot.table.TableDefinition.pivotFields:1
+#: openpyxl.pivot.table.TableDefinition.pivotHierarchies:1
+#: openpyxl.pivot.table.TableDefinition.rowFields:1
+#: openpyxl.pivot.table.TableDefinition.rowItems:1
+msgid "Wrap a sequence in an containing object"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.table.ConditionalFormat.scope:1
+msgid "Value must be one of {'selection', 'data', 'field'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.table.ConditionalFormat.type:1
+msgid "Value must be one of {'column', 'row', 'all'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.table.DataField.name:1
+#: openpyxl.pivot.table.FieldItem.n:1 openpyxl.pivot.table.Location.ref:1
+#: openpyxl.pivot.table.MemberProperty.name:1
+#: openpyxl.pivot.table.PageField.cap:1 openpyxl.pivot.table.PageField.name:1
+#: openpyxl.pivot.table.PivotArea.offset:1
+#: openpyxl.pivot.table.PivotField.name:1
+#: openpyxl.pivot.table.PivotField.subtotalCaption:1
+#: openpyxl.pivot.table.PivotField.uniqueMemberProperty:1
+#: openpyxl.pivot.table.PivotFilter.description:1
+#: openpyxl.pivot.table.PivotFilter.name:1
+#: openpyxl.pivot.table.PivotFilter.stringValue1:1
+#: openpyxl.pivot.table.PivotFilter.stringValue2:1
+#: openpyxl.pivot.table.PivotHierarchy.caption:1
+#: openpyxl.pivot.table.PivotTableStyle.name:1
+#: openpyxl.pivot.table.TableDefinition.colHeaderCaption:1
+#: openpyxl.pivot.table.TableDefinition.dataCaption:1
+#: openpyxl.pivot.table.TableDefinition.errorCaption:1
+#: openpyxl.pivot.table.TableDefinition.grandTotalCaption:1
+#: openpyxl.pivot.table.TableDefinition.id:1
+#: openpyxl.pivot.table.TableDefinition.missingCaption:1
+#: openpyxl.pivot.table.TableDefinition.name:1
+#: openpyxl.pivot.table.TableDefinition.pageStyle:1
+#: openpyxl.pivot.table.TableDefinition.pivotTableStyle:1
+#: openpyxl.pivot.table.TableDefinition.rowHeaderCaption:1
+#: openpyxl.pivot.table.TableDefinition.tag:1
+#: openpyxl.pivot.table.TableDefinition.vacatedStyle:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.table.DataField.showDataAs:1
+msgid ""
+"Value must be one of {'percentDiff', 'runTotal', 'normal', "
+"'percentOfTotal', 'percentOfRow', 'index', 'difference', 'percentOfCol', "
+"'percent'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.table.DataField.subtotal:1
+msgid ""
+"Value must be one of {'sum', 'stdDevp', 'average', 'product', "
+"'countNums', 'varp', 'min', 'stdDev', 'max', 'count', 'var'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.table.FieldItem.t:1
+#: openpyxl.pivot.table.RowColItem.t:1
+msgid ""
+"Value must be one of {'sum', 'grand', 'product', 'min', 'stdDevP', "
+"'stdDev', 'avg', 'max', 'count', 'default', 'varP', 'countA', 'data', "
+"'var', 'blank'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.table.Format.action:1
+msgid "Value must be one of {'drill', 'formula', 'formatting', 'blank'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.table.PivotArea.axis:1
+#: openpyxl.pivot.table.PivotField.axis:1
+msgid "Value must be one of {'axisRow', 'axisCol', 'axisPage', 'axisValues'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.table.PivotArea.type:1
+msgid ""
+"Value must be one of {'origin', 'normal', 'button', 'all', 'data', "
+"'topRight', 'topEnd'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.table.PivotField.autoSortScope:1
+msgid "Values must be of type <class 'openpyxl.pivot.table.AutoSortScope'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.table.PivotField.sortType:1
+msgid "Value must be one of {'ascending', 'descending', 'manual'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.table.PivotFilter.autoFilter:1
+msgid "Values must be of type <class 'openpyxl.worksheet.filters.AutoFilter'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.table.PivotFilter.type:1
+msgid ""
+"Value must be one of {'captionLessThanOrEqual', 'yesterday', 'thisYear', "
+"'Q1', 'captionBeginsWith', 'captionLessThan', 'Q4', 'nextMonth', "
+"'dateBetween', 'yearToDate', 'captionBetween', 'captionEndsWith', 'M2', "
+"'M3', 'M11', 'dateNotBetween', 'captionNotEqual', 'captionNotBeginsWith',"
+" 'tomorrow', 'count', 'nextWeek', 'dateEqual', 'lastQuarter', 'lastYear',"
+" 'M6', 'dateOlderThanOrEqual', 'unknown', 'valueLessThanOrEqual', 'M4', "
+"'captionEqual', 'captionNotBetween', 'dateNewerThan', "
+"'captionNotEndsWith', 'M12', 'M10', 'captionContains', "
+"'dateNewerThanOrEqual', 'lastWeek', 'M7', 'valueEqual', 'valueBetween', "
+"'dateNotEqual', 'valueLessThan', 'Q3', 'thisWeek', 'Q2', 'dateOlderThan',"
+" 'sum', 'M1', 'captionNotContains', 'today', 'M5', 'M8', 'M9', "
+"'valueGreaterThan', 'captionGreaterThanOrEqual', 'captionGreaterThan', "
+"'thisMonth', 'nextQuarter', 'thisQuarter', 'valueNotEqual', 'nextYear', "
+"'valueNotBetween', 'lastMonth', 'percent', 'valueGreaterThanOrEqual'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.table.PivotFilters.filter:1
+msgid "Values must be of type <class 'openpyxl.pivot.table.PivotFilter'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.table.PivotHierarchy.members:1
+msgid "Values must be of type <class 'openpyxl.pivot.table.MemberList'>"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.pivot.table.TableDefinition.colHierarchiesUsage:1
+msgid "Values must be of type <class 'openpyxl.pivot.table.ColHierarchiesUsage'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.pivot.table.TableDefinition.location:1
+msgid "Values must be of type <class 'openpyxl.pivot.table.Location'>"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.pivot.table.TableDefinition.pivotTableStyleInfo:1
+msgid "Values must be of type <class 'openpyxl.pivot.table.PivotTableStyle'>"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.pivot.table.TableDefinition.rowHierarchiesUsage:1
+msgid "Values must be of type <class 'openpyxl.pivot.table.RowHierarchiesUsage'>"
+msgstr ""
+

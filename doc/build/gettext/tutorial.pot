@@ -1,0 +1,229 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../tutorial.rst:2
+msgid "Tutorial"
+msgstr ""
+
+#: ../../tutorial.rst:5
+msgid "Create a workbook"
+msgstr ""
+
+#: ../../tutorial.rst:7
+msgid "There is no need to create a file on the filesystem to get started with openpyxl. Just import the :class:`Workbook` class and start work::"
+msgstr ""
+
+#: ../../tutorial.rst:13
+msgid "A workbook is always created with at least one worksheet. You can get it by using the :obj:`Workbook.active` property::"
+msgstr ""
+
+#: ../../tutorial.rst:20
+msgid "This is set to 0 by default. Unless you modify its value, you will always get the first worksheet by using this method."
+msgstr ""
+
+#: ../../tutorial.rst:23
+msgid "You can create new worksheets using the :meth:`Workbook.create_sheet` method::"
+msgstr ""
+
+#: ../../tutorial.rst:31
+msgid "Sheets are given a name automatically when they are created. They are numbered in sequence (Sheet, Sheet1, Sheet2, ...). You can change this name at any time with the :obj:`Worksheet.title` property::"
+msgstr ""
+
+#: ../../tutorial.rst:37
+msgid "The background color of the tab holding this title is white by default. You can change this providing an :code:`RRGGBB` color code to the :obj:`Worksheet.sheet_properties.tabColor` attribute::"
+msgstr ""
+
+#: ../../tutorial.rst:43
+msgid "Once you gave a worksheet a name, you can get it as a key of the workbook::"
+msgstr ""
+
+#: ../../tutorial.rst:47
+msgid "You can review the names of all worksheets of the workbook with the :obj:`Workbook.sheetname` attribute ::"
+msgstr ""
+
+#: ../../tutorial.rst:53
+msgid "You can loop through worksheets ::"
+msgstr ""
+
+#: ../../tutorial.rst:58
+msgid "You can create copies of worksheets **within a single workbook**:"
+msgstr ""
+
+#: ../../tutorial.rst:60
+msgid ":meth:`Workbook.copy_worksheet` method::"
+msgstr ""
+
+#: ../../tutorial.rst:67
+msgid "Only cells (including values, styles, hyperlinks and comments) and certain worksheet attribues (including dimensions, format and properties) are copied. All other workbook / worksheet attributes are not copied - e.g. Images, Charts."
+msgstr ""
+
+#: ../../tutorial.rst:72
+msgid "You also **cannot** copy worksheets between workbooks. You cannot copy a worksheet if the workbook is open in `read-only` or `write-only` mode."
+msgstr ""
+
+#: ../../tutorial.rst:78
+msgid "Playing with data"
+msgstr ""
+
+#: ../../tutorial.rst:81
+msgid "Accessing one cell"
+msgstr ""
+
+#: ../../tutorial.rst:83
+msgid "Now we know how to get a worksheet, we can start modifying cells content. Cells can be accessed directly as keys of the worksheet::"
+msgstr ""
+
+#: ../../tutorial.rst:88
+msgid "This will return the cell at A4, or create one if it does not exist yet. Values can be directly assigned::"
+msgstr ""
+
+#: ../../tutorial.rst:93
+msgid "There is also the :meth:`Worksheet.cell` method."
+msgstr ""
+
+#: ../../tutorial.rst:95
+msgid "This provides access to cells using row and column notation::"
+msgstr ""
+
+#: ../../tutorial.rst:101
+msgid "When a worksheet is created in memory, it contains no `cells`. They are created when first accessed."
+msgstr ""
+
+#: ../../tutorial.rst:106
+msgid "Because of this feature, scrolling through cells instead of accessing them directly will create them all in memory, even if you don't assign them a value."
+msgstr ""
+
+#: ../../tutorial.rst:109
+msgid "Something like ::"
+msgstr ""
+
+#: ../../tutorial.rst:115
+msgid "will create 100x100 cells in memory, for nothing."
+msgstr ""
+
+#: ../../tutorial.rst:119
+msgid "Accessing many cells"
+msgstr ""
+
+#: ../../tutorial.rst:121
+msgid "Ranges of cells can be accessed using slicing::"
+msgstr ""
+
+#: ../../tutorial.rst:126
+msgid "Ranges of rows or columns can be obtained similarly::"
+msgstr ""
+
+#: ../../tutorial.rst:133
+msgid "You can also use the :meth:`Worksheet.iter_rows` method::"
+msgstr ""
+
+#: ../../tutorial.rst:145
+msgid "Likewise the :meth:`Worksheet.iter_cols` method will return columns::"
+msgstr ""
+
+#: ../../tutorial.rst:159
+msgid "For performance reasons the :obj:`Worksheet.iter_cols()` method is not available in read-only mode."
+msgstr ""
+
+#: ../../tutorial.rst:161
+msgid "If you need to iterate through all the rows or columns of a file, you can instead use the :obj:`Worksheet.rows` property::"
+msgstr ""
+
+#: ../../tutorial.rst:177
+msgid "or the :obj:`Worksheet.columns` property::"
+msgstr ""
+
+#: ../../tutorial.rst:202
+msgid "For performance reasons the :obj:`Worksheet.columns` property is not available in read-only mode."
+msgstr ""
+
+#: ../../tutorial.rst:206
+msgid "Values only"
+msgstr ""
+
+#: ../../tutorial.rst:208
+msgid "If you just want the values from a worksheet you can use the :obj:`Worksheet.values` property. This iterates over all the rows in a worksheet but returns just the cell values::"
+msgstr ""
+
+#: ../../tutorial.rst:215
+msgid "Both :meth:`Worksheet.iter_rows` and :meth:`Worksheet.iter_cols` can take the :code:`values_only` parameter to return just the cell's value::"
+msgstr ""
+
+#: ../../tutorial.rst:226
+msgid "Data storage"
+msgstr ""
+
+#: ../../tutorial.rst:228
+msgid "Once we have a :class:`Cell`, we can assign it a value::"
+msgstr ""
+
+#: ../../tutorial.rst:240
+msgid "Saving to a file"
+msgstr ""
+
+#: ../../tutorial.rst:242
+msgid "The simplest and safest way to save a workbook is by using the :func:`Workbook.save` method of the :class:`Workbook` object::"
+msgstr ""
+
+#: ../../tutorial.rst:250
+msgid "This operation will overwrite existing files without warning."
+msgstr ""
+
+#: ../../tutorial.rst:254
+msgid "The filename extension is not forced to be xlsx or xlsm, although you might have some trouble opening it directly with another application if you don't use an official extension."
+msgstr ""
+
+#: ../../tutorial.rst:258
+msgid "As OOXML files are basically ZIP files, you can also  open it with your favourite ZIP archive manager."
+msgstr ""
+
+#: ../../tutorial.rst:263
+msgid "Saving as a stream"
+msgstr ""
+
+#: ../../tutorial.rst:265
+msgid "If you want to save the file to a stream, e.g. when using a web application such as Pyramid, Flask or Django then you can simply provide a :func:`NamedTemporaryFile`::"
+msgstr ""
+
+#: ../../tutorial.rst:279
+msgid "You can specify the attribute `template=True`, to save a workbook as a template::"
+msgstr ""
+
+#: ../../tutorial.rst:286
+msgid "or set this attribute to `False` (default), to save as a document::"
+msgstr ""
+
+#: ../../tutorial.rst:294
+msgid "You should monitor the data attributes and document extensions for saving documents in the document templates and vice versa, otherwise the result table engine can not open the document."
+msgstr ""
+
+#: ../../tutorial.rst:300
+msgid "The following will fail::"
+msgstr ""
+
+#: ../../tutorial.rst:323
+msgid "Loading from a file"
+msgstr ""
+
+#: ../../tutorial.rst:325
+msgid "The same way as writing, you can use the :func:`openpyxl.load_workbook` to open an existing workbook::"
+msgstr ""
+
+#: ../../tutorial.rst:333
+msgid "This ends the tutorial for now, you can proceed to the :doc:`usage` section"
+msgstr ""

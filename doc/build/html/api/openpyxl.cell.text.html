@@ -1,0 +1,403 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>openpyxl.cell.text module &#8212; openpyxl 3.0.9 文档</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nature.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="openpyxl.chart package" href="openpyxl.chart.html" />
+    <link rel="prev" title="openpyxl.cell.read_only module" href="openpyxl.cell.read_only.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.chart.html" title="openpyxl.chart package"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.cell.read_only.html" title="openpyxl.cell.read_only module"
+             accesskey="P">上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.cell.html" accesskey="U">openpyxl.cell package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.cell.text module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-openpyxl.cell.text">
+<span id="openpyxl-cell-text-module"></span><h1>openpyxl.cell.text module<a class="headerlink" href="#module-openpyxl.cell.text" title="永久链接至标题">¶</a></h1>
+<p>Richtext definition</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.cell.text.InlineFont">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.cell.text.</span></span><span class="sig-name descname"><span class="pre">InlineFont</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rFont</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">family</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strike</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shadow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condense</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertAlign</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scheme</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/cell/text.html#InlineFont"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.cell.text.InlineFont" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.styles.fonts.html#openpyxl.styles.fonts.Font" title="openpyxl.styles.fonts.Font"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.styles.fonts.Font</span></code></a></p>
+<p>Font for inline text because, yes what you need are different objects with the same elements but different constraints.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.InlineFont.b">
+<span class="sig-name descname"><span class="pre">b</span></span><a class="headerlink" href="#openpyxl.cell.text.InlineFont.b" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.InlineFont.charset">
+<span class="sig-name descname"><span class="pre">charset</span></span><a class="headerlink" href="#openpyxl.cell.text.InlineFont.charset" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.InlineFont.color">
+<span class="sig-name descname"><span class="pre">color</span></span><a class="headerlink" href="#openpyxl.cell.text.InlineFont.color" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.styles.colors.Color’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.InlineFont.condense">
+<span class="sig-name descname"><span class="pre">condense</span></span><a class="headerlink" href="#openpyxl.cell.text.InlineFont.condense" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.InlineFont.extend">
+<span class="sig-name descname"><span class="pre">extend</span></span><a class="headerlink" href="#openpyxl.cell.text.InlineFont.extend" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.InlineFont.family">
+<span class="sig-name descname"><span class="pre">family</span></span><a class="headerlink" href="#openpyxl.cell.text.InlineFont.family" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.InlineFont.i">
+<span class="sig-name descname"><span class="pre">i</span></span><a class="headerlink" href="#openpyxl.cell.text.InlineFont.i" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.InlineFont.outline">
+<span class="sig-name descname"><span class="pre">outline</span></span><a class="headerlink" href="#openpyxl.cell.text.InlineFont.outline" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.InlineFont.rFont">
+<span class="sig-name descname"><span class="pre">rFont</span></span><a class="headerlink" href="#openpyxl.cell.text.InlineFont.rFont" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.InlineFont.scheme">
+<span class="sig-name descname"><span class="pre">scheme</span></span><a class="headerlink" href="#openpyxl.cell.text.InlineFont.scheme" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘major’, ‘minor’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.InlineFont.shadow">
+<span class="sig-name descname"><span class="pre">shadow</span></span><a class="headerlink" href="#openpyxl.cell.text.InlineFont.shadow" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.InlineFont.strike">
+<span class="sig-name descname"><span class="pre">strike</span></span><a class="headerlink" href="#openpyxl.cell.text.InlineFont.strike" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.InlineFont.sz">
+<span class="sig-name descname"><span class="pre">sz</span></span><a class="headerlink" href="#openpyxl.cell.text.InlineFont.sz" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.InlineFont.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'RPrElt'</span></em><a class="headerlink" href="#openpyxl.cell.text.InlineFont.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.InlineFont.u">
+<span class="sig-name descname"><span class="pre">u</span></span><a class="headerlink" href="#openpyxl.cell.text.InlineFont.u" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘double’, ‘single’, ‘singleAccounting’, ‘doubleAccounting’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.InlineFont.vertAlign">
+<span class="sig-name descname"><span class="pre">vertAlign</span></span><a class="headerlink" href="#openpyxl.cell.text.InlineFont.vertAlign" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘superscript’, ‘baseline’, ‘subscript’}</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.cell.text.PhoneticProperties">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.cell.text.</span></span><span class="sig-name descname"><span class="pre">PhoneticProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fontId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alignment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/cell/text.html#PhoneticProperties"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.cell.text.PhoneticProperties" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.PhoneticProperties.alignment">
+<span class="sig-name descname"><span class="pre">alignment</span></span><a class="headerlink" href="#openpyxl.cell.text.PhoneticProperties.alignment" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘distributed’, ‘center’, ‘noControl’, ‘left’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.PhoneticProperties.fontId">
+<span class="sig-name descname"><span class="pre">fontId</span></span><a class="headerlink" href="#openpyxl.cell.text.PhoneticProperties.fontId" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.PhoneticProperties.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'phoneticPr'</span></em><a class="headerlink" href="#openpyxl.cell.text.PhoneticProperties.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.PhoneticProperties.type">
+<span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#openpyxl.cell.text.PhoneticProperties.type" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘halfwidthKatakana’, ‘Hiragana’, ‘fullwidthKatakana’, ‘noConversion’}</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.cell.text.PhoneticText">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.cell.text.</span></span><span class="sig-name descname"><span class="pre">PhoneticText</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/cell/text.html#PhoneticText"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.cell.text.PhoneticText" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.PhoneticText.eb">
+<span class="sig-name descname"><span class="pre">eb</span></span><a class="headerlink" href="#openpyxl.cell.text.PhoneticText.eb" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.PhoneticText.sb">
+<span class="sig-name descname"><span class="pre">sb</span></span><a class="headerlink" href="#openpyxl.cell.text.PhoneticText.sb" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.PhoneticText.t">
+<span class="sig-name descname"><span class="pre">t</span></span><a class="headerlink" href="#openpyxl.cell.text.PhoneticText.t" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.PhoneticText.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'rPh'</span></em><a class="headerlink" href="#openpyxl.cell.text.PhoneticText.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.PhoneticText.text">
+<span class="sig-name descname"><span class="pre">text</span></span><a class="headerlink" href="#openpyxl.cell.text.PhoneticText.text" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.cell.text.RichText">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.cell.text.</span></span><span class="sig-name descname"><span class="pre">RichText</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rPr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/cell/text.html#RichText"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.cell.text.RichText" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.RichText.font">
+<span class="sig-name descname"><span class="pre">font</span></span><a class="headerlink" href="#openpyxl.cell.text.RichText.font" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.RichText.rPr">
+<span class="sig-name descname"><span class="pre">rPr</span></span><a class="headerlink" href="#openpyxl.cell.text.RichText.rPr" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.cell.text.InlineFont’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.RichText.t">
+<span class="sig-name descname"><span class="pre">t</span></span><a class="headerlink" href="#openpyxl.cell.text.RichText.t" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.RichText.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'RElt'</span></em><a class="headerlink" href="#openpyxl.cell.text.RichText.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.RichText.text">
+<span class="sig-name descname"><span class="pre">text</span></span><a class="headerlink" href="#openpyxl.cell.text.RichText.text" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.cell.text.Text">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.cell.text.</span></span><span class="sig-name descname"><span class="pre">Text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rPh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phoneticPr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/cell/text.html#Text"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.cell.text.Text" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.Text.PhoneticProperties">
+<span class="sig-name descname"><span class="pre">PhoneticProperties</span></span><a class="headerlink" href="#openpyxl.cell.text.Text.PhoneticProperties" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpyxl.cell.text.Text.content">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">content</span></span><a class="headerlink" href="#openpyxl.cell.text.Text.content" title="永久链接至目标">¶</a></dt>
+<dd><p>Text stripped of all formatting</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.Text.formatted">
+<span class="sig-name descname"><span class="pre">formatted</span></span><a class="headerlink" href="#openpyxl.cell.text.Text.formatted" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.Text.phonetic">
+<span class="sig-name descname"><span class="pre">phonetic</span></span><a class="headerlink" href="#openpyxl.cell.text.Text.phonetic" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.Text.phoneticPr">
+<span class="sig-name descname"><span class="pre">phoneticPr</span></span><a class="headerlink" href="#openpyxl.cell.text.Text.phoneticPr" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.cell.text.PhoneticProperties’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.Text.plain">
+<span class="sig-name descname"><span class="pre">plain</span></span><a class="headerlink" href="#openpyxl.cell.text.Text.plain" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.Text.r">
+<span class="sig-name descname"><span class="pre">r</span></span><a class="headerlink" href="#openpyxl.cell.text.Text.r" title="永久链接至目标">¶</a></dt>
+<dd><p>A sequence (list or tuple) that may only contain objects of the declared
+type</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.Text.rPh">
+<span class="sig-name descname"><span class="pre">rPh</span></span><a class="headerlink" href="#openpyxl.cell.text.Text.rPh" title="永久链接至目标">¶</a></dt>
+<dd><p>A sequence (list or tuple) that may only contain objects of the declared
+type</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.Text.t">
+<span class="sig-name descname"><span class="pre">t</span></span><a class="headerlink" href="#openpyxl.cell.text.Text.t" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.cell.text.Text.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'text'</span></em><a class="headerlink" href="#openpyxl.cell.text.Text.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="openpyxl.cell.read_only.html"
+                          title="上一章">openpyxl.cell.read_only module</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="openpyxl.chart.html"
+                          title="下一章">openpyxl.chart package</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/openpyxl.cell.text.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.chart.html" title="openpyxl.chart package"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.cell.read_only.html" title="openpyxl.cell.read_only module"
+             >上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.cell.html" >openpyxl.cell package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.cell.text module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2010 - 2022, See AUTHORS.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+  </body>
+</html>

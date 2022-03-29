@@ -1,0 +1,135 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../api/openpyxl.worksheet.datavalidation.rst:2
+msgid "openpyxl.worksheet.datavalidation module"
+msgstr ""
+
+#: of openpyxl.worksheet.datavalidation.DataValidation:1
+#: openpyxl.worksheet.datavalidation.DataValidationList:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: of openpyxl.worksheet.datavalidation.DataValidation.add:1
+msgid "Adds a cell or cell coordinate to this validator"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.worksheet.datavalidation.DataValidation.allowBlank:1
+#: openpyxl.worksheet.datavalidation.DataValidation.showDropDown:1
+#: openpyxl.worksheet.datavalidation.DataValidation.showErrorMessage:1
+#: openpyxl.worksheet.datavalidation.DataValidation.showInputMessage:1
+#: openpyxl.worksheet.datavalidation.DataValidationList.disablePrompts:1
+msgid "Values must be of type <class 'bool'>"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.worksheet.datavalidation.DataValidation.allow_blank:1
+#: openpyxl.worksheet.datavalidation.DataValidation.cells:1
+#: openpyxl.worksheet.datavalidation.DataValidation.hide_drop_down:1
+#: openpyxl.worksheet.datavalidation.DataValidation.ranges:1
+#: openpyxl.worksheet.datavalidation.DataValidation.validation_type:1
+msgid ""
+"Aliases can be used when either the desired attribute name is not allowed"
+" or confusing in Python (eg. \"type\") or a more descriptve name is "
+"desired (eg. \"underline\" for \"u\")"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.datavalidation.DataValidation.error:1
+#: openpyxl.worksheet.datavalidation.DataValidation.errorTitle:1
+#: openpyxl.worksheet.datavalidation.DataValidation.formula1:1
+#: openpyxl.worksheet.datavalidation.DataValidation.formula2:1
+#: openpyxl.worksheet.datavalidation.DataValidation.prompt:1
+#: openpyxl.worksheet.datavalidation.DataValidation.promptTitle:1
+msgid "Values must be of type <class 'str'>"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.worksheet.datavalidation.DataValidation.errorStyle:1
+msgid "Value must be one of {'warning', 'stop', 'information'}"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.worksheet.datavalidation.DataValidation.imeMode:1
+msgid ""
+"Value must be one of {'fullAlpha', 'halfAlpha', 'fullHangul', 'off', "
+"'hiragana', 'fullKatakana', 'on', 'halfHangul', 'noControl', 'disabled', "
+"'halfKatakana'}"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.worksheet.datavalidation.DataValidation.operator:1
+msgid ""
+"Value must be one of {'greaterThan', 'greaterThanOrEqual', 'between', "
+"'equal', 'notBetween', 'lessThan', 'notEqual', 'lessThanOrEqual'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.datavalidation.DataValidation.sqref:1
+msgid ""
+"Values must be of type <class "
+"'openpyxl.worksheet.cell_range.MultiCellRange'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.worksheet.datavalidation.DataValidation.type:1
+msgid ""
+"Value must be one of {'date', 'list', 'textLength', 'custom', 'decimal', "
+"'whole', 'time'}"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.worksheet.datavalidation.DataValidationList.dataValidation:1
+msgid ""
+"A sequence (list or tuple) that may only contain objects of the declared "
+"type"
+msgstr ""
+
+#: of openpyxl.worksheet.datavalidation.DataValidationList.to_tree:1
+msgid "Need to skip validations that have no cell ranges"
+msgstr ""
+
+#: ../../docstring of
+#: openpyxl.worksheet.datavalidation.DataValidationList.xWindow:1
+#: openpyxl.worksheet.datavalidation.DataValidationList.yWindow:1
+msgid "Values must be of type <class 'int'>"
+msgstr ""
+
+#: of openpyxl.worksheet.datavalidation.collapse_cell_addresses:1
+msgid ""
+"Collapse a collection of cell co-ordinates down into an optimal range or "
+"collection of ranges."
+msgstr ""
+
+#: of openpyxl.worksheet.datavalidation.collapse_cell_addresses:4
+msgid ""
+"E.g. Cells A1, A2, A3, B1, B2 and B3 should have the data-validation "
+"object applied, attempt to collapse down to a single range, A1:B3."
+msgstr ""
+
+#: of openpyxl.worksheet.datavalidation.collapse_cell_addresses:7
+msgid ""
+"Currently only collapsing contiguous vertical ranges (i.e. above example "
+"results in A1:A3 B1:B3)."
+msgstr ""
+
+#: of openpyxl.worksheet.datavalidation.expand_cell_ranges:1
+msgid ""
+"Expand cell ranges to a sequence of addresses. Reverse of "
+"collapse_cell_addresses Eg. converts \"A1:A2 B1:B2\" to (A1, A2, B1, B2)"
+msgstr ""
+

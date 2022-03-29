@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>openpyxl.writer.excel module &#8212; openpyxl 3.0.9 文档</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nature.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="openpyxl.writer.theme module" href="openpyxl.writer.theme.html" />
+    <link rel="prev" title="openpyxl.writer package" href="openpyxl.writer.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.writer.theme.html" title="openpyxl.writer.theme module"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.writer.html" title="openpyxl.writer package"
+             accesskey="P">上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.writer.html" accesskey="U">openpyxl.writer package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.writer.excel module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-openpyxl.writer.excel">
+<span id="openpyxl-writer-excel-module"></span><h1>openpyxl.writer.excel module<a class="headerlink" href="#module-openpyxl.writer.excel" title="永久链接至标题">¶</a></h1>
+<p>Write a .xlsx file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.writer.excel.ExcelWriter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.writer.excel.</span></span><span class="sig-name descname"><span class="pre">ExcelWriter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">workbook</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">archive</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/writer/excel.html#ExcelWriter"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.writer.excel.ExcelWriter" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Write a workbook object to an Excel file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="openpyxl.writer.excel.ExcelWriter.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/writer/excel.html#ExcelWriter.save"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.writer.excel.ExcelWriter.save" title="永久链接至目标">¶</a></dt>
+<dd><p>Write data into the archive.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpyxl.writer.excel.ExcelWriter.write_data">
+<span class="sig-name descname"><span class="pre">write_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/writer/excel.html#ExcelWriter.write_data"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.writer.excel.ExcelWriter.write_data" title="永久链接至目标">¶</a></dt>
+<dd><p>Write the various xml files into the zip archive.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpyxl.writer.excel.ExcelWriter.write_worksheet">
+<span class="sig-name descname"><span class="pre">write_worksheet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ws</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/writer/excel.html#ExcelWriter.write_worksheet"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.writer.excel.ExcelWriter.write_worksheet" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="openpyxl.writer.excel.save_virtual_workbook">
+<span class="sig-prename descclassname"><span class="pre">openpyxl.writer.excel.</span></span><span class="sig-name descname"><span class="pre">save_virtual_workbook</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">workbook</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/writer/excel.html#save_virtual_workbook"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.writer.excel.save_virtual_workbook" title="永久链接至目标">¶</a></dt>
+<dd><p>Return an in-memory workbook, suitable for a Django response.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Deprecated: Use a NamedTemporaryFile</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="openpyxl.writer.excel.save_workbook">
+<span class="sig-prename descclassname"><span class="pre">openpyxl.writer.excel.</span></span><span class="sig-name descname"><span class="pre">save_workbook</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">workbook</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/writer/excel.html#save_workbook"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.writer.excel.save_workbook" title="永久链接至目标">¶</a></dt>
+<dd><p>Save the given workbook on the filesystem under the name filename.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>workbook</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.workbook.Workbook</span></code>) – the workbook to save</p></li>
+<li><p><strong>filename</strong> (<em>string</em>) – the path to which save the workbook</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回类型</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="openpyxl.writer.html"
+                          title="上一章">openpyxl.writer package</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="openpyxl.writer.theme.html"
+                          title="下一章">openpyxl.writer.theme module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/openpyxl.writer.excel.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.writer.theme.html" title="openpyxl.writer.theme module"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.writer.html" title="openpyxl.writer package"
+             >上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.writer.html" >openpyxl.writer package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.writer.excel module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2010 - 2022, See AUTHORS.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+  </body>
+</html>

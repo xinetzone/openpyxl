@@ -1,0 +1,355 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>openpyxl.worksheet.views module &#8212; openpyxl 3.0.9 文档</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nature.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="openpyxl.worksheet.worksheet module" href="openpyxl.worksheet.worksheet.html" />
+    <link rel="prev" title="openpyxl.worksheet.table module" href="openpyxl.worksheet.table.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.worksheet.worksheet.html" title="openpyxl.worksheet.worksheet module"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.worksheet.table.html" title="openpyxl.worksheet.table module"
+             accesskey="P">上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.worksheet.html" accesskey="U">openpyxl.worksheet package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.worksheet.views module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-openpyxl.worksheet.views">
+<span id="openpyxl-worksheet-views-module"></span><h1>openpyxl.worksheet.views module<a class="headerlink" href="#module-openpyxl.worksheet.views" title="永久链接至标题">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.Pane">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.worksheet.views.</span></span><span class="sig-name descname"><span class="pre">Pane</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xSplit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ySplit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topLeftCell</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activePane</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'topLeft'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'split'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/worksheet/views.html#Pane"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.worksheet.views.Pane" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.Pane.activePane">
+<span class="sig-name descname"><span class="pre">activePane</span></span><a class="headerlink" href="#openpyxl.worksheet.views.Pane.activePane" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘bottomLeft’, ‘topRight’, ‘bottomRight’, ‘topLeft’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.Pane.state">
+<span class="sig-name descname"><span class="pre">state</span></span><a class="headerlink" href="#openpyxl.worksheet.views.Pane.state" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘split’, ‘frozenSplit’, ‘frozen’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.Pane.topLeftCell">
+<span class="sig-name descname"><span class="pre">topLeftCell</span></span><a class="headerlink" href="#openpyxl.worksheet.views.Pane.topLeftCell" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.Pane.xSplit">
+<span class="sig-name descname"><span class="pre">xSplit</span></span><a class="headerlink" href="#openpyxl.worksheet.views.Pane.xSplit" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.Pane.ySplit">
+<span class="sig-name descname"><span class="pre">ySplit</span></span><a class="headerlink" href="#openpyxl.worksheet.views.Pane.ySplit" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.Selection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.worksheet.views.</span></span><span class="sig-name descname"><span class="pre">Selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pane</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activeCell</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'A1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activeCellId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sqref</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'A1'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/worksheet/views.html#Selection"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.worksheet.views.Selection" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.Selection.activeCell">
+<span class="sig-name descname"><span class="pre">activeCell</span></span><a class="headerlink" href="#openpyxl.worksheet.views.Selection.activeCell" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.Selection.activeCellId">
+<span class="sig-name descname"><span class="pre">activeCellId</span></span><a class="headerlink" href="#openpyxl.worksheet.views.Selection.activeCellId" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.Selection.pane">
+<span class="sig-name descname"><span class="pre">pane</span></span><a class="headerlink" href="#openpyxl.worksheet.views.Selection.pane" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘bottomLeft’, ‘topRight’, ‘bottomRight’, ‘topLeft’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.Selection.sqref">
+<span class="sig-name descname"><span class="pre">sqref</span></span><a class="headerlink" href="#openpyxl.worksheet.views.Selection.sqref" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.worksheet.views.</span></span><span class="sig-name descname"><span class="pre">SheetView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windowProtection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showFormulas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showGridLines</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showRowColHeaders</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showZeros</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rightToLeft</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tabSelected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showRuler</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showOutlineSymbols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">defaultGridColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showWhiteSpace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topLeftCell</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoomScale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoomScaleNormal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoomScaleSheetLayoutView</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoomScalePageLayoutView</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoomToFit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">workbookViewId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pane</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/worksheet/views.html#SheetView"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.worksheet.views.SheetView" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<p>Information about the visible portions of this sheet.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetView.colorId">
+<span class="sig-name descname"><span class="pre">colorId</span></span><a class="headerlink" href="#openpyxl.worksheet.views.SheetView.colorId" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetView.defaultGridColor">
+<span class="sig-name descname"><span class="pre">defaultGridColor</span></span><a class="headerlink" href="#openpyxl.worksheet.views.SheetView.defaultGridColor" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetView.pane">
+<span class="sig-name descname"><span class="pre">pane</span></span><a class="headerlink" href="#openpyxl.worksheet.views.SheetView.pane" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.worksheet.views.Pane’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetView.rightToLeft">
+<span class="sig-name descname"><span class="pre">rightToLeft</span></span><a class="headerlink" href="#openpyxl.worksheet.views.SheetView.rightToLeft" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetView.selection">
+<span class="sig-name descname"><span class="pre">selection</span></span><a class="headerlink" href="#openpyxl.worksheet.views.SheetView.selection" title="永久链接至目标">¶</a></dt>
+<dd><p>A sequence (list or tuple) that may only contain objects of the declared
+type</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetView.showFormulas">
+<span class="sig-name descname"><span class="pre">showFormulas</span></span><a class="headerlink" href="#openpyxl.worksheet.views.SheetView.showFormulas" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetView.showGridLines">
+<span class="sig-name descname"><span class="pre">showGridLines</span></span><a class="headerlink" href="#openpyxl.worksheet.views.SheetView.showGridLines" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetView.showOutlineSymbols">
+<span class="sig-name descname"><span class="pre">showOutlineSymbols</span></span><a class="headerlink" href="#openpyxl.worksheet.views.SheetView.showOutlineSymbols" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetView.showRowColHeaders">
+<span class="sig-name descname"><span class="pre">showRowColHeaders</span></span><a class="headerlink" href="#openpyxl.worksheet.views.SheetView.showRowColHeaders" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetView.showRuler">
+<span class="sig-name descname"><span class="pre">showRuler</span></span><a class="headerlink" href="#openpyxl.worksheet.views.SheetView.showRuler" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetView.showWhiteSpace">
+<span class="sig-name descname"><span class="pre">showWhiteSpace</span></span><a class="headerlink" href="#openpyxl.worksheet.views.SheetView.showWhiteSpace" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetView.showZeros">
+<span class="sig-name descname"><span class="pre">showZeros</span></span><a class="headerlink" href="#openpyxl.worksheet.views.SheetView.showZeros" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetView.tabSelected">
+<span class="sig-name descname"><span class="pre">tabSelected</span></span><a class="headerlink" href="#openpyxl.worksheet.views.SheetView.tabSelected" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetView.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'sheetView'</span></em><a class="headerlink" href="#openpyxl.worksheet.views.SheetView.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetView.topLeftCell">
+<span class="sig-name descname"><span class="pre">topLeftCell</span></span><a class="headerlink" href="#openpyxl.worksheet.views.SheetView.topLeftCell" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetView.view">
+<span class="sig-name descname"><span class="pre">view</span></span><a class="headerlink" href="#openpyxl.worksheet.views.SheetView.view" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘normal’, ‘pageBreakPreview’, ‘pageLayout’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetView.windowProtection">
+<span class="sig-name descname"><span class="pre">windowProtection</span></span><a class="headerlink" href="#openpyxl.worksheet.views.SheetView.windowProtection" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetView.workbookViewId">
+<span class="sig-name descname"><span class="pre">workbookViewId</span></span><a class="headerlink" href="#openpyxl.worksheet.views.SheetView.workbookViewId" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetView.zoomScale">
+<span class="sig-name descname"><span class="pre">zoomScale</span></span><a class="headerlink" href="#openpyxl.worksheet.views.SheetView.zoomScale" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetView.zoomScaleNormal">
+<span class="sig-name descname"><span class="pre">zoomScaleNormal</span></span><a class="headerlink" href="#openpyxl.worksheet.views.SheetView.zoomScaleNormal" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetView.zoomScalePageLayoutView">
+<span class="sig-name descname"><span class="pre">zoomScalePageLayoutView</span></span><a class="headerlink" href="#openpyxl.worksheet.views.SheetView.zoomScalePageLayoutView" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetView.zoomScaleSheetLayoutView">
+<span class="sig-name descname"><span class="pre">zoomScaleSheetLayoutView</span></span><a class="headerlink" href="#openpyxl.worksheet.views.SheetView.zoomScaleSheetLayoutView" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetView.zoomToFit">
+<span class="sig-name descname"><span class="pre">zoomToFit</span></span><a class="headerlink" href="#openpyxl.worksheet.views.SheetView.zoomToFit" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetViewList">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.worksheet.views.</span></span><span class="sig-name descname"><span class="pre">SheetViewList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sheetView</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extLst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/worksheet/views.html#SheetViewList"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.worksheet.views.SheetViewList" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetViewList.extLst">
+<span class="sig-name descname"><span class="pre">extLst</span></span><a class="headerlink" href="#openpyxl.worksheet.views.SheetViewList.extLst" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.descriptors.excel.ExtensionList’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetViewList.sheetView">
+<span class="sig-name descname"><span class="pre">sheetView</span></span><a class="headerlink" href="#openpyxl.worksheet.views.SheetViewList.sheetView" title="永久链接至目标">¶</a></dt>
+<dd><p>A sequence (list or tuple) that may only contain objects of the declared
+type</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.views.SheetViewList.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'sheetViews'</span></em><a class="headerlink" href="#openpyxl.worksheet.views.SheetViewList.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="openpyxl.worksheet.table.html"
+                          title="上一章">openpyxl.worksheet.table module</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="openpyxl.worksheet.worksheet.html"
+                          title="下一章">openpyxl.worksheet.worksheet module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/openpyxl.worksheet.views.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.worksheet.worksheet.html" title="openpyxl.worksheet.worksheet module"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.worksheet.table.html" title="openpyxl.worksheet.table module"
+             >上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.worksheet.html" >openpyxl.worksheet package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.worksheet.views module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2010 - 2022, See AUTHORS.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+  </body>
+</html>

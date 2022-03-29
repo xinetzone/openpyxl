@@ -1,0 +1,73 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../charts/limits_and_scaling.rst:2
+msgid "Axis Limits and Scale"
+msgstr ""
+
+#: ../../charts/limits_and_scaling.rst:5
+msgid "Minima and Maxima"
+msgstr ""
+
+#: ../../charts/limits_and_scaling.rst:7
+msgid "Axis minimum and maximum values can be set manually to display specific regions on a chart."
+msgstr ""
+
+#: ../../charts/limits_and_scaling.rst:None
+msgid "\"Sample charts with examples of axis clipping\""
+msgstr ""
+
+#: ../../charts/limits_and_scaling.rst:19
+msgid "In some cases such as the one shown, setting the axis limits is effectively equivalent to displaying a sub-range of the data. For large datasets, rendering of scatter plots (and possibly others) will be much faster when using subsets of the data rather than axis limits in both Excel and Open/Libre Office."
+msgstr ""
+
+#: ../../charts/limits_and_scaling.rst:27
+msgid "Logarithmic Scaling"
+msgstr ""
+
+#: ../../charts/limits_and_scaling.rst:29
+msgid "Both the x- and y-axes can be scaled logarithmically. The base of the logarithm can be set to any valid float. If the x-axis is scaled logarithmically, negative values in the domain will be discarded."
+msgstr ""
+
+#: ../../charts/limits_and_scaling.rst:36
+msgid "This produces five charts that look something like this:"
+msgstr ""
+
+#: ../../charts/limits_and_scaling.rst:None
+msgid "\"Sample charts with examples of axis log scaling\""
+msgstr ""
+
+#: ../../charts/limits_and_scaling.rst:41
+msgid "The first four charts show the same data unscaled, scaled logarithmically in each axis and in both axes, with the logarithm base set to 10. The final chart shows the same data with both axes scaled, but the base of the logarithm set to ``e``."
+msgstr ""
+
+#: ../../charts/limits_and_scaling.rst:47
+msgid "Axis Orientation"
+msgstr ""
+
+#: ../../charts/limits_and_scaling.rst:49
+msgid "Axes can be displayed \"normally\" or in reverse. Axis orientation is controlled by the scaling ``orientation`` property, which can have a value of either ``'minMax'`` for normal orientation or ``'maxMin'`` for reversed."
+msgstr ""
+
+#: ../../charts/limits_and_scaling.rst:56
+msgid "This produces four charts with the axes in each possible combination of orientations that look something like this:"
+msgstr ""
+
+#: ../../charts/limits_and_scaling.rst:None
+msgid "\"Sample charts with different axis orientations\""
+msgstr ""

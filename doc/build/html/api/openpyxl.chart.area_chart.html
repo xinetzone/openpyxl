@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>openpyxl.chart.area_chart module &#8212; openpyxl 3.0.9 文档</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nature.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="openpyxl.chart.axis module" href="openpyxl.chart.axis.html" />
+    <link rel="prev" title="openpyxl.chart package" href="openpyxl.chart.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.chart.axis.html" title="openpyxl.chart.axis module"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.chart.html" title="openpyxl.chart package"
+             accesskey="P">上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.chart.html" accesskey="U">openpyxl.chart package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.chart.area_chart module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-openpyxl.chart.area_chart">
+<span id="openpyxl-chart-area-chart-module"></span><h1>openpyxl.chart.area_chart module<a class="headerlink" href="#module-openpyxl.chart.area_chart" title="永久链接至标题">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.chart.area_chart.AreaChart">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.chart.area_chart.</span></span><span class="sig-name descname"><span class="pre">AreaChart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extLst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/chart/area_chart.html#AreaChart"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.chart.area_chart.AreaChart" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.chart.area_chart._AreaChartBase</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.area_chart.AreaChart.dLbls">
+<span class="sig-name descname"><span class="pre">dLbls</span></span><a class="headerlink" href="#openpyxl.chart.area_chart.AreaChart.dLbls" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.chart.label.DataLabelList’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.area_chart.AreaChart.dropLines">
+<span class="sig-name descname"><span class="pre">dropLines</span></span><a class="headerlink" href="#openpyxl.chart.area_chart.AreaChart.dropLines" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.chart.axis.ChartLines’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.area_chart.AreaChart.extLst">
+<span class="sig-name descname"><span class="pre">extLst</span></span><a class="headerlink" href="#openpyxl.chart.area_chart.AreaChart.extLst" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.descriptors.excel.ExtensionList’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.area_chart.AreaChart.grouping">
+<span class="sig-name descname"><span class="pre">grouping</span></span><a class="headerlink" href="#openpyxl.chart.area_chart.AreaChart.grouping" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘stacked’, ‘percentStacked’, ‘standard’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.area_chart.AreaChart.ser">
+<span class="sig-name descname"><span class="pre">ser</span></span><a class="headerlink" href="#openpyxl.chart.area_chart.AreaChart.ser" title="永久链接至目标">¶</a></dt>
+<dd><p>A sequence (list or tuple) that may only contain objects of the declared
+type</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.area_chart.AreaChart.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'areaChart'</span></em><a class="headerlink" href="#openpyxl.chart.area_chart.AreaChart.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.area_chart.AreaChart.varyColors">
+<span class="sig-name descname"><span class="pre">varyColors</span></span><a class="headerlink" href="#openpyxl.chart.area_chart.AreaChart.varyColors" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.area_chart.AreaChart.x_axis">
+<span class="sig-name descname"><span class="pre">x_axis</span></span><a class="headerlink" href="#openpyxl.chart.area_chart.AreaChart.x_axis" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.chart.axis.TextAxis’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.area_chart.AreaChart.y_axis">
+<span class="sig-name descname"><span class="pre">y_axis</span></span><a class="headerlink" href="#openpyxl.chart.area_chart.AreaChart.y_axis" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.chart.axis.NumericAxis’&gt;</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.chart.area_chart.AreaChart3D">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.chart.area_chart.</span></span><span class="sig-name descname"><span class="pre">AreaChart3D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gapDepth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/chart/area_chart.html#AreaChart3D"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.chart.area_chart.AreaChart3D" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="#openpyxl.chart.area_chart.AreaChart" title="openpyxl.chart.area_chart.AreaChart"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.chart.area_chart.AreaChart</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.area_chart.AreaChart3D.dLbls">
+<span class="sig-name descname"><span class="pre">dLbls</span></span><a class="headerlink" href="#openpyxl.chart.area_chart.AreaChart3D.dLbls" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.chart.label.DataLabelList’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.area_chart.AreaChart3D.dropLines">
+<span class="sig-name descname"><span class="pre">dropLines</span></span><a class="headerlink" href="#openpyxl.chart.area_chart.AreaChart3D.dropLines" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.chart.axis.ChartLines’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.area_chart.AreaChart3D.gapDepth">
+<span class="sig-name descname"><span class="pre">gapDepth</span></span><a class="headerlink" href="#openpyxl.chart.area_chart.AreaChart3D.gapDepth" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.area_chart.AreaChart3D.grouping">
+<span class="sig-name descname"><span class="pre">grouping</span></span><a class="headerlink" href="#openpyxl.chart.area_chart.AreaChart3D.grouping" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘stacked’, ‘percentStacked’, ‘standard’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.area_chart.AreaChart3D.ser">
+<span class="sig-name descname"><span class="pre">ser</span></span><a class="headerlink" href="#openpyxl.chart.area_chart.AreaChart3D.ser" title="永久链接至目标">¶</a></dt>
+<dd><p>A sequence (list or tuple) that may only contain objects of the declared
+type</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.area_chart.AreaChart3D.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'area3DChart'</span></em><a class="headerlink" href="#openpyxl.chart.area_chart.AreaChart3D.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.area_chart.AreaChart3D.varyColors">
+<span class="sig-name descname"><span class="pre">varyColors</span></span><a class="headerlink" href="#openpyxl.chart.area_chart.AreaChart3D.varyColors" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.area_chart.AreaChart3D.x_axis">
+<span class="sig-name descname"><span class="pre">x_axis</span></span><a class="headerlink" href="#openpyxl.chart.area_chart.AreaChart3D.x_axis" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.chart.axis.TextAxis’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.area_chart.AreaChart3D.y_axis">
+<span class="sig-name descname"><span class="pre">y_axis</span></span><a class="headerlink" href="#openpyxl.chart.area_chart.AreaChart3D.y_axis" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.chart.axis.NumericAxis’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.area_chart.AreaChart3D.z_axis">
+<span class="sig-name descname"><span class="pre">z_axis</span></span><a class="headerlink" href="#openpyxl.chart.area_chart.AreaChart3D.z_axis" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.chart.axis.SeriesAxis’&gt;</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="openpyxl.chart.html"
+                          title="上一章">openpyxl.chart package</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="openpyxl.chart.axis.html"
+                          title="下一章">openpyxl.chart.axis module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/openpyxl.chart.area_chart.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.chart.axis.html" title="openpyxl.chart.axis module"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.chart.html" title="openpyxl.chart package"
+             >上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.chart.html" >openpyxl.chart package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.chart.area_chart module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2010 - 2022, See AUTHORS.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+  </body>
+</html>

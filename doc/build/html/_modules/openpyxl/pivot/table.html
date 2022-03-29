@@ -1,0 +1,1261 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>openpyxl.pivot.table &#8212; openpyxl 3.0.9 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/nature.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.pivot.table</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for openpyxl.pivot.table</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2010-2022 openpyxl</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.serialisable</span> <span class="kn">import</span> <span class="n">Serialisable</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Typed</span><span class="p">,</span>
+    <span class="n">Integer</span><span class="p">,</span>
+    <span class="n">NoneSet</span><span class="p">,</span>
+    <span class="n">Set</span><span class="p">,</span>
+    <span class="n">Float</span><span class="p">,</span>
+    <span class="n">Bool</span><span class="p">,</span>
+    <span class="n">DateTime</span><span class="p">,</span>
+    <span class="n">String</span><span class="p">,</span>
+    <span class="n">Alias</span><span class="p">,</span>
+    <span class="n">Bool</span><span class="p">,</span>
+    <span class="n">Sequence</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.excel</span> <span class="kn">import</span> <span class="n">ExtensionList</span><span class="p">,</span> <span class="n">Relation</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.nested</span> <span class="kn">import</span> <span class="n">NestedInteger</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.sequence</span> <span class="kn">import</span> <span class="n">NestedSequence</span>
+<span class="kn">from</span> <span class="nn">openpyxl.xml.constants</span> <span class="kn">import</span> <span class="n">SHEET_MAIN_NS</span>
+<span class="kn">from</span> <span class="nn">openpyxl.xml.functions</span> <span class="kn">import</span> <span class="n">tostring</span>
+<span class="kn">from</span> <span class="nn">openpyxl.packaging.relationship</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">RelationshipList</span><span class="p">,</span>
+    <span class="n">Relationship</span><span class="p">,</span>
+    <span class="n">get_rels_path</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">.fields</span> <span class="kn">import</span> <span class="n">Index</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.worksheet.filters</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">AutoFilter</span><span class="p">,</span>
+    <span class="n">CellRange</span><span class="p">,</span>
+    <span class="n">ColorFilter</span><span class="p">,</span>
+    <span class="n">CustomFilter</span><span class="p">,</span>
+    <span class="n">CustomFilters</span><span class="p">,</span>
+    <span class="n">DateGroupItem</span><span class="p">,</span>
+    <span class="n">DynamicFilter</span><span class="p">,</span>
+    <span class="n">FilterColumn</span><span class="p">,</span>
+    <span class="n">Filters</span><span class="p">,</span>
+    <span class="n">IconFilter</span><span class="p">,</span>
+    <span class="n">SortCondition</span><span class="p">,</span>
+    <span class="n">SortState</span><span class="p">,</span>
+    <span class="n">Top10</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="HierarchyUsage"><a class="viewcode-back" href="../../../api/openpyxl.pivot.table.html#openpyxl.pivot.table.HierarchyUsage">[docs]</a><span class="k">class</span> <span class="nc">HierarchyUsage</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;hierarchyUsage&quot;</span>
+
+    <span class="n">hierarchyUsage</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">hierarchyUsage</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hierarchyUsage</span> <span class="o">=</span> <span class="n">hierarchyUsage</span></div>
+
+
+<div class="viewcode-block" id="ColHierarchiesUsage"><a class="viewcode-back" href="../../../api/openpyxl.pivot.table.html#openpyxl.pivot.table.ColHierarchiesUsage">[docs]</a><span class="k">class</span> <span class="nc">ColHierarchiesUsage</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;colHierarchiesUsage&quot;</span>
+
+    <span class="n">colHierarchyUsage</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">HierarchyUsage</span><span class="p">,</span> <span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;colHierarchyUsage&#39;</span><span class="p">,)</span>
+    <span class="n">__attrs__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">count</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">colHierarchyUsage</span><span class="o">=</span><span class="p">(),</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">colHierarchyUsage</span> <span class="o">=</span> <span class="n">colHierarchyUsage</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">colHierarchyUsage</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="RowHierarchiesUsage"><a class="viewcode-back" href="../../../api/openpyxl.pivot.table.html#openpyxl.pivot.table.RowHierarchiesUsage">[docs]</a><span class="k">class</span> <span class="nc">RowHierarchiesUsage</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;rowHierarchiesUsage&quot;</span>
+
+    <span class="n">rowHierarchyUsage</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">HierarchyUsage</span><span class="p">,</span> <span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;rowHierarchyUsage&#39;</span><span class="p">,)</span>
+    <span class="n">__attrs__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">count</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">rowHierarchyUsage</span><span class="o">=</span><span class="p">(),</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rowHierarchyUsage</span> <span class="o">=</span> <span class="n">rowHierarchyUsage</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rowHierarchyUsage</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PivotFilter"><a class="viewcode-back" href="../../../api/openpyxl.pivot.table.html#openpyxl.pivot.table.PivotFilter">[docs]</a><span class="k">class</span> <span class="nc">PivotFilter</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;filter&quot;</span>
+
+    <span class="n">fld</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">mpFld</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">type</span> <span class="o">=</span> <span class="n">Set</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;unknown&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;percent&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;captionEqual&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;captionNotEqual&#39;</span><span class="p">,</span> <span class="s1">&#39;captionBeginsWith&#39;</span><span class="p">,</span> <span class="s1">&#39;captionNotBeginsWith&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;captionEndsWith&#39;</span><span class="p">,</span> <span class="s1">&#39;captionNotEndsWith&#39;</span><span class="p">,</span> <span class="s1">&#39;captionContains&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;captionNotContains&#39;</span><span class="p">,</span> <span class="s1">&#39;captionGreaterThan&#39;</span><span class="p">,</span> <span class="s1">&#39;captionGreaterThanOrEqual&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;captionLessThan&#39;</span><span class="p">,</span> <span class="s1">&#39;captionLessThanOrEqual&#39;</span><span class="p">,</span> <span class="s1">&#39;captionBetween&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;captionNotBetween&#39;</span><span class="p">,</span> <span class="s1">&#39;valueEqual&#39;</span><span class="p">,</span> <span class="s1">&#39;valueNotEqual&#39;</span><span class="p">,</span> <span class="s1">&#39;valueGreaterThan&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;valueGreaterThanOrEqual&#39;</span><span class="p">,</span> <span class="s1">&#39;valueLessThan&#39;</span><span class="p">,</span> <span class="s1">&#39;valueLessThanOrEqual&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;valueBetween&#39;</span><span class="p">,</span> <span class="s1">&#39;valueNotBetween&#39;</span><span class="p">,</span> <span class="s1">&#39;dateEqual&#39;</span><span class="p">,</span> <span class="s1">&#39;dateNotEqual&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;dateOlderThan&#39;</span><span class="p">,</span> <span class="s1">&#39;dateOlderThanOrEqual&#39;</span><span class="p">,</span> <span class="s1">&#39;dateNewerThan&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;dateNewerThanOrEqual&#39;</span><span class="p">,</span> <span class="s1">&#39;dateBetween&#39;</span><span class="p">,</span> <span class="s1">&#39;dateNotBetween&#39;</span><span class="p">,</span> <span class="s1">&#39;tomorrow&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;today&#39;</span><span class="p">,</span> <span class="s1">&#39;yesterday&#39;</span><span class="p">,</span> <span class="s1">&#39;nextWeek&#39;</span><span class="p">,</span> <span class="s1">&#39;thisWeek&#39;</span><span class="p">,</span> <span class="s1">&#39;lastWeek&#39;</span><span class="p">,</span> <span class="s1">&#39;nextMonth&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;thisMonth&#39;</span><span class="p">,</span> <span class="s1">&#39;lastMonth&#39;</span><span class="p">,</span> <span class="s1">&#39;nextQuarter&#39;</span><span class="p">,</span> <span class="s1">&#39;thisQuarter&#39;</span><span class="p">,</span> <span class="s1">&#39;lastQuarter&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;nextYear&#39;</span><span class="p">,</span> <span class="s1">&#39;thisYear&#39;</span><span class="p">,</span> <span class="s1">&#39;lastYear&#39;</span><span class="p">,</span> <span class="s1">&#39;yearToDate&#39;</span><span class="p">,</span> <span class="s1">&#39;Q1&#39;</span><span class="p">,</span> <span class="s1">&#39;Q2&#39;</span><span class="p">,</span> <span class="s1">&#39;Q3&#39;</span><span class="p">,</span> <span class="s1">&#39;Q4&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;M1&#39;</span><span class="p">,</span> <span class="s1">&#39;M2&#39;</span><span class="p">,</span> <span class="s1">&#39;M3&#39;</span><span class="p">,</span> <span class="s1">&#39;M4&#39;</span><span class="p">,</span> <span class="s1">&#39;M5&#39;</span><span class="p">,</span> <span class="s1">&#39;M6&#39;</span><span class="p">,</span> <span class="s1">&#39;M7&#39;</span><span class="p">,</span> <span class="s1">&#39;M8&#39;</span><span class="p">,</span> <span class="s1">&#39;M9&#39;</span><span class="p">,</span> <span class="s1">&#39;M10&#39;</span><span class="p">,</span> <span class="s1">&#39;M11&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;M12&#39;</span><span class="p">]))</span>
+    <span class="n">evalOrder</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">iMeasureHier</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">iMeasureFld</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">stringValue1</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">stringValue2</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">autoFilter</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">AutoFilter</span><span class="p">,</span> <span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;autoFilter&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">fld</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">mpFld</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">evalOrder</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">iMeasureHier</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">iMeasureFld</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">stringValue1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">stringValue2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">autoFilter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fld</span> <span class="o">=</span> <span class="n">fld</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mpFld</span> <span class="o">=</span> <span class="n">mpFld</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="nb">type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">evalOrder</span> <span class="o">=</span> <span class="n">evalOrder</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">iMeasureHier</span> <span class="o">=</span> <span class="n">iMeasureHier</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">iMeasureFld</span> <span class="o">=</span> <span class="n">iMeasureFld</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">description</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stringValue1</span> <span class="o">=</span> <span class="n">stringValue1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stringValue2</span> <span class="o">=</span> <span class="n">stringValue2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">autoFilter</span> <span class="o">=</span> <span class="n">autoFilter</span></div>
+
+
+<div class="viewcode-block" id="PivotFilters"><a class="viewcode-back" href="../../../api/openpyxl.pivot.table.html#openpyxl.pivot.table.PivotFilters">[docs]</a><span class="k">class</span> <span class="nc">PivotFilters</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">count</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="nb">filter</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">PivotFilter</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;filter&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">count</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="nb">filter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="nb">filter</span></div>
+
+
+<div class="viewcode-block" id="PivotTableStyle"><a class="viewcode-back" href="../../../api/openpyxl.pivot.table.html#openpyxl.pivot.table.PivotTableStyle">[docs]</a><span class="k">class</span> <span class="nc">PivotTableStyle</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;pivotTableStyleInfo&quot;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">showRowHeaders</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">showColHeaders</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">showRowStripes</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">showColStripes</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">showLastColumn</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">showRowHeaders</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">showColHeaders</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">showRowStripes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">showColStripes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">showLastColumn</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showRowHeaders</span> <span class="o">=</span> <span class="n">showRowHeaders</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showColHeaders</span> <span class="o">=</span> <span class="n">showColHeaders</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showRowStripes</span> <span class="o">=</span> <span class="n">showRowStripes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showColStripes</span> <span class="o">=</span> <span class="n">showColStripes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showLastColumn</span> <span class="o">=</span> <span class="n">showLastColumn</span></div>
+
+
+<div class="viewcode-block" id="MemberList"><a class="viewcode-back" href="../../../api/openpyxl.pivot.table.html#openpyxl.pivot.table.MemberList">[docs]</a><span class="k">class</span> <span class="nc">MemberList</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;members&quot;</span>
+
+    <span class="n">level</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">member</span> <span class="o">=</span> <span class="n">NestedSequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">String</span><span class="p">,</span> <span class="n">attribute</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;member&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">count</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">level</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">member</span><span class="o">=</span><span class="p">(),</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">level</span> <span class="o">=</span> <span class="n">level</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">member</span> <span class="o">=</span> <span class="n">member</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">member</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MemberProperty"><a class="viewcode-back" href="../../../api/openpyxl.pivot.table.html#openpyxl.pivot.table.MemberProperty">[docs]</a><span class="k">class</span> <span class="nc">MemberProperty</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;mps&quot;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">showCell</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">showTip</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">showAsCaption</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">nameLen</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pPos</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pLen</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">level</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">field</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">showCell</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">showTip</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">showAsCaption</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">nameLen</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">pPos</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">pLen</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">level</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showCell</span> <span class="o">=</span> <span class="n">showCell</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showTip</span> <span class="o">=</span> <span class="n">showTip</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showAsCaption</span> <span class="o">=</span> <span class="n">showAsCaption</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nameLen</span> <span class="o">=</span> <span class="n">nameLen</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pPos</span> <span class="o">=</span> <span class="n">pPos</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pLen</span> <span class="o">=</span> <span class="n">pLen</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">level</span> <span class="o">=</span> <span class="n">level</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field</span> <span class="o">=</span> <span class="n">field</span></div>
+
+
+<div class="viewcode-block" id="PivotHierarchy"><a class="viewcode-back" href="../../../api/openpyxl.pivot.table.html#openpyxl.pivot.table.PivotHierarchy">[docs]</a><span class="k">class</span> <span class="nc">PivotHierarchy</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;pivotHierarchy&quot;</span>
+
+    <span class="n">outline</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">multipleItemSelectionAllowed</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">subtotalTop</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">showInFieldList</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">dragToRow</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">dragToCol</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">dragToPage</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">dragToData</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">dragOff</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">includeNewItemsInFilter</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">caption</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">mps</span> <span class="o">=</span> <span class="n">NestedSequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">MemberProperty</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">members</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">MemberList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;mps&#39;</span><span class="p">,</span> <span class="s1">&#39;members&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">outline</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">multipleItemSelectionAllowed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">subtotalTop</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">showInFieldList</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">dragToRow</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">dragToCol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">dragToPage</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">dragToData</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">dragOff</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">includeNewItemsInFilter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">caption</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">mps</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">members</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">outline</span> <span class="o">=</span> <span class="n">outline</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">multipleItemSelectionAllowed</span> <span class="o">=</span> <span class="n">multipleItemSelectionAllowed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subtotalTop</span> <span class="o">=</span> <span class="n">subtotalTop</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showInFieldList</span> <span class="o">=</span> <span class="n">showInFieldList</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dragToRow</span> <span class="o">=</span> <span class="n">dragToRow</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dragToCol</span> <span class="o">=</span> <span class="n">dragToCol</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dragToPage</span> <span class="o">=</span> <span class="n">dragToPage</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dragToData</span> <span class="o">=</span> <span class="n">dragToData</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dragOff</span> <span class="o">=</span> <span class="n">dragOff</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">includeNewItemsInFilter</span> <span class="o">=</span> <span class="n">includeNewItemsInFilter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">caption</span> <span class="o">=</span> <span class="n">caption</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mps</span> <span class="o">=</span> <span class="n">mps</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">members</span> <span class="o">=</span> <span class="n">members</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extLst</span> <span class="o">=</span> <span class="n">extLst</span></div>
+
+
+<div class="viewcode-block" id="Reference"><a class="viewcode-back" href="../../../api/openpyxl.pivot.table.html#openpyxl.pivot.table.Reference">[docs]</a><span class="k">class</span> <span class="nc">Reference</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;reference&quot;</span>
+
+    <span class="n">field</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">selected</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">byPosition</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">relative</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">defaultSubtotal</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">sumSubtotal</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">countASubtotal</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">avgSubtotal</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">maxSubtotal</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">minSubtotal</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">productSubtotal</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">countSubtotal</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">stdDevSubtotal</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">stdDevPSubtotal</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">varSubtotal</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">varPSubtotal</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">NestedInteger</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">attribute</span><span class="o">=</span><span class="s2">&quot;v&quot;</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">count</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">selected</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">byPosition</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">relative</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">defaultSubtotal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">sumSubtotal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">countASubtotal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">avgSubtotal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">maxSubtotal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">minSubtotal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">productSubtotal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">countSubtotal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">stdDevSubtotal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">stdDevPSubtotal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">varSubtotal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">varPSubtotal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field</span> <span class="o">=</span> <span class="n">field</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">selected</span> <span class="o">=</span> <span class="n">selected</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">byPosition</span> <span class="o">=</span> <span class="n">byPosition</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">relative</span> <span class="o">=</span> <span class="n">relative</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultSubtotal</span> <span class="o">=</span> <span class="n">defaultSubtotal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sumSubtotal</span> <span class="o">=</span> <span class="n">sumSubtotal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">countASubtotal</span> <span class="o">=</span> <span class="n">countASubtotal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">avgSubtotal</span> <span class="o">=</span> <span class="n">avgSubtotal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">maxSubtotal</span> <span class="o">=</span> <span class="n">maxSubtotal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">minSubtotal</span> <span class="o">=</span> <span class="n">minSubtotal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">productSubtotal</span> <span class="o">=</span> <span class="n">productSubtotal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">countSubtotal</span> <span class="o">=</span> <span class="n">countSubtotal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stdDevSubtotal</span> <span class="o">=</span> <span class="n">stdDevSubtotal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stdDevPSubtotal</span> <span class="o">=</span> <span class="n">stdDevPSubtotal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">varSubtotal</span> <span class="o">=</span> <span class="n">varSubtotal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">varPSubtotal</span> <span class="o">=</span> <span class="n">varPSubtotal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PivotArea"><a class="viewcode-back" href="../../../api/openpyxl.pivot.table.html#openpyxl.pivot.table.PivotArea">[docs]</a><span class="k">class</span> <span class="nc">PivotArea</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;pivotArea&quot;</span>
+
+    <span class="n">references</span> <span class="o">=</span> <span class="n">NestedSequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Reference</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">field</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">type</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;normal&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;origin&#39;</span><span class="p">,</span> <span class="s1">&#39;button&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;topEnd&#39;</span><span class="p">,</span> <span class="s1">&#39;topRight&#39;</span><span class="p">]))</span>
+    <span class="n">dataOnly</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">labelOnly</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">grandRow</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">grandCol</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">cacheIndex</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">outline</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">collapsedLevelsAreSubtotals</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">axis</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;axisRow&#39;</span><span class="p">,</span> <span class="s1">&#39;axisCol&#39;</span><span class="p">,</span> <span class="s1">&#39;axisPage&#39;</span><span class="p">,</span> <span class="s1">&#39;axisValues&#39;</span><span class="p">]))</span>
+    <span class="n">fieldPosition</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;references&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">references</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;normal&quot;</span><span class="p">,</span>
+                 <span class="n">dataOnly</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">labelOnly</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">grandRow</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">grandCol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">cacheIndex</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">outline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">offset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">collapsedLevelsAreSubtotals</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">fieldPosition</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">references</span> <span class="o">=</span> <span class="n">references</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extLst</span> <span class="o">=</span> <span class="n">extLst</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field</span> <span class="o">=</span> <span class="n">field</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="nb">type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataOnly</span> <span class="o">=</span> <span class="n">dataOnly</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">labelOnly</span> <span class="o">=</span> <span class="n">labelOnly</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grandRow</span> <span class="o">=</span> <span class="n">grandRow</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grandCol</span> <span class="o">=</span> <span class="n">grandCol</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cacheIndex</span> <span class="o">=</span> <span class="n">cacheIndex</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">outline</span> <span class="o">=</span> <span class="n">outline</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">offset</span> <span class="o">=</span> <span class="n">offset</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">collapsedLevelsAreSubtotals</span> <span class="o">=</span> <span class="n">collapsedLevelsAreSubtotals</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">axis</span> <span class="o">=</span> <span class="n">axis</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fieldPosition</span> <span class="o">=</span> <span class="n">fieldPosition</span></div>
+
+
+<div class="viewcode-block" id="ChartFormat"><a class="viewcode-back" href="../../../api/openpyxl.pivot.table.html#openpyxl.pivot.table.ChartFormat">[docs]</a><span class="k">class</span> <span class="nc">ChartFormat</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;chartFormat&quot;</span>
+
+    <span class="n">chart</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="nb">format</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">series</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">pivotArea</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">PivotArea</span><span class="p">,</span> <span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;pivotArea&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">chart</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="nb">format</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">series</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">pivotArea</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chart</span> <span class="o">=</span> <span class="n">chart</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">=</span> <span class="nb">format</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">series</span> <span class="o">=</span> <span class="n">series</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pivotArea</span> <span class="o">=</span> <span class="n">pivotArea</span></div>
+
+
+<div class="viewcode-block" id="ConditionalFormat"><a class="viewcode-back" href="../../../api/openpyxl.pivot.table.html#openpyxl.pivot.table.ConditionalFormat">[docs]</a><span class="k">class</span> <span class="nc">ConditionalFormat</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;conditionalFormat&quot;</span>
+
+    <span class="n">scope</span> <span class="o">=</span> <span class="n">Set</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;selection&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;field&#39;</span><span class="p">]))</span>
+    <span class="nb">type</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="s1">&#39;column&#39;</span><span class="p">]))</span>
+    <span class="n">priority</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">pivotAreas</span> <span class="o">=</span> <span class="n">NestedSequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">PivotArea</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;pivotAreas&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">scope</span><span class="o">=</span><span class="s2">&quot;selection&quot;</span><span class="p">,</span>
+                 <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">priority</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">pivotAreas</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scope</span> <span class="o">=</span> <span class="n">scope</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="nb">type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">priority</span> <span class="o">=</span> <span class="n">priority</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pivotAreas</span> <span class="o">=</span> <span class="n">pivotAreas</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extLst</span> <span class="o">=</span> <span class="n">extLst</span></div>
+
+
+<div class="viewcode-block" id="Format"><a class="viewcode-back" href="../../../api/openpyxl.pivot.table.html#openpyxl.pivot.table.Format">[docs]</a><span class="k">class</span> <span class="nc">Format</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;format&quot;</span>
+
+    <span class="n">action</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;blank&#39;</span><span class="p">,</span> <span class="s1">&#39;formatting&#39;</span><span class="p">,</span> <span class="s1">&#39;drill&#39;</span><span class="p">,</span> <span class="s1">&#39;formula&#39;</span><span class="p">]))</span>
+    <span class="n">dxfId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pivotArea</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">PivotArea</span><span class="p">,</span> <span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;pivotArea&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">action</span><span class="o">=</span><span class="s2">&quot;formatting&quot;</span><span class="p">,</span>
+                 <span class="n">dxfId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">pivotArea</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="n">action</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dxfId</span> <span class="o">=</span> <span class="n">dxfId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pivotArea</span> <span class="o">=</span> <span class="n">pivotArea</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extLst</span> <span class="o">=</span> <span class="n">extLst</span></div>
+
+
+<div class="viewcode-block" id="DataField"><a class="viewcode-back" href="../../../api/openpyxl.pivot.table.html#openpyxl.pivot.table.DataField">[docs]</a><span class="k">class</span> <span class="nc">DataField</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;dataField&quot;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">fld</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">subtotal</span> <span class="o">=</span> <span class="n">Set</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;average&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;countNums&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;product&#39;</span><span class="p">,</span> <span class="s1">&#39;stdDev&#39;</span><span class="p">,</span> <span class="s1">&#39;stdDevp&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;var&#39;</span><span class="p">,</span> <span class="s1">&#39;varp&#39;</span><span class="p">]))</span>
+    <span class="n">showDataAs</span> <span class="o">=</span> <span class="n">Set</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;normal&#39;</span><span class="p">,</span> <span class="s1">&#39;difference&#39;</span><span class="p">,</span> <span class="s1">&#39;percent&#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;percentDiff&#39;</span><span class="p">,</span> <span class="s1">&#39;runTotal&#39;</span><span class="p">,</span> <span class="s1">&#39;percentOfRow&#39;</span><span class="p">,</span> <span class="s1">&#39;percentOfCol&#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;percentOfTotal&#39;</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">]))</span>
+    <span class="n">baseField</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">baseItem</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">numFmtId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">()</span>
+
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">fld</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">subtotal</span><span class="o">=</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span>
+                 <span class="n">showDataAs</span><span class="o">=</span><span class="s2">&quot;normal&quot;</span><span class="p">,</span>
+                 <span class="n">baseField</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+                 <span class="n">baseItem</span><span class="o">=</span><span class="mi">1048832</span><span class="p">,</span>
+                 <span class="n">numFmtId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fld</span> <span class="o">=</span> <span class="n">fld</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subtotal</span> <span class="o">=</span> <span class="n">subtotal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showDataAs</span> <span class="o">=</span> <span class="n">showDataAs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">baseField</span> <span class="o">=</span> <span class="n">baseField</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">baseItem</span> <span class="o">=</span> <span class="n">baseItem</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">numFmtId</span> <span class="o">=</span> <span class="n">numFmtId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extLst</span> <span class="o">=</span> <span class="n">extLst</span></div>
+
+
+<div class="viewcode-block" id="PageField"><a class="viewcode-back" href="../../../api/openpyxl.pivot.table.html#openpyxl.pivot.table.PageField">[docs]</a><span class="k">class</span> <span class="nc">PageField</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;pageField&quot;</span>
+
+    <span class="n">fld</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">hier</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">cap</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">fld</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">item</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">hier</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">cap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fld</span> <span class="o">=</span> <span class="n">fld</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">item</span> <span class="o">=</span> <span class="n">item</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hier</span> <span class="o">=</span> <span class="n">hier</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cap</span> <span class="o">=</span> <span class="n">cap</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extLst</span> <span class="o">=</span> <span class="n">extLst</span></div>
+
+
+<div class="viewcode-block" id="RowColItem"><a class="viewcode-back" href="../../../api/openpyxl.pivot.table.html#openpyxl.pivot.table.RowColItem">[docs]</a><span class="k">class</span> <span class="nc">RowColItem</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;i&quot;</span>
+
+    <span class="n">t</span> <span class="o">=</span> <span class="n">Set</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;countA&#39;</span><span class="p">,</span> <span class="s1">&#39;avg&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;product&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;stdDev&#39;</span><span class="p">,</span> <span class="s1">&#39;stdDevP&#39;</span><span class="p">,</span> <span class="s1">&#39;var&#39;</span><span class="p">,</span> <span class="s1">&#39;varP&#39;</span><span class="p">,</span> <span class="s1">&#39;grand&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;blank&#39;</span><span class="p">]))</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Index</span><span class="p">,</span> <span class="n">attribute</span><span class="o">=</span><span class="s2">&quot;v&quot;</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">t</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">,</span>
+                 <span class="n">r</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                 <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                 <span class="n">x</span><span class="o">=</span><span class="p">(),</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">t</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">r</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">i</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span></div>
+
+
+<div class="viewcode-block" id="RowColField"><a class="viewcode-back" href="../../../api/openpyxl.pivot.table.html#openpyxl.pivot.table.RowColField">[docs]</a><span class="k">class</span> <span class="nc">RowColField</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;field&quot;</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span></div>
+
+
+<div class="viewcode-block" id="AutoSortScope"><a class="viewcode-back" href="../../../api/openpyxl.pivot.table.html#openpyxl.pivot.table.AutoSortScope">[docs]</a><span class="k">class</span> <span class="nc">AutoSortScope</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">pivotArea</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">PivotArea</span><span class="p">,</span> <span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;pivotArea&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">pivotArea</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pivotArea</span> <span class="o">=</span> <span class="n">pivotArea</span></div>
+
+
+<div class="viewcode-block" id="FieldItem"><a class="viewcode-back" href="../../../api/openpyxl.pivot.table.html#openpyxl.pivot.table.FieldItem">[docs]</a><span class="k">class</span> <span class="nc">FieldItem</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;item&quot;</span>
+
+    <span class="n">n</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">Set</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;countA&#39;</span><span class="p">,</span> <span class="s1">&#39;avg&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;product&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;stdDev&#39;</span><span class="p">,</span> <span class="s1">&#39;stdDevP&#39;</span><span class="p">,</span> <span class="s1">&#39;var&#39;</span><span class="p">,</span> <span class="s1">&#39;varP&#39;</span><span class="p">,</span> <span class="s1">&#39;grand&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;blank&#39;</span><span class="p">]))</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">sd</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">n</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">t</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">,</span>
+                 <span class="n">h</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">s</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">sd</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">f</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">c</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">d</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">e</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="n">n</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">t</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">h</span> <span class="o">=</span> <span class="n">h</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="o">=</span> <span class="n">s</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sd</span> <span class="o">=</span> <span class="n">sd</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="n">f</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m</span> <span class="o">=</span> <span class="n">m</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="n">c</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">d</span> <span class="o">=</span> <span class="n">d</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">e</span> <span class="o">=</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="PivotField"><a class="viewcode-back" href="../../../api/openpyxl.pivot.table.html#openpyxl.pivot.table.PivotField">[docs]</a><span class="k">class</span> <span class="nc">PivotField</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;pivotField&quot;</span>
+
+    <span class="n">items</span> <span class="o">=</span> <span class="n">NestedSequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">FieldItem</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">autoSortScope</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">AutoSortScope</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">axis</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;axisRow&#39;</span><span class="p">,</span> <span class="s1">&#39;axisCol&#39;</span><span class="p">,</span> <span class="s1">&#39;axisPage&#39;</span><span class="p">,</span> <span class="s1">&#39;axisValues&#39;</span><span class="p">]))</span>
+    <span class="n">dataField</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">subtotalCaption</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">showDropDowns</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">hiddenLevel</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">uniqueMemberProperty</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">compact</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">allDrilled</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">numFmtId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">outline</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">subtotalTop</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dragToRow</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dragToCol</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">multipleItemSelectionAllowed</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dragToPage</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dragToData</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dragOff</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">showAll</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">insertBlankRow</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">serverField</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">insertPageBreak</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">autoShow</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">topAutoShow</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">hideNewItems</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">measureFilter</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">includeNewItemsInFilter</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">itemPageCount</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">sortType</span> <span class="o">=</span> <span class="n">Set</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;manual&#39;</span><span class="p">,</span> <span class="s1">&#39;ascending&#39;</span><span class="p">,</span> <span class="s1">&#39;descending&#39;</span><span class="p">]))</span>
+    <span class="n">dataSourceSort</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">nonAutoSortDefault</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">rankBy</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">defaultSubtotal</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">sumSubtotal</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">countASubtotal</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">avgSubtotal</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">maxSubtotal</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">minSubtotal</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">productSubtotal</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">countSubtotal</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">stdDevSubtotal</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">stdDevPSubtotal</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">varSubtotal</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">varPSubtotal</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">showPropCell</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">showPropTip</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">showPropAsCaption</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">defaultAttributeDrillState</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="s1">&#39;autoSortScope&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">items</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">autoSortScope</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">dataField</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">subtotalCaption</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">showDropDowns</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">hiddenLevel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">uniqueMemberProperty</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">compact</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">allDrilled</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">numFmtId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">outline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">subtotalTop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">dragToRow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">dragToCol</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">multipleItemSelectionAllowed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">dragToPage</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">dragToData</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">dragOff</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">showAll</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">insertBlankRow</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">serverField</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">insertPageBreak</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">autoShow</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">topAutoShow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">hideNewItems</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">measureFilter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">includeNewItemsInFilter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">itemPageCount</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                 <span class="n">sortType</span><span class="o">=</span><span class="s2">&quot;manual&quot;</span><span class="p">,</span>
+                 <span class="n">dataSourceSort</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">nonAutoSortDefault</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">rankBy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">defaultSubtotal</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">sumSubtotal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">countASubtotal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">avgSubtotal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">maxSubtotal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">minSubtotal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">productSubtotal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">countSubtotal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">stdDevSubtotal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">stdDevPSubtotal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">varSubtotal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">varPSubtotal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">showPropCell</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">showPropTip</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">showPropAsCaption</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">defaultAttributeDrillState</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span class="n">items</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">autoSortScope</span> <span class="o">=</span> <span class="n">autoSortScope</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">axis</span> <span class="o">=</span> <span class="n">axis</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataField</span> <span class="o">=</span> <span class="n">dataField</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subtotalCaption</span> <span class="o">=</span> <span class="n">subtotalCaption</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showDropDowns</span> <span class="o">=</span> <span class="n">showDropDowns</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hiddenLevel</span> <span class="o">=</span> <span class="n">hiddenLevel</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uniqueMemberProperty</span> <span class="o">=</span> <span class="n">uniqueMemberProperty</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compact</span> <span class="o">=</span> <span class="n">compact</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">allDrilled</span> <span class="o">=</span> <span class="n">allDrilled</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">numFmtId</span> <span class="o">=</span> <span class="n">numFmtId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">outline</span> <span class="o">=</span> <span class="n">outline</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subtotalTop</span> <span class="o">=</span> <span class="n">subtotalTop</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dragToRow</span> <span class="o">=</span> <span class="n">dragToRow</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dragToCol</span> <span class="o">=</span> <span class="n">dragToCol</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">multipleItemSelectionAllowed</span> <span class="o">=</span> <span class="n">multipleItemSelectionAllowed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dragToPage</span> <span class="o">=</span> <span class="n">dragToPage</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dragToData</span> <span class="o">=</span> <span class="n">dragToData</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dragOff</span> <span class="o">=</span> <span class="n">dragOff</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showAll</span> <span class="o">=</span> <span class="n">showAll</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">insertBlankRow</span> <span class="o">=</span> <span class="n">insertBlankRow</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">serverField</span> <span class="o">=</span> <span class="n">serverField</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">insertPageBreak</span> <span class="o">=</span> <span class="n">insertPageBreak</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">autoShow</span> <span class="o">=</span> <span class="n">autoShow</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">topAutoShow</span> <span class="o">=</span> <span class="n">topAutoShow</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hideNewItems</span> <span class="o">=</span> <span class="n">hideNewItems</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">measureFilter</span> <span class="o">=</span> <span class="n">measureFilter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">includeNewItemsInFilter</span> <span class="o">=</span> <span class="n">includeNewItemsInFilter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">itemPageCount</span> <span class="o">=</span> <span class="n">itemPageCount</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sortType</span> <span class="o">=</span> <span class="n">sortType</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataSourceSort</span> <span class="o">=</span> <span class="n">dataSourceSort</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nonAutoSortDefault</span> <span class="o">=</span> <span class="n">nonAutoSortDefault</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rankBy</span> <span class="o">=</span> <span class="n">rankBy</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultSubtotal</span> <span class="o">=</span> <span class="n">defaultSubtotal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sumSubtotal</span> <span class="o">=</span> <span class="n">sumSubtotal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">countASubtotal</span> <span class="o">=</span> <span class="n">countASubtotal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">avgSubtotal</span> <span class="o">=</span> <span class="n">avgSubtotal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">maxSubtotal</span> <span class="o">=</span> <span class="n">maxSubtotal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">minSubtotal</span> <span class="o">=</span> <span class="n">minSubtotal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">productSubtotal</span> <span class="o">=</span> <span class="n">productSubtotal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">countSubtotal</span> <span class="o">=</span> <span class="n">countSubtotal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stdDevSubtotal</span> <span class="o">=</span> <span class="n">stdDevSubtotal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stdDevPSubtotal</span> <span class="o">=</span> <span class="n">stdDevPSubtotal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">varSubtotal</span> <span class="o">=</span> <span class="n">varSubtotal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">varPSubtotal</span> <span class="o">=</span> <span class="n">varPSubtotal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showPropCell</span> <span class="o">=</span> <span class="n">showPropCell</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showPropTip</span> <span class="o">=</span> <span class="n">showPropTip</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showPropAsCaption</span> <span class="o">=</span> <span class="n">showPropAsCaption</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultAttributeDrillState</span> <span class="o">=</span> <span class="n">defaultAttributeDrillState</span></div>
+
+
+<div class="viewcode-block" id="Location"><a class="viewcode-back" href="../../../api/openpyxl.pivot.table.html#openpyxl.pivot.table.Location">[docs]</a><span class="k">class</span> <span class="nc">Location</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;location&quot;</span>
+
+    <span class="n">ref</span> <span class="o">=</span> <span class="n">String</span><span class="p">()</span>
+    <span class="n">firstHeaderRow</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">firstDataRow</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">firstDataCol</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">rowPageCount</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">colPageCount</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">ref</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">firstHeaderRow</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">firstDataRow</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">firstDataCol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">rowPageCount</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">colPageCount</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="n">ref</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">firstHeaderRow</span> <span class="o">=</span> <span class="n">firstHeaderRow</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">firstDataRow</span> <span class="o">=</span> <span class="n">firstDataRow</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">firstDataCol</span> <span class="o">=</span> <span class="n">firstDataCol</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rowPageCount</span> <span class="o">=</span> <span class="n">rowPageCount</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">colPageCount</span> <span class="o">=</span> <span class="n">colPageCount</span></div>
+
+
+<div class="viewcode-block" id="TableDefinition"><a class="viewcode-back" href="../../../api/openpyxl.pivot.table.html#openpyxl.pivot.table.TableDefinition">[docs]</a><span class="k">class</span> <span class="nc">TableDefinition</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">mime_type</span> <span class="o">=</span> <span class="s2">&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.pivotTable+xml&quot;</span>
+    <span class="n">rel_type</span> <span class="o">=</span> <span class="s2">&quot;http://schemas.openxmlformats.org/officeDocument/2006/relationships/pivotTable&quot;</span>
+    <span class="n">_id</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">_path</span> <span class="o">=</span> <span class="s2">&quot;/xl/pivotTables/pivotTable</span><span class="si">{0}</span><span class="s2">.xml&quot;</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;pivotTableDefinition&quot;</span>
+    <span class="n">cache</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">String</span><span class="p">()</span>
+    <span class="n">cacheId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">dataOnRows</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">dataPosition</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dataCaption</span> <span class="o">=</span> <span class="n">String</span><span class="p">()</span>
+    <span class="n">grandTotalCaption</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">errorCaption</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">showError</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">missingCaption</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">showMissing</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">pageStyle</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pivotTableStyle</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">vacatedStyle</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">tag</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">updatedVersion</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">minRefreshableVersion</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">asteriskTotals</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">showItems</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">editData</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">disableFieldList</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">showCalcMbrs</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">visualTotals</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">showMultipleLabel</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">showDataDropDown</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">showDrill</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">printDrill</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">showMemberPropertyTips</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">showDataTips</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">enableWizard</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">enableDrill</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">enableFieldProperties</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">preserveFormatting</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">useAutoFormatting</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">pageWrap</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">pageOverThenDown</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">subtotalHiddenItems</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">rowGrandTotals</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">colGrandTotals</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">fieldPrintTitles</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">itemPrintTitles</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">mergeItem</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">showDropZones</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">createdVersion</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">indent</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">showEmptyRow</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">showEmptyCol</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">showHeaders</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">compact</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">outline</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">outlineData</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">compactData</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">published</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">gridDropZones</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">immersive</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">multipleFieldFilters</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">chartFormat</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">rowHeaderCaption</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">colHeaderCaption</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">fieldListSortAscending</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">mdxSubqueries</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">customListSort</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">autoFormatId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">applyNumberFormats</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">applyBorderFormats</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">applyFontFormats</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">applyPatternFormats</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">applyAlignmentFormats</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">applyWidthHeightFormats</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+    <span class="n">location</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Location</span><span class="p">,</span> <span class="p">)</span>
+    <span class="n">pivotFields</span> <span class="o">=</span> <span class="n">NestedSequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">PivotField</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">rowFields</span> <span class="o">=</span> <span class="n">NestedSequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">RowColField</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">rowItems</span> <span class="o">=</span> <span class="n">NestedSequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">RowColItem</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">colFields</span> <span class="o">=</span> <span class="n">NestedSequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">RowColField</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">colItems</span> <span class="o">=</span> <span class="n">NestedSequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">RowColItem</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pageFields</span> <span class="o">=</span> <span class="n">NestedSequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">PageField</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dataFields</span> <span class="o">=</span> <span class="n">NestedSequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">DataField</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">formats</span> <span class="o">=</span> <span class="n">NestedSequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Format</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">conditionalFormats</span> <span class="o">=</span> <span class="n">NestedSequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ConditionalFormat</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">chartFormats</span> <span class="o">=</span> <span class="n">NestedSequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ChartFormat</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pivotHierarchies</span> <span class="o">=</span> <span class="n">NestedSequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">PivotHierarchy</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pivotTableStyleInfo</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">PivotTableStyle</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">filters</span> <span class="o">=</span> <span class="n">NestedSequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">PivotFilter</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">rowHierarchiesUsage</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">RowHierarchiesUsage</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">colHierarchiesUsage</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ColHierarchiesUsage</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">Relation</span><span class="p">()</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">,</span> <span class="s1">&#39;pivotFields&#39;</span><span class="p">,</span> <span class="s1">&#39;rowFields&#39;</span><span class="p">,</span> <span class="s1">&#39;rowItems&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;colFields&#39;</span><span class="p">,</span> <span class="s1">&#39;colItems&#39;</span><span class="p">,</span> <span class="s1">&#39;pageFields&#39;</span><span class="p">,</span> <span class="s1">&#39;dataFields&#39;</span><span class="p">,</span> <span class="s1">&#39;formats&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;conditionalFormats&#39;</span><span class="p">,</span> <span class="s1">&#39;chartFormats&#39;</span><span class="p">,</span> <span class="s1">&#39;pivotHierarchies&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;pivotTableStyleInfo&#39;</span><span class="p">,</span> <span class="s1">&#39;filters&#39;</span><span class="p">,</span> <span class="s1">&#39;rowHierarchiesUsage&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;colHierarchiesUsage&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">cacheId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">dataOnRows</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">dataPosition</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">dataCaption</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">grandTotalCaption</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">errorCaption</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">showError</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">missingCaption</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">showMissing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">pageStyle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">pivotTableStyle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">vacatedStyle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">tag</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">updatedVersion</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                 <span class="n">minRefreshableVersion</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                 <span class="n">asteriskTotals</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">showItems</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">editData</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">disableFieldList</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">showCalcMbrs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">visualTotals</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">showMultipleLabel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">showDataDropDown</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">showDrill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">printDrill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">showMemberPropertyTips</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">showDataTips</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">enableWizard</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">enableDrill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">enableFieldProperties</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">preserveFormatting</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">useAutoFormatting</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">pageWrap</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                 <span class="n">pageOverThenDown</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">subtotalHiddenItems</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">rowGrandTotals</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">colGrandTotals</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">fieldPrintTitles</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">itemPrintTitles</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">mergeItem</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">showDropZones</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">createdVersion</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                 <span class="n">indent</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                 <span class="n">showEmptyRow</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">showEmptyCol</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">showHeaders</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">compact</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">outline</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">outlineData</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">compactData</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">published</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">gridDropZones</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">immersive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">multipleFieldFilters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">chartFormat</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                 <span class="n">rowHeaderCaption</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">colHeaderCaption</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">fieldListSortAscending</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">mdxSubqueries</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">customListSort</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">autoFormatId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">applyNumberFormats</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">applyBorderFormats</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">applyFontFormats</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">applyPatternFormats</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">applyAlignmentFormats</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">applyWidthHeightFormats</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">location</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">pivotFields</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">rowFields</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">rowItems</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">colFields</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">colItems</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">pageFields</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">dataFields</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">formats</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">conditionalFormats</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">chartFormats</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">pivotHierarchies</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">pivotTableStyleInfo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">filters</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">rowHierarchiesUsage</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">colHierarchiesUsage</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cacheId</span> <span class="o">=</span> <span class="n">cacheId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataOnRows</span> <span class="o">=</span> <span class="n">dataOnRows</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataPosition</span> <span class="o">=</span> <span class="n">dataPosition</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataCaption</span> <span class="o">=</span> <span class="n">dataCaption</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grandTotalCaption</span> <span class="o">=</span> <span class="n">grandTotalCaption</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errorCaption</span> <span class="o">=</span> <span class="n">errorCaption</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showError</span> <span class="o">=</span> <span class="n">showError</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">missingCaption</span> <span class="o">=</span> <span class="n">missingCaption</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showMissing</span> <span class="o">=</span> <span class="n">showMissing</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pageStyle</span> <span class="o">=</span> <span class="n">pageStyle</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pivotTableStyle</span> <span class="o">=</span> <span class="n">pivotTableStyle</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vacatedStyle</span> <span class="o">=</span> <span class="n">vacatedStyle</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tag</span> <span class="o">=</span> <span class="n">tag</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">updatedVersion</span> <span class="o">=</span> <span class="n">updatedVersion</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">minRefreshableVersion</span> <span class="o">=</span> <span class="n">minRefreshableVersion</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">asteriskTotals</span> <span class="o">=</span> <span class="n">asteriskTotals</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showItems</span> <span class="o">=</span> <span class="n">showItems</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">editData</span> <span class="o">=</span> <span class="n">editData</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">disableFieldList</span> <span class="o">=</span> <span class="n">disableFieldList</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showCalcMbrs</span> <span class="o">=</span> <span class="n">showCalcMbrs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">visualTotals</span> <span class="o">=</span> <span class="n">visualTotals</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showMultipleLabel</span> <span class="o">=</span> <span class="n">showMultipleLabel</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showDataDropDown</span> <span class="o">=</span> <span class="n">showDataDropDown</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showDrill</span> <span class="o">=</span> <span class="n">showDrill</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">printDrill</span> <span class="o">=</span> <span class="n">printDrill</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showMemberPropertyTips</span> <span class="o">=</span> <span class="n">showMemberPropertyTips</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showDataTips</span> <span class="o">=</span> <span class="n">showDataTips</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">enableWizard</span> <span class="o">=</span> <span class="n">enableWizard</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">enableDrill</span> <span class="o">=</span> <span class="n">enableDrill</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">enableFieldProperties</span> <span class="o">=</span> <span class="n">enableFieldProperties</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">preserveFormatting</span> <span class="o">=</span> <span class="n">preserveFormatting</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">useAutoFormatting</span> <span class="o">=</span> <span class="n">useAutoFormatting</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pageWrap</span> <span class="o">=</span> <span class="n">pageWrap</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pageOverThenDown</span> <span class="o">=</span> <span class="n">pageOverThenDown</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subtotalHiddenItems</span> <span class="o">=</span> <span class="n">subtotalHiddenItems</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rowGrandTotals</span> <span class="o">=</span> <span class="n">rowGrandTotals</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">colGrandTotals</span> <span class="o">=</span> <span class="n">colGrandTotals</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fieldPrintTitles</span> <span class="o">=</span> <span class="n">fieldPrintTitles</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">itemPrintTitles</span> <span class="o">=</span> <span class="n">itemPrintTitles</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mergeItem</span> <span class="o">=</span> <span class="n">mergeItem</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showDropZones</span> <span class="o">=</span> <span class="n">showDropZones</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">createdVersion</span> <span class="o">=</span> <span class="n">createdVersion</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">=</span> <span class="n">indent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showEmptyRow</span> <span class="o">=</span> <span class="n">showEmptyRow</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showEmptyCol</span> <span class="o">=</span> <span class="n">showEmptyCol</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showHeaders</span> <span class="o">=</span> <span class="n">showHeaders</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compact</span> <span class="o">=</span> <span class="n">compact</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">outline</span> <span class="o">=</span> <span class="n">outline</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">outlineData</span> <span class="o">=</span> <span class="n">outlineData</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compactData</span> <span class="o">=</span> <span class="n">compactData</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">published</span> <span class="o">=</span> <span class="n">published</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gridDropZones</span> <span class="o">=</span> <span class="n">gridDropZones</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">immersive</span> <span class="o">=</span> <span class="n">immersive</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">multipleFieldFilters</span> <span class="o">=</span> <span class="n">multipleFieldFilters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chartFormat</span> <span class="o">=</span> <span class="n">chartFormat</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rowHeaderCaption</span> <span class="o">=</span> <span class="n">rowHeaderCaption</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">colHeaderCaption</span> <span class="o">=</span> <span class="n">colHeaderCaption</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fieldListSortAscending</span> <span class="o">=</span> <span class="n">fieldListSortAscending</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mdxSubqueries</span> <span class="o">=</span> <span class="n">mdxSubqueries</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">customListSort</span> <span class="o">=</span> <span class="n">customListSort</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">autoFormatId</span> <span class="o">=</span> <span class="n">autoFormatId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">applyNumberFormats</span> <span class="o">=</span> <span class="n">applyNumberFormats</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">applyBorderFormats</span> <span class="o">=</span> <span class="n">applyBorderFormats</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">applyFontFormats</span> <span class="o">=</span> <span class="n">applyFontFormats</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">applyPatternFormats</span> <span class="o">=</span> <span class="n">applyPatternFormats</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">applyAlignmentFormats</span> <span class="o">=</span> <span class="n">applyAlignmentFormats</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">applyWidthHeightFormats</span> <span class="o">=</span> <span class="n">applyWidthHeightFormats</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="n">location</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pivotFields</span> <span class="o">=</span> <span class="n">pivotFields</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rowFields</span> <span class="o">=</span> <span class="n">rowFields</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rowItems</span> <span class="o">=</span> <span class="n">rowItems</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">colFields</span> <span class="o">=</span> <span class="n">colFields</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">colItems</span> <span class="o">=</span> <span class="n">colItems</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pageFields</span> <span class="o">=</span> <span class="n">pageFields</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataFields</span> <span class="o">=</span> <span class="n">dataFields</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">formats</span> <span class="o">=</span> <span class="n">formats</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conditionalFormats</span> <span class="o">=</span> <span class="n">conditionalFormats</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chartFormats</span> <span class="o">=</span> <span class="n">chartFormats</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pivotHierarchies</span> <span class="o">=</span> <span class="n">pivotHierarchies</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pivotTableStyleInfo</span> <span class="o">=</span> <span class="n">pivotTableStyleInfo</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filters</span> <span class="o">=</span> <span class="n">filters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rowHierarchiesUsage</span> <span class="o">=</span> <span class="n">rowHierarchiesUsage</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">colHierarchiesUsage</span> <span class="o">=</span> <span class="n">colHierarchiesUsage</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extLst</span> <span class="o">=</span> <span class="n">extLst</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span>
+
+
+<div class="viewcode-block" id="TableDefinition.to_tree"><a class="viewcode-back" href="../../../api/openpyxl.pivot.table.html#openpyxl.pivot.table.TableDefinition.to_tree">[docs]</a>    <span class="k">def</span> <span class="nf">to_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">tree</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">TableDefinition</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">to_tree</span><span class="p">()</span>
+        <span class="n">tree</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;xmlns&quot;</span><span class="p">,</span> <span class="n">SHEET_MAIN_NS</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">tree</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">path</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_path</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_id</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">_write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">archive</span><span class="p">,</span> <span class="n">manifest</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add to zipfile and update manifest</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_write_rels</span><span class="p">(</span><span class="n">archive</span><span class="p">,</span> <span class="n">manifest</span><span class="p">)</span>
+        <span class="n">xml</span> <span class="o">=</span> <span class="n">tostring</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">to_tree</span><span class="p">())</span>
+        <span class="n">archive</span><span class="o">.</span><span class="n">writestr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">xml</span><span class="p">)</span>
+        <span class="n">manifest</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">_write_rels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">archive</span><span class="p">,</span> <span class="n">manifest</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Write the relevant child objects and add links</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="n">rels</span> <span class="o">=</span> <span class="n">RelationshipList</span><span class="p">()</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">Relationship</span><span class="p">(</span><span class="n">Type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">rel_type</span><span class="p">,</span> <span class="n">Target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">rels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">id</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">path</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">archive</span><span class="o">.</span><span class="n">namelist</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">_write</span><span class="p">(</span><span class="n">archive</span><span class="p">,</span> <span class="n">manifest</span><span class="p">)</span>
+
+        <span class="n">path</span> <span class="o">=</span> <span class="n">get_rels_path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">xml</span> <span class="o">=</span> <span class="n">tostring</span><span class="p">(</span><span class="n">rels</span><span class="o">.</span><span class="n">to_tree</span><span class="p">())</span>
+        <span class="n">archive</span><span class="o">.</span><span class="n">writestr</span><span class="p">(</span><span class="n">path</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">xml</span><span class="p">)</span></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.pivot.table</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2010 - 2022, See AUTHORS.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

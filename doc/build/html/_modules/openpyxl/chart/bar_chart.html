@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>openpyxl.chart.bar_chart &#8212; openpyxl 3.0.9 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/nature.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.chart.bar_chart</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for openpyxl.chart.bar_chart</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2010-2022 openpyxl</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.serialisable</span> <span class="kn">import</span> <span class="n">Serialisable</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Typed</span><span class="p">,</span>
+    <span class="n">Bool</span><span class="p">,</span>
+    <span class="n">Integer</span><span class="p">,</span>
+    <span class="n">Sequence</span><span class="p">,</span>
+    <span class="n">Alias</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.excel</span> <span class="kn">import</span> <span class="n">ExtensionList</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.nested</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">NestedNoneSet</span><span class="p">,</span>
+    <span class="n">NestedSet</span><span class="p">,</span>
+    <span class="n">NestedBool</span><span class="p">,</span>
+    <span class="n">NestedInteger</span><span class="p">,</span>
+    <span class="n">NestedMinMax</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">.descriptors</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">NestedGapAmount</span><span class="p">,</span>
+    <span class="n">NestedOverlap</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">._chart</span> <span class="kn">import</span> <span class="n">ChartBase</span>
+<span class="kn">from</span> <span class="nn">._3d</span> <span class="kn">import</span> <span class="n">_3DBase</span>
+<span class="kn">from</span> <span class="nn">.axis</span> <span class="kn">import</span> <span class="n">TextAxis</span><span class="p">,</span> <span class="n">NumericAxis</span><span class="p">,</span> <span class="n">SeriesAxis</span><span class="p">,</span> <span class="n">ChartLines</span>
+<span class="kn">from</span> <span class="nn">.shapes</span> <span class="kn">import</span> <span class="n">GraphicalProperties</span>
+<span class="kn">from</span> <span class="nn">.series</span> <span class="kn">import</span> <span class="n">Series</span>
+<span class="kn">from</span> <span class="nn">.legend</span> <span class="kn">import</span> <span class="n">Legend</span>
+<span class="kn">from</span> <span class="nn">.label</span> <span class="kn">import</span> <span class="n">DataLabelList</span>
+
+
+<span class="k">class</span> <span class="nc">_BarChartBase</span><span class="p">(</span><span class="n">ChartBase</span><span class="p">):</span>
+
+    <span class="n">barDir</span> <span class="o">=</span> <span class="n">NestedSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;col&#39;</span><span class="p">]))</span>
+    <span class="nb">type</span> <span class="o">=</span> <span class="n">Alias</span><span class="p">(</span><span class="s2">&quot;barDir&quot;</span><span class="p">)</span>
+    <span class="n">grouping</span> <span class="o">=</span> <span class="n">NestedSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;percentStacked&#39;</span><span class="p">,</span> <span class="s1">&#39;clustered&#39;</span><span class="p">,</span> <span class="s1">&#39;standard&#39;</span><span class="p">,</span>
+                                  <span class="s1">&#39;stacked&#39;</span><span class="p">]))</span>
+    <span class="n">varyColors</span> <span class="o">=</span> <span class="n">NestedBool</span><span class="p">(</span><span class="n">nested</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ser</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Series</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dLbls</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">DataLabelList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dataLabels</span> <span class="o">=</span> <span class="n">Alias</span><span class="p">(</span><span class="s2">&quot;dLbls&quot;</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;barDir&#39;</span><span class="p">,</span> <span class="s1">&#39;grouping&#39;</span><span class="p">,</span> <span class="s1">&#39;varyColors&#39;</span><span class="p">,</span> <span class="s1">&#39;ser&#39;</span><span class="p">,</span> <span class="s1">&#39;dLbls&#39;</span><span class="p">)</span>
+
+    <span class="n">_series_type</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">barDir</span><span class="o">=</span><span class="s2">&quot;col&quot;</span><span class="p">,</span>
+                 <span class="n">grouping</span><span class="o">=</span><span class="s2">&quot;clustered&quot;</span><span class="p">,</span>
+                 <span class="n">varyColors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">ser</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">dLbls</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">kw</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">barDir</span> <span class="o">=</span> <span class="n">barDir</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grouping</span> <span class="o">=</span> <span class="n">grouping</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">varyColors</span> <span class="o">=</span> <span class="n">varyColors</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ser</span> <span class="o">=</span> <span class="n">ser</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dLbls</span> <span class="o">=</span> <span class="n">dLbls</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">_BarChartBase</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="BarChart"><a class="viewcode-back" href="../../../api/openpyxl.chart.bar_chart.html#openpyxl.chart.bar_chart.BarChart">[docs]</a><span class="k">class</span> <span class="nc">BarChart</span><span class="p">(</span><span class="n">_BarChartBase</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;barChart&quot;</span>
+
+    <span class="n">barDir</span> <span class="o">=</span> <span class="n">_BarChartBase</span><span class="o">.</span><span class="n">barDir</span>
+    <span class="n">grouping</span> <span class="o">=</span> <span class="n">_BarChartBase</span><span class="o">.</span><span class="n">grouping</span>
+    <span class="n">varyColors</span> <span class="o">=</span> <span class="n">_BarChartBase</span><span class="o">.</span><span class="n">varyColors</span>
+    <span class="n">ser</span> <span class="o">=</span> <span class="n">_BarChartBase</span><span class="o">.</span><span class="n">ser</span>
+    <span class="n">dLbls</span> <span class="o">=</span> <span class="n">_BarChartBase</span><span class="o">.</span><span class="n">dLbls</span>
+
+    <span class="n">gapWidth</span> <span class="o">=</span> <span class="n">NestedGapAmount</span><span class="p">()</span>
+    <span class="n">overlap</span> <span class="o">=</span> <span class="n">NestedOverlap</span><span class="p">()</span>
+    <span class="n">serLines</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ChartLines</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># chart properties actually used by containing classes</span>
+    <span class="n">x_axis</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">TextAxis</span><span class="p">)</span>
+    <span class="n">y_axis</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">NumericAxis</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="n">_BarChartBase</span><span class="o">.</span><span class="n">__elements__</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39;gapWidth&#39;</span><span class="p">,</span> <span class="s1">&#39;overlap&#39;</span><span class="p">,</span> <span class="s1">&#39;serLines&#39;</span><span class="p">,</span> <span class="s1">&#39;axId&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">gapWidth</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+                 <span class="n">overlap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">serLines</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">kw</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gapWidth</span> <span class="o">=</span> <span class="n">gapWidth</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">overlap</span> <span class="o">=</span> <span class="n">overlap</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">serLines</span> <span class="o">=</span> <span class="n">serLines</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x_axis</span> <span class="o">=</span> <span class="n">TextAxis</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y_axis</span> <span class="o">=</span> <span class="n">NumericAxis</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">legend</span> <span class="o">=</span> <span class="n">Legend</span><span class="p">()</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">BarChart</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kw</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="BarChart3D"><a class="viewcode-back" href="../../../api/openpyxl.chart.bar_chart.html#openpyxl.chart.bar_chart.BarChart3D">[docs]</a><span class="k">class</span> <span class="nc">BarChart3D</span><span class="p">(</span><span class="n">_BarChartBase</span><span class="p">,</span> <span class="n">_3DBase</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;bar3DChart&quot;</span>
+
+    <span class="n">barDir</span> <span class="o">=</span> <span class="n">_BarChartBase</span><span class="o">.</span><span class="n">barDir</span>
+    <span class="n">grouping</span> <span class="o">=</span> <span class="n">_BarChartBase</span><span class="o">.</span><span class="n">grouping</span>
+    <span class="n">varyColors</span> <span class="o">=</span> <span class="n">_BarChartBase</span><span class="o">.</span><span class="n">varyColors</span>
+    <span class="n">ser</span> <span class="o">=</span> <span class="n">_BarChartBase</span><span class="o">.</span><span class="n">ser</span>
+    <span class="n">dLbls</span> <span class="o">=</span> <span class="n">_BarChartBase</span><span class="o">.</span><span class="n">dLbls</span>
+
+    <span class="n">view3D</span> <span class="o">=</span> <span class="n">_3DBase</span><span class="o">.</span><span class="n">view3D</span>
+    <span class="n">floor</span> <span class="o">=</span> <span class="n">_3DBase</span><span class="o">.</span><span class="n">floor</span>
+    <span class="n">sideWall</span> <span class="o">=</span> <span class="n">_3DBase</span><span class="o">.</span><span class="n">sideWall</span>
+    <span class="n">backWall</span> <span class="o">=</span> <span class="n">_3DBase</span><span class="o">.</span><span class="n">backWall</span>
+
+    <span class="n">gapWidth</span> <span class="o">=</span> <span class="n">NestedGapAmount</span><span class="p">()</span>
+    <span class="n">gapDepth</span> <span class="o">=</span> <span class="n">NestedGapAmount</span><span class="p">()</span>
+    <span class="n">shape</span> <span class="o">=</span> <span class="n">NestedNoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;cone&#39;</span><span class="p">,</span> <span class="s1">&#39;coneToMax&#39;</span><span class="p">,</span> <span class="s1">&#39;box&#39;</span><span class="p">,</span> <span class="s1">&#39;cylinder&#39;</span><span class="p">,</span> <span class="s1">&#39;pyramid&#39;</span><span class="p">,</span> <span class="s1">&#39;pyramidToMax&#39;</span><span class="p">]))</span>
+    <span class="n">serLines</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ChartLines</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">x_axis</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">TextAxis</span><span class="p">)</span>
+    <span class="n">y_axis</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">NumericAxis</span><span class="p">)</span>
+    <span class="n">z_axis</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">SeriesAxis</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="n">_BarChartBase</span><span class="o">.</span><span class="n">__elements__</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39;gapWidth&#39;</span><span class="p">,</span> <span class="s1">&#39;gapDepth&#39;</span><span class="p">,</span> <span class="s1">&#39;shape&#39;</span><span class="p">,</span> <span class="s1">&#39;serLines&#39;</span><span class="p">,</span> <span class="s1">&#39;axId&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">gapWidth</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+                 <span class="n">gapDepth</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+                 <span class="n">shape</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">serLines</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">kw</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gapWidth</span> <span class="o">=</span> <span class="n">gapWidth</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gapDepth</span> <span class="o">=</span> <span class="n">gapDepth</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="n">shape</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">serLines</span> <span class="o">=</span> <span class="n">serLines</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x_axis</span> <span class="o">=</span> <span class="n">TextAxis</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y_axis</span> <span class="o">=</span> <span class="n">NumericAxis</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z_axis</span> <span class="o">=</span> <span class="n">SeriesAxis</span><span class="p">()</span>
+
+        <span class="nb">super</span><span class="p">(</span><span class="n">BarChart3D</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kw</span><span class="p">)</span></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.chart.bar_chart</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2010 - 2022, See AUTHORS.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>openpyxl.worksheet.pagebreak module &#8212; openpyxl 3.0.9 文档</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nature.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="openpyxl.worksheet.picture module" href="openpyxl.worksheet.picture.html" />
+    <link rel="prev" title="openpyxl.worksheet.page module" href="openpyxl.worksheet.page.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.worksheet.picture.html" title="openpyxl.worksheet.picture module"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.worksheet.page.html" title="openpyxl.worksheet.page module"
+             accesskey="P">上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.worksheet.html" accesskey="U">openpyxl.worksheet package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.worksheet.pagebreak module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-openpyxl.worksheet.pagebreak">
+<span id="openpyxl-worksheet-pagebreak-module"></span><h1>openpyxl.worksheet.pagebreak module<a class="headerlink" href="#module-openpyxl.worksheet.pagebreak" title="永久链接至标题">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.worksheet.pagebreak.Break">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.worksheet.pagebreak.</span></span><span class="sig-name descname"><span class="pre">Break</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16383</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">man</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/worksheet/pagebreak.html#Break"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.worksheet.pagebreak.Break" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.pagebreak.Break.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#openpyxl.worksheet.pagebreak.Break.id" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.pagebreak.Break.man">
+<span class="sig-name descname"><span class="pre">man</span></span><a class="headerlink" href="#openpyxl.worksheet.pagebreak.Break.man" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.pagebreak.Break.max">
+<span class="sig-name descname"><span class="pre">max</span></span><a class="headerlink" href="#openpyxl.worksheet.pagebreak.Break.max" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.pagebreak.Break.min">
+<span class="sig-name descname"><span class="pre">min</span></span><a class="headerlink" href="#openpyxl.worksheet.pagebreak.Break.min" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.pagebreak.Break.pt">
+<span class="sig-name descname"><span class="pre">pt</span></span><a class="headerlink" href="#openpyxl.worksheet.pagebreak.Break.pt" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.pagebreak.Break.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'brk'</span></em><a class="headerlink" href="#openpyxl.worksheet.pagebreak.Break.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.worksheet.pagebreak.ColBreak">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.worksheet.pagebreak.</span></span><span class="sig-name descname"><span class="pre">ColBreak</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manualBreakCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/worksheet/pagebreak.html#ColBreak"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.worksheet.pagebreak.ColBreak" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="#openpyxl.worksheet.pagebreak.RowBreak" title="openpyxl.worksheet.pagebreak.RowBreak"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.worksheet.pagebreak.RowBreak</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.pagebreak.ColBreak.brk">
+<span class="sig-name descname"><span class="pre">brk</span></span><a class="headerlink" href="#openpyxl.worksheet.pagebreak.ColBreak.brk" title="永久链接至目标">¶</a></dt>
+<dd><p>A sequence (list or tuple) that may only contain objects of the declared
+type</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpyxl.worksheet.pagebreak.ColBreak.count">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">count</span></span><a class="headerlink" href="#openpyxl.worksheet.pagebreak.ColBreak.count" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpyxl.worksheet.pagebreak.ColBreak.manualBreakCount">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">manualBreakCount</span></span><a class="headerlink" href="#openpyxl.worksheet.pagebreak.ColBreak.manualBreakCount" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.pagebreak.ColBreak.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'colBreaks'</span></em><a class="headerlink" href="#openpyxl.worksheet.pagebreak.ColBreak.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.pagebreak.PageBreak">
+<span class="sig-prename descclassname"><span class="pre">openpyxl.worksheet.pagebreak.</span></span><span class="sig-name descname"><span class="pre">PageBreak</span></span><a class="headerlink" href="#openpyxl.worksheet.pagebreak.PageBreak" title="永久链接至目标">¶</a></dt>
+<dd><p>:py:class:<a href="#id1"><span class="problematic" id="id2">`</span></a>openpyxl.worksheet.pagebreak.RowBreak`的别名</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.worksheet.pagebreak.RowBreak">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.worksheet.pagebreak.</span></span><span class="sig-name descname"><span class="pre">RowBreak</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manualBreakCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/worksheet/pagebreak.html#RowBreak"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.worksheet.pagebreak.RowBreak" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="openpyxl.worksheet.pagebreak.RowBreak.append">
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">brk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/worksheet/pagebreak.html#RowBreak.append"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.worksheet.pagebreak.RowBreak.append" title="永久链接至目标">¶</a></dt>
+<dd><p>Add a page break</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.pagebreak.RowBreak.brk">
+<span class="sig-name descname"><span class="pre">brk</span></span><a class="headerlink" href="#openpyxl.worksheet.pagebreak.RowBreak.brk" title="永久链接至目标">¶</a></dt>
+<dd><p>A sequence (list or tuple) that may only contain objects of the declared
+type</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpyxl.worksheet.pagebreak.RowBreak.count">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">count</span></span><a class="headerlink" href="#openpyxl.worksheet.pagebreak.RowBreak.count" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpyxl.worksheet.pagebreak.RowBreak.manualBreakCount">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">manualBreakCount</span></span><a class="headerlink" href="#openpyxl.worksheet.pagebreak.RowBreak.manualBreakCount" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.pagebreak.RowBreak.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'rowBreaks'</span></em><a class="headerlink" href="#openpyxl.worksheet.pagebreak.RowBreak.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="openpyxl.worksheet.page.html"
+                          title="上一章">openpyxl.worksheet.page module</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="openpyxl.worksheet.picture.html"
+                          title="下一章">openpyxl.worksheet.picture module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/openpyxl.worksheet.pagebreak.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.worksheet.picture.html" title="openpyxl.worksheet.picture module"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.worksheet.page.html" title="openpyxl.worksheet.page module"
+             >上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.worksheet.html" >openpyxl.worksheet package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.worksheet.pagebreak module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2010 - 2022, See AUTHORS.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+  </body>
+</html>

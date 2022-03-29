@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>openpyxl.workbook.external_link.external &#8212; openpyxl 3.0.9 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/nature.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">openpyxl 3.0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.workbook.external_link.external</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for openpyxl.workbook.external_link.external</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2010-2022 openpyxl</span>
+
+
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.serialisable</span> <span class="kn">import</span> <span class="n">Serialisable</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Typed</span><span class="p">,</span>
+    <span class="n">String</span><span class="p">,</span>
+    <span class="n">Bool</span><span class="p">,</span>
+    <span class="n">Integer</span><span class="p">,</span>
+    <span class="n">NoneSet</span><span class="p">,</span>
+    <span class="n">Sequence</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.excel</span> <span class="kn">import</span> <span class="n">Relation</span><span class="p">,</span> <span class="n">ExtensionList</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.nested</span> <span class="kn">import</span> <span class="n">NestedText</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.sequence</span> <span class="kn">import</span> <span class="n">NestedSequence</span><span class="p">,</span> <span class="n">ValueSequence</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.packaging.relationship</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Relationship</span><span class="p">,</span>
+    <span class="n">get_rels_path</span><span class="p">,</span>
+    <span class="n">get_dependents</span>
+    <span class="p">)</span>
+<span class="kn">from</span> <span class="nn">openpyxl.xml.constants</span> <span class="kn">import</span> <span class="n">SHEET_MAIN_NS</span>
+<span class="kn">from</span> <span class="nn">openpyxl.xml.functions</span> <span class="kn">import</span> <span class="n">fromstring</span>
+
+
+<span class="sd">&quot;&quot;&quot;Manage links to external Workbooks&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="ExternalCell"><a class="viewcode-back" href="../../../../api/openpyxl.workbook.external_link.external.html#openpyxl.workbook.external_link.external.ExternalCell">[docs]</a><span class="k">class</span> <span class="nc">ExternalCell</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">r</span> <span class="o">=</span> <span class="n">String</span><span class="p">()</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span> <span class="s1">&#39;inlineStr&#39;</span><span class="p">]))</span>
+    <span class="n">vm</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">NestedText</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">expected_type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">r</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">vm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">v</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">r</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">t</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vm</span> <span class="o">=</span> <span class="n">vm</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">v</span> <span class="o">=</span> <span class="n">v</span></div>
+
+
+<div class="viewcode-block" id="ExternalRow"><a class="viewcode-back" href="../../../../api/openpyxl.workbook.external_link.external.html#openpyxl.workbook.external_link.external.ExternalRow">[docs]</a><span class="k">class</span> <span class="nc">ExternalRow</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">r</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">cell</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExternalCell</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;cell&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">r</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">cell</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">r</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cell</span> <span class="o">=</span> <span class="n">cell</span></div>
+
+
+<div class="viewcode-block" id="ExternalSheetData"><a class="viewcode-back" href="../../../../api/openpyxl.workbook.external_link.external.html#openpyxl.workbook.external_link.external.ExternalSheetData">[docs]</a><span class="k">class</span> <span class="nc">ExternalSheetData</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">sheetId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">refreshError</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExternalRow</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;row&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">sheetId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">refreshError</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">row</span><span class="o">=</span><span class="p">(),</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sheetId</span> <span class="o">=</span> <span class="n">sheetId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">refreshError</span> <span class="o">=</span> <span class="n">refreshError</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">row</span> <span class="o">=</span> <span class="n">row</span></div>
+
+
+<div class="viewcode-block" id="ExternalSheetDataSet"><a class="viewcode-back" href="../../../../api/openpyxl.workbook.external_link.external.html#openpyxl.workbook.external_link.external.ExternalSheetDataSet">[docs]</a><span class="k">class</span> <span class="nc">ExternalSheetDataSet</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">sheetData</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExternalSheetData</span><span class="p">,</span> <span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;sheetData&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">sheetData</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sheetData</span> <span class="o">=</span> <span class="n">sheetData</span></div>
+
+
+<div class="viewcode-block" id="ExternalSheetNames"><a class="viewcode-back" href="../../../../api/openpyxl.workbook.external_link.external.html#openpyxl.workbook.external_link.external.ExternalSheetNames">[docs]</a><span class="k">class</span> <span class="nc">ExternalSheetNames</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">sheetName</span> <span class="o">=</span> <span class="n">ValueSequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;sheetName&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">sheetName</span><span class="o">=</span><span class="p">(),</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sheetName</span> <span class="o">=</span> <span class="n">sheetName</span></div>
+
+
+<div class="viewcode-block" id="ExternalDefinedName"><a class="viewcode-back" href="../../../../api/openpyxl.workbook.external_link.external.html#openpyxl.workbook.external_link.external.ExternalDefinedName">[docs]</a><span class="k">class</span> <span class="nc">ExternalDefinedName</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;definedName&quot;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">String</span><span class="p">()</span>
+    <span class="n">refersTo</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">sheetId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">refersTo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">sheetId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">refersTo</span> <span class="o">=</span> <span class="n">refersTo</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sheetId</span> <span class="o">=</span> <span class="n">sheetId</span></div>
+
+
+<div class="viewcode-block" id="ExternalBook"><a class="viewcode-back" href="../../../../api/openpyxl.workbook.external_link.external.html#openpyxl.workbook.external_link.external.ExternalBook">[docs]</a><span class="k">class</span> <span class="nc">ExternalBook</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;externalBook&quot;</span>
+
+    <span class="n">sheetNames</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExternalSheetNames</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">definedNames</span> <span class="o">=</span> <span class="n">NestedSequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExternalDefinedName</span><span class="p">)</span>
+    <span class="n">sheetDataSet</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExternalSheetDataSet</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">Relation</span><span class="p">()</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;sheetNames&#39;</span><span class="p">,</span> <span class="s1">&#39;definedNames&#39;</span><span class="p">,</span> <span class="s1">&#39;sheetDataSet&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">sheetNames</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">definedNames</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">sheetDataSet</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sheetNames</span> <span class="o">=</span> <span class="n">sheetNames</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">definedNames</span> <span class="o">=</span> <span class="n">definedNames</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sheetDataSet</span> <span class="o">=</span> <span class="n">sheetDataSet</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span></div>
+
+
+<div class="viewcode-block" id="ExternalLink"><a class="viewcode-back" href="../../../../api/openpyxl.workbook.external_link.external.html#openpyxl.workbook.external_link.external.ExternalLink">[docs]</a><span class="k">class</span> <span class="nc">ExternalLink</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;externalLink&quot;</span>
+
+    <span class="n">_id</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">_path</span> <span class="o">=</span> <span class="s2">&quot;/xl/externalLinks/externalLink</span><span class="si">{0}</span><span class="s2">.xml&quot;</span>
+    <span class="n">_rel_type</span> <span class="o">=</span> <span class="s2">&quot;externalLink&quot;</span>
+    <span class="n">mime_type</span> <span class="o">=</span> <span class="s2">&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.externalLink+xml&quot;</span>
+
+    <span class="n">externalBook</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExternalBook</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">file_link</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Relationship</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># link to external file</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;externalBook&#39;</span><span class="p">,</span> <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">externalBook</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">ddeLink</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">oleLink</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">externalBook</span> <span class="o">=</span> <span class="n">externalBook</span>
+        <span class="c1"># ignore other items for the moment.</span>
+
+
+<div class="viewcode-block" id="ExternalLink.to_tree"><a class="viewcode-back" href="../../../../api/openpyxl.workbook.external_link.external.html#openpyxl.workbook.external_link.external.ExternalLink.to_tree">[docs]</a>    <span class="k">def</span> <span class="nf">to_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">ExternalLink</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">to_tree</span><span class="p">()</span>
+        <span class="n">node</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;xmlns&quot;</span><span class="p">,</span> <span class="n">SHEET_MAIN_NS</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">node</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">path</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_path</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_id</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="read_external_link"><a class="viewcode-back" href="../../../../api/openpyxl.workbook.external_link.external.html#openpyxl.workbook.external_link.external.read_external_link">[docs]</a><span class="k">def</span> <span class="nf">read_external_link</span><span class="p">(</span><span class="n">archive</span><span class="p">,</span> <span class="n">book_path</span><span class="p">):</span>
+    <span class="n">src</span> <span class="o">=</span> <span class="n">archive</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">book_path</span><span class="p">)</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="n">fromstring</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>
+    <span class="n">book</span> <span class="o">=</span> <span class="n">ExternalLink</span><span class="o">.</span><span class="n">from_tree</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+
+    <span class="n">link_path</span> <span class="o">=</span> <span class="n">get_rels_path</span><span class="p">(</span><span class="n">book_path</span><span class="p">)</span>
+    <span class="n">deps</span> <span class="o">=</span> <span class="n">get_dependents</span><span class="p">(</span><span class="n">archive</span><span class="p">,</span> <span class="n">link_path</span><span class="p">)</span>
+    <span class="n">book</span><span class="o">.</span><span class="n">file_link</span> <span class="o">=</span> <span class="n">deps</span><span class="o">.</span><span class="n">Relationship</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">book</span></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../../index.html">
+              <img class="logo" src="../../../../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">openpyxl 3.0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.workbook.external_link.external</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2010 - 2022, See AUTHORS.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

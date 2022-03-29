@@ -1,0 +1,70 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/openpyxl.utils.cell.rst:2
+msgid "openpyxl.utils.cell module"
+msgstr ""
+
+#: ../../../openpyxl/utils/cell.py:docstring of openpyxl.utils.cell:1
+msgid "Collection of utilities used within the package and also available for client code"
+msgstr ""
+
+#: ../../../openpyxl/utils/cell.py:docstring of openpyxl.utils.cell.absolute_coordinate:1
+msgid "Convert a coordinate to an absolute coordinate string (B12 -> $B$12)"
+msgstr ""
+
+#: ../../../openpyxl/utils/cell.py:docstring of openpyxl.utils.cell.cols_from_range:1
+#: ../../../openpyxl/utils/cell.py:docstring of openpyxl.utils.cell.rows_from_range:1
+msgid "Get individual addresses for every cell in a range. Yields one row at a time."
+msgstr ""
+
+#: ../../../openpyxl/utils/cell.py:docstring of openpyxl.utils.cell.column_index_from_string:1
+msgid "Convert a column name into a numerical index ('A' -> 1)"
+msgstr ""
+
+#: ../../../openpyxl/utils/cell.py:docstring of openpyxl.utils.cell.coordinate_from_string:1
+msgid "Convert a coordinate string like 'B12' to a tuple ('B', 12)"
+msgstr ""
+
+#: ../../../openpyxl/utils/cell.py:docstring of openpyxl.utils.cell.coordinate_to_tuple:1
+msgid "Convert an Excel style coordinate to (row, colum) tuple"
+msgstr ""
+
+#: ../../../openpyxl/utils/cell.py:docstring of openpyxl.utils.cell.get_column_interval:1
+msgid "Given the start and end columns, return all the columns in the series."
+msgstr ""
+
+#: ../../../openpyxl/utils/cell.py:docstring of openpyxl.utils.cell.get_column_interval:3
+msgid "The start and end columns can be either column letters or 1-based indexes."
+msgstr ""
+
+#: ../../../openpyxl/utils/cell.py:docstring of openpyxl.utils.cell.get_column_letter:1
+msgid "Convert a column index into a column letter (3 -> 'C')"
+msgstr ""
+
+#: ../../../openpyxl/utils/cell.py:docstring of openpyxl.utils.cell.quote_sheetname:1
+msgid "Add quotes around sheetnames if they contain spaces."
+msgstr ""
+
+#: ../../../openpyxl/utils/cell.py:docstring of openpyxl.utils.cell.range_boundaries:1
+msgid "Convert a range string into a tuple of boundaries: (min_col, min_row, max_col, max_row) Cell coordinates will be converted into a range with the cell at both end"
+msgstr ""
+
+#: ../../../openpyxl/utils/cell.py:docstring of openpyxl.utils.cell.range_to_tuple:1
+msgid "Convert a worksheet range to the sheetname and maximum and minimum coordinate indices"
+msgstr ""

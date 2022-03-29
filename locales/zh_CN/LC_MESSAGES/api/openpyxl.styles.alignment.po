@@ -1,0 +1,78 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010 - 2022, See AUTHORS
+# This file is distributed under the same license as the openpyxl package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openpyxl 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-29 09:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../api/openpyxl.styles.alignment.rst:2
+msgid "openpyxl.styles.alignment module"
+msgstr ""
+
+#: of openpyxl.styles.alignment.Alignment:1
+msgid "Bases: :py:class:`openpyxl.descriptors.serialisable.Serialisable`"
+msgstr ""
+
+#: of openpyxl.styles.alignment.Alignment:1
+msgid "Alignment options for use in styles."
+msgstr ""
+
+#: ../../docstring of openpyxl.styles.alignment.Alignment.horizontal:1
+msgid ""
+"Value must be one of {'fill', 'center', 'centerContinuous', 'justify', "
+"'left', 'general', 'right', 'distributed'}"
+msgstr ""
+
+#: ../../docstring of openpyxl.styles.alignment.Alignment.indent:1
+#: openpyxl.styles.alignment.Alignment.readingOrder:1
+#: openpyxl.styles.alignment.Alignment.relativeIndent:1
+msgid "Values must be of type <class 'float'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.styles.alignment.Alignment.justifyLastLine:1
+#: openpyxl.styles.alignment.Alignment.shrinkToFit:1
+#: openpyxl.styles.alignment.Alignment.wrapText:1
+msgid "Values must be of type <class 'bool'>"
+msgstr ""
+
+#: ../../docstring of openpyxl.styles.alignment.Alignment.shrink_to_fit:1
+#: openpyxl.styles.alignment.Alignment.text_rotation:1
+#: openpyxl.styles.alignment.Alignment.wrap_text:1
+msgid ""
+"Aliases can be used when either the desired attribute name is not allowed"
+" or confusing in Python (eg. \"type\") or a more descriptve name is "
+"desired (eg. \"underline\" for \"u\")"
+msgstr ""
+
+#: ../../docstring of openpyxl.styles.alignment.Alignment.textRotation:1
+msgid ""
+"Value must be one of {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, "
+"15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, "
+"33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, "
+"51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, "
+"69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, "
+"87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, "
+"104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, "
+"118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, "
+"132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, "
+"146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, "
+"160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, "
+"174, 175, 176, 177, 178, 179, 180}"
+msgstr ""
+
+#: ../../docstring of openpyxl.styles.alignment.Alignment.vertical:1
+msgid "Value must be one of {'center', 'justify', 'top', 'bottom', 'distributed'}"
+msgstr ""
+
