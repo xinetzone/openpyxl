@@ -19,15 +19,15 @@ msgstr ""
 
 #: ../../editing_worksheets.rst:2
 msgid "Inserting and deleting rows and columns, moving ranges of cells"
-msgstr ""
+msgstr "插入删除行或列, 移动范围单元格"
 
 #: ../../editing_worksheets.rst:6
 msgid "Inserting rows and columns"
-msgstr ""
+msgstr "插入行和列"
 
 #: ../../editing_worksheets.rst:8
 msgid "You can insert rows or columns using the relevant worksheet methods:"
-msgstr ""
+msgstr "你可以使用工作表相关的方法来插入行和列："
 
 #: ../../editing_worksheets.rst:10
 msgid ":func:`openpyxl.worksheet.worksheet.Worksheet.insert_rows`"
@@ -50,14 +50,15 @@ msgid ""
 "The default is one row or column. For example to insert a row at 7 "
 "(before the existing row 7)::"
 msgstr ""
+"默认是一行或一列。例如在第七行插入一行（存在第七行）::"
 
 #: ../../editing_worksheets.rst:22
 msgid "Deleting rows and columns"
-msgstr ""
+msgstr "删除多行或多列"
 
 #: ../../editing_worksheets.rst:24
 msgid "To delete the columns ``F:H``::"
-msgstr ""
+msgstr "删除 ``F:H`` 列 ::"
 
 #: ../../editing_worksheets.rst:30
 msgid ""
@@ -67,20 +68,24 @@ msgid ""
 "As a result, client code **must** implement the functionality required in"
 " any particular use case."
 msgstr ""
+"当行或列被插入或删除时，Openpyxl 不管理依赖项，如公式、表格、图表等。"
+"这被认为超出了专注于管理文件格式的库的范围。"
+"因此，客户端代码 **必须** 实现任何特定用例所需的功能。"
 
 #: ../../editing_worksheets.rst:38
 msgid "Moving ranges of cells"
-msgstr ""
+msgstr "单元格的移动范围"
 
 #: ../../editing_worksheets.rst:40
 msgid "You can also move ranges of cells within a worksheet::"
-msgstr ""
+msgstr "您还可以在工作表中移动单元格范围"
 
 #: ../../editing_worksheets.rst:44
 msgid ""
 "This will move the cells in the range ``D4:F10`` up one row, and right "
 "two columns. The cells will overwrite any existing cells."
 msgstr ""
+"这会将 ``D4:F10`` 单元格向上移动一行向右移动两列，已存在的单元格将会被覆盖"
 
 #: ../../editing_worksheets.rst:47
 msgid ""
@@ -90,10 +95,14 @@ msgid ""
 "to the cells from other cells or defined names will not be updated; you "
 "can use the :doc:`formula` translator to do this::"
 msgstr ""
+"如果单元格包含公式，你可以让 openpyxl 帮你进行翻译，但也并非总是你想要的结果，因此默认是禁用的。"
+"同时，只有单元格本身的公式将会被翻译。"
+"其他单元格对该单元格的引用或已定义的名称将不会被更新。"
+"你可以使用 :doc:`formula` 来做这件事::"
 
 #: ../../editing_worksheets.rst:55
 msgid ""
 "This will move the relative references in formulae in the range by one "
 "row and one column."
 msgstr ""
-
+"这将使公式中的相对引用在该范围内移动一行和一列。"

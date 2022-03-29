@@ -19,11 +19,11 @@ msgstr ""
 
 #: ../../optimized.rst:2
 msgid "Optimised Modes"
-msgstr ""
+msgstr "优化模式"
 
 #: ../../optimized.rst:6
 msgid "Read-only mode"
-msgstr ""
+msgstr "只读模式"
 
 #: ../../optimized.rst:8
 msgid ""
@@ -32,30 +32,35 @@ msgid ""
 "Fortunately, there are two modes that enable you to read and write "
 "unlimited amounts of data with (near) constant memory consumption."
 msgstr ""
+"有时，你可能需要打开或写入极端大的 XLSX 文件，但通用的 openpyxl 程序无法处理这么大的负载。"
+"幸运的是，有两种模式可以使你在（几乎）恒定的内存消耗下读写无限量的数据。"
 
 #: ../../optimized.rst:13
 msgid "Introducing :class:`openpyxl.worksheet._read_only.ReadOnlyWorksheet`::"
-msgstr ""
+msgstr "介绍 :class:`openpyxl.worksheet._read_only.ReadOnlyWorksheet`::"
 
 #: ../../optimized.rst:28
 msgid ":class:`openpyxl.worksheet._read_only.ReadOnlyWorksheet` is read-only"
-msgstr ""
+msgstr ":class:`openpyxl.worksheet._read_only.ReadOnlyWorksheet` 是只读的"
 
 #: ../../optimized.rst:30
 msgid ""
 "Unlike a normal workbook, a read-only workbook will use lazy loading. The"
 " workbook must be explicitly closed with the :func:`close()` method."
 msgstr ""
+"与普通工作簿不同，只读工作簿将使用惰性加载。"
+"工作簿必须用 :func:`close()` 方法显式关闭。"
 
 #: ../../optimized.rst:33
 msgid ""
 "Cells returned are not regular :class:`openpyxl.cell.cell.Cell` but "
 ":class:`openpyxl.cell._read_only.ReadOnlyCell`."
 msgstr ""
+"单元格的返回值不是 :class:`openpyxl.cell.cell.Cell` 而是 :class:`openpyxl.cell._read_only.ReadOnlyCell`。"
 
 #: ../../optimized.rst:38
 msgid "Worksheet dimensions"
-msgstr ""
+msgstr "工作表维度（dimensions）"
 
 #: ../../optimized.rst:40
 msgid ""
@@ -67,10 +72,15 @@ msgid ""
 "incorrect, say `A1:A1` then simply resetting the max_row and max_column "
 "attributes should allow you to work with the file::"
 msgstr ""
+"只读模式依赖创建文件的应用以及库提供工作表的正确信息，尤其是文件的已使用部分，"
+"称之为维度（dimensions）。一些应用会进行设置错误。"
+"可以使用 ``ws.calculate_dimension()`` 函数来检查工作表的维度。"
+"如果返回范围和你知道的不一样，比如说 ``A1:A1`` ，你可以简单重置 ``max_row`` 和 ``max_column`` 属性，"
+"即可使用该文件::"
 
 #: ../../optimized.rst:52
 msgid "Write-only mode"
-msgstr ""
+msgstr "只写模式"
 
 #: ../../optimized.rst:54
 msgid ""
@@ -79,12 +89,16 @@ msgid ""
 ":class:`openpyxl.worksheet._write_only.WriteOnlyWorksheet`. When you want"
 " to dump large amounts of data make sure you have `lxml` installed."
 msgstr ""
+"常规的 :class:`openpyxl.worksheet.worksheet.Worksheet` "
+"被替代成更快的 :class:`openpyxl.worksheet._write_only.WriteOnlyWorksheet`。"
+"当你想导出大量数据的时候请确保安装了 ``lxml`` 库。"
 
 #: ../../optimized.rst:71
 msgid ""
 "If you want to have cells with styles or comments then use a "
 ":func:`openpyxl.cell.WriteOnlyCell`"
 msgstr ""
+"如果你想要带有样式或者注释的单元格可以使用 :func:`openpyxl.cell.WriteOnlyCell`"
 
 #: ../../optimized.rst:88
 msgid ""
@@ -93,6 +107,8 @@ msgid ""
 "floating-point number, and an empty cell (which will be discarded "
 "anyway)."
 msgstr ""
+"以上会创建只有一张工作表的只写工作簿，一行写入（append）三个单元格："
+"一个带有自定义字体和注释的文字单元格，一个浮点数单元格和一个空单元格（一定会被丢弃）。"
 
 #: ../../optimized.rst:95
 msgid ""
@@ -100,6 +116,7 @@ msgid ""
 "contain any worksheets; a worksheet must be specifically created with the"
 " :func:`create_sheet()` method."
 msgstr ""
+"和普通工作簿不同的是，新创建的只写工作簿没有任何工作表；工作表只能由 :func:`create_sheet()` 方法进行创建。"
 
 #: ../../optimized.rst:99
 msgid ""
@@ -107,12 +124,15 @@ msgid ""
 "It is not possible to write (or read) cells at arbitrary locations with "
 ":func:`cell()` or :func:`iter_rows()`."
 msgstr ""
+"在只读工作簿中，只能由 :func:`append` 来添加行。"
+"无法使用 :func:`cell()` 或 :func:`iter_rows()` 对任意位置的单元进行读取或写入。"
 
 #: ../../optimized.rst:103
 msgid ""
 "It is able to export unlimited amount of data (even more than Excel can "
 "handle actually), while keeping memory usage under 10Mb."
 msgstr ""
+"可以导出不限量的数据（即使超过 Excel 的处理上限），同时内存使用量小于 10Mb。"
 
 #: ../../optimized.rst:106
 msgid ""
@@ -120,6 +140,8 @@ msgid ""
 "to save the workbook or append() to an existing worksheet will raise an "
 ":class:`openpyxl.utils.exceptions.WorkbookAlreadySaved` exception."
 msgstr ""
+"只写工作簿只能保存一次。"
+"之后如果任何尝试保存和添加数据（``append()``）的操作都会引发 :class:`openpyxl.utils.exceptions.WorkbookAlreadySaved` 异常。"
 
 #: ../../optimized.rst:111
 msgid ""
@@ -127,4 +149,5 @@ msgid ""
 "created before cells are added because it must written to the file before"
 " then. For example, `freeze_panes` should be set before cells are added."
 msgstr ""
-
+"在实际单元格数据之前出现在文件中的所有内容都必须在添加单元格之前创建，因为它必须在添加单元格之前写入文件。"
+"例如，``freeze_panes`` 应该在添加单元格之前设置。"

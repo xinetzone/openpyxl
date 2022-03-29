@@ -211,10 +211,13 @@ msgid ""
 "problems at the same time, it's easier for those who will review and "
 "merge your changes ;-)"
 msgstr ""
+"1. 请加入该组并创建分支 (https://foss.heptapod.net/openpyxl/openpyxl/)，并遵循 "
+"`合并请求开始指南 <https://heptapod.net/pages/quick-start-guide.html>`_。"
+"对于每个独立的功能，不要试图在同一时间修复所有的问题，这对那些会检查和合并你的更改的人来说更容易 ;-)"
 
 #: ../../index.rst:53
 msgid "2. Hack hack hack"
-msgstr ""
+msgstr "2. 砍砍砍"
 
 #: ../../index.rst:56
 msgid ""
@@ -222,18 +225,23 @@ msgid ""
 "one-liner, changes without tests will **not** be accepted.) There are "
 "plenty of examples in the source if you lack know-how or inspiration."
 msgstr ""
+"3. 不要忘记为您的更改添加单元测试！"
+"（是的，即使是一行代码，没有测试的更改将 **不** 被接受。）"
+"如果你缺乏知识或灵感，源代码中有很多例子。"
 
 #: ../../index.rst:61
 msgid ""
 "4. If you added a whole new feature, or just improved something, you can "
 "be proud of it, so add yourself to the AUTHORS file :-)"
 msgstr ""
+"4. 如果您添加了全新的功能，或者只是改进了一些东西，您可以为此感到自豪，所以请将您自己添加到 AUTHORS 文件中:-)"
 
 #: ../../index.rst:65
 msgid ""
 "5. Let people know about the shiny thing you just implemented, update the"
 " docs!"
 msgstr ""
+"5. 让人们知道你刚刚实现的新功能，并更新文档！"
 
 #: ../../index.rst:69
 msgid ""
@@ -242,26 +250,29 @@ msgid ""
 "reviewed, and, if you followed all theses steps, merged into the main "
 "repository."
 msgstr ""
+"6. 当它完成时，只需发出 pull request（点击 *你的* 存储库上的大 “pull request” 按钮)，然后等待你的代码被审查，如果你遵循了所有这些步骤，就会合并到主存储库中。"
 
 #: ../../index.rst:76
 msgid "For further information see :doc:`development`"
-msgstr ""
+msgstr "有关更多信息，请参阅 :doc:`development`"
 
 #: ../../index.rst:80
 msgid "Other ways to help"
-msgstr ""
+msgstr "其他的帮助方式"
 
 #: ../../index.rst:82
 msgid ""
 "There are several ways to contribute, even if you can't code (or can't "
 "code well):"
 msgstr ""
+"即使你不会写代码(或者写得不好)，你也可以通过多种方式做出贡献："
 
 #: ../../index.rst:84
 msgid ""
 "triaging bugs on the bug tracker: closing bugs that have already been "
 "closed, are not relevant, cannot be reproduced, ..."
 msgstr ""
+"在 bug 跟踪器上分类 bug：关闭已经关闭的 bug，不相关的 bug，不能被复现的 bug，…"
 
 #: ../../index.rst:87
 msgid ""
@@ -269,44 +280,50 @@ msgid ""
 "been added (mainly about charts and images at the moment) but without any"
 " documentation, it's pretty hard to do anything with it"
 msgstr ""
+"几乎在每个领域更新文档：已经添加了许多大型功能（目前主要是关于图表和图像），但没有任何文档，它很难做任何事情。"
 
 #: ../../index.rst:91
 msgid ""
 "proposing compatibility fixes for different versions of Python: we "
 "support 3.6, 3.7, 3.8 and 3.9."
 msgstr ""
+"建议针对不同版本的Python进行兼容性修复:我们支持 3.6、3.7、3.8 和 3.9。"
 
 #: ../../index.rst:96
 msgid "Installation"
-msgstr ""
+msgstr "安装"
 
 #: ../../index.rst:98
 msgid ""
 "Install openpyxl using pip. It is advisable to do this in a Python "
 "virtualenv without system packages::"
 msgstr ""
+"使用 pip 安装 openpyxl。建议在没有系统包的 Python virtualenv 中这样做::""
 
 #: ../../index.rst:105
 msgid ""
 "There is support for the popular `lxml`_ library which will be used if it"
 " is installed. This is particular useful when creating large files."
 msgstr ""
+"支持流行的 `lxml`_ 库，如果安装它将被使用。这在创建大文件时特别有用。"
 
 #: ../../index.rst:112
 msgid ""
 "To be able to include images (jpeg, png, bmp,...) into an openpyxl file, "
 "you will also need the \"pillow\" library that can be installed with::"
 msgstr ""
+"为了能够包含图像(jpeg, png, bmp，…)到 openpyxl 文件，你还需要 \"pillow\" 库，可以安装::"
 
 #: ../../index.rst:117
 msgid ""
 "or browse https://pypi.python.org/pypi/Pillow/, pick the latest version "
 "and head to the bottom of the page for Windows binaries."
 msgstr ""
+"或浏览 https://pypi.python.org/pypi/Pillow/，选择最新版本，然后在页面底部查找 Windows 二进制文件。"
 
 #: ../../index.rst:122
 msgid "Working with a checkout"
-msgstr ""
+msgstr "使用签出"
 
 #: ../../index.rst:124
 msgid ""
@@ -314,38 +331,39 @@ msgid ""
 "version. This may be the case if bugs have been fixed but a release has "
 "not yet been made."
 msgstr ""
+"有时您可能想要使用特定版本的签出。如果漏洞已经修复，但还没有发布版本，情况可能就是这样。"
 
 #: ../../index.rst:133
 msgid "Usage examples"
-msgstr ""
+msgstr "使用案例"
 
 #: ../../index.rst:137
 msgid "Tutorial"
-msgstr ""
+msgstr "教程"
 
 #: ../../index.rst:145
 msgid "Cookbook"
-msgstr ""
+msgstr "食谱"
 
 #: ../../index.rst:153
 msgid "Performance"
-msgstr ""
+msgstr "性能"
 
 #: ../../index.rst:161
 msgid "Other topics"
-msgstr ""
+msgstr "其他主题"
 
 #: ../../index.rst:252
 msgid "Information for Developers"
-msgstr ""
+msgstr "开发者信息"
 
 #: ../../index.rst:261
 msgid "API Documentation"
-msgstr ""
+msgstr "API 文档"
 
 #: ../../index.rst:264
 msgid "Key Classes"
-msgstr ""
+msgstr "关键类"
 
 #: ../../index.rst:266
 msgid ":class:`openpyxl.workbook.workbook.Workbook`"
@@ -361,11 +379,11 @@ msgstr ""
 
 #: ../../index.rst:272
 msgid "Full API"
-msgstr ""
+msgstr "完整 API"
 
 #: ../../index.rst:281
 msgid "Indices and tables"
-msgstr ""
+msgstr "索引和目录"
 
 #: ../../index.rst:283
 msgid ":ref:`genindex`"
@@ -381,5 +399,5 @@ msgstr ""
 
 #: ../../index.rst:289
 msgid "Release Notes"
-msgstr ""
+msgstr "发布说明"
 

@@ -19,35 +19,40 @@ msgstr ""
 
 #: ../../tutorial.rst:2
 msgid "Tutorial"
-msgstr ""
+msgstr "教程"
 
 #: ../../tutorial.rst:5
 msgid "Create a workbook"
-msgstr ""
+msgstr "创建工作簿"
 
 #: ../../tutorial.rst:7
 msgid ""
 "There is no need to create a file on the filesystem to get started with "
 "openpyxl. Just import the :class:`Workbook` class and start work::"
 msgstr ""
+"开始使用 openpyxl 时，不需要在文件系统上创建文件。"
+"只要导入 :class:`Workbook` 类，然后开始工作 ::"
 
 #: ../../tutorial.rst:13
 msgid ""
 "A workbook is always created with at least one worksheet. You can get it "
 "by using the :obj:`Workbook.active` property::"
 msgstr ""
+"工作簿总是由至少一个工作表创建。你可以使用 :obj:`Workbook.active` 属性获得它::"
 
 #: ../../tutorial.rst:20
 msgid ""
 "This is set to 0 by default. Unless you modify its value, you will always"
 " get the first worksheet by using this method."
 msgstr ""
+"默认设置为 0。除非你修改了它的值，否则你总是会使用这个方法得到第一个工作表。"
 
 #: ../../tutorial.rst:23
 msgid ""
 "You can create new worksheets using the :meth:`Workbook.create_sheet` "
 "method::"
 msgstr ""
+"您可以使用 :meth:`Workbook.create_sheet` 方法创建新的工作表::"
 
 #: ../../tutorial.rst:31
 msgid ""
@@ -55,6 +60,8 @@ msgid ""
 "numbered in sequence (Sheet, Sheet1, Sheet2, ...). You can change this "
 "name at any time with the :obj:`Worksheet.title` property::"
 msgstr ""
+"表在创建时自动指定名称。它们按顺序编号 (Sheet, Sheet1, Sheet2, ...)。"
+"你可以在任何时候用 :obj:`Worksheet.title` 属性修改命名::"
 
 #: ../../tutorial.rst:37
 msgid ""
@@ -62,26 +69,30 @@ msgid ""
 "You can change this providing an :code:`RRGGBB` color code to the "
 ":obj:`Worksheet.sheet_properties.tabColor` attribute::"
 msgstr ""
+"默认情况下，包含该标题的标签的背景颜色为白色。"
+"你可以将 :code:`RRGGBB` 颜色代码改为 :obj:`Worksheet.sheet_properties.tabColor` 属性:"
 
 #: ../../tutorial.rst:43
 msgid ""
 "Once you gave a worksheet a name, you can get it as a key of the "
 "workbook::"
 msgstr ""
+"一旦你给工作表一个名字，你可以得到它作为工作簿的键 ::"
 
 #: ../../tutorial.rst:47
 msgid ""
 "You can review the names of all worksheets of the workbook with the "
 ":obj:`Workbook.sheetname` attribute ::"
 msgstr ""
+"你可以使用 :obj:`Workbook.sheetname` 属性来查看工作簿中所有工作表的名称 ::"
 
 #: ../../tutorial.rst:53
 msgid "You can loop through worksheets ::"
-msgstr ""
+msgstr "你可以循环工作表 ::"
 
 #: ../../tutorial.rst:58
 msgid "You can create copies of worksheets **within a single workbook**:"
-msgstr ""
+msgstr "您可以在 **单个工作簿** 中创建工作表的副本："
 
 #: ../../tutorial.rst:60
 msgid ":meth:`Workbook.copy_worksheet` method::"
@@ -94,46 +105,55 @@ msgid ""
 " are copied. All other workbook / worksheet attributes are not copied - "
 "e.g. Images, Charts."
 msgstr ""
+"只复制单元格（包括值、样式、超链接和注释）和某些工作表属性（包括尺寸、格式和属性）。"
+"所有其他工作簿/工作表属性不被复制——例如图像，图表。"
 
 #: ../../tutorial.rst:72
 msgid ""
 "You also **cannot** copy worksheets between workbooks. You cannot copy a "
 "worksheet if the workbook is open in `read-only` or `write-only` mode."
 msgstr ""
+"您也不能在工作簿之间复制工作表。"
+"如果工作簿以 `read-only` 或 `write-only` 模式打开，则无法复制工作表。"
 
 #: ../../tutorial.rst:78
 msgid "Playing with data"
-msgstr ""
+msgstr "玩数据"
 
 #: ../../tutorial.rst:81
 msgid "Accessing one cell"
-msgstr ""
+msgstr "访问一个单元格"
 
 #: ../../tutorial.rst:83
 msgid ""
 "Now we know how to get a worksheet, we can start modifying cells content."
 " Cells can be accessed directly as keys of the worksheet::"
 msgstr ""
+"现在我们知道如何获得工作表，我们可以开始修改单元格的内容。"
+"单元格可以作为工作表的键直接访问::"
 
 #: ../../tutorial.rst:88
 msgid ""
 "This will return the cell at A4, or create one if it does not exist yet. "
 "Values can be directly assigned::"
 msgstr ""
+"这将返回 A4 单元格，或者如果它还不存在创建一个。"
+"值可以直接赋值::"
 
 #: ../../tutorial.rst:93
 msgid "There is also the :meth:`Worksheet.cell` method."
-msgstr ""
+msgstr "还有 :meth:`Worksheet.cell` 方法。"
 
 #: ../../tutorial.rst:95
 msgid "This provides access to cells using row and column notation::"
-msgstr ""
+msgstr "这提供了使用行和列表示法访问单元格 ::"
 
 #: ../../tutorial.rst:101
 msgid ""
 "When a worksheet is created in memory, it contains no `cells`. They are "
 "created when first accessed."
 msgstr ""
+"在内存中创建工作表时，它不包含 ``cells``。它们是在第一次访问时创建的。"
 
 #: ../../tutorial.rst:106
 msgid ""
@@ -141,56 +161,60 @@ msgid ""
 "them directly will create them all in memory, even if you don't assign "
 "them a value."
 msgstr ""
+"由于这个特性，即使你未对单元格赋值，滚动浏览而非直接访问时也会在内存中直接创建。"
 
 #: ../../tutorial.rst:109
 msgid "Something like ::"
-msgstr ""
+msgstr "可能是 ::"
 
 #: ../../tutorial.rst:115
 msgid "will create 100x100 cells in memory, for nothing."
-msgstr ""
+msgstr "将在内存中创建 100x100 个单元格。"
 
 #: ../../tutorial.rst:119
 msgid "Accessing many cells"
-msgstr ""
+msgstr "访问大量单元格"
 
 #: ../../tutorial.rst:121
 msgid "Ranges of cells can be accessed using slicing::"
-msgstr ""
+msgstr "可以使用切片来访问一系列单元格::"
 
 #: ../../tutorial.rst:126
 msgid "Ranges of rows or columns can be obtained similarly::"
-msgstr ""
+msgstr "一系列的行和列也可以通过类似的方法获取::"
 
 #: ../../tutorial.rst:133
 msgid "You can also use the :meth:`Worksheet.iter_rows` method::"
-msgstr ""
+msgstr "你也使用 :meth:`Worksheet.iter_rows` 方法::"
 
 #: ../../tutorial.rst:145
 msgid "Likewise the :meth:`Worksheet.iter_cols` method will return columns::"
-msgstr ""
+msgstr "同样 :meth:`Worksheet.iter_cols` 方法会返回列::"
 
 #: ../../tutorial.rst:159
 msgid ""
 "For performance reasons the :obj:`Worksheet.iter_cols()` method is not "
 "available in read-only mode."
 msgstr ""
+"由于性能原因 :obj:`Worksheet.iter_cols()` 方法在只读模式下不可用。"
 
 #: ../../tutorial.rst:161
 msgid ""
 "If you need to iterate through all the rows or columns of a file, you can"
 " instead use the :obj:`Worksheet.rows` property::"
 msgstr ""
+"如果需要遍历文件中的所有行和列，可以使用 :obj:`Worksheet.rows` 属性::"
 
 #: ../../tutorial.rst:177
 msgid "or the :obj:`Worksheet.columns` property::"
-msgstr ""
+msgstr "或者 :obj:`Worksheet.columns` 属性::"
 
 #: ../../tutorial.rst:202
 msgid ""
 "For performance reasons the :obj:`Worksheet.columns` property is not "
 "available in read-only mode."
 msgstr ""
+"由于性能原因 :obj:`Worksheet.columns` 方法在只读模式下不可用。"
 
 #: ../../tutorial.rst:206
 msgid "Values only"
@@ -202,34 +226,39 @@ msgid ""
 ":obj:`Worksheet.values` property. This iterates over all the rows in a "
 "worksheet but returns just the cell values::"
 msgstr ""
+"如果你只想要工作薄的值，你可以使用 :obj:`Worksheet.values` 属性。"
+"这会遍历工作簿中所有的行但只返回单元格值::"
 
 #: ../../tutorial.rst:215
 msgid ""
 "Both :meth:`Worksheet.iter_rows` and :meth:`Worksheet.iter_cols` can take"
 " the :code:`values_only` parameter to return just the cell's value::"
 msgstr ""
+":meth:`Worksheet.iter_rows` 和 :meth:`Worksheet.iter_cols` 可以用 :code:`values_only` "
+"参数来返回单元格值::"
 
 #: ../../tutorial.rst:226
 msgid "Data storage"
-msgstr ""
+msgstr "数据存储"
 
 #: ../../tutorial.rst:228
 msgid "Once we have a :class:`Cell`, we can assign it a value::"
-msgstr ""
+msgstr "一旦有了 :class:`Cell`, 我们可以为其分配值::"
 
 #: ../../tutorial.rst:240
 msgid "Saving to a file"
-msgstr ""
+msgstr "保存至文件"
 
 #: ../../tutorial.rst:242
 msgid ""
 "The simplest and safest way to save a workbook is by using the "
 ":func:`Workbook.save` method of the :class:`Workbook` object::"
 msgstr ""
+"保存工作表最简单和安全的方法就是使用 :class:`Workbook` 类的 :func:`Workbook.save` 方法:"
 
 #: ../../tutorial.rst:250
 msgid "This operation will overwrite existing files without warning."
-msgstr ""
+msgstr "这个操作将会无警告直接覆盖已有文件。"
 
 #: ../../tutorial.rst:254
 msgid ""
@@ -237,16 +266,18 @@ msgid ""
 "might have some trouble opening it directly with another application if "
 "you don't use an official extension."
 msgstr ""
+"文件名后缀并不强制为 xlsx 或 xlsm，但是如果没使用官方后缀名，会在用其他应用打开时遇到一些麻烦。"
 
 #: ../../tutorial.rst:258
 msgid ""
 "As OOXML files are basically ZIP files, you can also  open it with your "
 "favourite ZIP archive manager."
 msgstr ""
+"由于 OOXML 文件基本上都是 ZIP 文件，你也可以用你喜欢的 ZIP 压缩管理器打开。"
 
 #: ../../tutorial.rst:263
 msgid "Saving as a stream"
-msgstr ""
+msgstr "保存成流文件"
 
 #: ../../tutorial.rst:265
 msgid ""
@@ -254,16 +285,19 @@ msgid ""
 "application such as Pyramid, Flask or Django then you can simply provide "
 "a :func:`NamedTemporaryFile`::"
 msgstr ""
+"如果你想把文件保存为流文件，例如当使用 web 应用程序，如 Pyramid，Flask 或 Django 时，"
+"你可以简单地提供 :func:`NamedTemporaryFile`::"
 
 #: ../../tutorial.rst:279
 msgid ""
 "You can specify the attribute `template=True`, to save a workbook as a "
 "template::"
 msgstr ""
+"你可以指定属性 `template=True` 将工作表保存为模板::"
 
 #: ../../tutorial.rst:286
 msgid "or set this attribute to `False` (default), to save as a document::"
-msgstr ""
+msgstr "或者设置属性为 ``False`` (默认) 将其保存为文档::"
 
 #: ../../tutorial.rst:294
 msgid ""
@@ -271,24 +305,26 @@ msgid ""
 " documents in the document templates and vice versa, otherwise the result"
 " table engine can not open the document."
 msgstr ""
+"你应当在保存模板文档时监视数据的属性和文档拓展名，否则引擎可能会无法打开文档。"
 
 #: ../../tutorial.rst:300
 msgid "The following will fail::"
-msgstr ""
+msgstr "以下操作将会失败::"
 
 #: ../../tutorial.rst:323
 msgid "Loading from a file"
-msgstr ""
+msgstr "从文件加载"
 
 #: ../../tutorial.rst:325
 msgid ""
 "The same way as writing, you can use the :func:`openpyxl.load_workbook` "
 "to open an existing workbook::"
 msgstr ""
+"可以使用 :func:`openpyxl.load_workbook` 方法来打开已存在的工作表::"
 
 #: ../../tutorial.rst:333
 msgid ""
 "This ends the tutorial for now, you can proceed to the :doc:`usage` "
 "section"
 msgstr ""
-
+"教程到这里就结束了, 你可以继续 :doc:`usage` 部分"

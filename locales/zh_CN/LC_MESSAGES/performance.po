@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../performance.rst:2
 msgid "Performance"
-msgstr ""
+msgstr "性能"
 
 #: ../../performance.rst:4
 msgid ""
@@ -31,20 +31,25 @@ msgid ""
 "Excel file. As many use cases involve either only reading or writing "
 "files, the :doc:`optimized` modes mean this is less of a problem."
 msgstr ""
+"openpyxl 尝试来平衡功能与性能。"
+"如果有疑问，我们把重点放在功能而非性能上：一旦建立了 API ，性能调整将变得更简单。"
+"与其他库和应用程序相比，内存使用率很高，约为原始文件大小的 50 倍，"
+"例如 50 MB 的 Excel 文件为内存使用约为 2.5 GB。"
 
 #: ../../performance.rst:14
 msgid "Benchmarks"
-msgstr ""
+msgstr "基准测试"
 
 #: ../../performance.rst:16
 msgid ""
 "All benchmarks are synthetic and extremely dependent upon the hardware "
 "but they can nevertheless give an indication."
 msgstr ""
+"所有基准都是综合性的，并且高度依赖于硬件，但是它们仍然可以提供说明（indication）。"
 
 #: ../../performance.rst:21
 msgid "Write Performance"
-msgstr ""
+msgstr "写入性能"
 
 #: ../../performance.rst:23
 msgid ""
@@ -56,14 +61,20 @@ msgid ""
 "<https://foss.heptapod.net/openpyxl/openpyxl/-/snippets/67>`_ can also be"
 " used to test with different Python versions with a tox environment."
 msgstr ""
+"`benchmark code "
+"<https://foss.heptapod.net/openpyxl/openpyxl/-/snippets/66>`_ "
+"可以调整使用更多的工作表以及数据中字符串的比例。"
+"由于不同版本的 Python 也会对性能有着显著影响，所以使用了  `driver script "
+"<https://foss.heptapod.net/openpyxl/openpyxl/-/snippets/67>`_ "
+"对 tox 环境下不同的版本 Python 进行测试。"
 
 #: ../../performance.rst:32
 msgid "Performance is compared with the excellent alternative library xlsxwriter"
-msgstr ""
+msgstr "性能与出色的替代库 xlsxwriter 进行了比较"
 
 #: ../../performance.rst:38
 msgid "Read Performance"
-msgstr ""
+msgstr "读取性能"
 
 #: ../../performance.rst:40
 msgid ""
@@ -72,6 +83,9 @@ msgid ""
 "with the older xlrd library. xlrd is primarily for the older BIFF file "
 "format of .XLS files but it does have limited support for XLSX."
 msgstr ""
+"读取性能测试使用了 `bug report"
+" <https://bitbucket.org/openpyxl/openpyxl/issues/494/>`_ 提供的文件，和早期的 xlrd 库进行比较。"
+"xlrd 主要用于 .XLS 文件较旧的 BIFF 文件格式，它对 XLSX 文件支持有限。"
 
 #: ../../performance.rst:45
 msgid ""
@@ -81,6 +95,9 @@ msgid ""
 "this case disabling external links stops openpyxl opening cached copies "
 "of the linked worksheets."
 msgstr ""
+"`benchmark "
+"<https://foss.heptapod.net/openpyxl/openpyxl/-/snippets/68>`_ 代码显示了处理文件时正确选项的重要性。"
+"在这种情况下，禁用外部链接将让 openpyxl 停止打开链接工作表的缓存副本。"
 
 #: ../../performance.rst:50
 msgid ""
@@ -91,10 +108,13 @@ msgid ""
 "it does annotate cells accordingly but to do this in client code "
 "significantly reduces performance."
 msgstr ""
+"两个库的主要区别是 openpyxl 的只读模式可以快速打开工作簿，使其适用于多进程，这也大大减少了内存的使用。"
+"xlrd 也不会自动将日期和时间转换为 Python 的 datetime，尽管它会相应地注释单元格（annotate cells），"
+"但是在客户端代码中这样做会大大降低性能。"
 
 #: ../../performance.rst:62
 msgid "Parallelisation"
-msgstr ""
+msgstr "并行"
 
 #: ../../performance.rst:64
 msgid ""
@@ -104,6 +124,8 @@ msgid ""
 "mode and open multiple instances of a workbook and take advantage of "
 "multiple CPUs."
 msgstr ""
+"读取工作表会占用大量 CPU 从而限制了从并行中获取好处。"
+"但是，如果你主要对 dump 工作表内容感兴趣，你可以使用 openpyxl 的只读模式打开复数工作表来利用多核 CPU。"
 
 #: ../../performance.rst:69
 msgid ""
@@ -113,4 +135,5 @@ msgid ""
 "reasonably with only a slight overhead due to creating additional Python "
 "processes."
 msgstr ""
-
+"`示例代码 <https://foss.heptapod.net/openpyxl/openpyxl/-/snippets/69>`_ 使用与读取性能相同的源文件显示，"
+"由于创建额外的 Python 进程，性能可以合理地扩展，而开销很小。"

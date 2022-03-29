@@ -19,31 +19,33 @@ msgstr ""
 
 #: ../../usage.rst:2
 msgid "Simple usage"
-msgstr ""
+msgstr "简单用法"
 
 #: ../../usage.rst:5
 msgid "Write a workbook"
-msgstr ""
+msgstr "写入工作表"
 
 #: ../../usage.rst:35
 msgid "Read an existing workbook"
-msgstr ""
+msgstr "读取已有的工作表"
 
 #: ../../usage.rst:47
 msgid "There are several flags that can be used in load_workbook."
-msgstr ""
+msgstr "在使用 ``load_workbook`` 函数时有几个可供选择。"
 
 #: ../../usage.rst:49
 msgid ""
 "`data_only` controls whether cells with formulae have either the formula "
 "(default) or the value stored the last time Excel read the sheet."
 msgstr ""
+"``data_only`` 控制带有公式的单元格是否具有公式（默认值）或 Excel 上次读取工作表时存储的值。"
 
 #: ../../usage.rst:52
 msgid ""
 "`keep_vba` controls whether any Visual Basic elements are preserved or "
 "not (default). If they are preserved they are still not editable."
 msgstr ""
+"``keep_vba`` 控制是否保留任何 Visual Basic 元素（默认）。如果它们被保存，它们仍然不能被编辑。"
 
 #: ../../usage.rst:58
 msgid ""
@@ -51,14 +53,15 @@ msgid ""
 "images and charts will be lost from existing files if they are opened and"
 " saved with the same name."
 msgstr ""
+"用 openpyxl 打开文件并进行保存会导致图片和图表的丢失，因为 openpyxl 无法读取 Excel 文件所有可能的项。"
 
 #: ../../usage.rst:64
 msgid "Using number formats"
-msgstr ""
+msgstr "使用数字格式"
 
 #: ../../usage.rst:79
 msgid "Using formulae"
-msgstr ""
+msgstr "使用公式"
 
 #: ../../usage.rst:90
 msgid ""
@@ -66,12 +69,14 @@ msgid ""
 "*must* be separated by commas and not other punctuation such as semi-"
 "colons."
 msgstr ""
+"您必须为函数使用英文名称，并且函数参数必须用逗号分隔，而不能使用其他标点符号，例如分号。"
 
 #: ../../usage.rst:92
 msgid ""
 "openpyxl never evaluates formula but it is possible to check the name of "
 "a formula:"
 msgstr ""
+"openpyxl 不会检查公式但可以检查公式的名称："
 
 #: ../../usage.rst:100
 msgid ""
@@ -79,10 +84,12 @@ msgid ""
 "you're using a formula that was not included in the initial "
 "specification. Such formulae must be prefixed with `_xlfn.` to work."
 msgstr ""
+"如果你正在尝试使用未知的公式，可能是因为这公式未被包含在最初的规范中。"
+"这样的公式只有以 ``_xlfn.`` 为前缀才能起作用。"
 
 #: ../../usage.rst:103
 msgid "Merge / Unmerge cells"
-msgstr ""
+msgstr "合并 / 拆分单元格"
 
 #: ../../usage.rst:105
 msgid ""
@@ -92,12 +99,14 @@ msgid ""
 "have the value None. See :ref:`styling-merged-cells` for information on "
 "formatting merged cells."
 msgstr ""
+"当您合并单元格时，除了左上角的单元格外，所有的单元格都将从工作表中 **删除**。"
+"为了携带合并单元格的边界信息，合并单元格的边界单元格被创建为 MergeCells，其值总是为 None。"
+"有关合并单元格的格式化信息，请参阅 :ref:`styling-merged-cells` 。"
 
 #: ../../usage.rst:126
 msgid "Inserting an image"
-msgstr ""
+msgstr "插入图片"
 
 #: ../../usage.rst:145
 msgid "Fold (outline)"
-msgstr ""
-
+msgstr "折叠（大纲）"
