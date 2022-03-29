@@ -74,77 +74,83 @@ msgstr ""
 
 #: ../../../README.rst:6
 msgid "Introduction"
-msgstr ""
+msgstr "简介"
 
 #: ../../../README.rst:8
 msgid ""
 "openpyxl is a Python library to read/write Excel 2010 xlsx/xlsm/xltx/xltm"
 " files."
 msgstr ""
+"openpyxl 是用于读写 Excel 2010 xlsx/xlsm/xltx/xltm 文件的 Python 库。"
 
 #: ../../../README.rst:10
 msgid ""
 "It was born from lack of existing library to read/write natively from "
 "Python the Office Open XML format."
 msgstr ""
+"它的诞生是由于缺乏现有的库，无法直接从 Python 中读取/写入 Office Open XML 格式。"
 
 #: ../../../README.rst:13
 msgid ""
 "All kudos to the PHPExcel team as openpyxl was initially based on "
 "PHPExcel."
 msgstr ""
+"对于 PHPExcel 团队来说，所有的荣誉都是基于 openpyxl 的。"
 
 #: ../../../README.rst:17
 msgid "Security"
-msgstr ""
+msgstr "安全"
 
 #: ../../../README.rst:19
 msgid ""
 "By default openpyxl does not guard against quadratic blowup or billion "
 "laughs xml attacks. To guard against these attacks install defusedxml."
 msgstr ""
+"默认情况下，openpyxl 不能防止二次膨胀或十亿大笑 xml 攻击。"
+"为了防止这些攻击，请安装 defusedxml。"
 
 #: ../../../README.rst:23
 msgid "Mailing List"
-msgstr ""
+msgstr "邮箱列表"
 
 #: ../../../README.rst:25
 msgid ""
 "The user list can be found on http://groups.google.com/group/openpyxl-"
 "users"
 msgstr ""
+"用户名单可在 http://groups.google.com/group/openpyxl-users 上找到"
 
 #: ../../../README.rst:28
 msgid "Sample code::"
-msgstr ""
+msgstr "样例代码::"
 
 #: ../../../README.rst:51
 msgid "Documentation"
-msgstr ""
+msgstr "文档"
 
 #: ../../../README.rst:53
 msgid "The documentation is at: https://openpyxl.readthedocs.io"
-msgstr ""
+msgstr "文档在（英文）：https://openpyxl.readthedocs.io"
 
 #: ../../../README.rst:55
 msgid "installation methods"
-msgstr ""
+msgstr "安装方法"
 
 #: ../../../README.rst:56
 msgid "code examples"
-msgstr ""
+msgstr "代码样例"
 
 #: ../../../README.rst:57
 msgid "instructions for contributing"
-msgstr ""
+msgstr "指令的贡献"
 
 #: ../../../README.rst:59
 msgid "Release notes: https://openpyxl.readthedocs.io/en/stable/changes.html"
-msgstr ""
+msgstr "发行注解：https://openpyxl.readthedocs.io/en/stable/changes.html"
 
 #: ../../index.rst:17
 msgid "Support"
-msgstr ""
+msgstr "支持"
 
 #: ../../index.rst:19
 msgid ""
@@ -154,6 +160,10 @@ msgid ""
 "contribute the project :doc:`development` yourself or contract a "
 "developer for particular features."
 msgstr ""
+"这是开源项目，由志愿者在业余时间维护。"
+"这很可能意味着您想要的特定功能或功能丢失了。"
+"但事情并不一定会一直这样。"
+"你可以自己提交项目 :doc:`development`，也可以与开发者签订合同，开发特定功能。"
 
 #: ../../index.rst:26
 msgid ""
@@ -162,6 +172,8 @@ msgid ""
 "<http://www.adimian.com>`_. Donations to the project to support further "
 "development and maintenance are welcome."
 msgstr ""
+"openpyxl 的专业支持可从 `Clark Consulting & Research <http://www.clark-consulting.eu/>`_ 和 `Adimian <http://www.adimian.com>`_ 获得。"
+"我们欢迎捐款支持该项目的进一步发展和维护。"
 
 #: ../../index.rst:32
 msgid ""
@@ -171,20 +183,24 @@ msgid ""
 "file. If for reasons of confidentiality you are unable to make a file "
 "publicly available then contact of one the developers."
 msgstr ""
+"错误报告和特性请求应该通过 `问题跟踪器 <https://foss.heptapod.net/openpyxl/openpyxl/-/issues>`_ 提交。"
+"请提供完整的追溯您看到的任何错误，如果可能的话，示例文件。"
+"如果出于保密原因，你不能将文件公开，那么请联系其中开发者。"
 
 #: ../../index.rst:38
 msgid ""
 "The repository is being provided by `Octobus <https://octobus.net/>`_ and"
 " `Clever Cloud <https://clever-cloud.com/>`_."
 msgstr ""
+"存储库由 `Octobus <https://octobus.net/>`_ 和 `Clever Cloud <https://clever-cloud.com/>`_ 提供。"
 
 #: ../../index.rst:43
 msgid "How to Contribute"
-msgstr ""
+msgstr "如何贡献"
 
 #: ../../index.rst:45
 msgid "Any help will be greatly appreciated, just follow those steps:"
-msgstr ""
+msgstr "任何帮助我们都会非常感激，只要遵循以下步骤："
 
 #: ../../index.rst:47
 msgid ""
