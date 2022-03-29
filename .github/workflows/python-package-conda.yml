@@ -25,6 +25,7 @@ jobs:
           pip install -e .
       - name: 🔧 Build HTML
         run: |
+          cd doc
           make html
 
       - name: 🚀 Deploy to GitHub pages
