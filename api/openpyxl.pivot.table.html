@@ -143,7 +143,7 @@ type</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="openpyxl.pivot.table.ConditionalFormat.scope">
 <span class="sig-name descname"><span class="pre">scope</span></span><a class="headerlink" href="#openpyxl.pivot.table.ConditionalFormat.scope" title="永久链接至目标">¶</a></dt>
-<dd><p>Value must be one of {‘selection’, ‘data’, ‘field’}</p>
+<dd><p>Value must be one of {‘selection’, ‘field’, ‘data’}</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -202,13 +202,13 @@ type</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="openpyxl.pivot.table.DataField.showDataAs">
 <span class="sig-name descname"><span class="pre">showDataAs</span></span><a class="headerlink" href="#openpyxl.pivot.table.DataField.showDataAs" title="永久链接至目标">¶</a></dt>
-<dd><p>Value must be one of {‘difference’, ‘percentOfRow’, ‘percentOfTotal’, ‘normal’, ‘percentOfCol’, ‘index’, ‘runTotal’, ‘percent’, ‘percentDiff’}</p>
+<dd><p>Value must be one of {‘percentOfCol’, ‘runTotal’, ‘percentOfRow’, ‘difference’, ‘index’, ‘percent’, ‘normal’, ‘percentOfTotal’, ‘percentDiff’}</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="openpyxl.pivot.table.DataField.subtotal">
 <span class="sig-name descname"><span class="pre">subtotal</span></span><a class="headerlink" href="#openpyxl.pivot.table.DataField.subtotal" title="永久链接至目标">¶</a></dt>
-<dd><p>Value must be one of {‘sum’, ‘stdDevp’, ‘min’, ‘countNums’, ‘product’, ‘stdDev’, ‘var’, ‘average’, ‘varp’, ‘count’, ‘max’}</p>
+<dd><p>Value must be one of {‘min’, ‘product’, ‘countNums’, ‘sum’, ‘average’, ‘max’, ‘stdDevp’, ‘varp’, ‘count’, ‘var’, ‘stdDev’}</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -279,7 +279,7 @@ type</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="openpyxl.pivot.table.FieldItem.t">
 <span class="sig-name descname"><span class="pre">t</span></span><a class="headerlink" href="#openpyxl.pivot.table.FieldItem.t" title="永久链接至目标">¶</a></dt>
-<dd><p>Value must be one of {‘sum’, ‘min’, ‘product’, ‘countA’, ‘stdDev’, ‘stdDevP’, ‘var’, ‘data’, ‘blank’, ‘varP’, ‘default’, ‘avg’, ‘count’, ‘grand’, ‘max’}</p>
+<dd><p>Value must be one of {‘countA’, ‘min’, ‘product’, ‘grand’, ‘sum’, ‘stdDevP’, ‘max’, ‘blank’, ‘data’, ‘varP’, ‘count’, ‘var’, ‘default’, ‘stdDev’, ‘avg’}</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -302,7 +302,7 @@ type</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="openpyxl.pivot.table.Format.action">
 <span class="sig-name descname"><span class="pre">action</span></span><a class="headerlink" href="#openpyxl.pivot.table.Format.action" title="永久链接至目标">¶</a></dt>
-<dd><p>Value must be one of {‘blank’, ‘formatting’, ‘formula’, ‘drill’}</p>
+<dd><p>Value must be one of {‘formula’, ‘formatting’, ‘blank’, ‘drill’}</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -541,7 +541,7 @@ type</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="openpyxl.pivot.table.PivotArea.axis">
 <span class="sig-name descname"><span class="pre">axis</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotArea.axis" title="永久链接至目标">¶</a></dt>
-<dd><p>Value must be one of {‘axisCol’, ‘axisRow’, ‘axisValues’, ‘axisPage’}</p>
+<dd><p>Value must be one of {‘axisPage’, ‘axisRow’, ‘axisValues’, ‘axisCol’}</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -624,7 +624,7 @@ type</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="openpyxl.pivot.table.PivotArea.type">
 <span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotArea.type" title="永久链接至目标">¶</a></dt>
-<dd><p>Value must be one of {‘all’, ‘button’, ‘topEnd’, ‘topRight’, ‘normal’, ‘data’, ‘origin’}</p>
+<dd><p>Value must be one of {‘topRight’, ‘all’, ‘data’, ‘topEnd’, ‘button’, ‘origin’, ‘normal’}</p>
 </dd></dl>
 
 </dd></dl>
@@ -660,7 +660,7 @@ type</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="openpyxl.pivot.table.PivotField.axis">
 <span class="sig-name descname"><span class="pre">axis</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotField.axis" title="永久链接至目标">¶</a></dt>
-<dd><p>Value must be one of {‘axisCol’, ‘axisRow’, ‘axisValues’, ‘axisPage’}</p>
+<dd><p>Value must be one of {‘axisPage’, ‘axisRow’, ‘axisValues’, ‘axisCol’}</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -1030,7 +1030,7 @@ type</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="openpyxl.pivot.table.PivotFilter.type">
 <span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#openpyxl.pivot.table.PivotFilter.type" title="永久链接至目标">¶</a></dt>
-<dd><p>Value must be one of {‘captionLessThan’, ‘dateBetween’, ‘captionNotContains’, ‘valueGreaterThanOrEqual’, ‘captionBeginsWith’, ‘thisWeek’, ‘Q2’, ‘M12’, ‘dateNotBetween’, ‘captionBetween’, ‘captionLessThanOrEqual’, ‘valueGreaterThan’, ‘valueBetween’, ‘dateNewerThan’, ‘lastYear’, ‘Q1’, ‘captionNotEndsWith’, ‘lastMonth’, ‘captionGreaterThan’, ‘unknown’, ‘dateEqual’, ‘lastQuarter’, ‘thisYear’, ‘yearToDate’, ‘M8’, ‘dateNotEqual’, ‘M9’, ‘valueNotEqual’, ‘M10’, ‘thisQuarter’, ‘captionEndsWith’, ‘captionNotBeginsWith’, ‘M11’, ‘captionGreaterThanOrEqual’, ‘today’, ‘valueLessThanOrEqual’, ‘thisMonth’, ‘valueLessThan’, ‘tomorrow’, ‘captionNotBetween’, ‘captionEqual’, ‘nextYear’, ‘dateNewerThanOrEqual’, ‘captionNotEqual’, ‘M4’, ‘count’, ‘dateOlderThan’, ‘yesterday’, ‘sum’, ‘valueEqual’, ‘dateOlderThanOrEqual’, ‘Q4’, ‘M3’, ‘M2’, ‘captionContains’, ‘nextWeek’, ‘nextMonth’, ‘M6’, ‘lastWeek’, ‘Q3’, ‘M7’, ‘M1’, ‘M5’, ‘nextQuarter’, ‘percent’, ‘valueNotBetween’}</p>
+<dd><p>Value must be one of {‘thisWeek’, ‘tomorrow’, ‘unknown’, ‘captionEndsWith’, ‘valueNotEqual’, ‘valueLessThan’, ‘dateOlderThanOrEqual’, ‘Q3’, ‘M8’, ‘M6’, ‘M11’, ‘today’, ‘Q2’, ‘nextQuarter’, ‘count’, ‘lastMonth’, ‘M1’, ‘lastYear’, ‘captionLessThanOrEqual’, ‘thisYear’, ‘valueGreaterThan’, ‘captionBeginsWith’, ‘captionNotEndsWith’, ‘yearToDate’, ‘lastQuarter’, ‘captionGreaterThan’, ‘dateBetween’, ‘thisMonth’, ‘nextMonth’, ‘captionLessThan’, ‘dateOlderThan’, ‘percent’, ‘dateNotEqual’, ‘M3’, ‘valueGreaterThanOrEqual’, ‘captionNotBeginsWith’, ‘dateEqual’, ‘sum’, ‘nextYear’, ‘captionNotEqual’, ‘captionContains’, ‘valueEqual’, ‘thisQuarter’, ‘M9’, ‘dateNewerThan’, ‘M7’, ‘M12’, ‘captionNotContains’, ‘dateNotBetween’, ‘nextWeek’, ‘valueNotBetween’, ‘yesterday’, ‘M2’, ‘captionBetween’, ‘captionNotBetween’, ‘valueBetween’, ‘M4’, ‘Q1’, ‘M5’, ‘dateNewerThanOrEqual’, ‘captionEqual’, ‘valueLessThanOrEqual’, ‘lastWeek’, ‘captionGreaterThanOrEqual’, ‘M10’, ‘Q4’}</p>
 </dd></dl>
 
 </dd></dl>
@@ -1355,7 +1355,7 @@ type</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="openpyxl.pivot.table.RowColItem.t">
 <span class="sig-name descname"><span class="pre">t</span></span><a class="headerlink" href="#openpyxl.pivot.table.RowColItem.t" title="永久链接至目标">¶</a></dt>
-<dd><p>Value must be one of {‘sum’, ‘min’, ‘product’, ‘countA’, ‘stdDev’, ‘stdDevP’, ‘var’, ‘data’, ‘blank’, ‘varP’, ‘default’, ‘avg’, ‘count’, ‘grand’, ‘max’}</p>
+<dd><p>Value must be one of {‘countA’, ‘min’, ‘product’, ‘grand’, ‘sum’, ‘stdDevP’, ‘max’, ‘blank’, ‘data’, ‘varP’, ‘count’, ‘var’, ‘default’, ‘stdDev’, ‘avg’}</p>
 </dd></dl>
 
 <dl class="py attribute">

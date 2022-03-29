@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Using filters and sorts &#8212; openpyxl 3.0.9 文档</title>
+    <title>筛选和排序 &#8212; openpyxl 3.0.9 文档</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/nature.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -16,8 +16,8 @@
     <script src="_static/translations.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="Validating cells" href="validation.html" />
-    <link rel="prev" title="Print Settings" href="print_settings.html" /> 
+    <link rel="next" title="验证单元格" href="validation.html" />
+    <link rel="prev" title="打印设置" href="print_settings.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>导航</h3>
@@ -29,13 +29,13 @@
           <a href="py-modindex.html" title="Python 模块索引"
              >模块</a> |</li>
         <li class="right" >
-          <a href="validation.html" title="Validating cells"
+          <a href="validation.html" title="验证单元格"
              accesskey="N">下一页</a> |</li>
         <li class="right" >
-          <a href="print_settings.html" title="Print Settings"
+          <a href="print_settings.html" title="打印设置"
              accesskey="P">上一页</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">openpyxl 3.0.9 文档</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Using filters and sorts</a></li> 
+        <li class="nav-item nav-item-this"><a href="">筛选和排序</a></li> 
       </ul>
     </div>  
 
@@ -45,13 +45,13 @@
           <div class="body" role="main">
             
   <section id="using-filters-and-sorts">
-<h1>Using filters and sorts<a class="headerlink" href="#using-filters-and-sorts" title="永久链接至标题">¶</a></h1>
-<p>It’s possible to add a filter to a worksheet.</p>
+<h1>筛选和排序<a class="headerlink" href="#using-filters-and-sorts" title="永久链接至标题">¶</a></h1>
+<p>在工作簿中添加筛选是可能的。</p>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
-<p>Filters and sorts can only be configured by openpyxl but will need to be applied in applications like Excel. This is because they actually rearranges or format cells or rows in the range.</p>
+<p>筛选和排序只能通过 openpyxl 进行设置，但是只有在 Excel 这样的程序中才会被应用。这是由于他们会在范围内重新排列或者格式化单元格或行。</p>
 </div>
-<p>To add a filter you define a range and then add columns and sort conditions:</p>
+<p>定义范围后，你可以对一列添加筛选或者添加排序条件：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openpyxl</span> <span class="kn">import</span> <span class="n">Workbook</span>
 
 <span class="n">wb</span> <span class="o">=</span> <span class="n">Workbook</span><span class="p">()</span>
@@ -85,8 +85,8 @@
 <span class="n">wb</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;filtered.xlsx&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This will add the relevant instructions to the file but will <strong>neither actually filter nor sort</strong>.</p>
-<img alt="&quot;Filter and sort prepared but not executed for a range of cells&quot;" src="_images/filters.png" />
+<p>这将向文件中添加相关指令，但实际上 <strong>既不会过滤也不会排序</strong>。</p>
+<img alt="&quot;筛选和排序已准备但未执行的单元格范围&quot;" src="_images/filters.png" />
 </section>
 
 
@@ -102,12 +102,12 @@
   <div>
     <h4>上一个主题</h4>
     <p class="topless"><a href="print_settings.html"
-                          title="上一章">Print Settings</a></p>
+                          title="上一章">打印设置</a></p>
   </div>
   <div>
     <h4>下一个主题</h4>
     <p class="topless"><a href="validation.html"
-                          title="下一章">Validating cells</a></p>
+                          title="下一章">验证单元格</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>本页</h3>
@@ -140,13 +140,13 @@
           <a href="py-modindex.html" title="Python 模块索引"
              >模块</a> |</li>
         <li class="right" >
-          <a href="validation.html" title="Validating cells"
+          <a href="validation.html" title="验证单元格"
              >下一页</a> |</li>
         <li class="right" >
-          <a href="print_settings.html" title="Print Settings"
+          <a href="print_settings.html" title="打印设置"
              >上一页</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">openpyxl 3.0.9 文档</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Using filters and sorts</a></li> 
+        <li class="nav-item nav-item-this"><a href="">筛选和排序</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

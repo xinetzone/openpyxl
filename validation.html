@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Validating cells &#8212; openpyxl 3.0.9 文档</title>
+    <title>验证单元格 &#8212; openpyxl 3.0.9 文档</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/nature.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -16,8 +16,8 @@
     <script src="_static/translations.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="Defined Names" href="defined_names.html" />
-    <link rel="prev" title="Using filters and sorts" href="filters.html" /> 
+    <link rel="next" title="定义的名字" href="defined_names.html" />
+    <link rel="prev" title="筛选和排序" href="filters.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>导航</h3>
@@ -29,13 +29,13 @@
           <a href="py-modindex.html" title="Python 模块索引"
              >模块</a> |</li>
         <li class="right" >
-          <a href="defined_names.html" title="Defined Names"
+          <a href="defined_names.html" title="定义的名字"
              accesskey="N">下一页</a> |</li>
         <li class="right" >
-          <a href="filters.html" title="Using filters and sorts"
+          <a href="filters.html" title="筛选和排序"
              accesskey="P">上一页</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">openpyxl 3.0.9 文档</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Validating cells</a></li> 
+        <li class="nav-item nav-item-this"><a href="">验证单元格</a></li> 
       </ul>
     </div>  
 
@@ -45,10 +45,10 @@
           <div class="body" role="main">
             
   <section id="validating-cells">
-<h1>Validating cells<a class="headerlink" href="#validating-cells" title="永久链接至标题">¶</a></h1>
-<p>Data validators can be applied to ranges of cells but are not enforced or evaluated. Ranges do not have to be contiguous: eg. “A1 B2:B5” is contains A1 and the cells B2 to B5 but not A2 or B2.</p>
+<h1>验证单元格<a class="headerlink" href="#validating-cells" title="永久链接至标题">¶</a></h1>
+<p>数据验证器可以应用于范围单元格，但也不是强制和 evaluated。范围不必是连续的：例如 “A1 B2:B5” 包含 A1 和单元格 B2 至 B5，但不包含 A2 或 B2。</p>
 <section id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="永久链接至标题">¶</a></h2>
+<h2>例子<a class="headerlink" href="#examples" title="永久链接至标题">¶</a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openpyxl</span> <span class="kn">import</span> <span class="n">Workbook</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openpyxl.worksheet.datavalidation</span> <span class="kn">import</span> <span class="n">DataValidation</span>
 <span class="go">&gt;&gt;&gt;</span>
@@ -89,61 +89,61 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
-<p>Validations without any cell ranges will be ignored when saving a workbook.</p>
+<p>没有在任何单元格应用的验证将会在保存的时候被忽略。</p>
 </div>
 </section>
 <section id="other-validation-examples">
-<h2>Other validation examples<a class="headerlink" href="#other-validation-examples" title="永久链接至标题">¶</a></h2>
-<p>Any whole number:</p>
+<h2>其他验证的例子<a class="headerlink" href="#other-validation-examples" title="永久链接至标题">¶</a></h2>
+<p>任何：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dv</span> <span class="o">=</span> <span class="n">DataValidation</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;whole&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Any whole number above 100:</p>
+<p>任何大于 100 的整数：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dv</span> <span class="o">=</span> <span class="n">DataValidation</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;whole&quot;</span><span class="p">,</span>
                     <span class="n">operator</span><span class="o">=</span><span class="s2">&quot;greaterThan&quot;</span><span class="p">,</span>
                     <span class="n">formula1</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Any decimal number:</p>
+<p>任何小数：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dv</span> <span class="o">=</span> <span class="n">DataValidation</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;decimal&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Any decimal number between 0 and 1:</p>
+<p>任何在0至1之间的小数：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dv</span> <span class="o">=</span> <span class="n">DataValidation</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;decimal&quot;</span><span class="p">,</span>
                     <span class="n">operator</span><span class="o">=</span><span class="s2">&quot;between&quot;</span><span class="p">,</span>
                     <span class="n">formula1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
                     <span class="n">formula2</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Any date:</p>
+<p>任何日期：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dv</span> <span class="o">=</span> <span class="n">DataValidation</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>or time:</p>
+<p>或 时间：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dv</span> <span class="o">=</span> <span class="n">DataValidation</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Any string at most 15 characters:</p>
+<p>15 字符以下的字符串：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dv</span> <span class="o">=</span> <span class="n">DataValidation</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;textLength&quot;</span><span class="p">,</span>
                     <span class="n">operator</span><span class="o">=</span><span class="s2">&quot;lessThanOrEqual&quot;</span><span class="p">),</span>
                     <span class="n">formula1</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Cell range validation:</p>
+<p>单元格区域验证：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openpyxl.utils</span> <span class="kn">import</span> <span class="n">quote_sheetname</span>
 <span class="n">dv</span> <span class="o">=</span> <span class="n">DataValidation</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;list&quot;</span><span class="p">,</span>
                     <span class="n">formula1</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">!$B$1:$B$10&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">quote_sheetname</span><span class="p">(</span><span class="n">sheetname</span><span class="p">))</span>
                     <span class="p">)</span>
 </pre></div>
 </div>
-<p>Custom rule:</p>
+<p>自定义规则：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dv</span> <span class="o">=</span> <span class="n">DataValidation</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;custom&quot;</span><span class="p">,</span>
                     <span class="n">formula1</span><span class="s2">&quot;=SOMEFORMULA&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
-<p>See <a class="reference external" href="http://www.contextures.com/xlDataVal07.html">http://www.contextures.com/xlDataVal07.html</a> for custom rules</p>
+<p>自定义规则见 <a class="reference external" href="http://www.contextures.com/xlDataVal07.html">http://www.contextures.com/xlDataVal07.html</a> 。</p>
 </div>
 </section>
 </section>
@@ -161,9 +161,9 @@
   <div>
     <h3><a href="index.html">目录</a></h3>
     <ul>
-<li><a class="reference internal" href="#">Validating cells</a><ul>
-<li><a class="reference internal" href="#examples">Examples</a></li>
-<li><a class="reference internal" href="#other-validation-examples">Other validation examples</a></li>
+<li><a class="reference internal" href="#">验证单元格</a><ul>
+<li><a class="reference internal" href="#examples">例子</a></li>
+<li><a class="reference internal" href="#other-validation-examples">其他验证的例子</a></li>
 </ul>
 </li>
 </ul>
@@ -172,12 +172,12 @@
   <div>
     <h4>上一个主题</h4>
     <p class="topless"><a href="filters.html"
-                          title="上一章">Using filters and sorts</a></p>
+                          title="上一章">筛选和排序</a></p>
   </div>
   <div>
     <h4>下一个主题</h4>
     <p class="topless"><a href="defined_names.html"
-                          title="下一章">Defined Names</a></p>
+                          title="下一章">定义的名字</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>本页</h3>
@@ -210,13 +210,13 @@
           <a href="py-modindex.html" title="Python 模块索引"
              >模块</a> |</li>
         <li class="right" >
-          <a href="defined_names.html" title="Defined Names"
+          <a href="defined_names.html" title="定义的名字"
              >下一页</a> |</li>
         <li class="right" >
-          <a href="filters.html" title="Using filters and sorts"
+          <a href="filters.html" title="筛选和排序"
              >上一页</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">openpyxl 3.0.9 文档</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Validating cells</a></li> 
+        <li class="nav-item nav-item-this"><a href="">验证单元格</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

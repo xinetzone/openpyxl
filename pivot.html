@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Pivot Tables &#8212; openpyxl 3.0.9 文档</title>
+    <title>数据透视表 &#8212; openpyxl 3.0.9 文档</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/nature.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -16,7 +16,7 @@
     <script src="_static/translations.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="Print Settings" href="print_settings.html" />
+    <link rel="next" title="打印设置" href="print_settings.html" />
     <link rel="prev" title="Conditional Formatting" href="formatting.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -29,13 +29,13 @@
           <a href="py-modindex.html" title="Python 模块索引"
              >模块</a> |</li>
         <li class="right" >
-          <a href="print_settings.html" title="Print Settings"
+          <a href="print_settings.html" title="打印设置"
              accesskey="N">下一页</a> |</li>
         <li class="right" >
           <a href="formatting.html" title="Conditional Formatting"
              accesskey="P">上一页</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">openpyxl 3.0.9 文档</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Pivot Tables</a></li> 
+        <li class="nav-item nav-item-this"><a href="">数据透视表</a></li> 
       </ul>
     </div>  
 
@@ -45,18 +45,11 @@
           <div class="body" role="main">
             
   <section id="pivot-tables">
-<h1>Pivot Tables<a class="headerlink" href="#pivot-tables" title="永久链接至标题">¶</a></h1>
-<p>openpyxl provides read-support for pivot tables so that they will be
-preserved in existing files. The specification for pivot tables, while
-extensive, is not very clear and it is not intended that client code should
-be able to create pivot tables. However, it should be possible to edit and
-manipulate existing pivot tables, eg. change their ranges or whether they
-should update automatically settings.</p>
-<p>As is the case for charts, images and tables there is currently no management
-API for pivot tables so that client code will have to loop over the
-<code class="docutils literal notranslate"><span class="pre">_pivots</span></code> list of a worksheet.</p>
+<h1>数据透视表<a class="headerlink" href="#pivot-tables" title="永久链接至标题">¶</a></h1>
+<p>openpyxl 为数据透视表提供了读取支持，因此它们将被保存在现有的文件中。数据透视表的规范虽然广泛，但不是很清楚，它不打算让客户端代码能够创建数据透视表。但是，应该可以编辑和操作现有的数据透视表，例如。更改它们的范围或是否应该自动更新设置。</p>
+<p>和图表、图片、表格一样，数据透视表没有专门管理的 API，因此客户端代码不得不遍历工作表 <code class="docutils literal notranslate"><span class="pre">_pivots</span></code> 列表</p>
 <section id="example">
-<h2>Example<a class="headerlink" href="#example" title="永久链接至标题">¶</a></h2>
+<h2>例子<a class="headerlink" href="#example" title="永久链接至标题">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openpyxl</span> <span class="kn">import</span> <span class="n">load_workbook</span>
 <span class="n">wb</span> <span class="o">=</span> <span class="n">load_workbook</span><span class="p">(</span><span class="s2">&quot;campaign.xlsx&quot;</span><span class="p">)</span>
 <span class="n">ws</span> <span class="o">=</span> <span class="n">wb</span><span class="p">[</span><span class="s2">&quot;Results&quot;</span><span class="p">]</span>
@@ -64,7 +57,7 @@ API for pivot tables so that client code will have to loop over the
 <span class="n">pivot</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">refreshOnLoad</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
-<p>For further information see <a class="reference internal" href="api/openpyxl.pivot.cache.html#openpyxl.pivot.cache.CacheDefinition" title="openpyxl.pivot.cache.CacheDefinition"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.pivot.cache.CacheDefinition</span></code></a></p>
+<p>更多信息请查询 <a class="reference internal" href="api/openpyxl.pivot.cache.html#openpyxl.pivot.cache.CacheDefinition" title="openpyxl.pivot.cache.CacheDefinition"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.pivot.cache.CacheDefinition</span></code></a></p>
 </section>
 </section>
 
@@ -81,8 +74,8 @@ API for pivot tables so that client code will have to loop over the
   <div>
     <h3><a href="index.html">目录</a></h3>
     <ul>
-<li><a class="reference internal" href="#">Pivot Tables</a><ul>
-<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#">数据透视表</a><ul>
+<li><a class="reference internal" href="#example">例子</a></li>
 </ul>
 </li>
 </ul>
@@ -96,7 +89,7 @@ API for pivot tables so that client code will have to loop over the
   <div>
     <h4>下一个主题</h4>
     <p class="topless"><a href="print_settings.html"
-                          title="下一章">Print Settings</a></p>
+                          title="下一章">打印设置</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>本页</h3>
@@ -129,13 +122,13 @@ API for pivot tables so that client code will have to loop over the
           <a href="py-modindex.html" title="Python 模块索引"
              >模块</a> |</li>
         <li class="right" >
-          <a href="print_settings.html" title="Print Settings"
+          <a href="print_settings.html" title="打印设置"
              >下一页</a> |</li>
         <li class="right" >
           <a href="formatting.html" title="Conditional Formatting"
              >上一页</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">openpyxl 3.0.9 文档</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Pivot Tables</a></li> 
+        <li class="nav-item nav-item-this"><a href="">数据透视表</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

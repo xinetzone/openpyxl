@@ -142,7 +142,7 @@ type</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="openpyxl.worksheet.filters.CustomFilter.operator">
 <span class="sig-name descname"><span class="pre">operator</span></span><a class="headerlink" href="#openpyxl.worksheet.filters.CustomFilter.operator" title="永久链接至目标">¶</a></dt>
-<dd><p>Value must be one of {‘greaterThan’, ‘greaterThanOrEqual’, ‘lessThanOrEqual’, ‘equal’, ‘lessThan’, ‘notEqual’}</p>
+<dd><p>Value must be one of {‘lessThan’, ‘greaterThan’, ‘equal’, ‘notEqual’, ‘lessThanOrEqual’, ‘greaterThanOrEqual’}</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -183,7 +183,7 @@ type</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="openpyxl.worksheet.filters.DateGroupItem.dateTimeGrouping">
 <span class="sig-name descname"><span class="pre">dateTimeGrouping</span></span><a class="headerlink" href="#openpyxl.worksheet.filters.DateGroupItem.dateTimeGrouping" title="永久链接至目标">¶</a></dt>
-<dd><p>Value must be one of {‘minute’, ‘hour’, ‘year’, ‘day’, ‘second’, ‘month’}</p>
+<dd><p>Value must be one of {‘hour’, ‘year’, ‘day’, ‘second’, ‘minute’, ‘month’}</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -253,7 +253,7 @@ type</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="openpyxl.worksheet.filters.DynamicFilter.type">
 <span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#openpyxl.worksheet.filters.DynamicFilter.type" title="永久链接至目标">¶</a></dt>
-<dd><p>Value must be one of {‘Q2’, ‘thisWeek’, ‘Q1’, ‘M12’, ‘lastYear’, ‘lastMonth’, ‘lastQuarter’, ‘thisYear’, ‘M9’, ‘yearToDate’, ‘M8’, ‘M10’, ‘thisQuarter’, ‘M11’, ‘today’, ‘thisMonth’, ‘tomorrow’, ‘nextYear’, ‘belowAverage’, ‘aboveAverage’, ‘M4’, ‘yesterday’, ‘null’, ‘M3’, ‘Q4’, ‘M2’, ‘nextWeek’, ‘nextMonth’, ‘M6’, ‘lastWeek’, ‘Q3’, ‘M7’, ‘M1’, ‘M5’, ‘nextQuarter’}</p>
+<dd><p>Value must be one of {‘thisWeek’, ‘tomorrow’, ‘null’, ‘Q3’, ‘M8’, ‘M11’, ‘M6’, ‘today’, ‘Q2’, ‘nextQuarter’, ‘lastMonth’, ‘M1’, ‘lastYear’, ‘aboveAverage’, ‘thisYear’, ‘yearToDate’, ‘lastQuarter’, ‘thisMonth’, ‘nextMonth’, ‘M3’, ‘nextYear’, ‘M9’, ‘thisQuarter’, ‘M12’, ‘M7’, ‘nextWeek’, ‘yesterday’, ‘M2’, ‘M4’, ‘M5’, ‘Q1’, ‘belowAverage’, ‘lastWeek’, ‘M10’, ‘Q4’}</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -362,7 +362,7 @@ or confusing in Python (eg. “type”) or a more descriptve name is desired
 <dl class="py attribute">
 <dt class="sig sig-object py" id="openpyxl.worksheet.filters.Filters.calendarType">
 <span class="sig-name descname"><span class="pre">calendarType</span></span><a class="headerlink" href="#openpyxl.worksheet.filters.Filters.calendarType" title="永久链接至目标">¶</a></dt>
-<dd><p>Value must be one of {‘gregorianMeFrench’, ‘hijri’, ‘taiwan’, ‘saka’, ‘korea’, ‘gregorian’, ‘japan’, ‘gregorianUs’, ‘gregorianArabic’, ‘thai’, ‘gregorianXlitEnglish’, ‘gregorianXlitFrench’, ‘hebrew’}</p>
+<dd><p>Value must be one of {‘gregorianXlitEnglish’, ‘gregorian’, ‘taiwan’, ‘gregorianUs’, ‘thai’, ‘hebrew’, ‘gregorianXlitFrench’, ‘saka’, ‘korea’, ‘gregorianMeFrench’, ‘hijri’, ‘japan’, ‘gregorianArabic’}</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -399,7 +399,7 @@ type</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="openpyxl.worksheet.filters.IconFilter.iconSet">
 <span class="sig-name descname"><span class="pre">iconSet</span></span><a class="headerlink" href="#openpyxl.worksheet.filters.IconFilter.iconSet" title="永久链接至目标">¶</a></dt>
-<dd><p>Value must be one of {‘4Rating’, ‘3ArrowsGray’, ‘3TrafficLights2’, ‘3TrafficLights1’, ‘3Symbols’, ‘5ArrowsGray’, ‘4RedToBlack’, ‘3Arrows’, ‘5Rating’, ‘3Flags’, ‘5Arrows’, ‘4ArrowsGray’, ‘5Quarters’, ‘3Signs’, ‘4TrafficLights’, ‘4Arrows’, ‘3Symbols2’}</p>
+<dd><p>Value must be one of {‘4ArrowsGray’, ‘4RedToBlack’, ‘3TrafficLights1’, ‘5Quarters’, ‘4TrafficLights’, ‘5Rating’, ‘3Signs’, ‘3Symbols2’, ‘3Flags’, ‘5Arrows’, ‘3Arrows’, ‘3ArrowsGray’, ‘4Arrows’, ‘4Rating’, ‘3TrafficLights2’, ‘3Symbols’, ‘5ArrowsGray’}</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -440,7 +440,7 @@ type</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="openpyxl.worksheet.filters.SortCondition.iconSet">
 <span class="sig-name descname"><span class="pre">iconSet</span></span><a class="headerlink" href="#openpyxl.worksheet.filters.SortCondition.iconSet" title="永久链接至目标">¶</a></dt>
-<dd><p>Value must be one of {‘4Rating’, ‘3ArrowsGray’, ‘3TrafficLights2’, ‘3TrafficLights1’, ‘3Symbols’, ‘5ArrowsGray’, ‘4RedToBlack’, ‘3Arrows’, ‘5Rating’, ‘3Flags’, ‘5Arrows’, ‘4ArrowsGray’, ‘5Quarters’, ‘3Signs’, ‘4TrafficLights’, ‘4Arrows’, ‘3Symbols2’}</p>
+<dd><p>Value must be one of {‘4ArrowsGray’, ‘4RedToBlack’, ‘3TrafficLights1’, ‘5Quarters’, ‘4TrafficLights’, ‘5Rating’, ‘3Signs’, ‘3Symbols2’, ‘3Flags’, ‘5Arrows’, ‘3Arrows’, ‘3ArrowsGray’, ‘4Arrows’, ‘4Rating’, ‘3TrafficLights2’, ‘3Symbols’, ‘5ArrowsGray’}</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -451,7 +451,7 @@ type</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="openpyxl.worksheet.filters.SortCondition.sortBy">
 <span class="sig-name descname"><span class="pre">sortBy</span></span><a class="headerlink" href="#openpyxl.worksheet.filters.SortCondition.sortBy" title="永久链接至目标">¶</a></dt>
-<dd><p>Value must be one of {‘value’, ‘icon’, ‘fontColor’, ‘cellColor’}</p>
+<dd><p>Value must be one of {‘icon’, ‘value’, ‘cellColor’, ‘fontColor’}</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -498,7 +498,7 @@ type</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="openpyxl.worksheet.filters.SortState.sortMethod">
 <span class="sig-name descname"><span class="pre">sortMethod</span></span><a class="headerlink" href="#openpyxl.worksheet.filters.SortState.sortMethod" title="永久链接至目标">¶</a></dt>
-<dd><p>Value must be one of {‘stroke’, ‘pinYin’}</p>
+<dd><p>Value must be one of {‘pinYin’, ‘stroke’}</p>
 </dd></dl>
 
 <dl class="py attribute">

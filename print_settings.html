@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Print Settings &#8212; openpyxl 3.0.9 文档</title>
+    <title>打印设置 &#8212; openpyxl 3.0.9 文档</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/nature.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -16,8 +16,8 @@
     <script src="_static/translations.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="Using filters and sorts" href="filters.html" />
-    <link rel="prev" title="Pivot Tables" href="pivot.html" /> 
+    <link rel="next" title="筛选和排序" href="filters.html" />
+    <link rel="prev" title="数据透视表" href="pivot.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>导航</h3>
@@ -29,13 +29,13 @@
           <a href="py-modindex.html" title="Python 模块索引"
              >模块</a> |</li>
         <li class="right" >
-          <a href="filters.html" title="Using filters and sorts"
+          <a href="filters.html" title="筛选和排序"
              accesskey="N">下一页</a> |</li>
         <li class="right" >
-          <a href="pivot.html" title="Pivot Tables"
+          <a href="pivot.html" title="数据透视表"
              accesskey="P">上一页</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">openpyxl 3.0.9 文档</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Print Settings</a></li> 
+        <li class="nav-item nav-item-this"><a href="">打印设置</a></li> 
       </ul>
     </div>  
 
@@ -45,10 +45,10 @@
           <div class="body" role="main">
             
   <section id="print-settings">
-<h1>Print Settings<a class="headerlink" href="#print-settings" title="永久链接至标题">¶</a></h1>
-<p>openpyxl provides reasonably full support for print settings.</p>
+<h1>打印设置<a class="headerlink" href="#print-settings" title="永久链接至标题">¶</a></h1>
+<p>openpyxl 为打印设置提供合理的全面支持。</p>
 <section id="edit-print-options">
-<h2>Edit Print Options<a class="headerlink" href="#edit-print-options" title="永久链接至标题">¶</a></h2>
+<h2>编辑打印设置<a class="headerlink" href="#edit-print-options" title="永久链接至标题">¶</a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openpyxl.workbook</span> <span class="kn">import</span> <span class="n">Workbook</span>
 <span class="go">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">wb</span> <span class="o">=</span> <span class="n">Workbook</span><span class="p">()</span>
@@ -60,13 +60,8 @@
 </div>
 </section>
 <section id="headers-and-footers">
-<h2>Headers and Footers<a class="headerlink" href="#headers-and-footers" title="永久链接至标题">¶</a></h2>
-<p>Headers and footers use their own formatting language. This is fully
-supported when writing them but, due to the complexity and the possibility of
-nesting, only partially when reading them. There is support for the font,
-size and color for a left, centre/center, or right element. Granular control
-(highlighting individuals words) will require applying control codes
-manually.</p>
+<h2>编辑打印设置<a class="headerlink" href="#headers-and-footers" title="永久链接至标题">¶</a></h2>
+<p>页眉和页脚使用自己的格式语言。在编辑的时候完全可以支持但是由于于复杂和嵌套的可能性，在读取它们时仅部分支持。支持字体，大小和颜色，居左，居中或居右元素。粒度控制（突出显示单个单词）需要手动应用控制代码。</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openpyxl.workbook</span> <span class="kn">import</span> <span class="n">Workbook</span>
 <span class="go">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">wb</span> <span class="o">=</span> <span class="n">Workbook</span><span class="p">()</span>
@@ -78,12 +73,11 @@ manually.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ws</span><span class="o">.</span><span class="n">oddHeader</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;CC3366&quot;</span>
 </pre></div>
 </div>
-<p>Also supported are <cite>evenHeader</cite> and <cite>evenFooter</cite> as well as <cite>firstHeader</cite> and <cite>firstFooter</cite>.</p>
+<p>也支持 <code class="docutils literal notranslate"><span class="pre">evenHeader</span></code> 和 <code class="docutils literal notranslate"><span class="pre">evenFooter</span></code> 以及 <code class="docutils literal notranslate"><span class="pre">firstHeader</span></code> 和 <code class="docutils literal notranslate"><span class="pre">firstFooter</span></code>。</p>
 </section>
 <section id="add-print-titles">
-<h2>Add Print Titles<a class="headerlink" href="#add-print-titles" title="永久链接至标题">¶</a></h2>
-<p>You can print titles on every page to ensure that the data is properly
-labelled.</p>
+<h2>增加打印标题<a class="headerlink" href="#add-print-titles" title="永久链接至标题">¶</a></h2>
+<p>您可以在每页上打印标题，以确保正确标记数据。</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openpyxl.workbook</span> <span class="kn">import</span> <span class="n">Workbook</span>
 <span class="go">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">wb</span> <span class="o">=</span> <span class="n">Workbook</span><span class="p">()</span>
@@ -95,8 +89,8 @@ labelled.</p>
 </div>
 </section>
 <section id="add-a-print-area">
-<h2>Add a Print Area<a class="headerlink" href="#add-a-print-area" title="永久链接至标题">¶</a></h2>
-<p>You can select a part of a worksheet as the only part that you want to print</p>
+<h2>增加打印区域<a class="headerlink" href="#add-a-print-area" title="永久链接至标题">¶</a></h2>
+<p>你可以只选择工作簿的一部分来作为打印区域</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openpyxl.workbook</span> <span class="kn">import</span> <span class="n">Workbook</span>
 <span class="go">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">wb</span> <span class="o">=</span> <span class="n">Workbook</span><span class="p">()</span>
@@ -121,11 +115,11 @@ labelled.</p>
   <div>
     <h3><a href="index.html">目录</a></h3>
     <ul>
-<li><a class="reference internal" href="#">Print Settings</a><ul>
-<li><a class="reference internal" href="#edit-print-options">Edit Print Options</a></li>
-<li><a class="reference internal" href="#headers-and-footers">Headers and Footers</a></li>
-<li><a class="reference internal" href="#add-print-titles">Add Print Titles</a></li>
-<li><a class="reference internal" href="#add-a-print-area">Add a Print Area</a></li>
+<li><a class="reference internal" href="#">打印设置</a><ul>
+<li><a class="reference internal" href="#edit-print-options">编辑打印设置</a></li>
+<li><a class="reference internal" href="#headers-and-footers">编辑打印设置</a></li>
+<li><a class="reference internal" href="#add-print-titles">增加打印标题</a></li>
+<li><a class="reference internal" href="#add-a-print-area">增加打印区域</a></li>
 </ul>
 </li>
 </ul>
@@ -134,12 +128,12 @@ labelled.</p>
   <div>
     <h4>上一个主题</h4>
     <p class="topless"><a href="pivot.html"
-                          title="上一章">Pivot Tables</a></p>
+                          title="上一章">数据透视表</a></p>
   </div>
   <div>
     <h4>下一个主题</h4>
     <p class="topless"><a href="filters.html"
-                          title="下一章">Using filters and sorts</a></p>
+                          title="下一章">筛选和排序</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>本页</h3>
@@ -172,13 +166,13 @@ labelled.</p>
           <a href="py-modindex.html" title="Python 模块索引"
              >模块</a> |</li>
         <li class="right" >
-          <a href="filters.html" title="Using filters and sorts"
+          <a href="filters.html" title="筛选和排序"
              >下一页</a> |</li>
         <li class="right" >
-          <a href="pivot.html" title="Pivot Tables"
+          <a href="pivot.html" title="数据透视表"
              >上一页</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">openpyxl 3.0.9 文档</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Print Settings</a></li> 
+        <li class="nav-item nav-item-this"><a href="">打印设置</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

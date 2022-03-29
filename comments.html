@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Comments &#8212; openpyxl 3.0.9 文档</title>
+    <title>注释 &#8212; openpyxl 3.0.9 文档</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/nature.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -16,7 +16,7 @@
     <script src="_static/translations.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="Working with styles" href="styles.html" />
+    <link rel="next" title="使用样式" href="styles.html" />
     <link rel="prev" title="Chartsheets" href="charts/chartsheet.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -29,13 +29,13 @@
           <a href="py-modindex.html" title="Python 模块索引"
              >模块</a> |</li>
         <li class="right" >
-          <a href="styles.html" title="Working with styles"
+          <a href="styles.html" title="使用样式"
              accesskey="N">下一页</a> |</li>
         <li class="right" >
           <a href="charts/chartsheet.html" title="Chartsheets"
              accesskey="P">上一页</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">openpyxl 3.0.9 文档</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Comments</a></li> 
+        <li class="nav-item nav-item-this"><a href="">注释</a></li> 
       </ul>
     </div>  
 
@@ -45,17 +45,14 @@
           <div class="body" role="main">
             
   <section id="comments">
-<h1>Comments<a class="headerlink" href="#comments" title="永久链接至标题">¶</a></h1>
+<h1>注释<a class="headerlink" href="#comments" title="永久链接至标题">¶</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>Openpyxl currently supports the reading and writing of comment text only.
-Formatting information is lost. Comment dimensions are lost upon reading,
-but can be written. Comments are not currently supported if
-<cite>read_only=True</cite> is used.</p>
+<p>openpyxl 目前只支持读写文字注释。格式信息会丢失。在读取时，注释尺寸也会丢失，但是可以重新写入。注释目前不支持 <code class="docutils literal notranslate"><span class="pre">read_only=True</span></code> 模式下使用。</p>
 </div>
 <section id="adding-a-comment-to-a-cell">
-<h2>Adding a comment to a cell<a class="headerlink" href="#adding-a-comment-to-a-cell" title="永久链接至标题">¶</a></h2>
-<p>Comments have a text attribute and an author attribute, which must both be set</p>
+<h2>为单元格添加注释<a class="headerlink" href="#adding-a-comment-to-a-cell" title="永久链接至标题">¶</a></h2>
+<p>注释有 text 属性和 author 属性，必须同时设置</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openpyxl</span> <span class="kn">import</span> <span class="n">Workbook</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openpyxl.comments</span> <span class="kn">import</span> <span class="n">Comment</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">wb</span> <span class="o">=</span> <span class="n">Workbook</span><span class="p">()</span>
@@ -68,7 +65,7 @@ but can be written. Comments are not currently supported if
 <span class="go">&#39;Comment Author&#39;</span>
 </pre></div>
 </div>
-<p>If you assign the same comment to multiple cells then openpyxl will automatically create copies</p>
+<p>如果你为不同的单元格设置了相同的注释，那么 openpyxl 会自动进行复制</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openpyxl</span> <span class="kn">import</span> <span class="n">Workbook</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openpyxl.comments</span> <span class="kn">import</span> <span class="n">Comment</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">wb</span><span class="o">=</span><span class="n">Workbook</span><span class="p">()</span>
@@ -84,15 +81,10 @@ but can be written. Comments are not currently supported if
 </div>
 </section>
 <section id="loading-and-saving-comments">
-<h2>Loading and saving comments<a class="headerlink" href="#loading-and-saving-comments" title="永久链接至标题">¶</a></h2>
-<p>Comments present in a workbook when loaded are stored in the comment
-attribute of their respective cells automatically. Formatting information
-such as font size, bold and italics are lost, as are the original dimensions
-and position of the comment’s container box.</p>
-<p>Comments remaining in a workbook when it is saved are automatically saved to
-the workbook file.</p>
-<p>Comment dimensions can be specified for write-only. Comment dimension are
-in pixels.</p>
+<h2>加载和保存注释<a class="headerlink" href="#loading-and-saving-comments" title="永久链接至标题">¶</a></h2>
+<p>加载时工作簿中存在的注释会自动存储在其相应单元格的 comment 属性中。格式信息（如字体大小，粗体和斜体）以及注释的容器框的原始尺寸和位置都将丢失。</p>
+<p>保存工作簿时保留在工作簿中的注释会自动保存到工作簿文件中。</p>
+<p>注释尺寸可以设定成只写。注释尺寸以像素为单位。</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openpyxl</span> <span class="kn">import</span> <span class="n">Workbook</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openpyxl.comments</span> <span class="kn">import</span> <span class="n">Comment</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openpyxl.utils</span> <span class="kn">import</span> <span class="n">units</span>
@@ -109,8 +101,7 @@ in pixels.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">wb</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;commented_book.xlsx&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>If needed, <code class="docutils literal notranslate"><span class="pre">openpyxl.utils.units</span></code> contains helper functions for converting
-from other measurements such as mm or points to pixels:</p>
+<p>如果有需要的话, <code class="docutils literal notranslate"><span class="pre">openpyxl.utils.units</span></code> 有将其他度量单位（mm，points）转换为像素的辅助函数：</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openpyxl</span> <span class="kn">import</span> <span class="n">Workbook</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openpyxl.comments</span> <span class="kn">import</span> <span class="n">Comment</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openpyxl.utils</span> <span class="kn">import</span> <span class="n">units</span>
@@ -141,9 +132,9 @@ from other measurements such as mm or points to pixels:</p>
   <div>
     <h3><a href="index.html">目录</a></h3>
     <ul>
-<li><a class="reference internal" href="#">Comments</a><ul>
-<li><a class="reference internal" href="#adding-a-comment-to-a-cell">Adding a comment to a cell</a></li>
-<li><a class="reference internal" href="#loading-and-saving-comments">Loading and saving comments</a></li>
+<li><a class="reference internal" href="#">注释</a><ul>
+<li><a class="reference internal" href="#adding-a-comment-to-a-cell">为单元格添加注释</a></li>
+<li><a class="reference internal" href="#loading-and-saving-comments">加载和保存注释</a></li>
 </ul>
 </li>
 </ul>
@@ -157,7 +148,7 @@ from other measurements such as mm or points to pixels:</p>
   <div>
     <h4>下一个主题</h4>
     <p class="topless"><a href="styles.html"
-                          title="下一章">Working with styles</a></p>
+                          title="下一章">使用样式</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>本页</h3>
@@ -190,13 +181,13 @@ from other measurements such as mm or points to pixels:</p>
           <a href="py-modindex.html" title="Python 模块索引"
              >模块</a> |</li>
         <li class="right" >
-          <a href="styles.html" title="Working with styles"
+          <a href="styles.html" title="使用样式"
              >下一页</a> |</li>
         <li class="right" >
           <a href="charts/chartsheet.html" title="Chartsheets"
              >上一页</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">openpyxl 3.0.9 文档</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Comments</a></li> 
+        <li class="nav-item nav-item-this"><a href="">注释</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

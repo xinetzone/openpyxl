@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Protection &#8212; openpyxl 3.0.9 文档</title>
+    <title>保护 &#8212; openpyxl 3.0.9 文档</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/nature.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -35,7 +35,7 @@
           <a href="datetime.html" title="Dates and Times"
              accesskey="P">上一页</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">openpyxl 3.0.9 文档</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Protection</a></li> 
+        <li class="nav-item nav-item-this"><a href="">保护</a></li> 
       </ul>
     </div>  
 
@@ -45,57 +45,40 @@
           <div class="body" role="main">
             
   <section id="protection">
-<h1>Protection<a class="headerlink" href="#protection" title="永久链接至标题">¶</a></h1>
+<h1>保护<a class="headerlink" href="#protection" title="永久链接至标题">¶</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>Password protecting a workbook or worksheet only provides a quite basic level of security.
-The data is not encrypted, so can be modified by any number of freely available tools. In
-fact the specification states: “Worksheet or workbook element protection should not be
-confused with file security. It is meant to make your workbook safe from unintentional
-modification, and cannot protect it from malicious modification.”</p>
+<p>工作簿或工作表的密码保护仅提供了十分基础的安全。数据未进行加密，所以可以使用各种免费工具进行修改。实际上，规范指出：”工作表或工作簿的保护不应该与文件安全性混淆。这是为了保护你的工作簿免受意外修改的影响，并不能保护免受恶意修改的影响。”</p>
 </div>
-<p>Openpyxl provides support for protecting a workbook and worksheet from modification. The Open XML
-“Legacy Password Hash Algorithm” is used to generate hashed password values unless another
-algorithm is explicitly configured.</p>
+<p>Openpyxl 支持保护工作簿和工作表不被修改。除非指定明确算法，否则将使用 Open XML “Legacy Password Hash Algorithm” 来生成哈希密码值。</p>
 <section id="workbook-protection">
-<h2>Workbook Protection<a class="headerlink" href="#workbook-protection" title="永久链接至标题">¶</a></h2>
-<p>To prevent other users from viewing hidden worksheets, adding, moving, deleting, or hiding worksheets, and
-renaming worksheets, you can protect the structure of your workbook with a password. The password can be
-set using the <a class="reference internal" href="api/openpyxl.workbook.protection.html#openpyxl.workbook.protection.WorkbookProtection.workbookPassword" title="openpyxl.workbook.protection.WorkbookProtection.workbookPassword"><code class="xref py py-func docutils literal notranslate"><span class="pre">openpyxl.workbook.protection.WorkbookProtection.workbookPassword()</span></code></a> property</p>
+<h2>工作簿保护<a class="headerlink" href="#workbook-protection" title="永久链接至标题">¶</a></h2>
+<p>为防止其他用户查看隐藏的工作表、添加、移动、删除或隐藏工作表以及重命名工作表，可以使用密码保护工作簿的结构。可以使用 <a class="reference internal" href="api/openpyxl.workbook.protection.html#openpyxl.workbook.protection.WorkbookProtection.workbookPassword" title="openpyxl.workbook.protection.WorkbookProtection.workbookPassword"><code class="xref py py-func docutils literal notranslate"><span class="pre">openpyxl.workbook.protection.WorkbookProtection.workbookPassword()</span></code></a> 属性设置密码</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wb</span><span class="o">.</span><span class="n">security</span><span class="o">.</span><span class="n">workbookPassword</span> <span class="o">=</span> <span class="s1">&#39;...&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">wb</span><span class="o">.</span><span class="n">security</span><span class="o">.</span><span class="n">lockStructure</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
-<p>Similarly removing change tracking and change history from a shared workbook can be prevented by setting
-another password. This password can be set using the
-<a class="reference internal" href="api/openpyxl.workbook.protection.html#openpyxl.workbook.protection.WorkbookProtection.revisionsPassword" title="openpyxl.workbook.protection.WorkbookProtection.revisionsPassword"><code class="xref py py-func docutils literal notranslate"><span class="pre">openpyxl.workbook.protection.WorkbookProtection.revisionsPassword()</span></code></a> property</p>
+<p>类似地，可以通过设置另一个密码来阻止从共享工作簿中删除更改跟踪和更改历史。这个密码可以使用 <a class="reference internal" href="api/openpyxl.workbook.protection.html#openpyxl.workbook.protection.WorkbookProtection.revisionsPassword" title="openpyxl.workbook.protection.WorkbookProtection.revisionsPassword"><code class="xref py py-func docutils literal notranslate"><span class="pre">openpyxl.workbook.protection.WorkbookProtection.revisionsPassword()</span></code></a> 属性来设置</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wb</span><span class="o">.</span><span class="n">security</span><span class="o">.</span><span class="n">revisionsPassword</span> <span class="o">=</span> <span class="s1">&#39;...&#39;</span>
 </pre></div>
 </div>
-<p>Other properties on the <a class="reference internal" href="api/openpyxl.workbook.protection.html#openpyxl.workbook.protection.WorkbookProtection" title="openpyxl.workbook.protection.WorkbookProtection"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.workbook.protection.WorkbookProtection</span></code></a> object control exactly what
-restrictions are in place, but these will only be enforced if the appropriate password is set.</p>
-<p>Specific setter functions are provided if you need to set the raw password value without using the
-default hashing algorithm - e.g.</p>
+<p><a class="reference internal" href="api/openpyxl.workbook.protection.html#openpyxl.workbook.protection.WorkbookProtection" title="openpyxl.workbook.protection.WorkbookProtection"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.workbook.protection.WorkbookProtection</span></code></a> 的其他属性控制到底有哪些限制，但只有在设置了适当的密码时才会实施这些限制。</p>
+<p>如果你需要设置原始密码值而不使用默认的哈希算法，则提供了特定的 setter 函数，例如:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hashed_password</span> <span class="o">=</span> <span class="o">...</span>
 <span class="n">wb</span><span class="o">.</span><span class="n">security</span><span class="o">.</span><span class="n">set_workbook_password</span><span class="p">(</span><span class="n">hashed_password</span><span class="p">,</span> <span class="n">already_hashed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="worksheet-protection">
-<h2>Worksheet Protection<a class="headerlink" href="#worksheet-protection" title="永久链接至标题">¶</a></h2>
-<p>Various aspects of a worksheet can also be locked by setting attributes on the
-<a class="reference internal" href="api/openpyxl.worksheet.protection.html#openpyxl.worksheet.protection.SheetProtection" title="openpyxl.worksheet.protection.SheetProtection"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.worksheet.protection.SheetProtection</span></code></a> object. Unlike workbook protection, sheet
-protection may be enabled with or without using a password. Sheet protection is enabled using the
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">openpxyl.worksheet.protection.SheetProtection.sheet</span></code> attribute or calling <cite>enable()</cite> or <cite>disable()</cite>:</p>
+<h2>工作表保护<a class="headerlink" href="#worksheet-protection" title="永久链接至标题">¶</a></h2>
+<p>也可以通过在 <a class="reference internal" href="api/openpyxl.worksheet.protection.html#openpyxl.worksheet.protection.SheetProtection" title="openpyxl.worksheet.protection.SheetProtection"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.worksheet.protection.SheetProtection</span></code></a> 对象上设置属性来锁定工作表。与工作簿保护不同，可以使用或不使用密码来启用工作表保护。使用 <code class="xref py py-attr docutils literal notranslate"><span class="pre">openpxyl.worksheet.protection.SheetProtection.sheet</span></code> 属性或调用 <code class="docutils literal notranslate"><span class="pre">enable()</span></code> 或 <code class="docutils literal notranslate"><span class="pre">disable()</span></code> 俩启用工作表保护:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ws</span> <span class="o">=</span> <span class="n">wb</span><span class="o">.</span><span class="n">active</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ws</span><span class="o">.</span><span class="n">protection</span><span class="o">.</span><span class="n">sheet</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ws</span><span class="o">.</span><span class="n">protection</span><span class="o">.</span><span class="n">enable</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ws</span><span class="o">.</span><span class="n">protection</span><span class="o">.</span><span class="n">disable</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>If no password is specified, users can disable configured sheet protection without specifying a password.
-Otherwise they must supply a password to change configured protections. The password is set using
-the <code class="xref py py-func docutils literal notranslate"><span class="pre">openpxyl.worksheet.protection.SheetProtection.password()</span></code> property</p>
+<p>如果未设置密码，那么用户不需要密码即可禁用工作表保护。否则，他们必要提供密码才能修改保护配置。使用 <code class="xref py py-func docutils literal notranslate"><span class="pre">openpxyl.worksheet.protection.SheetProtection.password()</span></code> 设置密码:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ws</span> <span class="o">=</span> <span class="n">wb</span><span class="o">.</span><span class="n">active</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ws</span><span class="o">.</span><span class="n">protection</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;...&#39;</span>
 </pre></div>
@@ -116,9 +99,9 @@ the <code class="xref py py-func docutils literal notranslate"><span class="pre"
   <div>
     <h3><a href="index.html">目录</a></h3>
     <ul>
-<li><a class="reference internal" href="#">Protection</a><ul>
-<li><a class="reference internal" href="#workbook-protection">Workbook Protection</a></li>
-<li><a class="reference internal" href="#worksheet-protection">Worksheet Protection</a></li>
+<li><a class="reference internal" href="#">保护</a><ul>
+<li><a class="reference internal" href="#workbook-protection">工作簿保护</a></li>
+<li><a class="reference internal" href="#worksheet-protection">工作表保护</a></li>
 </ul>
 </li>
 </ul>
@@ -171,7 +154,7 @@ the <code class="xref py py-func docutils literal notranslate"><span class="pre"
           <a href="datetime.html" title="Dates and Times"
              >上一页</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">openpyxl 3.0.9 文档</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Protection</a></li> 
+        <li class="nav-item nav-item-this"><a href="">保护</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

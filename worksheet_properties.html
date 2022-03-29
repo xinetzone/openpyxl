@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Additional Worksheet Properties &#8212; openpyxl 3.0.9 文档</title>
+    <title>其他工作表属性 &#8212; openpyxl 3.0.9 文档</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/nature.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -17,7 +17,7 @@
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
     <link rel="next" title="Conditional Formatting" href="formatting.html" />
-    <link rel="prev" title="Working with styles" href="styles.html" /> 
+    <link rel="prev" title="使用样式" href="styles.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>导航</h3>
@@ -32,10 +32,10 @@
           <a href="formatting.html" title="Conditional Formatting"
              accesskey="N">下一页</a> |</li>
         <li class="right" >
-          <a href="styles.html" title="Working with styles"
+          <a href="styles.html" title="使用样式"
              accesskey="P">上一页</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">openpyxl 3.0.9 文档</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Additional Worksheet Properties</a></li> 
+        <li class="nav-item nav-item-this"><a href="">其他工作表属性</a></li> 
       </ul>
     </div>  
 
@@ -45,12 +45,10 @@
           <div class="body" role="main">
             
   <section id="additional-worksheet-properties">
-<h1>Additional Worksheet Properties<a class="headerlink" href="#additional-worksheet-properties" title="永久链接至标题">¶</a></h1>
-<p>These are advanced properties for particular behaviours, the most used ones
-are the “fitTopage” page setup property and the tabColor that define the
-background color of the worksheet tab.</p>
+<h1>其他工作表属性<a class="headerlink" href="#additional-worksheet-properties" title="永久链接至标题">¶</a></h1>
+<p>有一些特定行为的高级属性，最常用的是页面设置参数（page setup property） “fitTopage” 和定义工作表选项卡颜色的 <code class="docutils literal notranslate"><span class="pre">tabColor</span></code>。</p>
 <section id="available-properties-for-worksheets">
-<h2>Available properties for worksheets<a class="headerlink" href="#available-properties-for-worksheets" title="永久链接至标题">¶</a></h2>
+<h2>工作表可用属性<a class="headerlink" href="#available-properties-for-worksheets" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
 <li><p>“enableFormatConditionsCalculation”</p></li>
 <li><p>“filterMode”</p></li>
@@ -64,24 +62,22 @@ background color of the worksheet tab.</p>
 </ul>
 </section>
 <section id="available-fields-for-page-setup-properties">
-<h2>Available fields for page setup properties<a class="headerlink" href="#available-fields-for-page-setup-properties" title="永久链接至标题">¶</a></h2>
+<h2>页面设置属性的可用字段<a class="headerlink" href="#available-fields-for-page-setup-properties" title="永久链接至标题">¶</a></h2>
 <p>“autoPageBreaks”
 “fitToPage”</p>
 </section>
 <section id="available-fields-for-outlines">
-<h2>Available fields for outlines<a class="headerlink" href="#available-fields-for-outlines" title="永久链接至标题">¶</a></h2>
+<h2>outlines 的可用字段<a class="headerlink" href="#available-fields-for-outlines" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
 <li><p>“applyStyles”</p></li>
 <li><p>“summaryBelow”</p></li>
 <li><p>“summaryRight”</p></li>
 <li><p>“showOutlineSymbols”</p></li>
 </ul>
-<p>see <a class="reference external" href="http://msdn.microsoft.com/en-us/library/documentformat.openxml.spreadsheet.sheetproperties%28v=office.14%29.aspx_">http://msdn.microsoft.com/en-us/library/documentformat.openxml.spreadsheet.sheetproperties%28v=office.14%29.aspx_</a> for details.</p>
+<p>更多信息请查询 <a class="reference external" href="http://msdn.microsoft.com/en-us/library/documentformat.openxml.spreadsheet.sheetproperties%28v=office.14%29.aspx_">http://msdn.microsoft.com/en-us/library/documentformat.openxml.spreadsheet.sheetproperties%28v=office.14%29.aspx_</a></p>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
-<p>By default, outline properties are intitialized so you can directly modify each of their 4 attributes, while page setup properties don’t.
-If you want modify the latter, you should first initialize a <a class="reference internal" href="api/openpyxl.worksheet.properties.html#openpyxl.worksheet.properties.PageSetupProperties" title="openpyxl.worksheet.properties.PageSetupProperties"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.worksheet.properties.PageSetupProperties</span></code></a> object with the required parameters.
-Once done, they can be directly modified by the routine later if needed.</p>
+<p>默认情况下，会对 outline 属性进行初始化，因此您可以直接修改它们的 4 个属性，而页面设置属性不一样。如果要修改后者，首先要必要的参数初始化对 <a class="reference internal" href="api/openpyxl.worksheet.properties.html#openpyxl.worksheet.properties.PageSetupProperties" title="openpyxl.worksheet.properties.PageSetupProperties"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.worksheet.properties.PageSetupProperties</span></code></a> 对象进行初始化。一旦完成，可以在以后需要时通过例程直接对其进行修改。</p>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openpyxl.workbook</span> <span class="kn">import</span> <span class="n">Workbook</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openpyxl.worksheet.properties</span> <span class="kn">import</span> <span class="n">WorksheetProperties</span><span class="p">,</span> <span class="n">PageSetupProperties</span>
@@ -114,10 +110,10 @@ Once done, they can be directly modified by the routine later if needed.</p>
   <div>
     <h3><a href="index.html">目录</a></h3>
     <ul>
-<li><a class="reference internal" href="#">Additional Worksheet Properties</a><ul>
-<li><a class="reference internal" href="#available-properties-for-worksheets">Available properties for worksheets</a></li>
-<li><a class="reference internal" href="#available-fields-for-page-setup-properties">Available fields for page setup properties</a></li>
-<li><a class="reference internal" href="#available-fields-for-outlines">Available fields for outlines</a></li>
+<li><a class="reference internal" href="#">其他工作表属性</a><ul>
+<li><a class="reference internal" href="#available-properties-for-worksheets">工作表可用属性</a></li>
+<li><a class="reference internal" href="#available-fields-for-page-setup-properties">页面设置属性的可用字段</a></li>
+<li><a class="reference internal" href="#available-fields-for-outlines">outlines 的可用字段</a></li>
 </ul>
 </li>
 </ul>
@@ -126,7 +122,7 @@ Once done, they can be directly modified by the routine later if needed.</p>
   <div>
     <h4>上一个主题</h4>
     <p class="topless"><a href="styles.html"
-                          title="上一章">Working with styles</a></p>
+                          title="上一章">使用样式</a></p>
   </div>
   <div>
     <h4>下一个主题</h4>
@@ -167,10 +163,10 @@ Once done, they can be directly modified by the routine later if needed.</p>
           <a href="formatting.html" title="Conditional Formatting"
              >下一页</a> |</li>
         <li class="right" >
-          <a href="styles.html" title="Working with styles"
+          <a href="styles.html" title="使用样式"
              >上一页</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">openpyxl 3.0.9 文档</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Additional Worksheet Properties</a></li> 
+        <li class="nav-item nav-item-this"><a href="">其他工作表属性</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

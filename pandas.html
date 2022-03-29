@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Working with Pandas and NumPy &#8212; openpyxl 3.0.9 文档</title>
+    <title>与 Pandas 和 NumPy 一起使用 &#8212; openpyxl 3.0.9 文档</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/nature.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -35,7 +35,7 @@
           <a href="editing_worksheets.html" title="插入删除行或列, 移动范围单元格"
              accesskey="P">上一页</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">openpyxl 3.0.9 文档</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Working with Pandas and NumPy</a></li> 
+        <li class="nav-item nav-item-this"><a href="">与 Pandas 和 NumPy 一起使用</a></li> 
       </ul>
     </div>  
 
@@ -45,17 +45,15 @@
           <div class="body" role="main">
             
   <section id="working-with-pandas-and-numpy">
-<h1>Working with Pandas and NumPy<a class="headerlink" href="#working-with-pandas-and-numpy" title="永久链接至标题">¶</a></h1>
-<p>openpyxl is able to work with the popular libraries <a class="reference external" href="http://pandas.pydata.org">Pandas</a> and <a class="reference external" href="http://numpy.org">NumPy</a></p>
+<h1>与 Pandas 和 NumPy 一起使用<a class="headerlink" href="#working-with-pandas-and-numpy" title="永久链接至标题">¶</a></h1>
+<p>openpyxl 可以与流行的 <a class="reference external" href="http://pandas.pydata.org">Pandas</a> 和 NumPy &lt;<a class="reference external" href="http://numpy.org">http://numpy.org</a>&gt;`_ 一起使用</p>
 <section id="numpy-support">
-<h2>NumPy Support<a class="headerlink" href="#numpy-support" title="永久链接至标题">¶</a></h2>
-<p>openpyxl has builtin support for the NumPy types float, integer and boolean.
-DateTimes are supported using the Pandas’ Timestamp type.</p>
+<h2>NumPy 支持<a class="headerlink" href="#numpy-support" title="永久链接至标题">¶</a></h2>
+<p>openpyxl 内置支持 NumPy 的 float，integer 和 boolean 类型。使用 Pandas 的时间戳类型支持 DateTimes。DateTimes are supported using the Pandas’ Timestamp type</p>
 </section>
 <section id="working-with-pandas-dataframes">
-<h2>Working with Pandas Dataframes<a class="headerlink" href="#working-with-pandas-dataframes" title="永久链接至标题">¶</a></h2>
-<p>The <a class="reference internal" href="api/openpyxl.utils.dataframe.html#openpyxl.utils.dataframe.dataframe_to_rows" title="openpyxl.utils.dataframe.dataframe_to_rows"><code class="xref py py-func docutils literal notranslate"><span class="pre">openpyxl.utils.dataframe.dataframe_to_rows()</span></code></a> function provides a
-simple way to work with Pandas Dataframes:</p>
+<h2>和 Pandas Dataframes 一起使用<a class="headerlink" href="#working-with-pandas-dataframes" title="永久链接至标题">¶</a></h2>
+<p><a class="reference internal" href="api/openpyxl.utils.dataframe.html#openpyxl.utils.dataframe.dataframe_to_rows" title="openpyxl.utils.dataframe.dataframe_to_rows"><code class="xref py py-func docutils literal notranslate"><span class="pre">openpyxl.utils.dataframe.dataframe_to_rows()</span></code></a> 函数提供了使用 Pandas Dataframes 的简单方法:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openpyxl.utils.dataframe</span> <span class="kn">import</span> <span class="n">dataframe_to_rows</span>
 <span class="n">wb</span> <span class="o">=</span> <span class="n">Workbook</span><span class="p">()</span>
 <span class="n">ws</span> <span class="o">=</span> <span class="n">wb</span><span class="o">.</span><span class="n">active</span>
@@ -64,10 +62,8 @@ simple way to work with Pandas Dataframes:</p>
     <span class="n">ws</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>While Pandas itself supports conversion to Excel, this gives client code
-additional flexibility including the ability to stream dataframes straight to
-files.</p>
-<p>To convert a dataframe into a worksheet highlighting the header and index:</p>
+<p>虽然 Pandas 本身支持对 Excel 的转换，但这为客户端代码提供了更多的灵活性，包括直接将数据帧（stream dataframes）流传输到文件的能力。</p>
+<p>将 dataframe 转换为工作簿时高亮表头和索引:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wb</span> <span class="o">=</span> <span class="n">Workbook</span><span class="p">()</span>
 <span class="n">ws</span> <span class="o">=</span> <span class="n">wb</span><span class="o">.</span><span class="n">active</span>
 
@@ -80,7 +76,7 @@ files.</p>
 <span class="n">wb</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;pandas_openpyxl.xlsx&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Alternatively, if you just want to convert the data you can use write-only mode:</p>
+<p>另外，如果你只想转换数据，你可以使用只写模式:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openpyxl.cell.cell</span> <span class="kn">import</span> <span class="n">WriteOnlyCell</span>
 <span class="n">wb</span> <span class="o">=</span> <span class="n">Workbook</span><span class="p">(</span><span class="n">write_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ws</span> <span class="o">=</span> <span class="n">wb</span><span class="o">.</span><span class="n">create_sheet</span><span class="p">()</span>
@@ -107,17 +103,15 @@ files.</p>
 <span class="n">wb</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;openpyxl_stream.xlsx&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This code will work just as well with a standard workbook.</p>
+<p>此代码和标准工作簿一起起作用。</p>
 </section>
 <section id="converting-a-worksheet-to-a-dataframe">
-<h2>Converting a worksheet to a Dataframe<a class="headerlink" href="#converting-a-worksheet-to-a-dataframe" title="永久链接至标题">¶</a></h2>
-<p>To convert a worksheet to a Dataframe you can use the <cite>values</cite> property. This
-is very easy if the worksheet has no headers or indices:</p>
+<h2>将工作簿转换为 Dataframe<a class="headerlink" href="#converting-a-worksheet-to-a-dataframe" title="永久链接至标题">¶</a></h2>
+<p>如果工作簿没有表头和索引很容易用 <code class="docutils literal notranslate"><span class="pre">values</span></code> 属性将工作簿转换为 Dataframe:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">ws</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>If the worksheet does have headers or indices, such as one created by Pandas,
-then a little more work is required:</p>
+<p>如果工作簿确实有表头和索引，例如 Pandas 创建的文件，那还要做更多的一些工作:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">islice</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">ws</span><span class="o">.</span><span class="n">values</span>
 <span class="n">cols</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">data</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
@@ -143,10 +137,10 @@ then a little more work is required:</p>
   <div>
     <h3><a href="index.html">目录</a></h3>
     <ul>
-<li><a class="reference internal" href="#">Working with Pandas and NumPy</a><ul>
-<li><a class="reference internal" href="#numpy-support">NumPy Support</a></li>
-<li><a class="reference internal" href="#working-with-pandas-dataframes">Working with Pandas Dataframes</a></li>
-<li><a class="reference internal" href="#converting-a-worksheet-to-a-dataframe">Converting a worksheet to a Dataframe</a></li>
+<li><a class="reference internal" href="#">与 Pandas 和 NumPy 一起使用</a><ul>
+<li><a class="reference internal" href="#numpy-support">NumPy 支持</a></li>
+<li><a class="reference internal" href="#working-with-pandas-dataframes">和 Pandas Dataframes 一起使用</a></li>
+<li><a class="reference internal" href="#converting-a-worksheet-to-a-dataframe">将工作簿转换为 Dataframe</a></li>
 </ul>
 </li>
 </ul>
@@ -199,7 +193,7 @@ then a little more work is required:</p>
           <a href="editing_worksheets.html" title="插入删除行或列, 移动范围单元格"
              >上一页</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">openpyxl 3.0.9 文档</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Working with Pandas and NumPy</a></li> 
+        <li class="nav-item nav-item-this"><a href="">与 Pandas 和 NumPy 一起使用</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
