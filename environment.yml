@@ -1,0 +1,4 @@
+name: sphinx
+dependencies:
+  - sphinx
+  - openxyl
