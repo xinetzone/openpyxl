@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../pivot.rst:2
 msgid "Pivot Tables"
-msgstr ""
+msgstr "数据透视表"
 
 #: ../../pivot.rst:4
 msgid ""
@@ -30,6 +30,9 @@ msgid ""
 "edit and manipulate existing pivot tables, eg. change their ranges or "
 "whether they should update automatically settings."
 msgstr ""
+"openpyxl 为数据透视表提供了读取支持，因此它们将被保存在现有的文件中。"
+"数据透视表的规范虽然广泛，但不是很清楚，它不打算让客户端代码能够创建数据透视表。"
+"但是，应该可以编辑和操作现有的数据透视表，例如。更改它们的范围或是否应该自动更新设置。"
 
 #: ../../pivot.rst:11
 msgid ""
@@ -37,12 +40,13 @@ msgid ""
 "management API for pivot tables so that client code will have to loop "
 "over the ``_pivots`` list of a worksheet."
 msgstr ""
+"和图表、图片、表格一样，数据透视表没有专门管理的 API，因此客户端代码不得不遍历工作表 ``_pivots`` 列表"
 
 #: ../../pivot.rst:17
 msgid "Example"
-msgstr ""
+msgstr "例子"
 
 #: ../../pivot.rst:28
 msgid "For further information see :class:`openpyxl.pivot.cache.CacheDefinition`"
-msgstr ""
+msgstr "更多信息请查询 :class:`openpyxl.pivot.cache.CacheDefinition`"
 

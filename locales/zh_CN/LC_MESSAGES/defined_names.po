@@ -19,17 +19,18 @@ msgstr ""
 
 #: ../../defined_names.rst:2
 msgid "Defined Names"
-msgstr ""
+msgstr "定义的名字"
 
 #: ../../defined_names.rst:5
 msgid "The specification has the following to say about defined names:"
-msgstr ""
+msgstr "该规范对已定义的名称做了如下说明："
 
 #: ../../defined_names.rst:7
 msgid ""
 "\"Defined names are descriptive text that is used to represents a cell, "
 "range of cells, formula, or constant value.\""
 msgstr ""
+"\"定义名称是用来表示单元格、单元格范围、公式或常量值的描述性文本。\""
 
 #: ../../defined_names.rst:10
 msgid ""
@@ -39,16 +40,19 @@ msgid ""
 "defined globally for a workbook and accessed from the `defined_names` "
 "attribute."
 msgstr ""
+"这意味着它们的定义非常宽泛。"
+"它们可能包含常数、公式、单个单元格引用、单元格范围或跨不同工作表的多个单元格范围。"
+"或者以上都有。它们是为工作簿全局定义的，可以通过 ``defined_names`` 属性访问。”"
 
 #: ../../defined_names.rst:17
 msgid "Sample use for ranges"
-msgstr ""
+msgstr "范围的样本使用"
 
 #: ../../defined_names.rst:19
 msgid "Accessing a range called \"my_range\"::"
-msgstr ""
+msgstr "访问范围的名为 \"my_range\"::"
 
 #: ../../defined_names.rst:32
 msgid "Creating new named ranges"
-msgstr ""
+msgstr "创建新的命名范围"
 

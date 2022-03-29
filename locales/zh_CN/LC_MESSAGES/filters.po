@@ -19,11 +19,11 @@ msgstr ""
 
 #: ../../filters.rst:2
 msgid "Using filters and sorts"
-msgstr ""
+msgstr "筛选和排序"
 
 #: ../../filters.rst:5
 msgid "It's possible to add a filter to a worksheet."
-msgstr ""
+msgstr "在工作簿中添加筛选是可能的。"
 
 #: ../../filters.rst:9
 msgid ""
@@ -31,19 +31,22 @@ msgid ""
 "applied in applications like Excel. This is because they actually "
 "rearranges or format cells or rows in the range."
 msgstr ""
+"筛选和排序只能通过 openpyxl 进行设置，但是只有在 Excel 这样的程序中才会被应用。"
+"这是由于他们会在范围内重新排列或者格式化单元格或行。"
 
 #: ../../filters.rst:11
 msgid ""
 "To add a filter you define a range and then add columns and sort "
 "conditions:"
-msgstr ""
+msgstr "定义范围后，你可以对一列添加筛选或者添加排序条件："
 
 #: ../../filters.rst:16
 msgid ""
 "This will add the relevant instructions to the file but will **neither "
 "actually filter nor sort**."
 msgstr ""
+"这将向文件中添加相关指令，但实际上 **既不会过滤也不会排序**。"
 
 msgid "\"Filter and sort prepared but not executed for a range of cells\""
-msgstr ""
+msgstr "\"筛选和排序已准备但未执行的单元格范围\""
 

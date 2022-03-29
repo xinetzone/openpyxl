@@ -19,37 +19,38 @@ msgstr ""
 
 #: ../../styles.rst:2
 msgid "Working with styles"
-msgstr ""
+msgstr "使用样式"
 
 #: ../../styles.rst:5
 msgid "Introduction"
-msgstr ""
+msgstr "介绍"
 
 #: ../../styles.rst:7
 msgid ""
 "Styles are used to change the look of your data while displayed on "
 "screen. They are also used to determine the formatting for numbers."
 msgstr ""
+"样式用于在屏幕上显示时更改数据的外观。它们还用于确定数字的格式。"
 
 #: ../../styles.rst:10
 msgid "Styles can be applied to the following aspects:"
-msgstr ""
+msgstr "样式可以应用于以下方面："
 
 #: ../../styles.rst:12
 msgid "font to set font size, color, underlining, etc."
-msgstr ""
+msgstr "font：设置字体大小、颜色、下划线等等"
 
 #: ../../styles.rst:13
 msgid "fill to set a pattern or color gradient"
-msgstr ""
+msgstr "fill：以设置图案（pattern）或颜色渐变"
 
 #: ../../styles.rst:14
 msgid "border to set borders on a cell"
-msgstr ""
+msgstr "border：设置单元格的边框"
 
 #: ../../styles.rst:15
 msgid "cell alignment"
-msgstr ""
+msgstr "单元格对齐"
 
 #: ../../styles.rst:16
 msgid "protection"
@@ -57,7 +58,7 @@ msgstr ""
 
 #: ../../styles.rst:18
 msgid "The following are the default values"
-msgstr ""
+msgstr "以下为默认值"
 
 #: ../../styles.rst:64
 msgid "Cell Styles and Named Styles"

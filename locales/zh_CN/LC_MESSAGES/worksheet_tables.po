@@ -19,17 +19,18 @@ msgstr ""
 
 #: ../../worksheet_tables.rst:2
 msgid "Worksheet Tables"
-msgstr ""
+msgstr "工作簿表格"
 
 #: ../../worksheet_tables.rst:5
 msgid ""
 "Worksheet tables are references to groups of cells. This makes certain "
 "operations such as styling the cells in a table easier."
 msgstr ""
+"工作簿表格是对单元格组的引用。这使得某些操作（例如，对表格中的单元格进行样式设置）更加容易。"
 
 #: ../../worksheet_tables.rst:10
 msgid "Creating a table"
-msgstr ""
+msgstr "创建表格"
 
 #: ../../worksheet_tables.rst:15
 msgid ""
@@ -37,6 +38,8 @@ msgid ""
 "created with a header from the first row and filters for all the columns "
 "and table headers and column headings must always contain strings."
 msgstr ""
+"在工作簿中表格名称必须是唯一的。"
+"默认情况下，表是从第一行的标题开始创建的，并且所有列的筛选以及表标题和列标题必须始终包含字符串。"
 
 #: ../../worksheet_tables.rst:19
 msgid ""
@@ -45,56 +48,59 @@ msgid ""
 "cells (ee below for an example of how to do this), otherwise Excel may "
 "consider the file invalid and remove the table."
 msgstr ""
+"在只写模式下，您必须手动将列标题添加到表格中，并且值必须始终与相应单元格的值相同（有关如何执行此操作的示例，请参见下面的例子），否则 Excel 可能会认为该文件无效并删除表格。"
 
 #: ../../worksheet_tables.rst:21
 msgid ""
 "Styles are managed using the the `TableStyleInfo` object. This allows you"
 " to stripe rows or columns and apply the different colour schemes."
 msgstr ""
+"通过 ``TableStyleInfo`` 来管理样式。这允许你对行和列设置条纹以及应用不同的颜色主题。"
 
 #: ../../worksheet_tables.rst:26
 msgid "Working with Tables"
-msgstr ""
+msgstr "使用表格"
 
 #: ../../worksheet_tables.rst:28
 msgid ""
 "``ws.tables`` is a dictionary-like object of all the tables in a "
 "particular worksheet::"
 msgstr ""
+"``ws.tables`` 是特定工作簿下所有表格的 dictionary-like 对象::"
 
 #: ../../worksheet_tables.rst:35
 msgid "Get Table by name or range"
-msgstr ""
+msgstr "通过范围或者名称获取表格"
 
 #: ../../worksheet_tables.rst:45
 msgid "Iterate through all tables in a worksheet"
-msgstr ""
+msgstr "遍历工作簿下所有的表格"
 
 #: ../../worksheet_tables.rst:54
 msgid "Get table name and range of all tables in a worksheet"
-msgstr ""
+msgstr "获取表名以及工作簿内所有表格的范围"
 
 #: ../../worksheet_tables.rst:56
 msgid "Returns a list of table name and their ranges."
-msgstr ""
+msgstr "返回表格名和范围的列表"
 
 #: ../../worksheet_tables.rst:65
 msgid "Delete a table"
-msgstr ""
+msgstr "删除表格"
 
 #: ../../worksheet_tables.rst:73
 msgid "The number of tables in a worksheet"
-msgstr ""
+msgstr "工作簿中的表格数量"
 
 #: ../../worksheet_tables.rst:82
 msgid "Manually adding column headings"
-msgstr ""
+msgstr "手动添加表格表头"
 
 #: ../../worksheet_tables.rst:84
 msgid "In write-only mode you can either only add tables without headings::"
-msgstr ""
+msgstr "在只写模式下你可以添加没有表头的表格::"
 
 #: ../../worksheet_tables.rst:88
 msgid "Or initialise the column headings manually::"
-msgstr ""
+msgstr "或者手动初始化表头::"
 

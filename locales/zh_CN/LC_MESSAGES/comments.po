@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../comments.rst:2
 msgid "Comments"
-msgstr ""
+msgstr "注释"
 
 #: ../../comments.rst:6
 msgid ""
@@ -28,26 +28,29 @@ msgid ""
 "reading, but can be written. Comments are not currently supported if "
 "`read_only=True` is used."
 msgstr ""
+"openpyxl 目前只支持读写文字注释。格式信息会丢失。"
+"在读取时，注释尺寸也会丢失，但是可以重新写入。注释目前不支持 ``read_only=True`` 模式下使用。"
 
 #: ../../comments.rst:13
 msgid "Adding a comment to a cell"
-msgstr ""
+msgstr "为单元格添加注释"
 
 #: ../../comments.rst:15
 msgid ""
 "Comments have a text attribute and an author attribute, which must both "
 "be set"
-msgstr ""
+msgstr "注释有 text 属性和 author 属性，必须同时设置"
 
 #: ../../comments.rst:30
 msgid ""
 "If you assign the same comment to multiple cells then openpyxl will "
 "automatically create copies"
 msgstr ""
+"如果你为不同的单元格设置了相同的注释，那么 openpyxl 会自动进行复制"
 
 #: ../../comments.rst:48
 msgid "Loading and saving comments"
-msgstr ""
+msgstr "加载和保存注释"
 
 #: ../../comments.rst:50
 msgid ""
@@ -56,22 +59,24 @@ msgid ""
 " such as font size, bold and italics are lost, as are the original "
 "dimensions and position of the comment's container box."
 msgstr ""
+"加载时工作簿中存在的注释会自动存储在其相应单元格的 comment 属性中。"
+"格式信息（如字体大小，粗体和斜体）以及注释的容器框的原始尺寸和位置都将丢失。"
 
 #: ../../comments.rst:55
 msgid ""
 "Comments remaining in a workbook when it is saved are automatically saved"
 " to the workbook file."
-msgstr ""
+msgstr "保存工作簿时保留在工作簿中的注释会自动保存到工作簿文件中。"
 
 #: ../../comments.rst:58
 msgid ""
 "Comment dimensions can be specified for write-only. Comment dimension are"
 " in pixels."
-msgstr ""
+msgstr "注释尺寸可以设定成只写。注释尺寸以像素为单位。"
 
 #: ../../comments.rst:79
 msgid ""
 "If needed, ``openpyxl.utils.units`` contains helper functions for "
 "converting from other measurements such as mm or points to pixels:"
 msgstr ""
-
+"如果有需要的话, ``openpyxl.utils.units`` 有将其他度量单位（mm，points）转换为像素的辅助函数："
