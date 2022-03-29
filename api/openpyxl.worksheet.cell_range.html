@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>openpyxl.worksheet.cell_range module &#8212; openpyxl 3.0.9 文档</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nature.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="openpyxl.worksheet.cell_watch module" href="openpyxl.worksheet.cell_watch.html" />
+    <link rel="prev" title="openpyxl.worksheet package" href="openpyxl.worksheet.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.worksheet.cell_watch.html" title="openpyxl.worksheet.cell_watch module"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.worksheet.html" title="openpyxl.worksheet package"
+             accesskey="P">上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.worksheet.html" accesskey="U">openpyxl.worksheet package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.worksheet.cell_range module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-openpyxl.worksheet.cell_range">
+<span id="openpyxl-worksheet-cell-range-module"></span><h1>openpyxl.worksheet.cell_range module<a class="headerlink" href="#module-openpyxl.worksheet.cell_range" title="永久链接至标题">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.worksheet.cell_range.CellRange">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.worksheet.cell_range.</span></span><span class="sig-name descname"><span class="pre">CellRange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">range_string</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_row</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_row</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/worksheet/cell_range.html#CellRange"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.worksheet.cell_range.CellRange" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<p>Represents a range in a sheet: title and coordinates.</p>
+<p>This object is used to perform operations on ranges, like:</p>
+<ul class="simple">
+<li><p>shift, expand or shrink</p></li>
+<li><p>union/intersection with another sheet range,</p></li>
+</ul>
+<p>We can check whether a range is:</p>
+<ul class="simple">
+<li><p>equal or not equal to another,</p></li>
+<li><p>disjoint of another,</p></li>
+<li><p>contained in another.</p></li>
+</ul>
+<p>We can get:</p>
+<ul class="simple">
+<li><p>the size of a range.</p></li>
+<li><p>the range bounds (vertices)</p></li>
+<li><p>the coordinates,</p></li>
+<li><p>the string representation,</p></li>
+</ul>
+<dl class="py property">
+<dt class="sig sig-object py" id="openpyxl.worksheet.cell_range.CellRange.bottom">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bottom</span></span><a class="headerlink" href="#openpyxl.worksheet.cell_range.CellRange.bottom" title="永久链接至目标">¶</a></dt>
+<dd><p>A list of cell coordinates that comprise the bottom of the range</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpyxl.worksheet.cell_range.CellRange.bounds">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bounds</span></span><a class="headerlink" href="#openpyxl.worksheet.cell_range.CellRange.bounds" title="永久链接至目标">¶</a></dt>
+<dd><p>Vertices of the range as a tuple</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpyxl.worksheet.cell_range.CellRange.cells">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cells</span></span><a class="headerlink" href="#openpyxl.worksheet.cell_range.CellRange.cells" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpyxl.worksheet.cell_range.CellRange.cols">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cols</span></span><a class="headerlink" href="#openpyxl.worksheet.cell_range.CellRange.cols" title="永久链接至目标">¶</a></dt>
+<dd><p>Return cell coordinates as columns</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpyxl.worksheet.cell_range.CellRange.coord">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coord</span></span><a class="headerlink" href="#openpyxl.worksheet.cell_range.CellRange.coord" title="永久链接至目标">¶</a></dt>
+<dd><p>Excel-style representation of the range</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpyxl.worksheet.cell_range.CellRange.expand">
+<span class="sig-name descname"><span class="pre">expand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">up</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/worksheet/cell_range.html#CellRange.expand"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.worksheet.cell_range.CellRange.expand" title="永久链接至目标">¶</a></dt>
+<dd><p>Expand the range by the dimensions provided.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>right</strong> (<em>int</em>) – expand range to the right by this number of cells</p></li>
+<li><p><strong>down</strong> (<em>int</em>) – expand range down by this number of cells</p></li>
+<li><p><strong>left</strong> (<em>int</em>) – expand range to the left by this number of cells</p></li>
+<li><p><strong>up</strong> (<em>int</em>) – expand range up by this number of cells</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpyxl.worksheet.cell_range.CellRange.intersection">
+<span class="sig-name descname"><span class="pre">intersection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/worksheet/cell_range.html#CellRange.intersection"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.worksheet.cell_range.CellRange.intersection" title="永久链接至目标">¶</a></dt>
+<dd><p>Return a new range with cells common to this range and <em>other</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">参数</dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#openpyxl.worksheet.cell_range.CellRange" title="openpyxl.worksheet.cell_range.CellRange"><em>openpyxl.worksheet.cell_range.CellRange</em></a>) – Other sheet range.</p>
+</dd>
+<dt class="field-even">返回</dt>
+<dd class="field-even"><p>the intersecting sheet range.</p>
+</dd>
+<dt class="field-odd">Raise</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code> if the <em>other</em> range doesn’t intersect
+with this range.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpyxl.worksheet.cell_range.CellRange.isdisjoint">
+<span class="sig-name descname"><span class="pre">isdisjoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/worksheet/cell_range.html#CellRange.isdisjoint"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.worksheet.cell_range.CellRange.isdisjoint" title="永久链接至目标">¶</a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if this range has no cell in common with <em>other</em>.
+Ranges are disjoint if and only if their intersection is the empty range.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数</dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#openpyxl.worksheet.cell_range.CellRange" title="openpyxl.worksheet.cell_range.CellRange"><em>openpyxl.worksheet.cell_range.CellRange</em></a>) – Other sheet range.</p>
+</dd>
+<dt class="field-even">返回</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the range has no cells in common with other.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpyxl.worksheet.cell_range.CellRange.issubset">
+<span class="sig-name descname"><span class="pre">issubset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/worksheet/cell_range.html#CellRange.issubset"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.worksheet.cell_range.CellRange.issubset" title="永久链接至目标">¶</a></dt>
+<dd><p>Test whether every cell in this range is also in <em>other</em>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数</dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#openpyxl.worksheet.cell_range.CellRange" title="openpyxl.worksheet.cell_range.CellRange"><em>openpyxl.worksheet.cell_range.CellRange</em></a>) – Other sheet range</p>
+</dd>
+<dt class="field-even">返回</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if <em>range</em> &lt;= <em>other</em>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpyxl.worksheet.cell_range.CellRange.issuperset">
+<span class="sig-name descname"><span class="pre">issuperset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/worksheet/cell_range.html#CellRange.issuperset"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.worksheet.cell_range.CellRange.issuperset" title="永久链接至目标">¶</a></dt>
+<dd><p>Test whether every cell in <em>other</em> is in this range.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数</dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#openpyxl.worksheet.cell_range.CellRange" title="openpyxl.worksheet.cell_range.CellRange"><em>openpyxl.worksheet.cell_range.CellRange</em></a>) – Other sheet range</p>
+</dd>
+<dt class="field-even">返回</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if <em>range</em> &gt;= <em>other</em> (or <em>other</em> in <em>range</em>).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpyxl.worksheet.cell_range.CellRange.left">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">left</span></span><a class="headerlink" href="#openpyxl.worksheet.cell_range.CellRange.left" title="永久链接至目标">¶</a></dt>
+<dd><p>A list of cell coordinates that comprise the left-side of the range</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.cell_range.CellRange.max_col">
+<span class="sig-name descname"><span class="pre">max_col</span></span><a class="headerlink" href="#openpyxl.worksheet.cell_range.CellRange.max_col" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.cell_range.CellRange.max_row">
+<span class="sig-name descname"><span class="pre">max_row</span></span><a class="headerlink" href="#openpyxl.worksheet.cell_range.CellRange.max_row" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.cell_range.CellRange.min_col">
+<span class="sig-name descname"><span class="pre">min_col</span></span><a class="headerlink" href="#openpyxl.worksheet.cell_range.CellRange.min_col" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.cell_range.CellRange.min_row">
+<span class="sig-name descname"><span class="pre">min_row</span></span><a class="headerlink" href="#openpyxl.worksheet.cell_range.CellRange.min_row" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpyxl.worksheet.cell_range.CellRange.right">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">right</span></span><a class="headerlink" href="#openpyxl.worksheet.cell_range.CellRange.right" title="永久链接至目标">¶</a></dt>
+<dd><p>A list of cell coordinates that comprise the right-side of the range</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpyxl.worksheet.cell_range.CellRange.rows">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rows</span></span><a class="headerlink" href="#openpyxl.worksheet.cell_range.CellRange.rows" title="永久链接至目标">¶</a></dt>
+<dd><p>Return cell coordinates as rows</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpyxl.worksheet.cell_range.CellRange.shift">
+<span class="sig-name descname"><span class="pre">shift</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">col_shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/worksheet/cell_range.html#CellRange.shift"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.worksheet.cell_range.CellRange.shift" title="永久链接至目标">¶</a></dt>
+<dd><p>Shift the focus of the range according to the shift values (<em>col_shift</em>, <em>row_shift</em>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>col_shift</strong> (<em>int</em>) – number of columns to be moved by, can be negative</p></li>
+<li><p><strong>row_shift</strong> (<em>int</em>) – number of rows to be moved by, can be negative</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raise</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code> if any row or column index &lt; 1</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpyxl.worksheet.cell_range.CellRange.shrink">
+<span class="sig-name descname"><span class="pre">shrink</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bottom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/worksheet/cell_range.html#CellRange.shrink"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.worksheet.cell_range.CellRange.shrink" title="永久链接至目标">¶</a></dt>
+<dd><p>Shrink the range by the dimensions provided.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>right</strong> (<em>int</em>) – shrink range from the right by this number of cells</p></li>
+<li><p><strong>down</strong> (<em>int</em>) – shrink range from the top by this number of cells</p></li>
+<li><p><strong>left</strong> (<em>int</em>) – shrink range from the left by this number of cells</p></li>
+<li><p><strong>up</strong> (<em>int</em>) – shrink range from the bottown by this number of cells</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpyxl.worksheet.cell_range.CellRange.size">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">size</span></span><a class="headerlink" href="#openpyxl.worksheet.cell_range.CellRange.size" title="永久链接至目标">¶</a></dt>
+<dd><p>Return the size of the range as a dictionary of rows and columns.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpyxl.worksheet.cell_range.CellRange.top">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">top</span></span><a class="headerlink" href="#openpyxl.worksheet.cell_range.CellRange.top" title="永久链接至目标">¶</a></dt>
+<dd><p>A list of cell coordinates that comprise the top of the range</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpyxl.worksheet.cell_range.CellRange.union">
+<span class="sig-name descname"><span class="pre">union</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/worksheet/cell_range.html#CellRange.union"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.worksheet.cell_range.CellRange.union" title="永久链接至目标">¶</a></dt>
+<dd><p>Return the minimal superset of this range and <em>other</em>. This new range
+will contain all cells from this range, <em>other</em>, and any additional
+cells required to form a rectangular <code class="docutils literal notranslate"><span class="pre">CellRange</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数</dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#openpyxl.worksheet.cell_range.CellRange" title="openpyxl.worksheet.cell_range.CellRange"><em>openpyxl.worksheet.cell_range.CellRange</em></a>) – Other sheet range.</p>
+</dd>
+<dt class="field-even">返回</dt>
+<dd class="field-even"><p>a <code class="docutils literal notranslate"><span class="pre">CellRange</span></code> that is a superset of this and <em>other</em>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.worksheet.cell_range.MultiCellRange">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.worksheet.cell_range.</span></span><span class="sig-name descname"><span class="pre">MultiCellRange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ranges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/worksheet/cell_range.html#MultiCellRange"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.worksheet.cell_range.MultiCellRange" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.html#openpyxl.descriptors.Strict" title="openpyxl.descriptors.Strict"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.Strict</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="openpyxl.worksheet.cell_range.MultiCellRange.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coord</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/worksheet/cell_range.html#MultiCellRange.add"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.worksheet.cell_range.MultiCellRange.add" title="永久链接至目标">¶</a></dt>
+<dd><p>Add a cell coordinate or CellRange</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.worksheet.cell_range.MultiCellRange.ranges">
+<span class="sig-name descname"><span class="pre">ranges</span></span><a class="headerlink" href="#openpyxl.worksheet.cell_range.MultiCellRange.ranges" title="永久链接至目标">¶</a></dt>
+<dd><p>A sequence (list or tuple) that may only contain objects of the declared
+type</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpyxl.worksheet.cell_range.MultiCellRange.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coord</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/worksheet/cell_range.html#MultiCellRange.remove"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.worksheet.cell_range.MultiCellRange.remove" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="openpyxl.worksheet.html"
+                          title="上一章">openpyxl.worksheet package</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="openpyxl.worksheet.cell_watch.html"
+                          title="下一章">openpyxl.worksheet.cell_watch module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/openpyxl.worksheet.cell_range.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.worksheet.cell_watch.html" title="openpyxl.worksheet.cell_watch module"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.worksheet.html" title="openpyxl.worksheet package"
+             >上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.worksheet.html" >openpyxl.worksheet package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.worksheet.cell_range module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2010 - 2022, See AUTHORS.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+  </body>
+</html>

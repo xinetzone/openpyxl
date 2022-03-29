@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>openpyxl.workbook.web &#8212; openpyxl 3.0.9 文档</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/nature.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">模块代码</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.workbook.web</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>openpyxl.workbook.web 源代码</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2010-2022 openpyxl</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.serialisable</span> <span class="kn">import</span> <span class="n">Serialisable</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Typed</span><span class="p">,</span>
+    <span class="n">Sequence</span><span class="p">,</span>
+    <span class="n">String</span><span class="p">,</span>
+    <span class="n">Float</span><span class="p">,</span>
+    <span class="n">Integer</span><span class="p">,</span>
+    <span class="n">Bool</span><span class="p">,</span>
+    <span class="n">NoneSet</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="WebPublishObject"><a class="viewcode-back" href="../../../api/openpyxl.workbook.web.html#openpyxl.workbook.web.WebPublishObject">[文档]</a><span class="k">class</span> <span class="nc">WebPublishObject</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;webPublishingObject&quot;</span>
+
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">divId</span> <span class="o">=</span> <span class="n">String</span><span class="p">()</span>
+    <span class="n">sourceObject</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">destinationFile</span> <span class="o">=</span> <span class="n">String</span><span class="p">()</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">autoRepublish</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">divId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">sourceObject</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">destinationFile</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">autoRepublish</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">divId</span> <span class="o">=</span> <span class="n">divId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sourceObject</span> <span class="o">=</span> <span class="n">sourceObject</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">destinationFile</span> <span class="o">=</span> <span class="n">destinationFile</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">autoRepublish</span> <span class="o">=</span> <span class="n">autoRepublish</span></div>
+
+
+<div class="viewcode-block" id="WebPublishObjectList"><a class="viewcode-back" href="../../../api/openpyxl.workbook.web.html#openpyxl.workbook.web.WebPublishObjectList">[文档]</a><span class="k">class</span> <span class="nc">WebPublishObjectList</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span><span class="s2">&quot;webPublishingObjects&quot;</span>
+
+    <span class="n">count</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">webPublishObject</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">WebPublishObject</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;webPublishObject&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">count</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">webPublishObject</span><span class="o">=</span><span class="p">(),</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">webPublishObject</span> <span class="o">=</span> <span class="n">webPublishObject</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">webPublishObject</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WebPublishing"><a class="viewcode-back" href="../../../api/openpyxl.workbook.web.html#openpyxl.workbook.web.WebPublishing">[文档]</a><span class="k">class</span> <span class="nc">WebPublishing</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;webPublishing&quot;</span>
+
+    <span class="n">css</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">thicket</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">longFileNames</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">vml</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">allowPng</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">targetScreenSize</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;544x376&#39;</span><span class="p">,</span> <span class="s1">&#39;640x480&#39;</span><span class="p">,</span> <span class="s1">&#39;720x512&#39;</span><span class="p">,</span> <span class="s1">&#39;800x600&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;1024x768&#39;</span><span class="p">,</span> <span class="s1">&#39;1152x882&#39;</span><span class="p">,</span> <span class="s1">&#39;1152x900&#39;</span><span class="p">,</span> <span class="s1">&#39;1280x1024&#39;</span><span class="p">,</span> <span class="s1">&#39;1600x1200&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;1800x1440&#39;</span><span class="p">,</span> <span class="s1">&#39;1920x1200&#39;</span><span class="p">]))</span>
+    <span class="n">dpi</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">codePage</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">characterSet</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">css</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">thicket</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">longFileNames</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">vml</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">allowPng</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">targetScreenSize</span><span class="o">=</span><span class="s1">&#39;800x600&#39;</span><span class="p">,</span>
+                 <span class="n">dpi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">codePage</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">characterSet</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">css</span> <span class="o">=</span> <span class="n">css</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">thicket</span> <span class="o">=</span> <span class="n">thicket</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">longFileNames</span> <span class="o">=</span> <span class="n">longFileNames</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vml</span> <span class="o">=</span> <span class="n">vml</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">allowPng</span> <span class="o">=</span> <span class="n">allowPng</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">targetScreenSize</span> <span class="o">=</span> <span class="n">targetScreenSize</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dpi</span> <span class="o">=</span> <span class="n">dpi</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">codePage</span> <span class="o">=</span> <span class="n">codePage</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">characterSet</span> <span class="o">=</span> <span class="n">characterSet</span></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >模块代码</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.workbook.web</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2010 - 2022, See AUTHORS.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+  </body>
+</html>

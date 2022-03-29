@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Optimised Modes &#8212; openpyxl 3.0.9 文档</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Inserting and deleting rows and columns, moving ranges of cells" href="editing_worksheets.html" />
+    <link rel="prev" title="Performance" href="performance.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="editing_worksheets.html" title="Inserting and deleting rows and columns, moving ranges of cells"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="performance.html" title="Performance"
+             accesskey="P">上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Optimised Modes</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="optimised-modes">
+<h1>Optimised Modes<a class="headerlink" href="#optimised-modes" title="永久链接至标题">¶</a></h1>
+<section id="read-only-mode">
+<h2>Read-only mode<a class="headerlink" href="#read-only-mode" title="永久链接至标题">¶</a></h2>
+<p>Sometimes, you will need to open or write extremely large XLSX files,
+and the common routines in openpyxl won’t be able to handle that load.
+Fortunately, there are two modes that enable you to read and write unlimited
+amounts of data with (near) constant memory consumption.</p>
+<p>Introducing <code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.worksheet._read_only.ReadOnlyWorksheet</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openpyxl</span> <span class="kn">import</span> <span class="n">load_workbook</span>
+<span class="n">wb</span> <span class="o">=</span> <span class="n">load_workbook</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;large_file.xlsx&#39;</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ws</span> <span class="o">=</span> <span class="n">wb</span><span class="p">[</span><span class="s1">&#39;big_data&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">ws</span><span class="o">.</span><span class="n">rows</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">row</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+<span class="c1"># Close the workbook after reading</span>
+<span class="n">wb</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<ul class="simple">
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.worksheet._read_only.ReadOnlyWorksheet</span></code> is read-only</p></li>
+<li><p>Unlike a normal workbook, a read-only workbook will use lazy loading.
+The workbook must be explicitly closed with the <code class="xref py py-func docutils literal notranslate"><span class="pre">close()</span></code> method.</p></li>
+</ul>
+</div>
+<p>Cells returned are not regular <a class="reference internal" href="api/openpyxl.cell.cell.html#openpyxl.cell.cell.Cell" title="openpyxl.cell.cell.Cell"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.cell.cell.Cell</span></code></a> but
+<code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.cell._read_only.ReadOnlyCell</span></code>.</p>
+<section id="worksheet-dimensions">
+<h3>Worksheet dimensions<a class="headerlink" href="#worksheet-dimensions" title="永久链接至标题">¶</a></h3>
+<p>Read-only mode relies on applications and libraries that created the file
+providing correct information about the worksheets, specifically the used
+part of it, known as the dimensions. Some applications set this incorrectly.
+You can check the apparent dimensions of a worksheet using
+<cite>ws.calculate_dimension()</cite>. If this returns a range that you know is
+incorrect, say <cite>A1:A1</cite> then simply resetting the max_row and max_column
+attributes should allow you to work with the file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ws</span><span class="o">.</span><span class="n">reset_dimensions</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="write-only-mode">
+<h2>Write-only mode<a class="headerlink" href="#write-only-mode" title="永久链接至标题">¶</a></h2>
+<p>Here again, the regular <a class="reference internal" href="api/openpyxl.worksheet.worksheet.html#openpyxl.worksheet.worksheet.Worksheet" title="openpyxl.worksheet.worksheet.Worksheet"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.worksheet.worksheet.Worksheet</span></code></a> has been replaced
+by a faster alternative, the <code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.worksheet._write_only.WriteOnlyWorksheet</span></code>.
+When you want to dump large amounts of data make sure you have <cite>lxml</cite> installed.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openpyxl</span> <span class="kn">import</span> <span class="n">Workbook</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wb</span> <span class="o">=</span> <span class="n">Workbook</span><span class="p">(</span><span class="n">write_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ws</span> <span class="o">=</span> <span class="n">wb</span><span class="o">.</span><span class="n">create_sheet</span><span class="p">()</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># now we&#39;ll fill it with 100 rows x 200 columns</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">irow</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">ws</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">200</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># save the file</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wb</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;new_big_file.xlsx&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+<p>If you want to have cells with styles or comments then use a <code class="xref py py-func docutils literal notranslate"><span class="pre">openpyxl.cell.WriteOnlyCell()</span></code></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openpyxl</span> <span class="kn">import</span> <span class="n">Workbook</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wb</span> <span class="o">=</span> <span class="n">Workbook</span><span class="p">(</span><span class="n">write_only</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ws</span> <span class="o">=</span> <span class="n">wb</span><span class="o">.</span><span class="n">create_sheet</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openpyxl.cell</span> <span class="kn">import</span> <span class="n">WriteOnlyCell</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openpyxl.comments</span> <span class="kn">import</span> <span class="n">Comment</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openpyxl.styles</span> <span class="kn">import</span> <span class="n">Font</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cell</span> <span class="o">=</span> <span class="n">WriteOnlyCell</span><span class="p">(</span><span class="n">ws</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cell</span><span class="o">.</span><span class="n">font</span> <span class="o">=</span> <span class="n">Font</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Courier&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">36</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cell</span><span class="o">.</span><span class="n">comment</span> <span class="o">=</span> <span class="n">Comment</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;A comment&quot;</span><span class="p">,</span> <span class="n">author</span><span class="o">=</span><span class="s2">&quot;Author&#39;s Name&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ws</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">cell</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="kc">None</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wb</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;write_only_file.xlsx&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will create a write-only workbook with a single sheet, and append
+a row of 3 cells: one text cell with a custom font and a comment, a
+floating-point number, and an empty cell (which will be discarded
+anyway).</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<ul class="simple">
+<li><p>Unlike a normal workbook, a newly-created write-only workbook
+does not contain any worksheets; a worksheet must be specifically
+created with the <code class="xref py py-func docutils literal notranslate"><span class="pre">create_sheet()</span></code> method.</p></li>
+<li><p>In a write-only workbook, rows can only be added with
+<code class="xref py py-func docutils literal notranslate"><span class="pre">append()</span></code>. It is not possible to write (or read) cells at
+arbitrary locations with <code class="xref py py-func docutils literal notranslate"><span class="pre">cell()</span></code> or <code class="xref py py-func docutils literal notranslate"><span class="pre">iter_rows()</span></code>.</p></li>
+<li><p>It is able to export unlimited amount of data (even more than Excel can
+handle actually), while keeping memory usage under 10Mb.</p></li>
+<li><p>A write-only workbook can only be saved once. After
+that, every attempt to save the workbook or append() to an existing
+worksheet will raise an <a class="reference internal" href="api/openpyxl.utils.exceptions.html#openpyxl.utils.exceptions.WorkbookAlreadySaved" title="openpyxl.utils.exceptions.WorkbookAlreadySaved"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.utils.exceptions.WorkbookAlreadySaved</span></code></a>
+exception.</p></li>
+<li><p>Everything that appears in the file before the actual cell data must be created
+before cells are added because it must written to the file before then.
+For example, <cite>freeze_panes</cite> should be set before cells are added.</p></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Optimised Modes</a><ul>
+<li><a class="reference internal" href="#read-only-mode">Read-only mode</a><ul>
+<li><a class="reference internal" href="#worksheet-dimensions">Worksheet dimensions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#write-only-mode">Write-only mode</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="performance.html"
+                          title="上一章">Performance</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="editing_worksheets.html"
+                          title="下一章">Inserting and deleting rows and columns, moving ranges of cells</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/optimized.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="editing_worksheets.html" title="Inserting and deleting rows and columns, moving ranges of cells"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="performance.html" title="Performance"
+             >上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Optimised Modes</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2010 - 2022, See AUTHORS.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+  </body>
+</html>

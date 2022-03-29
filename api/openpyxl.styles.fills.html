@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>openpyxl.styles.fills module &#8212; openpyxl 3.0.9 文档</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nature.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="openpyxl.styles.fonts module" href="openpyxl.styles.fonts.html" />
+    <link rel="prev" title="openpyxl.styles.differential module" href="openpyxl.styles.differential.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.styles.fonts.html" title="openpyxl.styles.fonts module"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.styles.differential.html" title="openpyxl.styles.differential module"
+             accesskey="P">上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.styles.html" accesskey="U">openpyxl.styles package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.styles.fills module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-openpyxl.styles.fills">
+<span id="openpyxl-styles-fills-module"></span><h1>openpyxl.styles.fills module<a class="headerlink" href="#module-openpyxl.styles.fills" title="永久链接至标题">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.Fill">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.styles.fills.</span></span><span class="sig-name descname"><span class="pre">Fill</span></span><a class="reference internal" href="../_modules/openpyxl/styles/fills.html#Fill"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.styles.fills.Fill" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<p>Base class</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.Fill.from_tree">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">el</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/styles/fills.html#Fill.from_tree"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.styles.fills.Fill.from_tree" title="永久链接至目标">¶</a></dt>
+<dd><p>Create object from XML</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.Fill.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'fill'</span></em><a class="headerlink" href="#openpyxl.styles.fills.Fill.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.GradientFill">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.styles.fills.</span></span><span class="sig-name descname"><span class="pre">GradientFill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bottom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/styles/fills.html#GradientFill"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.styles.fills.GradientFill" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="#openpyxl.styles.fills.Fill" title="openpyxl.styles.fills.Fill"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.styles.fills.Fill</span></code></a></p>
+<p>Fill areas with gradient</p>
+<p>Two types of gradient fill are supported:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>A type=’linear’ gradient interpolates colours between
+a set of specified Stops, across the length of an area.
+The gradient is left-to-right by default, but this
+orientation can be modified with the degree
+attribute.  A list of Colors can be provided instead
+and they will be positioned with equal distance between them.</p></li>
+<li><p>A type=’path’ gradient applies a linear gradient from each
+edge of the area. Attributes top, right, bottom, left specify
+the extent of fill from the respective borders. Thus top=”0.2”
+will fill the top 20% of the cell.</p></li>
+</ul>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.GradientFill.bottom">
+<span class="sig-name descname"><span class="pre">bottom</span></span><a class="headerlink" href="#openpyxl.styles.fills.GradientFill.bottom" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.GradientFill.degree">
+<span class="sig-name descname"><span class="pre">degree</span></span><a class="headerlink" href="#openpyxl.styles.fills.GradientFill.degree" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.GradientFill.fill_type">
+<span class="sig-name descname"><span class="pre">fill_type</span></span><a class="headerlink" href="#openpyxl.styles.fills.GradientFill.fill_type" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.GradientFill.left">
+<span class="sig-name descname"><span class="pre">left</span></span><a class="headerlink" href="#openpyxl.styles.fills.GradientFill.left" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.GradientFill.right">
+<span class="sig-name descname"><span class="pre">right</span></span><a class="headerlink" href="#openpyxl.styles.fills.GradientFill.right" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.GradientFill.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><a class="headerlink" href="#openpyxl.styles.fills.GradientFill.stop" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.GradientFill.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'gradientFill'</span></em><a class="headerlink" href="#openpyxl.styles.fills.GradientFill.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.GradientFill.to_tree">
+<span class="sig-name descname"><span class="pre">to_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tagname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">namespace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/styles/fills.html#GradientFill.to_tree"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.styles.fills.GradientFill.to_tree" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.GradientFill.top">
+<span class="sig-name descname"><span class="pre">top</span></span><a class="headerlink" href="#openpyxl.styles.fills.GradientFill.top" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.GradientFill.type">
+<span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#openpyxl.styles.fills.GradientFill.type" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘path’, ‘linear’}</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.PatternFill">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.styles.fills.</span></span><span class="sig-name descname"><span class="pre">PatternFill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patternType=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fgColor=&lt;openpyxl.styles.colors.Color</span> <span class="pre">object&gt;</span> <span class="pre">Parameters:</span> <span class="pre">rgb='00000000'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexed=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theme=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tint=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type='rgb'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bgColor=&lt;openpyxl.styles.colors.Color</span> <span class="pre">object&gt;</span> <span class="pre">Parameters:</span> <span class="pre">rgb='00000000'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexed=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theme=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tint=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type='rgb'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_type=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_color=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_color=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/styles/fills.html#PatternFill"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.styles.fills.PatternFill" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="#openpyxl.styles.fills.Fill" title="openpyxl.styles.fills.Fill"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.styles.fills.Fill</span></code></a></p>
+<p>Area fill patterns for use in styles.
+Caution: if you do not specify a fill_type, other attributes will have
+no effect !</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.PatternFill.bgColor">
+<span class="sig-name descname"><span class="pre">bgColor</span></span><a class="headerlink" href="#openpyxl.styles.fills.PatternFill.bgColor" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.styles.colors.Color’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.PatternFill.end_color">
+<span class="sig-name descname"><span class="pre">end_color</span></span><a class="headerlink" href="#openpyxl.styles.fills.PatternFill.end_color" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.PatternFill.fgColor">
+<span class="sig-name descname"><span class="pre">fgColor</span></span><a class="headerlink" href="#openpyxl.styles.fills.PatternFill.fgColor" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.styles.colors.Color’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.PatternFill.fill_type">
+<span class="sig-name descname"><span class="pre">fill_type</span></span><a class="headerlink" href="#openpyxl.styles.fills.PatternFill.fill_type" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.PatternFill.patternType">
+<span class="sig-name descname"><span class="pre">patternType</span></span><a class="headerlink" href="#openpyxl.styles.fills.PatternFill.patternType" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘lightTrellis’, ‘darkDown’, ‘darkVertical’, ‘lightUp’, ‘darkHorizontal’, ‘lightGray’, ‘gray0625’, ‘solid’, ‘darkUp’, ‘lightGrid’, ‘lightHorizontal’, ‘darkGray’, ‘darkGrid’, ‘lightDown’, ‘gray125’, ‘darkTrellis’, ‘lightVertical’, ‘mediumGray’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.PatternFill.start_color">
+<span class="sig-name descname"><span class="pre">start_color</span></span><a class="headerlink" href="#openpyxl.styles.fills.PatternFill.start_color" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.PatternFill.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'patternFill'</span></em><a class="headerlink" href="#openpyxl.styles.fills.PatternFill.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.PatternFill.to_tree">
+<span class="sig-name descname"><span class="pre">to_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tagname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/styles/fills.html#PatternFill.to_tree"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.styles.fills.PatternFill.to_tree" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.Stop">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.styles.fills.</span></span><span class="sig-name descname"><span class="pre">Stop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/styles/fills.html#Stop"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.styles.fills.Stop" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.Stop.color">
+<span class="sig-name descname"><span class="pre">color</span></span><a class="headerlink" href="#openpyxl.styles.fills.Stop.color" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.styles.colors.Color’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.Stop.position">
+<span class="sig-name descname"><span class="pre">position</span></span><a class="headerlink" href="#openpyxl.styles.fills.Stop.position" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.Stop.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'stop'</span></em><a class="headerlink" href="#openpyxl.styles.fills.Stop.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.StopList">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.styles.fills.</span></span><span class="sig-name descname"><span class="pre">StopList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/styles/fills.html#StopList"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.styles.fills.StopList" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.sequence.html#openpyxl.descriptors.sequence.Sequence" title="openpyxl.descriptors.sequence.Sequence"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.sequence.Sequence</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.styles.fills.StopList.expected_type">
+<span class="sig-name descname"><span class="pre">expected_type</span></span><a class="headerlink" href="#openpyxl.styles.fills.StopList.expected_type" title="永久链接至目标">¶</a></dt>
+<dd><p>:py:class:<a href="#id1"><span class="problematic" id="id2">`</span></a>openpyxl.styles.fills.Stop`的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="openpyxl.styles.differential.html"
+                          title="上一章">openpyxl.styles.differential module</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="openpyxl.styles.fonts.html"
+                          title="下一章">openpyxl.styles.fonts module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/openpyxl.styles.fills.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.styles.fonts.html" title="openpyxl.styles.fonts module"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.styles.differential.html" title="openpyxl.styles.differential module"
+             >上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.styles.html" >openpyxl.styles package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.styles.fills module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2010 - 2022, See AUTHORS.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+  </body>
+</html>

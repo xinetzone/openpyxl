@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>openpyxl.descriptors.base module &#8212; openpyxl 3.0.9 文档</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nature.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="openpyxl.descriptors.excel module" href="openpyxl.descriptors.excel.html" />
+    <link rel="prev" title="openpyxl.descriptors package" href="openpyxl.descriptors.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.descriptors.excel.html" title="openpyxl.descriptors.excel module"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.descriptors.html" title="openpyxl.descriptors package"
+             accesskey="P">上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.descriptors.html" accesskey="U">openpyxl.descriptors package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.descriptors.base module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-openpyxl.descriptors.base">
+<span id="openpyxl-descriptors-base-module"></span><h1>openpyxl.descriptors.base module<a class="headerlink" href="#module-openpyxl.descriptors.base" title="永久链接至标题">¶</a></h1>
+<p>Based on Python Cookbook 3rd Edition, 8.13
+<a class="reference external" href="http://chimera.labs.oreilly.com/books/1230000000393/ch08.html#_discussiuncion_130">http://chimera.labs.oreilly.com/books/1230000000393/ch08.html#_discussiuncion_130</a></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.ASCII">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.descriptors.base.</span></span><span class="sig-name descname"><span class="pre">ASCII</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/descriptors/base.html#ASCII"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.descriptors.base.ASCII" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="#openpyxl.descriptors.base.Typed" title="openpyxl.descriptors.base.Typed"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.base.Typed</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.ASCII.expected_type">
+<span class="sig-name descname"><span class="pre">expected_type</span></span><a class="headerlink" href="#openpyxl.descriptors.base.ASCII.expected_type" title="永久链接至目标">¶</a></dt>
+<dd><p>:py:class:<a href="#id1"><span class="problematic" id="id2">`</span></a>bytes`的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.Alias">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.descriptors.base.</span></span><span class="sig-name descname"><span class="pre">Alias</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alias</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/descriptors/base.html#Alias"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.descriptors.base.Alias" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="#openpyxl.descriptors.base.Descriptor" title="openpyxl.descriptors.base.Descriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.base.Descriptor</span></code></a></p>
+<p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.Bool">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.descriptors.base.</span></span><span class="sig-name descname"><span class="pre">Bool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/descriptors/base.html#Bool"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.descriptors.base.Bool" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="#openpyxl.descriptors.base.Convertible" title="openpyxl.descriptors.base.Convertible"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.base.Convertible</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.Bool.expected_type">
+<span class="sig-name descname"><span class="pre">expected_type</span></span><a class="headerlink" href="#openpyxl.descriptors.base.Bool.expected_type" title="永久链接至目标">¶</a></dt>
+<dd><p>:py:class:<a href="#id3"><span class="problematic" id="id4">`</span></a>bool`的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.Convertible">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.descriptors.base.</span></span><span class="sig-name descname"><span class="pre">Convertible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/descriptors/base.html#Convertible"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.descriptors.base.Convertible" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="#openpyxl.descriptors.base.Typed" title="openpyxl.descriptors.base.Typed"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.base.Typed</span></code></a></p>
+<p>Values must be convertible to a particular type</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.DateTime">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.descriptors.base.</span></span><span class="sig-name descname"><span class="pre">DateTime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/descriptors/base.html#DateTime"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.descriptors.base.DateTime" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="#openpyxl.descriptors.base.Typed" title="openpyxl.descriptors.base.Typed"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.base.Typed</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.DateTime.expected_type">
+<span class="sig-name descname"><span class="pre">expected_type</span></span><a class="headerlink" href="#openpyxl.descriptors.base.DateTime.expected_type" title="永久链接至目标">¶</a></dt>
+<dd><p>:py:class:<a href="#id5"><span class="problematic" id="id6">`</span></a>datetime.datetime`的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.Default">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.descriptors.base.</span></span><span class="sig-name descname"><span class="pre">Default</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/descriptors/base.html#Default"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.descriptors.base.Default" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="#openpyxl.descriptors.base.Typed" title="openpyxl.descriptors.base.Typed"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.base.Typed</span></code></a></p>
+<p>When called returns an instance of the expected type.
+Additional default values can be passed in to the descriptor</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.Descriptor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.descriptors.base.</span></span><span class="sig-name descname"><span class="pre">Descriptor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/descriptors/base.html#Descriptor"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.descriptors.base.Descriptor" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.Float">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.descriptors.base.</span></span><span class="sig-name descname"><span class="pre">Float</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/descriptors/base.html#Float"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.descriptors.base.Float" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="#openpyxl.descriptors.base.Convertible" title="openpyxl.descriptors.base.Convertible"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.base.Convertible</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.Float.expected_type">
+<span class="sig-name descname"><span class="pre">expected_type</span></span><a class="headerlink" href="#openpyxl.descriptors.base.Float.expected_type" title="永久链接至目标">¶</a></dt>
+<dd><p>:py:class:<a href="#id7"><span class="problematic" id="id8">`</span></a>float`的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.Integer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.descriptors.base.</span></span><span class="sig-name descname"><span class="pre">Integer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/descriptors/base.html#Integer"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.descriptors.base.Integer" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="#openpyxl.descriptors.base.Convertible" title="openpyxl.descriptors.base.Convertible"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.base.Convertible</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.Integer.expected_type">
+<span class="sig-name descname"><span class="pre">expected_type</span></span><a class="headerlink" href="#openpyxl.descriptors.base.Integer.expected_type" title="永久链接至目标">¶</a></dt>
+<dd><p>:py:class:<a href="#id9"><span class="problematic" id="id10">`</span></a>int`的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.Length">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.descriptors.base.</span></span><span class="sig-name descname"><span class="pre">Length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/descriptors/base.html#Length"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.descriptors.base.Length" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="#openpyxl.descriptors.base.Descriptor" title="openpyxl.descriptors.base.Descriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.base.Descriptor</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.MatchPattern">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.descriptors.base.</span></span><span class="sig-name descname"><span class="pre">MatchPattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/descriptors/base.html#MatchPattern"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.descriptors.base.MatchPattern" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="#openpyxl.descriptors.base.Descriptor" title="openpyxl.descriptors.base.Descriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.base.Descriptor</span></code></a></p>
+<p>Values must match a regex pattern</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.MatchPattern.allow_none">
+<span class="sig-name descname"><span class="pre">allow_none</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#openpyxl.descriptors.base.MatchPattern.allow_none" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.Max">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.descriptors.base.</span></span><span class="sig-name descname"><span class="pre">Max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/descriptors/base.html#Max"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.descriptors.base.Max" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="#openpyxl.descriptors.base.Convertible" title="openpyxl.descriptors.base.Convertible"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.base.Convertible</span></code></a></p>
+<p>Values must be less than a <cite>max</cite> value</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.Max.allow_none">
+<span class="sig-name descname"><span class="pre">allow_none</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#openpyxl.descriptors.base.Max.allow_none" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.Max.expected_type">
+<span class="sig-name descname"><span class="pre">expected_type</span></span><a class="headerlink" href="#openpyxl.descriptors.base.Max.expected_type" title="永久链接至目标">¶</a></dt>
+<dd><p>:py:class:<a href="#id11"><span class="problematic" id="id12">`</span></a>float`的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.Min">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.descriptors.base.</span></span><span class="sig-name descname"><span class="pre">Min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/descriptors/base.html#Min"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.descriptors.base.Min" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="#openpyxl.descriptors.base.Convertible" title="openpyxl.descriptors.base.Convertible"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.base.Convertible</span></code></a></p>
+<p>Values must be greater than a <cite>min</cite> value</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.Min.allow_none">
+<span class="sig-name descname"><span class="pre">allow_none</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#openpyxl.descriptors.base.Min.allow_none" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.Min.expected_type">
+<span class="sig-name descname"><span class="pre">expected_type</span></span><a class="headerlink" href="#openpyxl.descriptors.base.Min.expected_type" title="永久链接至目标">¶</a></dt>
+<dd><p>:py:class:<a href="#id13"><span class="problematic" id="id14">`</span></a>float`的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.MinMax">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.descriptors.base.</span></span><span class="sig-name descname"><span class="pre">MinMax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/descriptors/base.html#MinMax"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.descriptors.base.MinMax" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="#openpyxl.descriptors.base.Min" title="openpyxl.descriptors.base.Min"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.base.Min</span></code></a>, <a class="reference internal" href="#openpyxl.descriptors.base.Max" title="openpyxl.descriptors.base.Max"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.base.Max</span></code></a></p>
+<p>Values must be greater than <cite>min</cite> value and less than a <cite>max</cite> one</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.NoneSet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.descriptors.base.</span></span><span class="sig-name descname"><span class="pre">NoneSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/descriptors/base.html#NoneSet"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.descriptors.base.NoneSet" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="#openpyxl.descriptors.base.Set" title="openpyxl.descriptors.base.Set"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.base.Set</span></code></a></p>
+<p>‘none’ will be treated as None</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.Set">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.descriptors.base.</span></span><span class="sig-name descname"><span class="pre">Set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/descriptors/base.html#Set"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.descriptors.base.Set" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="#openpyxl.descriptors.base.Descriptor" title="openpyxl.descriptors.base.Descriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.base.Descriptor</span></code></a></p>
+<p>Value can only be from a set of know values</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.String">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.descriptors.base.</span></span><span class="sig-name descname"><span class="pre">String</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/descriptors/base.html#String"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.descriptors.base.String" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="#openpyxl.descriptors.base.Typed" title="openpyxl.descriptors.base.Typed"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.base.Typed</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.String.expected_type">
+<span class="sig-name descname"><span class="pre">expected_type</span></span><a class="headerlink" href="#openpyxl.descriptors.base.String.expected_type" title="永久链接至目标">¶</a></dt>
+<dd><p>:py:class:<a href="#id15"><span class="problematic" id="id16">`</span></a>str`的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.Text">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.descriptors.base.</span></span><span class="sig-name descname"><span class="pre">Text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/descriptors/base.html#Text"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.descriptors.base.Text" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="#openpyxl.descriptors.base.String" title="openpyxl.descriptors.base.String"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.base.String</span></code></a>, <a class="reference internal" href="#openpyxl.descriptors.base.Convertible" title="openpyxl.descriptors.base.Convertible"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.base.Convertible</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.Tuple">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.descriptors.base.</span></span><span class="sig-name descname"><span class="pre">Tuple</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/descriptors/base.html#Tuple"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.descriptors.base.Tuple" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="#openpyxl.descriptors.base.Typed" title="openpyxl.descriptors.base.Typed"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.base.Typed</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.Tuple.expected_type">
+<span class="sig-name descname"><span class="pre">expected_type</span></span><a class="headerlink" href="#openpyxl.descriptors.base.Tuple.expected_type" title="永久链接至目标">¶</a></dt>
+<dd><p>:py:class:<a href="#id17"><span class="problematic" id="id18">`</span></a>tuple`的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.Typed">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.descriptors.base.</span></span><span class="sig-name descname"><span class="pre">Typed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/descriptors/base.html#Typed"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.descriptors.base.Typed" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="#openpyxl.descriptors.base.Descriptor" title="openpyxl.descriptors.base.Descriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.base.Descriptor</span></code></a></p>
+<p>Values must of a particular type</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.Typed.allow_none">
+<span class="sig-name descname"><span class="pre">allow_none</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#openpyxl.descriptors.base.Typed.allow_none" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.Typed.expected_type">
+<span class="sig-name descname"><span class="pre">expected_type</span></span><a class="headerlink" href="#openpyxl.descriptors.base.Typed.expected_type" title="永久链接至目标">¶</a></dt>
+<dd><p>:py:obj:<a href="#id19"><span class="problematic" id="id20">`</span></a>None`的别名</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.descriptors.base.Typed.nested">
+<span class="sig-name descname"><span class="pre">nested</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#openpyxl.descriptors.base.Typed.nested" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="openpyxl.descriptors.html"
+                          title="上一章">openpyxl.descriptors package</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="openpyxl.descriptors.excel.html"
+                          title="下一章">openpyxl.descriptors.excel module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/openpyxl.descriptors.base.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.descriptors.excel.html" title="openpyxl.descriptors.excel module"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.descriptors.html" title="openpyxl.descriptors package"
+             >上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.descriptors.html" >openpyxl.descriptors package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.descriptors.base module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2010 - 2022, See AUTHORS.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+  </body>
+</html>

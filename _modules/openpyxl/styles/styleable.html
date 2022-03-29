@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>openpyxl.styles.styleable &#8212; openpyxl 3.0.9 文档</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/nature.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">模块代码</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.styles.styleable</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>openpyxl.styles.styleable 源代码</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2010-2022 openpyxl</span>
+
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">copy</span>
+<span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">warn</span>
+
+<span class="kn">from</span> <span class="nn">.numbers</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">BUILTIN_FORMATS</span><span class="p">,</span>
+    <span class="n">BUILTIN_FORMATS_MAX_SIZE</span><span class="p">,</span>
+    <span class="n">BUILTIN_FORMATS_REVERSE</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">.proxy</span> <span class="kn">import</span> <span class="n">StyleProxy</span>
+<span class="kn">from</span> <span class="nn">.cell_style</span> <span class="kn">import</span> <span class="n">StyleArray</span>
+<span class="kn">from</span> <span class="nn">.named_styles</span> <span class="kn">import</span> <span class="n">NamedStyle</span>
+<span class="kn">from</span> <span class="nn">.builtins</span> <span class="kn">import</span> <span class="n">styles</span>
+
+
+<div class="viewcode-block" id="StyleDescriptor"><a class="viewcode-back" href="../../../api/openpyxl.styles.styleable.html#openpyxl.styles.styleable.StyleDescriptor">[文档]</a><span class="k">class</span> <span class="nc">StyleDescriptor</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collection</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">collection</span> <span class="o">=</span> <span class="n">collection</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="n">key</span>
+
+    <span class="k">def</span> <span class="fm">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">coll</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">collection</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="s2">&quot;_style&quot;</span><span class="p">):</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">_style</span> <span class="o">=</span> <span class="n">StyleArray</span><span class="p">()</span>
+        <span class="nb">setattr</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">_style</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">,</span> <span class="n">coll</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+
+
+    <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+        <span class="n">coll</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">collection</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="s2">&quot;_style&quot;</span><span class="p">):</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">_style</span> <span class="o">=</span> <span class="n">StyleArray</span><span class="p">()</span>
+        <span class="n">idx</span> <span class="o">=</span>  <span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">_style</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">StyleProxy</span><span class="p">(</span><span class="n">coll</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="NumberFormatDescriptor"><a class="viewcode-back" href="../../../api/openpyxl.styles.styleable.html#openpyxl.styles.styleable.NumberFormatDescriptor">[文档]</a><span class="k">class</span> <span class="nc">NumberFormatDescriptor</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;numFmtId&quot;</span>
+    <span class="n">collection</span> <span class="o">=</span> <span class="s1">&#39;_number_formats&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">coll</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">collection</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">BUILTIN_FORMATS_REVERSE</span><span class="p">:</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="n">BUILTIN_FORMATS_REVERSE</span><span class="p">[</span><span class="n">value</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="n">coll</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">+</span> <span class="n">BUILTIN_FORMATS_MAX_SIZE</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="s2">&quot;_style&quot;</span><span class="p">):</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">_style</span> <span class="o">=</span> <span class="n">StyleArray</span><span class="p">()</span>
+        <span class="nb">setattr</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">_style</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="s2">&quot;_style&quot;</span><span class="p">):</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">_style</span> <span class="o">=</span> <span class="n">StyleArray</span><span class="p">()</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">_style</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="n">BUILTIN_FORMATS_MAX_SIZE</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">BUILTIN_FORMATS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="s2">&quot;General&quot;</span><span class="p">)</span>
+        <span class="n">coll</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">collection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">coll</span><span class="p">[</span><span class="n">idx</span> <span class="o">-</span> <span class="n">BUILTIN_FORMATS_MAX_SIZE</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="NamedStyleDescriptor"><a class="viewcode-back" href="../../../api/openpyxl.styles.styleable.html#openpyxl.styles.styleable.NamedStyleDescriptor">[文档]</a><span class="k">class</span> <span class="nc">NamedStyleDescriptor</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;xfId&quot;</span>
+    <span class="n">collection</span> <span class="o">=</span> <span class="s2">&quot;_named_styles&quot;</span>
+
+
+    <span class="k">def</span> <span class="fm">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="s2">&quot;_style&quot;</span><span class="p">):</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">_style</span> <span class="o">=</span> <span class="n">StyleArray</span><span class="p">()</span>
+        <span class="n">coll</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">collection</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">NamedStyle</span><span class="p">):</span>
+            <span class="n">style</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="k">if</span> <span class="n">style</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">coll</span><span class="p">:</span>
+                <span class="n">instance</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">add_named_style</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">coll</span><span class="o">.</span><span class="n">names</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">styles</span><span class="p">:</span> <span class="c1"># is it builtin?</span>
+                <span class="n">style</span> <span class="o">=</span> <span class="n">styles</span><span class="p">[</span><span class="n">value</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">style</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">coll</span><span class="p">:</span>
+                    <span class="n">instance</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">add_named_style</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0}</span><span class="s2"> is not a known style&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">style</span> <span class="o">=</span> <span class="n">coll</span><span class="p">[</span><span class="n">value</span><span class="p">]</span>
+        <span class="n">instance</span><span class="o">.</span><span class="n">_style</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">style</span><span class="o">.</span><span class="n">as_tuple</span><span class="p">())</span>
+
+
+    <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="s2">&quot;_style&quot;</span><span class="p">):</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">_style</span> <span class="o">=</span> <span class="n">StyleArray</span><span class="p">()</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">_style</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+        <span class="n">coll</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">collection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">coll</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="StyleArrayDescriptor"><a class="viewcode-back" href="../../../api/openpyxl.styles.styleable.html#openpyxl.styles.styleable.StyleArrayDescriptor">[文档]</a><span class="k">class</span> <span class="nc">StyleArrayDescriptor</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="n">key</span>
+
+    <span class="k">def</span> <span class="fm">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">instance</span><span class="o">.</span><span class="n">_style</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">_style</span> <span class="o">=</span> <span class="n">StyleArray</span><span class="p">()</span>
+        <span class="nb">setattr</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">_style</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">instance</span><span class="o">.</span><span class="n">_style</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">_style</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="StyleableObject"><a class="viewcode-back" href="../../../api/openpyxl.styles.styleable.html#openpyxl.styles.styleable.StyleableObject">[文档]</a><span class="k">class</span> <span class="nc">StyleableObject</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base class for styleble objects implementing proxy and lookup functions</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">font</span> <span class="o">=</span> <span class="n">StyleDescriptor</span><span class="p">(</span><span class="s1">&#39;_fonts&#39;</span><span class="p">,</span> <span class="s2">&quot;fontId&quot;</span><span class="p">)</span>
+    <span class="n">fill</span> <span class="o">=</span> <span class="n">StyleDescriptor</span><span class="p">(</span><span class="s1">&#39;_fills&#39;</span><span class="p">,</span> <span class="s2">&quot;fillId&quot;</span><span class="p">)</span>
+    <span class="n">border</span> <span class="o">=</span> <span class="n">StyleDescriptor</span><span class="p">(</span><span class="s1">&#39;_borders&#39;</span><span class="p">,</span> <span class="s2">&quot;borderId&quot;</span><span class="p">)</span>
+    <span class="n">number_format</span> <span class="o">=</span> <span class="n">NumberFormatDescriptor</span><span class="p">()</span>
+    <span class="n">protection</span> <span class="o">=</span> <span class="n">StyleDescriptor</span><span class="p">(</span><span class="s1">&#39;_protections&#39;</span><span class="p">,</span> <span class="s2">&quot;protectionId&quot;</span><span class="p">)</span>
+    <span class="n">alignment</span> <span class="o">=</span> <span class="n">StyleDescriptor</span><span class="p">(</span><span class="s1">&#39;_alignments&#39;</span><span class="p">,</span> <span class="s2">&quot;alignmentId&quot;</span><span class="p">)</span>
+    <span class="n">style</span> <span class="o">=</span> <span class="n">NamedStyleDescriptor</span><span class="p">()</span>
+    <span class="n">quotePrefix</span> <span class="o">=</span> <span class="n">StyleArrayDescriptor</span><span class="p">(</span><span class="s1">&#39;quotePrefix&#39;</span><span class="p">)</span>
+    <span class="n">pivotButton</span> <span class="o">=</span> <span class="n">StyleArrayDescriptor</span><span class="p">(</span><span class="s1">&#39;pivotButton&#39;</span><span class="p">)</span>
+
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;parent&#39;</span><span class="p">,</span> <span class="s1">&#39;_style&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sheet</span><span class="p">,</span> <span class="n">style_array</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">sheet</span>
+        <span class="k">if</span> <span class="n">style_array</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">style_array</span> <span class="o">=</span> <span class="n">StyleArray</span><span class="p">(</span><span class="n">style_array</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_style</span> <span class="o">=</span> <span class="n">style_array</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">style_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_style</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_style</span> <span class="o">=</span> <span class="n">StyleArray</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">_cell_styles</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_style</span><span class="p">)</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">has_style</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_style</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="nb">any</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_style</span><span class="p">)</span></div>
+
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >模块代码</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.styles.styleable</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2010 - 2022, See AUTHORS.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+  </body>
+</html>

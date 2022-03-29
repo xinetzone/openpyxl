@@ -1,0 +1,796 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>openpyxl.drawing.text &#8212; openpyxl 3.0.9 文档</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/nature.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">模块代码</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.drawing.text</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>openpyxl.drawing.text 源代码</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2010-2022 openpyxl</span>
+
+
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.serialisable</span> <span class="kn">import</span> <span class="n">Serialisable</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Alias</span><span class="p">,</span>
+    <span class="n">Typed</span><span class="p">,</span>
+    <span class="n">Set</span><span class="p">,</span>
+    <span class="n">NoneSet</span><span class="p">,</span>
+    <span class="n">Sequence</span><span class="p">,</span>
+    <span class="n">String</span><span class="p">,</span>
+    <span class="n">Bool</span><span class="p">,</span>
+    <span class="n">MinMax</span><span class="p">,</span>
+    <span class="n">Integer</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.excel</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">HexBinary</span><span class="p">,</span>
+    <span class="n">TextPoint</span><span class="p">,</span>
+    <span class="n">Coordinate</span><span class="p">,</span>
+    <span class="n">ExtensionList</span><span class="p">,</span>
+    <span class="n">Relation</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.nested</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">NestedInteger</span><span class="p">,</span>
+    <span class="n">NestedString</span><span class="p">,</span>
+    <span class="n">NestedText</span><span class="p">,</span>
+    <span class="n">NestedValue</span><span class="p">,</span>
+    <span class="n">EmptyTag</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">openpyxl.xml.constants</span> <span class="kn">import</span> <span class="n">DRAWING_NS</span>
+
+
+<span class="kn">from</span> <span class="nn">.colors</span> <span class="kn">import</span> <span class="n">ColorChoiceDescriptor</span>
+<span class="kn">from</span> <span class="nn">.effect</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">.fill</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">.geometry</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">LineProperties</span><span class="p">,</span>
+    <span class="n">Color</span><span class="p">,</span>
+    <span class="n">Scene3D</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.excel</span> <span class="kn">import</span> <span class="n">ExtensionList</span> <span class="k">as</span> <span class="n">OfficeArtExtensionList</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.nested</span> <span class="kn">import</span> <span class="n">NestedBool</span>
+
+
+<div class="viewcode-block" id="EmbeddedWAVAudioFile"><a class="viewcode-back" href="../../../api/openpyxl.drawing.text.html#openpyxl.drawing.text.EmbeddedWAVAudioFile">[文档]</a><span class="k">class</span> <span class="nc">EmbeddedWAVAudioFile</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span></div>
+
+
+<div class="viewcode-block" id="Hyperlink"><a class="viewcode-back" href="../../../api/openpyxl.drawing.text.html#openpyxl.drawing.text.Hyperlink">[文档]</a><span class="k">class</span> <span class="nc">Hyperlink</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;hlinkClick&quot;</span>
+    <span class="n">namespace</span> <span class="o">=</span> <span class="n">DRAWING_NS</span>
+
+    <span class="n">invalidUrl</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">action</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">tgtFrame</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">history</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">highlightClick</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">endSnd</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">snd</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">EmbeddedWAVAudioFile</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">OfficeArtExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">Relation</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;snd&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">invalidUrl</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">action</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">tgtFrame</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">tooltip</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">history</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">highlightClick</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">endSnd</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">snd</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">invalidUrl</span> <span class="o">=</span> <span class="n">invalidUrl</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="n">action</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tgtFrame</span> <span class="o">=</span> <span class="n">tgtFrame</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tooltip</span> <span class="o">=</span> <span class="n">tooltip</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">history</span> <span class="o">=</span> <span class="n">history</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">highlightClick</span> <span class="o">=</span> <span class="n">highlightClick</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">endSnd</span> <span class="o">=</span> <span class="n">endSnd</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">snd</span> <span class="o">=</span> <span class="n">snd</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span></div>
+
+
+<div class="viewcode-block" id="Font"><a class="viewcode-back" href="../../../api/openpyxl.drawing.text.html#openpyxl.drawing.text.Font">[文档]</a><span class="k">class</span> <span class="nc">Font</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;latin&quot;</span>
+    <span class="n">namespace</span> <span class="o">=</span> <span class="n">DRAWING_NS</span>
+
+    <span class="n">typeface</span> <span class="o">=</span> <span class="n">String</span><span class="p">()</span>
+    <span class="n">panose</span> <span class="o">=</span> <span class="n">HexBinary</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pitchFamily</span> <span class="o">=</span> <span class="n">MinMax</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">52</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">charset</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">typeface</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">panose</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">pitchFamily</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">charset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">typeface</span> <span class="o">=</span> <span class="n">typeface</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">panose</span> <span class="o">=</span> <span class="n">panose</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pitchFamily</span> <span class="o">=</span> <span class="n">pitchFamily</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">charset</span> <span class="o">=</span> <span class="n">charset</span></div>
+
+
+<div class="viewcode-block" id="CharacterProperties"><a class="viewcode-back" href="../../../api/openpyxl.drawing.text.html#openpyxl.drawing.text.CharacterProperties">[文档]</a><span class="k">class</span> <span class="nc">CharacterProperties</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;defRPr&quot;</span>
+    <span class="n">namespace</span> <span class="o">=</span> <span class="n">DRAWING_NS</span>
+
+    <span class="n">kumimoji</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">lang</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">altLang</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">sz</span> <span class="o">=</span> <span class="n">MinMax</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">400000</span><span class="p">)</span> <span class="c1"># 100ths of a point</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;words&#39;</span><span class="p">,</span> <span class="s1">&#39;sng&#39;</span><span class="p">,</span> <span class="s1">&#39;dbl&#39;</span><span class="p">,</span> <span class="s1">&#39;heavy&#39;</span><span class="p">,</span> <span class="s1">&#39;dotted&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;dottedHeavy&#39;</span><span class="p">,</span> <span class="s1">&#39;dash&#39;</span><span class="p">,</span> <span class="s1">&#39;dashHeavy&#39;</span><span class="p">,</span> <span class="s1">&#39;dashLong&#39;</span><span class="p">,</span> <span class="s1">&#39;dashLongHeavy&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;dotDash&#39;</span><span class="p">,</span> <span class="s1">&#39;dotDashHeavy&#39;</span><span class="p">,</span> <span class="s1">&#39;dotDotDash&#39;</span><span class="p">,</span> <span class="s1">&#39;dotDotDashHeavy&#39;</span><span class="p">,</span> <span class="s1">&#39;wavy&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;wavyHeavy&#39;</span><span class="p">,</span> <span class="s1">&#39;wavyDbl&#39;</span><span class="p">]))</span>
+    <span class="n">strike</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;noStrike&#39;</span><span class="p">,</span> <span class="s1">&#39;sngStrike&#39;</span><span class="p">,</span> <span class="s1">&#39;dblStrike&#39;</span><span class="p">]))</span>
+    <span class="n">kern</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">cap</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;small&#39;</span><span class="p">,</span> <span class="s1">&#39;all&#39;</span><span class="p">]))</span>
+    <span class="n">spc</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">normalizeH</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">baseline</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">noProof</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dirty</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">smtClean</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">smtId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">bmk</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ln</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">LineProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">highlight</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Color</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">latin</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Font</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ea</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Font</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">cs</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Font</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">sym</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Font</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">hlinkClick</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Hyperlink</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">hlinkMouseOver</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Hyperlink</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">rtl</span> <span class="o">=</span> <span class="n">NestedBool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">OfficeArtExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># uses element group EG_FillProperties</span>
+    <span class="n">noFill</span> <span class="o">=</span> <span class="n">EmptyTag</span><span class="p">(</span><span class="n">namespace</span><span class="o">=</span><span class="n">DRAWING_NS</span><span class="p">)</span>
+    <span class="n">solidFill</span> <span class="o">=</span> <span class="n">ColorChoiceDescriptor</span><span class="p">()</span>
+    <span class="n">gradFill</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">GradientFillProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">blipFill</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">BlipFillProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pattFill</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">PatternFillProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">grpFill</span> <span class="o">=</span> <span class="n">EmptyTag</span><span class="p">(</span><span class="n">namespace</span><span class="o">=</span><span class="n">DRAWING_NS</span><span class="p">)</span>
+    <span class="c1"># uses element group EG_EffectProperties</span>
+    <span class="n">effectLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">EffectList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">effectDag</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">EffectContainer</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># uses element group EG_TextUnderlineLine</span>
+    <span class="n">uLnTx</span> <span class="o">=</span> <span class="n">EmptyTag</span><span class="p">()</span>
+    <span class="n">uLn</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">LineProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># uses element group EG_TextUnderlineFill</span>
+    <span class="n">uFillTx</span> <span class="o">=</span> <span class="n">EmptyTag</span><span class="p">()</span>
+    <span class="n">uFill</span> <span class="o">=</span> <span class="n">EmptyTag</span><span class="p">()</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;ln&#39;</span><span class="p">,</span> <span class="s1">&#39;noFill&#39;</span><span class="p">,</span> <span class="s1">&#39;solidFill&#39;</span><span class="p">,</span> <span class="s1">&#39;gradFill&#39;</span><span class="p">,</span> <span class="s1">&#39;blipFill&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;pattFill&#39;</span><span class="p">,</span> <span class="s1">&#39;grpFill&#39;</span><span class="p">,</span> <span class="s1">&#39;effectLst&#39;</span><span class="p">,</span> <span class="s1">&#39;effectDag&#39;</span><span class="p">,</span> <span class="s1">&#39;highlight&#39;</span><span class="p">,</span><span class="s1">&#39;uLnTx&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;uLn&#39;</span><span class="p">,</span> <span class="s1">&#39;uFillTx&#39;</span><span class="p">,</span> <span class="s1">&#39;uFill&#39;</span><span class="p">,</span> <span class="s1">&#39;latin&#39;</span><span class="p">,</span> <span class="s1">&#39;ea&#39;</span><span class="p">,</span> <span class="s1">&#39;cs&#39;</span><span class="p">,</span> <span class="s1">&#39;sym&#39;</span><span class="p">,</span> <span class="s1">&#39;hlinkClick&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;hlinkMouseOver&#39;</span><span class="p">,</span> <span class="s1">&#39;rtl&#39;</span><span class="p">,</span> <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">kumimoji</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">lang</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">altLang</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">sz</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">b</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">i</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">u</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">strike</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">kern</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">cap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">spc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">normalizeH</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">baseline</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">noProof</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">dirty</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">err</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">smtClean</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">smtId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">bmk</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">ln</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">highlight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">latin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">ea</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">cs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">sym</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">hlinkClick</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">hlinkMouseOver</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">rtl</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">noFill</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">solidFill</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">gradFill</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">blipFill</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">pattFill</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">grpFill</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">effectLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">effectDag</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">uLnTx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">uLn</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">uFillTx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">uFill</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kumimoji</span> <span class="o">=</span> <span class="n">kumimoji</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lang</span> <span class="o">=</span> <span class="n">lang</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">altLang</span> <span class="o">=</span> <span class="n">altLang</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sz</span> <span class="o">=</span> <span class="n">sz</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">b</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">i</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">u</span> <span class="o">=</span> <span class="n">u</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">strike</span> <span class="o">=</span> <span class="n">strike</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kern</span> <span class="o">=</span> <span class="n">kern</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cap</span> <span class="o">=</span> <span class="n">cap</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spc</span> <span class="o">=</span> <span class="n">spc</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">normalizeH</span> <span class="o">=</span> <span class="n">normalizeH</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">baseline</span> <span class="o">=</span> <span class="n">baseline</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">noProof</span> <span class="o">=</span> <span class="n">noProof</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dirty</span> <span class="o">=</span> <span class="n">dirty</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">err</span> <span class="o">=</span> <span class="n">err</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">smtClean</span> <span class="o">=</span> <span class="n">smtClean</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">smtId</span> <span class="o">=</span> <span class="n">smtId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bmk</span> <span class="o">=</span> <span class="n">bmk</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ln</span> <span class="o">=</span> <span class="n">ln</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">highlight</span> <span class="o">=</span> <span class="n">highlight</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">latin</span> <span class="o">=</span> <span class="n">latin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ea</span> <span class="o">=</span> <span class="n">ea</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cs</span> <span class="o">=</span> <span class="n">cs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sym</span> <span class="o">=</span> <span class="n">sym</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hlinkClick</span> <span class="o">=</span> <span class="n">hlinkClick</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hlinkMouseOver</span> <span class="o">=</span> <span class="n">hlinkMouseOver</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rtl</span> <span class="o">=</span> <span class="n">rtl</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">noFill</span> <span class="o">=</span> <span class="n">noFill</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">solidFill</span> <span class="o">=</span> <span class="n">solidFill</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gradFill</span> <span class="o">=</span> <span class="n">gradFill</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blipFill</span> <span class="o">=</span> <span class="n">blipFill</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pattFill</span> <span class="o">=</span> <span class="n">pattFill</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grpFill</span> <span class="o">=</span> <span class="n">grpFill</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">effectLst</span> <span class="o">=</span> <span class="n">effectLst</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">effectDag</span> <span class="o">=</span> <span class="n">effectDag</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uLnTx</span> <span class="o">=</span> <span class="n">uLnTx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uLn</span> <span class="o">=</span> <span class="n">uLn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uFillTx</span> <span class="o">=</span> <span class="n">uFillTx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uFill</span> <span class="o">=</span> <span class="n">uFill</span></div>
+
+
+<div class="viewcode-block" id="TabStop"><a class="viewcode-back" href="../../../api/openpyxl.drawing.text.html#openpyxl.drawing.text.TabStop">[文档]</a><span class="k">class</span> <span class="nc">TabStop</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">pos</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Coordinate</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">algn</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Set</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;ctr&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;dec&#39;</span><span class="p">])))</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">pos</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">algn</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="n">pos</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">algn</span> <span class="o">=</span> <span class="n">algn</span></div>
+
+
+<div class="viewcode-block" id="TabStopList"><a class="viewcode-back" href="../../../api/openpyxl.drawing.text.html#openpyxl.drawing.text.TabStopList">[文档]</a><span class="k">class</span> <span class="nc">TabStopList</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tab</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">TabStop</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">tab</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tab</span> <span class="o">=</span> <span class="n">tab</span></div>
+
+
+<div class="viewcode-block" id="Spacing"><a class="viewcode-back" href="../../../api/openpyxl.drawing.text.html#openpyxl.drawing.text.Spacing">[文档]</a><span class="k">class</span> <span class="nc">Spacing</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">spcPct</span> <span class="o">=</span> <span class="n">NestedInteger</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">spcPts</span> <span class="o">=</span> <span class="n">NestedInteger</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;spcPct&#39;</span><span class="p">,</span> <span class="s1">&#39;spcPts&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">spcPct</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">spcPts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spcPct</span> <span class="o">=</span> <span class="n">spcPct</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spcPts</span> <span class="o">=</span> <span class="n">spcPts</span></div>
+
+
+<div class="viewcode-block" id="AutonumberBullet"><a class="viewcode-back" href="../../../api/openpyxl.drawing.text.html#openpyxl.drawing.text.AutonumberBullet">[文档]</a><span class="k">class</span> <span class="nc">AutonumberBullet</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="nb">type</span> <span class="o">=</span> <span class="n">Set</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;alphaLcParenBoth&#39;</span><span class="p">,</span> <span class="s1">&#39;alphaUcParenBoth&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;alphaLcParenR&#39;</span><span class="p">,</span> <span class="s1">&#39;alphaUcParenR&#39;</span><span class="p">,</span> <span class="s1">&#39;alphaLcPeriod&#39;</span><span class="p">,</span> <span class="s1">&#39;alphaUcPeriod&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;arabicParenBoth&#39;</span><span class="p">,</span> <span class="s1">&#39;arabicParenR&#39;</span><span class="p">,</span> <span class="s1">&#39;arabicPeriod&#39;</span><span class="p">,</span> <span class="s1">&#39;arabicPlain&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;romanLcParenBoth&#39;</span><span class="p">,</span> <span class="s1">&#39;romanUcParenBoth&#39;</span><span class="p">,</span> <span class="s1">&#39;romanLcParenR&#39;</span><span class="p">,</span> <span class="s1">&#39;romanUcParenR&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;romanLcPeriod&#39;</span><span class="p">,</span> <span class="s1">&#39;romanUcPeriod&#39;</span><span class="p">,</span> <span class="s1">&#39;circleNumDbPlain&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;circleNumWdBlackPlain&#39;</span><span class="p">,</span> <span class="s1">&#39;circleNumWdWhitePlain&#39;</span><span class="p">,</span> <span class="s1">&#39;arabicDbPeriod&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;arabicDbPlain&#39;</span><span class="p">,</span> <span class="s1">&#39;ea1ChsPeriod&#39;</span><span class="p">,</span> <span class="s1">&#39;ea1ChsPlain&#39;</span><span class="p">,</span> <span class="s1">&#39;ea1ChtPeriod&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;ea1ChtPlain&#39;</span><span class="p">,</span> <span class="s1">&#39;ea1JpnChsDbPeriod&#39;</span><span class="p">,</span> <span class="s1">&#39;ea1JpnKorPlain&#39;</span><span class="p">,</span> <span class="s1">&#39;ea1JpnKorPeriod&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;arabic1Minus&#39;</span><span class="p">,</span> <span class="s1">&#39;arabic2Minus&#39;</span><span class="p">,</span> <span class="s1">&#39;hebrew2Minus&#39;</span><span class="p">,</span> <span class="s1">&#39;thaiAlphaPeriod&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;thaiAlphaParenR&#39;</span><span class="p">,</span> <span class="s1">&#39;thaiAlphaParenBoth&#39;</span><span class="p">,</span> <span class="s1">&#39;thaiNumPeriod&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;thaiNumParenR&#39;</span><span class="p">,</span> <span class="s1">&#39;thaiNumParenBoth&#39;</span><span class="p">,</span> <span class="s1">&#39;hindiAlphaPeriod&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;hindiNumPeriod&#39;</span><span class="p">,</span> <span class="s1">&#39;hindiNumParenR&#39;</span><span class="p">,</span> <span class="s1">&#39;hindiAlpha1Period&#39;</span><span class="p">]))</span>
+    <span class="n">startAt</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">startAt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="nb">type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">startAt</span> <span class="o">=</span> <span class="n">startAt</span></div>
+
+
+<div class="viewcode-block" id="ParagraphProperties"><a class="viewcode-back" href="../../../api/openpyxl.drawing.text.html#openpyxl.drawing.text.ParagraphProperties">[文档]</a><span class="k">class</span> <span class="nc">ParagraphProperties</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;pPr&quot;</span>
+    <span class="n">namespace</span> <span class="o">=</span> <span class="n">DRAWING_NS</span>
+
+    <span class="n">marL</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">marR</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">lvl</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">indent</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">algn</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;ctr&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;just&#39;</span><span class="p">,</span> <span class="s1">&#39;justLow&#39;</span><span class="p">,</span> <span class="s1">&#39;dist&#39;</span><span class="p">,</span> <span class="s1">&#39;thaiDist&#39;</span><span class="p">]))</span>
+    <span class="n">defTabSz</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">rtl</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">eaLnBrk</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">fontAlgn</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;ctr&#39;</span><span class="p">,</span> <span class="s1">&#39;base&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]))</span>
+    <span class="n">latinLnBrk</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">hangingPunct</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># uses element group EG_TextBulletColor</span>
+    <span class="c1"># uses element group EG_TextBulletSize</span>
+    <span class="c1"># uses element group EG_TextBulletTypeface</span>
+    <span class="c1"># uses element group EG_TextBullet</span>
+    <span class="n">lnSpc</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Spacing</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">spcBef</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Spacing</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">spcAft</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Spacing</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">tabLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">TabStopList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">defRPr</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">CharacterProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">OfficeArtExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">buClrTx</span> <span class="o">=</span> <span class="n">EmptyTag</span><span class="p">()</span>
+    <span class="n">buClr</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Color</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">buSzTx</span> <span class="o">=</span> <span class="n">EmptyTag</span><span class="p">()</span>
+    <span class="n">buSzPct</span> <span class="o">=</span> <span class="n">NestedInteger</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">buSzPts</span> <span class="o">=</span> <span class="n">NestedInteger</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">buFontTx</span> <span class="o">=</span> <span class="n">EmptyTag</span><span class="p">()</span>
+    <span class="n">buFont</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Font</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">buNone</span> <span class="o">=</span> <span class="n">EmptyTag</span><span class="p">()</span>
+    <span class="n">buAutoNum</span> <span class="o">=</span> <span class="n">EmptyTag</span><span class="p">()</span>
+    <span class="n">buChar</span> <span class="o">=</span> <span class="n">NestedValue</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">attribute</span><span class="o">=</span><span class="s2">&quot;char&quot;</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">buBlip</span> <span class="o">=</span> <span class="n">NestedValue</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Blip</span><span class="p">,</span> <span class="n">attribute</span><span class="o">=</span><span class="s2">&quot;blip&quot;</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;lnSpc&#39;</span><span class="p">,</span> <span class="s1">&#39;spcBef&#39;</span><span class="p">,</span> <span class="s1">&#39;spcAft&#39;</span><span class="p">,</span> <span class="s1">&#39;tabLst&#39;</span><span class="p">,</span> <span class="s1">&#39;defRPr&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;buClrTx&#39;</span><span class="p">,</span> <span class="s1">&#39;buClr&#39;</span><span class="p">,</span> <span class="s1">&#39;buSzTx&#39;</span><span class="p">,</span> <span class="s1">&#39;buSzPct&#39;</span><span class="p">,</span> <span class="s1">&#39;buSzPts&#39;</span><span class="p">,</span> <span class="s1">&#39;buFontTx&#39;</span><span class="p">,</span> <span class="s1">&#39;buFont&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;buNone&#39;</span><span class="p">,</span> <span class="s1">&#39;buAutoNum&#39;</span><span class="p">,</span> <span class="s1">&#39;buChar&#39;</span><span class="p">,</span> <span class="s1">&#39;buBlip&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">marL</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">marR</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">lvl</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">indent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">algn</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">defTabSz</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">rtl</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">eaLnBrk</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">fontAlgn</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">latinLnBrk</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">hangingPunct</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">lnSpc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">spcBef</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">spcAft</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">tabLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">defRPr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">buClrTx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">buClr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">buSzTx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">buSzPct</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">buSzPts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">buFontTx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">buFont</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">buNone</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">buAutoNum</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">buChar</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">buBlip</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">marL</span> <span class="o">=</span> <span class="n">marL</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">marR</span> <span class="o">=</span> <span class="n">marR</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lvl</span> <span class="o">=</span> <span class="n">lvl</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">=</span> <span class="n">indent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">algn</span> <span class="o">=</span> <span class="n">algn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">defTabSz</span> <span class="o">=</span> <span class="n">defTabSz</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rtl</span> <span class="o">=</span> <span class="n">rtl</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eaLnBrk</span> <span class="o">=</span> <span class="n">eaLnBrk</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fontAlgn</span> <span class="o">=</span> <span class="n">fontAlgn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">latinLnBrk</span> <span class="o">=</span> <span class="n">latinLnBrk</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hangingPunct</span> <span class="o">=</span> <span class="n">hangingPunct</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lnSpc</span> <span class="o">=</span> <span class="n">lnSpc</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spcBef</span> <span class="o">=</span> <span class="n">spcBef</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spcAft</span> <span class="o">=</span> <span class="n">spcAft</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tabLst</span> <span class="o">=</span> <span class="n">tabLst</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">defRPr</span> <span class="o">=</span> <span class="n">defRPr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buClrTx</span> <span class="o">=</span> <span class="n">buClrTx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buClr</span> <span class="o">=</span> <span class="n">buClr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buSzTx</span> <span class="o">=</span> <span class="n">buSzTx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buSzPct</span> <span class="o">=</span> <span class="n">buSzPct</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buSzPts</span> <span class="o">=</span> <span class="n">buSzPts</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buFontTx</span> <span class="o">=</span> <span class="n">buFontTx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buFont</span> <span class="o">=</span> <span class="n">buFont</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buNone</span> <span class="o">=</span> <span class="n">buNone</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buAutoNum</span> <span class="o">=</span> <span class="n">buAutoNum</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buChar</span> <span class="o">=</span> <span class="n">buChar</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buBlip</span> <span class="o">=</span> <span class="n">buBlip</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">defRPr</span> <span class="o">=</span> <span class="n">defRPr</span></div>
+
+
+<div class="viewcode-block" id="ListStyle"><a class="viewcode-back" href="../../../api/openpyxl.drawing.text.html#openpyxl.drawing.text.ListStyle">[文档]</a><span class="k">class</span> <span class="nc">ListStyle</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;lstStyle&quot;</span>
+    <span class="n">namespace</span> <span class="o">=</span> <span class="n">DRAWING_NS</span>
+
+    <span class="n">defPPr</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ParagraphProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">lvl1pPr</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ParagraphProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">lvl2pPr</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ParagraphProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">lvl3pPr</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ParagraphProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">lvl4pPr</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ParagraphProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">lvl5pPr</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ParagraphProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">lvl6pPr</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ParagraphProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">lvl7pPr</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ParagraphProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">lvl8pPr</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ParagraphProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">lvl9pPr</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ParagraphProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">OfficeArtExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;defPPr&quot;</span><span class="p">,</span> <span class="s2">&quot;lvl1pPr&quot;</span><span class="p">,</span> <span class="s2">&quot;lvl2pPr&quot;</span><span class="p">,</span> <span class="s2">&quot;lvl3pPr&quot;</span><span class="p">,</span> <span class="s2">&quot;lvl4pPr&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;lvl5pPr&quot;</span><span class="p">,</span> <span class="s2">&quot;lvl6pPr&quot;</span><span class="p">,</span> <span class="s2">&quot;lvl7pPr&quot;</span><span class="p">,</span> <span class="s2">&quot;lvl8pPr&quot;</span><span class="p">,</span> <span class="s2">&quot;lvl9pPr&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">defPPr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">lvl1pPr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">lvl2pPr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">lvl3pPr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">lvl4pPr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">lvl5pPr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">lvl6pPr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">lvl7pPr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">lvl8pPr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">lvl9pPr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">defPPr</span> <span class="o">=</span> <span class="n">defPPr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lvl1pPr</span> <span class="o">=</span> <span class="n">lvl1pPr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lvl2pPr</span> <span class="o">=</span> <span class="n">lvl2pPr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lvl3pPr</span> <span class="o">=</span> <span class="n">lvl3pPr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lvl4pPr</span> <span class="o">=</span> <span class="n">lvl4pPr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lvl5pPr</span> <span class="o">=</span> <span class="n">lvl5pPr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lvl6pPr</span> <span class="o">=</span> <span class="n">lvl6pPr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lvl7pPr</span> <span class="o">=</span> <span class="n">lvl7pPr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lvl8pPr</span> <span class="o">=</span> <span class="n">lvl8pPr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lvl9pPr</span> <span class="o">=</span> <span class="n">lvl9pPr</span></div>
+
+
+<div class="viewcode-block" id="RegularTextRun"><a class="viewcode-back" href="../../../api/openpyxl.drawing.text.html#openpyxl.drawing.text.RegularTextRun">[文档]</a><span class="k">class</span> <span class="nc">RegularTextRun</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;r&quot;</span>
+    <span class="n">namespace</span> <span class="o">=</span> <span class="n">DRAWING_NS</span>
+
+    <span class="n">rPr</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">CharacterProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">properties</span> <span class="o">=</span> <span class="n">Alias</span><span class="p">(</span><span class="s2">&quot;rPr&quot;</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">NestedText</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">Alias</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;rPr&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">rPr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">t</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rPr</span> <span class="o">=</span> <span class="n">rPr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">t</span></div>
+
+
+<div class="viewcode-block" id="LineBreak"><a class="viewcode-back" href="../../../api/openpyxl.drawing.text.html#openpyxl.drawing.text.LineBreak">[文档]</a><span class="k">class</span> <span class="nc">LineBreak</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;br&quot;</span>
+    <span class="n">namespace</span> <span class="o">=</span> <span class="n">DRAWING_NS</span>
+
+    <span class="n">rPr</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">CharacterProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;rPr&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">rPr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rPr</span> <span class="o">=</span> <span class="n">rPr</span></div>
+
+
+<div class="viewcode-block" id="TextField"><a class="viewcode-back" href="../../../api/openpyxl.drawing.text.html#openpyxl.drawing.text.TextField">[文档]</a><span class="k">class</span> <span class="nc">TextField</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">String</span><span class="p">()</span>
+    <span class="nb">type</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">rPr</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">CharacterProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pPr</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ParagraphProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;rPr&#39;</span><span class="p">,</span> <span class="s1">&#39;pPr&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">rPr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">pPr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="nb">type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rPr</span> <span class="o">=</span> <span class="n">rPr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pPr</span> <span class="o">=</span> <span class="n">pPr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">t</span></div>
+
+
+<div class="viewcode-block" id="Paragraph"><a class="viewcode-back" href="../../../api/openpyxl.drawing.text.html#openpyxl.drawing.text.Paragraph">[文档]</a><span class="k">class</span> <span class="nc">Paragraph</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;p&quot;</span>
+    <span class="n">namespace</span> <span class="o">=</span> <span class="n">DRAWING_NS</span>
+
+    <span class="c1"># uses element group EG_TextRun</span>
+    <span class="n">pPr</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ParagraphProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">properties</span> <span class="o">=</span> <span class="n">Alias</span><span class="p">(</span><span class="s2">&quot;pPr&quot;</span><span class="p">)</span>
+    <span class="n">endParaRPr</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">CharacterProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">RegularTextRun</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">Alias</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">br</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">LineBreak</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">fld</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">TextField</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;pPr&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;br&#39;</span><span class="p">,</span> <span class="s1">&#39;fld&#39;</span><span class="p">,</span> <span class="s1">&#39;endParaRPr&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">pPr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">endParaRPr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">r</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">br</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">fld</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pPr</span> <span class="o">=</span> <span class="n">pPr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">endParaRPr</span> <span class="o">=</span> <span class="n">endParaRPr</span>
+        <span class="k">if</span> <span class="n">r</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="p">[</span><span class="n">RegularTextRun</span><span class="p">()]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">r</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">br</span> <span class="o">=</span> <span class="n">br</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fld</span> <span class="o">=</span> <span class="n">fld</span></div>
+
+
+<div class="viewcode-block" id="GeomGuide"><a class="viewcode-back" href="../../../api/openpyxl.drawing.text.html#openpyxl.drawing.text.GeomGuide">[文档]</a><span class="k">class</span> <span class="nc">GeomGuide</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">String</span><span class="p">(())</span>
+    <span class="n">fmla</span> <span class="o">=</span> <span class="n">String</span><span class="p">(())</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">fmla</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fmla</span> <span class="o">=</span> <span class="n">fmla</span></div>
+
+
+<div class="viewcode-block" id="GeomGuideList"><a class="viewcode-back" href="../../../api/openpyxl.drawing.text.html#openpyxl.drawing.text.GeomGuideList">[文档]</a><span class="k">class</span> <span class="nc">GeomGuideList</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">gd</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">GeomGuide</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">gd</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gd</span> <span class="o">=</span> <span class="n">gd</span></div>
+
+
+<div class="viewcode-block" id="PresetTextShape"><a class="viewcode-back" href="../../../api/openpyxl.drawing.text.html#openpyxl.drawing.text.PresetTextShape">[文档]</a><span class="k">class</span> <span class="nc">PresetTextShape</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">prst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Set</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">(</span>
+        <span class="p">[</span><span class="s1">&#39;textNoShape&#39;</span><span class="p">,</span> <span class="s1">&#39;textPlain&#39;</span><span class="p">,</span><span class="s1">&#39;textStop&#39;</span><span class="p">,</span> <span class="s1">&#39;textTriangle&#39;</span><span class="p">,</span> <span class="s1">&#39;textTriangleInverted&#39;</span><span class="p">,</span> <span class="s1">&#39;textChevron&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;textChevronInverted&#39;</span><span class="p">,</span> <span class="s1">&#39;textRingInside&#39;</span><span class="p">,</span> <span class="s1">&#39;textRingOutside&#39;</span><span class="p">,</span> <span class="s1">&#39;textArchUp&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;textArchDown&#39;</span><span class="p">,</span> <span class="s1">&#39;textCircle&#39;</span><span class="p">,</span> <span class="s1">&#39;textButton&#39;</span><span class="p">,</span> <span class="s1">&#39;textArchUpPour&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;textArchDownPour&#39;</span><span class="p">,</span> <span class="s1">&#39;textCirclePour&#39;</span><span class="p">,</span> <span class="s1">&#39;textButtonPour&#39;</span><span class="p">,</span> <span class="s1">&#39;textCurveUp&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;textCurveDown&#39;</span><span class="p">,</span> <span class="s1">&#39;textCanUp&#39;</span><span class="p">,</span> <span class="s1">&#39;textCanDown&#39;</span><span class="p">,</span> <span class="s1">&#39;textWave1&#39;</span><span class="p">,</span> <span class="s1">&#39;textWave2&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;textDoubleWave1&#39;</span><span class="p">,</span> <span class="s1">&#39;textWave4&#39;</span><span class="p">,</span> <span class="s1">&#39;textInflate&#39;</span><span class="p">,</span> <span class="s1">&#39;textDeflate&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;textInflateBottom&#39;</span><span class="p">,</span> <span class="s1">&#39;textDeflateBottom&#39;</span><span class="p">,</span> <span class="s1">&#39;textInflateTop&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;textDeflateTop&#39;</span><span class="p">,</span> <span class="s1">&#39;textDeflateInflate&#39;</span><span class="p">,</span> <span class="s1">&#39;textDeflateInflateDeflate&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;textFadeRight&#39;</span><span class="p">,</span> <span class="s1">&#39;textFadeLeft&#39;</span><span class="p">,</span> <span class="s1">&#39;textFadeUp&#39;</span><span class="p">,</span> <span class="s1">&#39;textFadeDown&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;textSlantUp&#39;</span><span class="p">,</span> <span class="s1">&#39;textSlantDown&#39;</span><span class="p">,</span> <span class="s1">&#39;textCascadeUp&#39;</span><span class="p">,</span> <span class="s1">&#39;textCascadeDown&#39;</span>
+         <span class="p">]</span>
+    <span class="p">)))</span>
+    <span class="n">avLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">GeomGuideList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">prst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">avLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prst</span> <span class="o">=</span> <span class="n">prst</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">avLst</span> <span class="o">=</span> <span class="n">avLst</span></div>
+
+
+<div class="viewcode-block" id="TextNormalAutofit"><a class="viewcode-back" href="../../../api/openpyxl.drawing.text.html#openpyxl.drawing.text.TextNormalAutofit">[文档]</a><span class="k">class</span> <span class="nc">TextNormalAutofit</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">fontScale</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">lnSpcReduction</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">fontScale</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">lnSpcReduction</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fontScale</span> <span class="o">=</span> <span class="n">fontScale</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lnSpcReduction</span> <span class="o">=</span> <span class="n">lnSpcReduction</span></div>
+
+
+<div class="viewcode-block" id="RichTextProperties"><a class="viewcode-back" href="../../../api/openpyxl.drawing.text.html#openpyxl.drawing.text.RichTextProperties">[文档]</a><span class="k">class</span> <span class="nc">RichTextProperties</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;bodyPr&quot;</span>
+    <span class="n">namespace</span> <span class="o">=</span> <span class="n">DRAWING_NS</span>
+
+    <span class="n">rot</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">spcFirstLastPara</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">vertOverflow</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;overflow&#39;</span><span class="p">,</span> <span class="s1">&#39;ellipsis&#39;</span><span class="p">,</span> <span class="s1">&#39;clip&#39;</span><span class="p">]))</span>
+    <span class="n">horzOverflow</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;overflow&#39;</span><span class="p">,</span> <span class="s1">&#39;clip&#39;</span><span class="p">]))</span>
+    <span class="n">vert</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;horz&#39;</span><span class="p">,</span> <span class="s1">&#39;vert&#39;</span><span class="p">,</span> <span class="s1">&#39;vert270&#39;</span><span class="p">,</span> <span class="s1">&#39;wordArtVert&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;eaVert&#39;</span><span class="p">,</span> <span class="s1">&#39;mongolianVert&#39;</span><span class="p">,</span> <span class="s1">&#39;wordArtVertRtl&#39;</span><span class="p">]))</span>
+    <span class="n">wrap</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="s1">&#39;square&#39;</span><span class="p">]))</span>
+    <span class="n">lIns</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">tIns</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">rIns</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">bIns</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">numCol</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">spcCol</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">rtlCol</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">fromWordArt</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">anchor</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;ctr&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;just&#39;</span><span class="p">,</span> <span class="s1">&#39;dist&#39;</span><span class="p">]))</span>
+    <span class="n">anchorCtr</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">forceAA</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">upright</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">compatLnSpc</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">prstTxWarp</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">PresetTextShape</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">scene3d</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Scene3D</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">OfficeArtExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">noAutofit</span> <span class="o">=</span> <span class="n">EmptyTag</span><span class="p">()</span>
+    <span class="n">normAutofit</span> <span class="o">=</span> <span class="n">EmptyTag</span><span class="p">()</span>
+    <span class="n">spAutoFit</span> <span class="o">=</span> <span class="n">EmptyTag</span><span class="p">()</span>
+    <span class="n">flatTx</span> <span class="o">=</span> <span class="n">NestedInteger</span><span class="p">(</span><span class="n">attribute</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;prstTxWarp&#39;</span><span class="p">,</span> <span class="s1">&#39;scene3d&#39;</span><span class="p">,</span> <span class="s1">&#39;noAutofit&#39;</span><span class="p">,</span> <span class="s1">&#39;normAutofit&#39;</span><span class="p">,</span> <span class="s1">&#39;spAutoFit&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">rot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">spcFirstLastPara</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">vertOverflow</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">horzOverflow</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">vert</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">wrap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">lIns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">tIns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">rIns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">bIns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">numCol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">spcCol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">rtlCol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">fromWordArt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">anchor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">anchorCtr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">forceAA</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">upright</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">compatLnSpc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">prstTxWarp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">scene3d</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">noAutofit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">normAutofit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">spAutoFit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">flatTx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rot</span> <span class="o">=</span> <span class="n">rot</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spcFirstLastPara</span> <span class="o">=</span> <span class="n">spcFirstLastPara</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vertOverflow</span> <span class="o">=</span> <span class="n">vertOverflow</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">horzOverflow</span> <span class="o">=</span> <span class="n">horzOverflow</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vert</span> <span class="o">=</span> <span class="n">vert</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wrap</span> <span class="o">=</span> <span class="n">wrap</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lIns</span> <span class="o">=</span> <span class="n">lIns</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tIns</span> <span class="o">=</span> <span class="n">tIns</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rIns</span> <span class="o">=</span> <span class="n">rIns</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bIns</span> <span class="o">=</span> <span class="n">bIns</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">numCol</span> <span class="o">=</span> <span class="n">numCol</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spcCol</span> <span class="o">=</span> <span class="n">spcCol</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rtlCol</span> <span class="o">=</span> <span class="n">rtlCol</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fromWordArt</span> <span class="o">=</span> <span class="n">fromWordArt</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">anchor</span> <span class="o">=</span> <span class="n">anchor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">anchorCtr</span> <span class="o">=</span> <span class="n">anchorCtr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">forceAA</span> <span class="o">=</span> <span class="n">forceAA</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">upright</span> <span class="o">=</span> <span class="n">upright</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compatLnSpc</span> <span class="o">=</span> <span class="n">compatLnSpc</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prstTxWarp</span> <span class="o">=</span> <span class="n">prstTxWarp</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scene3d</span> <span class="o">=</span> <span class="n">scene3d</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">noAutofit</span> <span class="o">=</span> <span class="n">noAutofit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">normAutofit</span> <span class="o">=</span> <span class="n">normAutofit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spAutoFit</span> <span class="o">=</span> <span class="n">spAutoFit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flatTx</span> <span class="o">=</span> <span class="n">flatTx</span></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >模块代码</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.drawing.text</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2010 - 2022, See AUTHORS.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+  </body>
+</html>

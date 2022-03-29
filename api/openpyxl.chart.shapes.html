@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>openpyxl.chart.shapes module &#8212; openpyxl 3.0.9 文档</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nature.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="openpyxl.chart.stock_chart module" href="openpyxl.chart.stock_chart.html" />
+    <link rel="prev" title="openpyxl.chart.series_factory module" href="openpyxl.chart.series_factory.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.chart.stock_chart.html" title="openpyxl.chart.stock_chart module"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.chart.series_factory.html" title="openpyxl.chart.series_factory module"
+             accesskey="P">上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.chart.html" accesskey="U">openpyxl.chart package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.chart.shapes module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-openpyxl.chart.shapes">
+<span id="openpyxl-chart-shapes-module"></span><h1>openpyxl.chart.shapes module<a class="headerlink" href="#module-openpyxl.chart.shapes" title="永久链接至标题">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.chart.shapes.GraphicalProperties">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.chart.shapes.</span></span><span class="sig-name descname"><span class="pre">GraphicalProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bwMode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xfrm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noFill</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solidFill</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gradFill</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pattFill</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ln</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scene3d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custGeom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prstGeom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sp3d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extLst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/chart/shapes.html#GraphicalProperties"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.chart.shapes.GraphicalProperties" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<p>Somewhat vaguely 21.2.2.197 says this:</p>
+<p>This element specifies the formatting for the parent chart element. The
+custGeom, prstGeom, scene3d, and xfrm elements are not supported. The
+bwMode attribute is not supported.</p>
+<p>This doesn’t leave much. And the element is used in different places.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.shapes.GraphicalProperties.bwMode">
+<span class="sig-name descname"><span class="pre">bwMode</span></span><a class="headerlink" href="#openpyxl.chart.shapes.GraphicalProperties.bwMode" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘grayWhite’, ‘ltGray’, ‘black’, ‘hidden’, ‘auto’, ‘white’, ‘blackWhite’, ‘gray’, ‘clr’, ‘blackGray’, ‘invGray’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.shapes.GraphicalProperties.custGeom">
+<span class="sig-name descname"><span class="pre">custGeom</span></span><a class="headerlink" href="#openpyxl.chart.shapes.GraphicalProperties.custGeom" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.geometry.CustomGeometry2D’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.shapes.GraphicalProperties.extLst">
+<span class="sig-name descname"><span class="pre">extLst</span></span><a class="headerlink" href="#openpyxl.chart.shapes.GraphicalProperties.extLst" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.descriptors.excel.ExtensionList’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.shapes.GraphicalProperties.gradFill">
+<span class="sig-name descname"><span class="pre">gradFill</span></span><a class="headerlink" href="#openpyxl.chart.shapes.GraphicalProperties.gradFill" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.fill.GradientFillProperties’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.shapes.GraphicalProperties.line">
+<span class="sig-name descname"><span class="pre">line</span></span><a class="headerlink" href="#openpyxl.chart.shapes.GraphicalProperties.line" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.shapes.GraphicalProperties.ln">
+<span class="sig-name descname"><span class="pre">ln</span></span><a class="headerlink" href="#openpyxl.chart.shapes.GraphicalProperties.ln" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.line.LineProperties’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.shapes.GraphicalProperties.noFill">
+<span class="sig-name descname"><span class="pre">noFill</span></span><a class="headerlink" href="#openpyxl.chart.shapes.GraphicalProperties.noFill" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.shapes.GraphicalProperties.pattFill">
+<span class="sig-name descname"><span class="pre">pattFill</span></span><a class="headerlink" href="#openpyxl.chart.shapes.GraphicalProperties.pattFill" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.fill.PatternFillProperties’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.shapes.GraphicalProperties.prstGeom">
+<span class="sig-name descname"><span class="pre">prstGeom</span></span><a class="headerlink" href="#openpyxl.chart.shapes.GraphicalProperties.prstGeom" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.geometry.PresetGeometry2D’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.shapes.GraphicalProperties.scene3d">
+<span class="sig-name descname"><span class="pre">scene3d</span></span><a class="headerlink" href="#openpyxl.chart.shapes.GraphicalProperties.scene3d" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.geometry.Scene3D’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.shapes.GraphicalProperties.shape3D">
+<span class="sig-name descname"><span class="pre">shape3D</span></span><a class="headerlink" href="#openpyxl.chart.shapes.GraphicalProperties.shape3D" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.shapes.GraphicalProperties.solidFill">
+<span class="sig-name descname"><span class="pre">solidFill</span></span><a class="headerlink" href="#openpyxl.chart.shapes.GraphicalProperties.solidFill" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.colors.ColorChoice’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.shapes.GraphicalProperties.sp3d">
+<span class="sig-name descname"><span class="pre">sp3d</span></span><a class="headerlink" href="#openpyxl.chart.shapes.GraphicalProperties.sp3d" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.geometry.Shape3D’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.shapes.GraphicalProperties.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'spPr'</span></em><a class="headerlink" href="#openpyxl.chart.shapes.GraphicalProperties.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.shapes.GraphicalProperties.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><a class="headerlink" href="#openpyxl.chart.shapes.GraphicalProperties.transform" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.chart.shapes.GraphicalProperties.xfrm">
+<span class="sig-name descname"><span class="pre">xfrm</span></span><a class="headerlink" href="#openpyxl.chart.shapes.GraphicalProperties.xfrm" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.geometry.Transform2D’&gt;</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="openpyxl.chart.series_factory.html"
+                          title="上一章">openpyxl.chart.series_factory module</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="openpyxl.chart.stock_chart.html"
+                          title="下一章">openpyxl.chart.stock_chart module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/openpyxl.chart.shapes.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.chart.stock_chart.html" title="openpyxl.chart.stock_chart module"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.chart.series_factory.html" title="openpyxl.chart.series_factory module"
+             >上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.chart.html" >openpyxl.chart package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.chart.shapes module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2010 - 2022, See AUTHORS.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+  </body>
+</html>

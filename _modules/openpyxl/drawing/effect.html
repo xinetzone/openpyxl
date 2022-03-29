@@ -1,0 +1,493 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>openpyxl.drawing.effect &#8212; openpyxl 3.0.9 文档</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/nature.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">模块代码</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.drawing.effect</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>openpyxl.drawing.effect 源代码</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2010-2022 openpyxl</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.serialisable</span> <span class="kn">import</span> <span class="n">Serialisable</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Typed</span><span class="p">,</span>
+    <span class="n">String</span><span class="p">,</span>
+    <span class="n">Set</span><span class="p">,</span>
+    <span class="n">Bool</span><span class="p">,</span>
+    <span class="n">Integer</span><span class="p">,</span>
+    <span class="n">NoneSet</span><span class="p">,</span>
+    <span class="n">Float</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="kn">from</span> <span class="nn">.colors</span> <span class="kn">import</span> <span class="n">ColorChoice</span>
+
+
+<div class="viewcode-block" id="TintEffect"><a class="viewcode-back" href="../../../api/openpyxl.drawing.effect.html#openpyxl.drawing.effect.TintEffect">[文档]</a><span class="k">class</span> <span class="nc">TintEffect</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;tint&quot;</span>
+
+    <span class="n">hue</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">amt</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">hue</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                 <span class="n">amt</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hue</span> <span class="o">=</span> <span class="n">hue</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">amt</span> <span class="o">=</span> <span class="n">amt</span></div>
+
+
+<div class="viewcode-block" id="LuminanceEffect"><a class="viewcode-back" href="../../../api/openpyxl.drawing.effect.html#openpyxl.drawing.effect.LuminanceEffect">[文档]</a><span class="k">class</span> <span class="nc">LuminanceEffect</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;lum&quot;</span>
+
+    <span class="n">bright</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span> <span class="c1">#Pct ?</span>
+    <span class="n">contrast</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span> <span class="c1">#Pct#</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">bright</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                 <span class="n">contrast</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bright</span> <span class="o">=</span> <span class="n">bright</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">contrast</span> <span class="o">=</span> <span class="n">contrast</span></div>
+
+
+<div class="viewcode-block" id="HSLEffect"><a class="viewcode-back" href="../../../api/openpyxl.drawing.effect.html#openpyxl.drawing.effect.HSLEffect">[文档]</a><span class="k">class</span> <span class="nc">HSLEffect</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">hue</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">sat</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">lum</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">hue</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">sat</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">lum</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hue</span> <span class="o">=</span> <span class="n">hue</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sat</span> <span class="o">=</span> <span class="n">sat</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lum</span> <span class="o">=</span> <span class="n">lum</span></div>
+
+
+<div class="viewcode-block" id="GrayscaleEffect"><a class="viewcode-back" href="../../../api/openpyxl.drawing.effect.html#openpyxl.drawing.effect.GrayscaleEffect">[文档]</a><span class="k">class</span> <span class="nc">GrayscaleEffect</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;grayscl&quot;</span></div>
+
+
+<div class="viewcode-block" id="FillOverlayEffect"><a class="viewcode-back" href="../../../api/openpyxl.drawing.effect.html#openpyxl.drawing.effect.FillOverlayEffect">[文档]</a><span class="k">class</span> <span class="nc">FillOverlayEffect</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">blend</span> <span class="o">=</span> <span class="n">Set</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;over&#39;</span><span class="p">,</span> <span class="s1">&#39;mult&#39;</span><span class="p">,</span> <span class="s1">&#39;screen&#39;</span><span class="p">,</span> <span class="s1">&#39;darken&#39;</span><span class="p">,</span> <span class="s1">&#39;lighten&#39;</span><span class="p">]))</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">blend</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blend</span> <span class="o">=</span> <span class="n">blend</span></div>
+
+
+<div class="viewcode-block" id="DuotoneEffect"><a class="viewcode-back" href="../../../api/openpyxl.drawing.effect.html#openpyxl.drawing.effect.DuotoneEffect">[文档]</a><span class="k">class</span> <span class="nc">DuotoneEffect</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="ColorReplaceEffect"><a class="viewcode-back" href="../../../api/openpyxl.drawing.effect.html#openpyxl.drawing.effect.ColorReplaceEffect">[文档]</a><span class="k">class</span> <span class="nc">ColorReplaceEffect</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="Color"><a class="viewcode-back" href="../../../api/openpyxl.drawing.effect.html#openpyxl.drawing.effect.Color">[文档]</a><span class="k">class</span> <span class="nc">Color</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="ColorChangeEffect"><a class="viewcode-back" href="../../../api/openpyxl.drawing.effect.html#openpyxl.drawing.effect.ColorChangeEffect">[文档]</a><span class="k">class</span> <span class="nc">ColorChangeEffect</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">useA</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">clrFrom</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Color</span><span class="p">,</span> <span class="p">)</span>
+    <span class="n">clrTo</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Color</span><span class="p">,</span> <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">useA</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">clrFrom</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">clrTo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">useA</span> <span class="o">=</span> <span class="n">useA</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clrFrom</span> <span class="o">=</span> <span class="n">clrFrom</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clrTo</span> <span class="o">=</span> <span class="n">clrTo</span></div>
+
+
+<div class="viewcode-block" id="BlurEffect"><a class="viewcode-back" href="../../../api/openpyxl.drawing.effect.html#openpyxl.drawing.effect.BlurEffect">[文档]</a><span class="k">class</span> <span class="nc">BlurEffect</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">rad</span> <span class="o">=</span> <span class="n">Float</span><span class="p">()</span>
+    <span class="n">grow</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">rad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">grow</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rad</span> <span class="o">=</span> <span class="n">rad</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grow</span> <span class="o">=</span> <span class="n">grow</span></div>
+
+
+<div class="viewcode-block" id="BiLevelEffect"><a class="viewcode-back" href="../../../api/openpyxl.drawing.effect.html#openpyxl.drawing.effect.BiLevelEffect">[文档]</a><span class="k">class</span> <span class="nc">BiLevelEffect</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">thresh</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">thresh</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">thresh</span> <span class="o">=</span> <span class="n">thresh</span></div>
+
+
+<div class="viewcode-block" id="AlphaReplaceEffect"><a class="viewcode-back" href="../../../api/openpyxl.drawing.effect.html#openpyxl.drawing.effect.AlphaReplaceEffect">[文档]</a><span class="k">class</span> <span class="nc">AlphaReplaceEffect</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">a</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">a</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span></div>
+
+
+<div class="viewcode-block" id="AlphaModulateFixedEffect"><a class="viewcode-back" href="../../../api/openpyxl.drawing.effect.html#openpyxl.drawing.effect.AlphaModulateFixedEffect">[文档]</a><span class="k">class</span> <span class="nc">AlphaModulateFixedEffect</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">amt</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">amt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">amt</span> <span class="o">=</span> <span class="n">amt</span></div>
+
+
+<div class="viewcode-block" id="EffectContainer"><a class="viewcode-back" href="../../../api/openpyxl.drawing.effect.html#openpyxl.drawing.effect.EffectContainer">[文档]</a><span class="k">class</span> <span class="nc">EffectContainer</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="nb">type</span> <span class="o">=</span> <span class="n">Set</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;sib&#39;</span><span class="p">,</span> <span class="s1">&#39;tree&#39;</span><span class="p">]))</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="nb">type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span></div>
+
+
+<div class="viewcode-block" id="AlphaModulateEffect"><a class="viewcode-back" href="../../../api/openpyxl.drawing.effect.html#openpyxl.drawing.effect.AlphaModulateEffect">[文档]</a><span class="k">class</span> <span class="nc">AlphaModulateEffect</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">cont</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">EffectContainer</span><span class="p">,</span> <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">cont</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cont</span> <span class="o">=</span> <span class="n">cont</span></div>
+
+
+<div class="viewcode-block" id="AlphaInverseEffect"><a class="viewcode-back" href="../../../api/openpyxl.drawing.effect.html#openpyxl.drawing.effect.AlphaInverseEffect">[文档]</a><span class="k">class</span> <span class="nc">AlphaInverseEffect</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="AlphaFloorEffect"><a class="viewcode-back" href="../../../api/openpyxl.drawing.effect.html#openpyxl.drawing.effect.AlphaFloorEffect">[文档]</a><span class="k">class</span> <span class="nc">AlphaFloorEffect</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="AlphaCeilingEffect"><a class="viewcode-back" href="../../../api/openpyxl.drawing.effect.html#openpyxl.drawing.effect.AlphaCeilingEffect">[文档]</a><span class="k">class</span> <span class="nc">AlphaCeilingEffect</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="AlphaBiLevelEffect"><a class="viewcode-back" href="../../../api/openpyxl.drawing.effect.html#openpyxl.drawing.effect.AlphaBiLevelEffect">[文档]</a><span class="k">class</span> <span class="nc">AlphaBiLevelEffect</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">thresh</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">thresh</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">thresh</span> <span class="o">=</span> <span class="n">thresh</span></div>
+
+
+<div class="viewcode-block" id="GlowEffect"><a class="viewcode-back" href="../../../api/openpyxl.drawing.effect.html#openpyxl.drawing.effect.GlowEffect">[文档]</a><span class="k">class</span> <span class="nc">GlowEffect</span><span class="p">(</span><span class="n">ColorChoice</span><span class="p">):</span>
+
+    <span class="n">rad</span> <span class="o">=</span> <span class="n">Float</span><span class="p">()</span>
+    <span class="c1"># uses element group EG_ColorChoice</span>
+    <span class="n">scrgbClr</span> <span class="o">=</span> <span class="n">ColorChoice</span><span class="o">.</span><span class="n">scrgbClr</span>
+    <span class="n">srgbClr</span> <span class="o">=</span> <span class="n">ColorChoice</span><span class="o">.</span><span class="n">srgbClr</span>
+    <span class="n">hslClr</span> <span class="o">=</span> <span class="n">ColorChoice</span><span class="o">.</span><span class="n">hslClr</span>
+    <span class="n">sysClr</span> <span class="o">=</span> <span class="n">ColorChoice</span><span class="o">.</span><span class="n">sysClr</span>
+    <span class="n">schemeClr</span> <span class="o">=</span> <span class="n">ColorChoice</span><span class="o">.</span><span class="n">schemeClr</span>
+    <span class="n">prstClr</span> <span class="o">=</span> <span class="n">ColorChoice</span><span class="o">.</span><span class="n">prstClr</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;scrgbClr&#39;</span><span class="p">,</span> <span class="s1">&#39;srgbClr&#39;</span><span class="p">,</span> <span class="s1">&#39;hslClr&#39;</span><span class="p">,</span> <span class="s1">&#39;sysClr&#39;</span><span class="p">,</span> <span class="s1">&#39;schemeClr&#39;</span><span class="p">,</span> <span class="s1">&#39;prstClr&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">rad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">kw</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rad</span> <span class="o">=</span> <span class="n">rad</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">GlowEffect</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kw</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="InnerShadowEffect"><a class="viewcode-back" href="../../../api/openpyxl.drawing.effect.html#openpyxl.drawing.effect.InnerShadowEffect">[文档]</a><span class="k">class</span> <span class="nc">InnerShadowEffect</span><span class="p">(</span><span class="n">ColorChoice</span><span class="p">):</span>
+
+    <span class="n">blurRad</span> <span class="o">=</span> <span class="n">Float</span><span class="p">()</span>
+    <span class="n">dist</span> <span class="o">=</span> <span class="n">Float</span><span class="p">()</span>
+    <span class="nb">dir</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="c1"># uses element group EG_ColorChoice</span>
+    <span class="n">scrgbClr</span> <span class="o">=</span> <span class="n">ColorChoice</span><span class="o">.</span><span class="n">scrgbClr</span>
+    <span class="n">srgbClr</span> <span class="o">=</span> <span class="n">ColorChoice</span><span class="o">.</span><span class="n">srgbClr</span>
+    <span class="n">hslClr</span> <span class="o">=</span> <span class="n">ColorChoice</span><span class="o">.</span><span class="n">hslClr</span>
+    <span class="n">sysClr</span> <span class="o">=</span> <span class="n">ColorChoice</span><span class="o">.</span><span class="n">sysClr</span>
+    <span class="n">schemeClr</span> <span class="o">=</span> <span class="n">ColorChoice</span><span class="o">.</span><span class="n">schemeClr</span>
+    <span class="n">prstClr</span> <span class="o">=</span> <span class="n">ColorChoice</span><span class="o">.</span><span class="n">prstClr</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;scrgbClr&#39;</span><span class="p">,</span> <span class="s1">&#39;srgbClr&#39;</span><span class="p">,</span> <span class="s1">&#39;hslClr&#39;</span><span class="p">,</span> <span class="s1">&#39;sysClr&#39;</span><span class="p">,</span> <span class="s1">&#39;schemeClr&#39;</span><span class="p">,</span> <span class="s1">&#39;prstClr&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">blurRad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">dist</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="nb">dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">kw</span>
+                 <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blurRad</span> <span class="o">=</span> <span class="n">blurRad</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dist</span> <span class="o">=</span> <span class="n">dist</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dir</span> <span class="o">=</span> <span class="nb">dir</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">InnerShadowEffect</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kw</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="OuterShadow"><a class="viewcode-back" href="../../../api/openpyxl.drawing.effect.html#openpyxl.drawing.effect.OuterShadow">[文档]</a><span class="k">class</span> <span class="nc">OuterShadow</span><span class="p">(</span><span class="n">ColorChoice</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;outerShdw&quot;</span>
+
+    <span class="n">blurRad</span> <span class="o">=</span> <span class="n">Float</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dist</span> <span class="o">=</span> <span class="n">Float</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">dir</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">sx</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">sy</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">kx</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ky</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">algn</span> <span class="o">=</span> <span class="n">Set</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;tl&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;tr&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;ctr&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;bl&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;br&#39;</span><span class="p">])</span>
+    <span class="n">rotWithShape</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># uses element group EG_ColorChoice</span>
+    <span class="n">scrgbClr</span> <span class="o">=</span> <span class="n">ColorChoice</span><span class="o">.</span><span class="n">scrgbClr</span>
+    <span class="n">srgbClr</span> <span class="o">=</span> <span class="n">ColorChoice</span><span class="o">.</span><span class="n">srgbClr</span>
+    <span class="n">hslClr</span> <span class="o">=</span> <span class="n">ColorChoice</span><span class="o">.</span><span class="n">hslClr</span>
+    <span class="n">sysClr</span> <span class="o">=</span> <span class="n">ColorChoice</span><span class="o">.</span><span class="n">sysClr</span>
+    <span class="n">schemeClr</span> <span class="o">=</span> <span class="n">ColorChoice</span><span class="o">.</span><span class="n">schemeClr</span>
+    <span class="n">prstClr</span> <span class="o">=</span> <span class="n">ColorChoice</span><span class="o">.</span><span class="n">prstClr</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;scrgbClr&#39;</span><span class="p">,</span> <span class="s1">&#39;srgbClr&#39;</span><span class="p">,</span> <span class="s1">&#39;hslClr&#39;</span><span class="p">,</span> <span class="s1">&#39;sysClr&#39;</span><span class="p">,</span> <span class="s1">&#39;schemeClr&#39;</span><span class="p">,</span> <span class="s1">&#39;prstClr&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">blurRad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">dist</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="nb">dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">sx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">sy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">kx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">ky</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">algn</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">rotWithShape</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">kw</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blurRad</span> <span class="o">=</span> <span class="n">blurRad</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dist</span> <span class="o">=</span> <span class="n">dist</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dir</span> <span class="o">=</span> <span class="nb">dir</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sx</span> <span class="o">=</span> <span class="n">sx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sy</span> <span class="o">=</span> <span class="n">sy</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kx</span> <span class="o">=</span> <span class="n">kx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ky</span> <span class="o">=</span> <span class="n">ky</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">algn</span> <span class="o">=</span> <span class="n">algn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rotWithShape</span> <span class="o">=</span> <span class="n">rotWithShape</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">OuterShadow</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kw</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PresetShadowEffect"><a class="viewcode-back" href="../../../api/openpyxl.drawing.effect.html#openpyxl.drawing.effect.PresetShadowEffect">[文档]</a><span class="k">class</span> <span class="nc">PresetShadowEffect</span><span class="p">(</span><span class="n">ColorChoice</span><span class="p">):</span>
+
+    <span class="n">prst</span> <span class="o">=</span> <span class="n">Set</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;shdw1&#39;</span><span class="p">,</span> <span class="s1">&#39;shdw2&#39;</span><span class="p">,</span> <span class="s1">&#39;shdw3&#39;</span><span class="p">,</span> <span class="s1">&#39;shdw4&#39;</span><span class="p">,</span> <span class="s1">&#39;shdw5&#39;</span><span class="p">,</span> <span class="s1">&#39;shdw6&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;shdw7&#39;</span><span class="p">,</span> <span class="s1">&#39;shdw8&#39;</span><span class="p">,</span> <span class="s1">&#39;shdw9&#39;</span><span class="p">,</span> <span class="s1">&#39;shdw10&#39;</span><span class="p">,</span> <span class="s1">&#39;shdw11&#39;</span><span class="p">,</span> <span class="s1">&#39;shdw12&#39;</span><span class="p">,</span> <span class="s1">&#39;shdw13&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;shdw14&#39;</span><span class="p">,</span> <span class="s1">&#39;shdw15&#39;</span><span class="p">,</span> <span class="s1">&#39;shdw16&#39;</span><span class="p">,</span> <span class="s1">&#39;shdw17&#39;</span><span class="p">,</span> <span class="s1">&#39;shdw18&#39;</span><span class="p">,</span> <span class="s1">&#39;shdw19&#39;</span><span class="p">,</span> <span class="s1">&#39;shdw20&#39;</span><span class="p">]))</span>
+    <span class="n">dist</span> <span class="o">=</span> <span class="n">Float</span><span class="p">()</span>
+    <span class="nb">dir</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="c1"># uses element group EG_ColorChoice</span>
+    <span class="n">scrgbClr</span> <span class="o">=</span> <span class="n">ColorChoice</span><span class="o">.</span><span class="n">scrgbClr</span>
+    <span class="n">srgbClr</span> <span class="o">=</span> <span class="n">ColorChoice</span><span class="o">.</span><span class="n">srgbClr</span>
+    <span class="n">hslClr</span> <span class="o">=</span> <span class="n">ColorChoice</span><span class="o">.</span><span class="n">hslClr</span>
+    <span class="n">sysClr</span> <span class="o">=</span> <span class="n">ColorChoice</span><span class="o">.</span><span class="n">sysClr</span>
+    <span class="n">schemeClr</span> <span class="o">=</span> <span class="n">ColorChoice</span><span class="o">.</span><span class="n">schemeClr</span>
+    <span class="n">prstClr</span> <span class="o">=</span> <span class="n">ColorChoice</span><span class="o">.</span><span class="n">prstClr</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;scrgbClr&#39;</span><span class="p">,</span> <span class="s1">&#39;srgbClr&#39;</span><span class="p">,</span> <span class="s1">&#39;hslClr&#39;</span><span class="p">,</span> <span class="s1">&#39;sysClr&#39;</span><span class="p">,</span> <span class="s1">&#39;schemeClr&#39;</span><span class="p">,</span> <span class="s1">&#39;prstClr&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">prst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">dist</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="nb">dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">kw</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prst</span> <span class="o">=</span> <span class="n">prst</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dist</span> <span class="o">=</span> <span class="n">dist</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dir</span> <span class="o">=</span> <span class="nb">dir</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">PresetShadowEffect</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kw</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ReflectionEffect"><a class="viewcode-back" href="../../../api/openpyxl.drawing.effect.html#openpyxl.drawing.effect.ReflectionEffect">[文档]</a><span class="k">class</span> <span class="nc">ReflectionEffect</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">blurRad</span> <span class="o">=</span> <span class="n">Float</span><span class="p">()</span>
+    <span class="n">stA</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">stPos</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">endA</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">endPos</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">dist</span> <span class="o">=</span> <span class="n">Float</span><span class="p">()</span>
+    <span class="nb">dir</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">fadeDir</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">sx</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">sy</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">kx</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">ky</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">algn</span> <span class="o">=</span> <span class="n">Set</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;tl&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;tr&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;ctr&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;bl&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;br&#39;</span><span class="p">]))</span>
+    <span class="n">rotWithShape</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">blurRad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">stA</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">stPos</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">endA</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">endPos</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">dist</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="nb">dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">fadeDir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">sx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">sy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">kx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">ky</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">algn</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">rotWithShape</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blurRad</span> <span class="o">=</span> <span class="n">blurRad</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stA</span> <span class="o">=</span> <span class="n">stA</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stPos</span> <span class="o">=</span> <span class="n">stPos</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">endA</span> <span class="o">=</span> <span class="n">endA</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">endPos</span> <span class="o">=</span> <span class="n">endPos</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dist</span> <span class="o">=</span> <span class="n">dist</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dir</span> <span class="o">=</span> <span class="nb">dir</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fadeDir</span> <span class="o">=</span> <span class="n">fadeDir</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sx</span> <span class="o">=</span> <span class="n">sx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sy</span> <span class="o">=</span> <span class="n">sy</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kx</span> <span class="o">=</span> <span class="n">kx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ky</span> <span class="o">=</span> <span class="n">ky</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">algn</span> <span class="o">=</span> <span class="n">algn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rotWithShape</span> <span class="o">=</span> <span class="n">rotWithShape</span></div>
+
+
+<div class="viewcode-block" id="SoftEdgesEffect"><a class="viewcode-back" href="../../../api/openpyxl.drawing.effect.html#openpyxl.drawing.effect.SoftEdgesEffect">[文档]</a><span class="k">class</span> <span class="nc">SoftEdgesEffect</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">rad</span> <span class="o">=</span> <span class="n">Float</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">rad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rad</span> <span class="o">=</span> <span class="n">rad</span></div>
+
+
+<div class="viewcode-block" id="EffectList"><a class="viewcode-back" href="../../../api/openpyxl.drawing.effect.html#openpyxl.drawing.effect.EffectList">[文档]</a><span class="k">class</span> <span class="nc">EffectList</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">blur</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">BlurEffect</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">fillOverlay</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">FillOverlayEffect</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">glow</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">GlowEffect</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">innerShdw</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">InnerShadowEffect</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">outerShdw</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">OuterShadow</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">prstShdw</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">PresetShadowEffect</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">reflection</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ReflectionEffect</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">softEdge</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">SoftEdgesEffect</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;blur&#39;</span><span class="p">,</span> <span class="s1">&#39;fillOverlay&#39;</span><span class="p">,</span> <span class="s1">&#39;glow&#39;</span><span class="p">,</span> <span class="s1">&#39;innerShdw&#39;</span><span class="p">,</span> <span class="s1">&#39;outerShdw&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;prstShdw&#39;</span><span class="p">,</span> <span class="s1">&#39;reflection&#39;</span><span class="p">,</span> <span class="s1">&#39;softEdge&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">blur</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">fillOverlay</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">glow</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">innerShdw</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">outerShdw</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">prstShdw</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">reflection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">softEdge</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blur</span> <span class="o">=</span> <span class="n">blur</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fillOverlay</span> <span class="o">=</span> <span class="n">fillOverlay</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">glow</span> <span class="o">=</span> <span class="n">glow</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">innerShdw</span> <span class="o">=</span> <span class="n">innerShdw</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">outerShdw</span> <span class="o">=</span> <span class="n">outerShdw</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prstShdw</span> <span class="o">=</span> <span class="n">prstShdw</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reflection</span> <span class="o">=</span> <span class="n">reflection</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">softEdge</span> <span class="o">=</span> <span class="n">softEdge</span></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >模块代码</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.drawing.effect</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2010 - 2022, See AUTHORS.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+  </body>
+</html>

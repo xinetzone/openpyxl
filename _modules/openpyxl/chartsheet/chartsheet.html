@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>openpyxl.chartsheet.chartsheet &#8212; openpyxl 3.0.9 文档</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/nature.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">模块代码</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.chartsheet.chartsheet</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>openpyxl.chartsheet.chartsheet 源代码</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2010-2022 openpyxl</span>
+
+<span class="kn">from</span> <span class="nn">weakref</span> <span class="kn">import</span> <span class="n">ref</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors</span> <span class="kn">import</span> <span class="n">Typed</span><span class="p">,</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Alias</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.excel</span> <span class="kn">import</span> <span class="n">ExtensionList</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.serialisable</span> <span class="kn">import</span> <span class="n">Serialisable</span>
+<span class="kn">from</span> <span class="nn">openpyxl.drawing.spreadsheet_drawing</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">AbsoluteAnchor</span><span class="p">,</span>
+    <span class="n">SpreadsheetDrawing</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">openpyxl.worksheet.page</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PageMargins</span><span class="p">,</span>
+    <span class="n">PrintPageSetup</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">openpyxl.packaging.relationship</span> <span class="kn">import</span> <span class="n">Relationship</span><span class="p">,</span> <span class="n">RelationshipList</span>
+<span class="kn">from</span> <span class="nn">openpyxl.worksheet.drawing</span> <span class="kn">import</span> <span class="n">Drawing</span>
+<span class="kn">from</span> <span class="nn">openpyxl.worksheet.header_footer</span> <span class="kn">import</span> <span class="n">HeaderFooter</span>
+<span class="kn">from</span> <span class="nn">openpyxl.workbook.child</span> <span class="kn">import</span> <span class="n">_WorkbookChild</span>
+<span class="kn">from</span> <span class="nn">openpyxl.xml.constants</span> <span class="kn">import</span> <span class="n">SHEET_MAIN_NS</span><span class="p">,</span> <span class="n">REL_NS</span>
+
+<span class="kn">from</span> <span class="nn">.relation</span> <span class="kn">import</span> <span class="n">DrawingHF</span><span class="p">,</span> <span class="n">SheetBackgroundPicture</span>
+<span class="kn">from</span> <span class="nn">.properties</span> <span class="kn">import</span> <span class="n">ChartsheetProperties</span>
+<span class="kn">from</span> <span class="nn">.protection</span> <span class="kn">import</span> <span class="n">ChartsheetProtection</span>
+<span class="kn">from</span> <span class="nn">.views</span> <span class="kn">import</span> <span class="n">ChartsheetViewList</span>
+<span class="kn">from</span> <span class="nn">.custom</span> <span class="kn">import</span> <span class="n">CustomChartsheetViews</span>
+<span class="kn">from</span> <span class="nn">.publish</span> <span class="kn">import</span> <span class="n">WebPublishItems</span>
+
+
+<div class="viewcode-block" id="Chartsheet"><a class="viewcode-back" href="../../../api/openpyxl.chartsheet.chartsheet.html#openpyxl.chartsheet.chartsheet.Chartsheet">[文档]</a><span class="k">class</span> <span class="nc">Chartsheet</span><span class="p">(</span><span class="n">_WorkbookChild</span><span class="p">,</span> <span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;chartsheet&quot;</span>
+    <span class="n">_default_title</span> <span class="o">=</span> <span class="s2">&quot;Chart&quot;</span>
+    <span class="n">_rel_type</span> <span class="o">=</span> <span class="s2">&quot;chartsheet&quot;</span>
+    <span class="n">_path</span> <span class="o">=</span> <span class="s2">&quot;/xl/chartsheets/sheet</span><span class="si">{0}</span><span class="s2">.xml&quot;</span>
+    <span class="n">mime_type</span> <span class="o">=</span> <span class="s2">&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.chartsheet+xml&quot;</span>
+
+    <span class="n">sheetPr</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ChartsheetProperties</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">sheetViews</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ChartsheetViewList</span><span class="p">)</span>
+    <span class="n">sheetProtection</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ChartsheetProtection</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">customSheetViews</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">CustomChartsheetViews</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pageMargins</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">PageMargins</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pageSetup</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">PrintPageSetup</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">drawing</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Drawing</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">drawingHF</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">DrawingHF</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">picture</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">SheetBackgroundPicture</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">webPublishItems</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">WebPublishItems</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">sheet_state</span> <span class="o">=</span> <span class="n">Set</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;visible&#39;</span><span class="p">,</span> <span class="s1">&#39;hidden&#39;</span><span class="p">,</span> <span class="s1">&#39;veryHidden&#39;</span><span class="p">))</span>
+    <span class="n">headerFooter</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">HeaderFooter</span><span class="p">)</span>
+    <span class="n">HeaderFooter</span> <span class="o">=</span> <span class="n">Alias</span><span class="p">(</span><span class="s1">&#39;headerFooter&#39;</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s1">&#39;sheetPr&#39;</span><span class="p">,</span> <span class="s1">&#39;sheetViews&#39;</span><span class="p">,</span> <span class="s1">&#39;sheetProtection&#39;</span><span class="p">,</span> <span class="s1">&#39;customSheetViews&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;pageMargins&#39;</span><span class="p">,</span> <span class="s1">&#39;pageSetup&#39;</span><span class="p">,</span> <span class="s1">&#39;headerFooter&#39;</span><span class="p">,</span> <span class="s1">&#39;drawing&#39;</span><span class="p">,</span> <span class="s1">&#39;drawingHF&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;picture&#39;</span><span class="p">,</span> <span class="s1">&#39;webPublishItems&#39;</span><span class="p">)</span>
+
+    <span class="n">__attrs__</span> <span class="o">=</span> <span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">sheetPr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">sheetViews</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">sheetProtection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">customSheetViews</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">pageMargins</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">pageSetup</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">headerFooter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">drawing</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">drawingHF</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">picture</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">webPublishItems</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                 <span class="n">sheet_state</span><span class="o">=</span><span class="s1">&#39;visible&#39;</span><span class="p">,</span>
+                 <span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Chartsheet</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">title</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_charts</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sheetPr</span> <span class="o">=</span> <span class="n">sheetPr</span>
+        <span class="k">if</span> <span class="n">sheetViews</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">sheetViews</span> <span class="o">=</span> <span class="n">ChartsheetViewList</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sheetViews</span> <span class="o">=</span> <span class="n">sheetViews</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sheetProtection</span> <span class="o">=</span> <span class="n">sheetProtection</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">customSheetViews</span> <span class="o">=</span> <span class="n">customSheetViews</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pageMargins</span> <span class="o">=</span> <span class="n">pageMargins</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pageSetup</span> <span class="o">=</span> <span class="n">pageSetup</span>
+        <span class="k">if</span> <span class="n">headerFooter</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">headerFooter</span> <span class="o">=</span> <span class="n">headerFooter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">drawing</span> <span class="o">=</span> <span class="n">Drawing</span><span class="p">(</span><span class="s2">&quot;rId1&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">drawingHF</span> <span class="o">=</span> <span class="n">drawingHF</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">picture</span> <span class="o">=</span> <span class="n">picture</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">webPublishItems</span> <span class="o">=</span> <span class="n">webPublishItems</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sheet_state</span> <span class="o">=</span> <span class="n">sheet_state</span>
+
+
+<div class="viewcode-block" id="Chartsheet.add_chart"><a class="viewcode-back" href="../../../api/openpyxl.chartsheet.chartsheet.html#openpyxl.chartsheet.chartsheet.Chartsheet.add_chart">[文档]</a>    <span class="k">def</span> <span class="nf">add_chart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chart</span><span class="p">):</span>
+        <span class="n">chart</span><span class="o">.</span><span class="n">anchor</span> <span class="o">=</span> <span class="n">AbsoluteAnchor</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_charts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chart</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Chartsheet.to_tree"><a class="viewcode-back" href="../../../api/openpyxl.chartsheet.chartsheet.html#openpyxl.chartsheet.chartsheet.Chartsheet.to_tree">[文档]</a>    <span class="k">def</span> <span class="nf">to_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_drawing</span> <span class="o">=</span> <span class="n">SpreadsheetDrawing</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_drawing</span><span class="o">.</span><span class="n">charts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_charts</span>
+        <span class="n">tree</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">Chartsheet</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">to_tree</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">headerFooter</span><span class="p">:</span>
+            <span class="n">el</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;headerFooter&#39;</span><span class="p">)</span>
+            <span class="n">tree</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
+        <span class="n">tree</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;xmlns&quot;</span><span class="p">,</span> <span class="n">SHEET_MAIN_NS</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">tree</span></div></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >模块代码</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.chartsheet.chartsheet</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2010 - 2022, See AUTHORS.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+  </body>
+</html>

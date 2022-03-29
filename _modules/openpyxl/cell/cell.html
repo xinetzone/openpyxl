@@ -1,0 +1,413 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>openpyxl.cell.cell &#8212; openpyxl 3.0.9 文档</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/nature.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">模块代码</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.cell.cell</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>openpyxl.cell.cell 源代码</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2010-2022 openpyxl</span>
+
+<span class="sd">&quot;&quot;&quot;Manage individual cells in a spreadsheet.</span>
+
+<span class="sd">The Cell class is required to know its value and type, display options,</span>
+<span class="sd">and any other features of an Excel cell.  Utilities for referencing</span>
+<span class="sd">cells using Excel&#39;s &#39;A1&#39; column/row nomenclature are also provided.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">__docformat__</span> <span class="o">=</span> <span class="s2">&quot;restructuredtext en&quot;</span>
+
+<span class="c1"># Python stdlib imports</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">copy</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+
+<span class="kn">from</span> <span class="nn">openpyxl.compat</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">NUMERIC_TYPES</span><span class="p">,</span>
+    <span class="n">deprecated</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.utils.exceptions</span> <span class="kn">import</span> <span class="n">IllegalCharacterError</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.utils</span> <span class="kn">import</span> <span class="n">get_column_letter</span>
+<span class="kn">from</span> <span class="nn">openpyxl.styles</span> <span class="kn">import</span> <span class="n">numbers</span><span class="p">,</span> <span class="n">is_date_format</span>
+<span class="kn">from</span> <span class="nn">openpyxl.styles.styleable</span> <span class="kn">import</span> <span class="n">StyleableObject</span>
+<span class="kn">from</span> <span class="nn">openpyxl.worksheet.hyperlink</span> <span class="kn">import</span> <span class="n">Hyperlink</span>
+
+<span class="c1"># constants</span>
+
+<span class="n">TIME_TYPES</span> <span class="o">=</span> <span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">)</span>
+<span class="n">TIME_FORMATS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">:</span><span class="n">numbers</span><span class="o">.</span><span class="n">FORMAT_DATE_DATETIME</span><span class="p">,</span>
+    <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">:</span><span class="n">numbers</span><span class="o">.</span><span class="n">FORMAT_DATE_YYYYMMDD2</span><span class="p">,</span>
+    <span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="p">:</span><span class="n">numbers</span><span class="o">.</span><span class="n">FORMAT_DATE_TIME6</span><span class="p">,</span>
+    <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">:</span><span class="n">numbers</span><span class="o">.</span><span class="n">FORMAT_DATE_TIMEDELTA</span><span class="p">,</span>
+                <span class="p">}</span>
+
+<span class="n">STRING_TYPES</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)</span>
+<span class="n">KNOWN_TYPES</span> <span class="o">=</span> <span class="n">NUMERIC_TYPES</span> <span class="o">+</span> <span class="n">TIME_TYPES</span> <span class="o">+</span> <span class="n">STRING_TYPES</span> <span class="o">+</span> <span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">))</span>
+
+<span class="n">ILLEGAL_CHARACTERS_RE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[\000-\010]|[\013-\014]|[\016-\037]&#39;</span><span class="p">)</span>
+<span class="n">ERROR_CODES</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;#NULL!&#39;</span><span class="p">,</span> <span class="s1">&#39;#DIV/0!&#39;</span><span class="p">,</span> <span class="s1">&#39;#VALUE!&#39;</span><span class="p">,</span> <span class="s1">&#39;#REF!&#39;</span><span class="p">,</span> <span class="s1">&#39;#NAME?&#39;</span><span class="p">,</span> <span class="s1">&#39;#NUM!&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;#N/A&#39;</span><span class="p">)</span>
+
+<span class="n">TYPE_STRING</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span>
+<span class="n">TYPE_FORMULA</span> <span class="o">=</span> <span class="s1">&#39;f&#39;</span>
+<span class="n">TYPE_NUMERIC</span> <span class="o">=</span> <span class="s1">&#39;n&#39;</span>
+<span class="n">TYPE_BOOL</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span>
+<span class="n">TYPE_NULL</span> <span class="o">=</span> <span class="s1">&#39;n&#39;</span>
+<span class="n">TYPE_INLINE</span> <span class="o">=</span> <span class="s1">&#39;inlineStr&#39;</span>
+<span class="n">TYPE_ERROR</span> <span class="o">=</span> <span class="s1">&#39;e&#39;</span>
+<span class="n">TYPE_FORMULA_CACHE_STRING</span> <span class="o">=</span> <span class="s1">&#39;str&#39;</span>
+
+<span class="n">VALID_TYPES</span> <span class="o">=</span> <span class="p">(</span><span class="n">TYPE_STRING</span><span class="p">,</span> <span class="n">TYPE_FORMULA</span><span class="p">,</span> <span class="n">TYPE_NUMERIC</span><span class="p">,</span> <span class="n">TYPE_BOOL</span><span class="p">,</span>
+               <span class="n">TYPE_NULL</span><span class="p">,</span> <span class="n">TYPE_INLINE</span><span class="p">,</span> <span class="n">TYPE_ERROR</span><span class="p">,</span> <span class="n">TYPE_FORMULA_CACHE_STRING</span><span class="p">)</span>
+
+
+<span class="n">_TYPES</span> <span class="o">=</span> <span class="p">{</span><span class="nb">int</span><span class="p">:</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="nb">float</span><span class="p">:</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">:</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="nb">bool</span><span class="p">:</span><span class="s1">&#39;b&#39;</span><span class="p">}</span>
+
+
+<div class="viewcode-block" id="get_type"><a class="viewcode-back" href="../../../api/openpyxl.cell.cell.html#openpyxl.cell.cell.get_type">[文档]</a><span class="k">def</span> <span class="nf">get_type</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">NUMERIC_TYPES</span><span class="p">):</span>
+        <span class="n">dt</span> <span class="o">=</span> <span class="s1">&#39;n&#39;</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">STRING_TYPES</span><span class="p">):</span>
+        <span class="n">dt</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">TIME_TYPES</span><span class="p">):</span>
+        <span class="n">dt</span> <span class="o">=</span> <span class="s1">&#39;d&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="n">_TYPES</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">dt</span>
+    <span class="k">return</span> <span class="n">dt</span></div>
+
+
+<div class="viewcode-block" id="get_time_format"><a class="viewcode-back" href="../../../api/openpyxl.cell.cell.html#openpyxl.cell.cell.get_time_format">[文档]</a><span class="k">def</span> <span class="nf">get_time_format</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">TIME_FORMATS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">value</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">value</span>
+    <span class="k">for</span> <span class="n">base</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">mro</span><span class="p">()[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">TIME_FORMATS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span><span class="p">:</span>
+            <span class="n">TIME_FORMATS</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="k">return</span> <span class="n">value</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Could not get time format for </span><span class="si">{0!r}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="Cell"><a class="viewcode-back" href="../../../api/openpyxl.cell.cell.html#openpyxl.cell.cell.Cell">[文档]</a><span class="k">class</span> <span class="nc">Cell</span><span class="p">(</span><span class="n">StyleableObject</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Describes cell associated properties.</span>
+
+<span class="sd">    Properties of interest include style, type, value, and address.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s1">&#39;row&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;column&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_value&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;data_type&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;parent&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_hyperlink&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_comment&#39;</span><span class="p">,</span>
+                 <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">worksheet</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">style_array</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Cell</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">worksheet</span><span class="p">,</span> <span class="n">style_array</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">row</span> <span class="o">=</span> <span class="n">row</span>
+        <span class="sd">&quot;&quot;&quot;Row number of this cell (1-based)&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">column</span> <span class="o">=</span> <span class="n">column</span>
+        <span class="sd">&quot;&quot;&quot;Column number of this cell (1-based)&quot;&quot;&quot;</span>
+        <span class="c1"># _value is the stored value, while value is the displayed value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hyperlink</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;n&#39;</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_comment</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">coordinate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This cell&#39;s coordinate (ex. &#39;A5&#39;)&quot;&quot;&quot;</span>
+        <span class="n">col</span> <span class="o">=</span> <span class="n">get_column_letter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">column</span><span class="p">)</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">col</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">row</span><span class="si">}</span><span class="s2">&quot;</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">col_idx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The numerical index of the column&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">column</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">column_letter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">get_column_letter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">column</span><span class="p">)</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">encoding</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">encoding</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">base_date</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">epoch</span>
+
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;&lt;Cell </span><span class="si">{0!r}</span><span class="s2">.</span><span class="si">{1}</span><span class="s2">&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">coordinate</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Cell.check_string"><a class="viewcode-back" href="../../../api/openpyxl.cell.cell.html#openpyxl.cell.cell.Cell.check_string">[文档]</a>    <span class="k">def</span> <span class="nf">check_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Check string coding, length, and line break character&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="c1"># convert to str string</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoding</span><span class="p">)</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="c1"># string must never be longer than 32,767 characters</span>
+        <span class="c1"># truncate if necessary</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">[:</span><span class="mi">32767</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">next</span><span class="p">(</span><span class="n">ILLEGAL_CHARACTERS_RE</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">value</span><span class="p">),</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">IllegalCharacterError</span>
+        <span class="k">return</span> <span class="n">value</span></div>
+
+<div class="viewcode-block" id="Cell.check_error"><a class="viewcode-back" href="../../../api/openpyxl.cell.cell.html#openpyxl.cell.cell.Cell.check_error">[文档]</a>    <span class="k">def</span> <span class="nf">check_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Tries to convert Error&quot; else N/A&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">UnicodeDecodeError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">u</span><span class="s1">&#39;#N/A&#39;</span></div>
+
+
+    <span class="k">def</span> <span class="nf">_bind_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Given a value, infer the correct data type&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;n&quot;</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">dt</span> <span class="o">=</span> <span class="n">_TYPES</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="n">dt</span> <span class="o">=</span> <span class="n">get_type</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">dt</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot convert </span><span class="si">{0!r}</span><span class="s2"> to Excel&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">dt</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_type</span> <span class="o">=</span> <span class="n">dt</span>
+
+        <span class="k">if</span> <span class="n">dt</span> <span class="o">==</span> <span class="s1">&#39;d&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">is_date_format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">number_format</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">number_format</span> <span class="o">=</span> <span class="n">get_time_format</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">dt</span> <span class="o">==</span> <span class="s2">&quot;s&quot;</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_string</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;f&#39;</span>
+            <span class="k">elif</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">ERROR_CODES</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;e&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">=</span> <span class="n">value</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get or set the value held in the cell.</span>
+
+<span class="sd">        :type: depends on the value (string, float, int or</span>
+<span class="sd">            :class:`datetime.datetime`)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span>
+
+    <span class="nd">@value</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the value and infer type and display options.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_bind_value</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">internal_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Always returns the value for excel.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">hyperlink</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the hyperlink target or an empty string&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperlink</span>
+
+
+    <span class="nd">@hyperlink</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">hyperlink</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set value and display for hyperlinks in a cell.</span>
+<span class="sd">        Automatically sets the `value` of the cell with link text,</span>
+<span class="sd">        but you can modify it afterwards by setting the `value`</span>
+<span class="sd">        property, and the hyperlink will remain.</span>
+<span class="sd">        Hyperlink is removed if set to ``None``.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">val</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_hyperlink</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">Hyperlink</span><span class="p">):</span>
+                <span class="n">val</span> <span class="o">=</span> <span class="n">Hyperlink</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">val</span><span class="p">)</span>
+            <span class="n">val</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coordinate</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_hyperlink</span> <span class="o">=</span> <span class="n">val</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">target</span> <span class="ow">or</span> <span class="n">val</span><span class="o">.</span><span class="n">location</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">is_date</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;True if the value is formatted as a date</span>
+
+<span class="sd">        :type: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_type</span> <span class="o">==</span> <span class="s1">&#39;d&#39;</span> <span class="ow">or</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_type</span> <span class="o">==</span> <span class="s1">&#39;n&#39;</span> <span class="ow">and</span> <span class="n">is_date_format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">number_format</span><span class="p">)</span>
+            <span class="p">)</span>
+
+
+<div class="viewcode-block" id="Cell.offset"><a class="viewcode-back" href="../../../api/openpyxl.cell.cell.html#openpyxl.cell.cell.Cell.offset">[文档]</a>    <span class="k">def</span> <span class="nf">offset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a cell location relative to this cell.</span>
+
+<span class="sd">        :param row: number of rows to offset</span>
+<span class="sd">        :type row: int</span>
+
+<span class="sd">        :param column: number of columns to offset</span>
+<span class="sd">        :type column: int</span>
+
+<span class="sd">        :rtype: :class:`openpyxl.cell.Cell`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">offset_column</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">col_idx</span> <span class="o">+</span> <span class="n">column</span>
+        <span class="n">offset_row</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">row</span> <span class="o">+</span> <span class="n">row</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">cell</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="n">offset_column</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="n">offset_row</span><span class="p">)</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">comment</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Returns the comment associated with this cell</span>
+
+<span class="sd">            :type: :class:`openpyxl.comments.Comment`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_comment</span>
+
+
+    <span class="nd">@comment</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">comment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Assign a comment to a cell</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">value</span><span class="o">.</span><span class="n">parent</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="n">value</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_comment</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_comment</span><span class="o">.</span><span class="n">unbind</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_comment</span> <span class="o">=</span> <span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="MergedCell"><a class="viewcode-back" href="../../../api/openpyxl.cell.cell.html#openpyxl.cell.cell.MergedCell">[文档]</a><span class="k">class</span> <span class="nc">MergedCell</span><span class="p">(</span><span class="n">StyleableObject</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Describes the properties of a cell in a merged cell and helps to</span>
+<span class="sd">    display the borders of the merged cell.</span>
+
+<span class="sd">    The value of a MergedCell is always None.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="s1">&#39;column&#39;</span><span class="p">)</span>
+
+    <span class="n">_value</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;n&quot;</span>
+    <span class="n">comment</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">hyperlink</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">worksheet</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MergedCell</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">worksheet</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">row</span> <span class="o">=</span> <span class="n">row</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">column</span> <span class="o">=</span> <span class="n">column</span>
+
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;&lt;MergedCell </span><span class="si">{0!r}</span><span class="s2">.</span><span class="si">{1}</span><span class="s2">&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">coordinate</span><span class="p">)</span>
+
+    <span class="n">coordinate</span> <span class="o">=</span> <span class="n">Cell</span><span class="o">.</span><span class="n">coordinate</span>
+    <span class="n">_comment</span> <span class="o">=</span> <span class="n">comment</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">_value</span></div>
+
+
+<div class="viewcode-block" id="WriteOnlyCell"><a class="viewcode-back" href="../../../api/openpyxl.cell.cell.html#openpyxl.cell.cell.WriteOnlyCell">[文档]</a><span class="k">def</span> <span class="nf">WriteOnlyCell</span><span class="p">(</span><span class="n">ws</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Cell</span><span class="p">(</span><span class="n">worksheet</span><span class="o">=</span><span class="n">ws</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">)</span></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >模块代码</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.cell.cell</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2010 - 2022, See AUTHORS.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+  </body>
+</html>

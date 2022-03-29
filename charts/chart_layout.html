@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Changing the layout of plot area and legend &#8212; openpyxl 3.0.9 文档</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nature.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Adding Patterns" href="pattern.html" />
+    <link rel="prev" title="Adding a second axis" href="secondary.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="pattern.html" title="Adding Patterns"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="secondary.html" title="Adding a second axis"
+             accesskey="P">上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="introduction.html" accesskey="U">Charts</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Changing the layout of plot area and legend</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="changing-the-layout-of-plot-area-and-legend">
+<h1>Changing the layout of plot area and legend<a class="headerlink" href="#changing-the-layout-of-plot-area-and-legend" title="永久链接至标题">¶</a></h1>
+<p>The layout of the chart within the canvas can be set by using the layout
+property of an instance of a layout class.</p>
+<section id="chart-layout">
+<h2>Chart layout<a class="headerlink" href="#chart-layout" title="永久链接至标题">¶</a></h2>
+<section id="size-and-position">
+<h3>Size and position<a class="headerlink" href="#size-and-position" title="永久链接至标题">¶</a></h3>
+<p>The chart can be positioned within its container. <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> adjust
+position, <code class="docutils literal notranslate"><span class="pre">w</span></code> and <code class="docutils literal notranslate"><span class="pre">h</span></code> adjust the size . The units are proportions of the
+container. A chart cannot be positioned outside of its container and the
+width and height are the dominant constraints: if x + w &gt; 1, then x = 1 - w.</p>
+<div class="line-block">
+<div class="line">x is the horizontal position from the left</div>
+<div class="line">y is the vertical position from the top</div>
+<div class="line">h is the height of the chart relative to its container</div>
+<div class="line">w is the width of the box</div>
+</div>
+</section>
+<section id="mode">
+<h3>Mode<a class="headerlink" href="#mode" title="永久链接至标题">¶</a></h3>
+<p>In addition to the size and position, the mode for the relevant attribute can
+also be set to either <cite>factor</cite> or <cite>edge</cite>. Factor is the default:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">layout</span><span class="o">.</span><span class="n">xMode</span> <span class="o">=</span> <span class="n">edge</span>
+</pre></div>
+</div>
+</section>
+<section id="target">
+<h3>Target<a class="headerlink" href="#target" title="永久链接至标题">¶</a></h3>
+<p>The layoutTarget can be set to <code class="docutils literal notranslate"><span class="pre">outer</span></code> or <code class="docutils literal notranslate"><span class="pre">inner</span></code>. The default is <code class="docutils literal notranslate"><span class="pre">outer</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">layout</span><span class="o">.</span><span class="n">layoutTarget</span> <span class="o">=</span> <span class="n">inner</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="legend-layout">
+<h2>Legend layout<a class="headerlink" href="#legend-layout" title="永久链接至标题">¶</a></h2>
+<p>The position of the legend can be controlled either by setting its position:
+<code class="docutils literal notranslate"><span class="pre">r</span></code>, <code class="docutils literal notranslate"><span class="pre">l</span></code>, <code class="docutils literal notranslate"><span class="pre">t</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, and <code class="docutils literal notranslate"><span class="pre">tr</span></code>, for right, left, top, bottom and top
+right respectively. The default is <code class="docutils literal notranslate"><span class="pre">r</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">legend</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="s1">&#39;tr&#39;</span>
+</pre></div>
+</div>
+<p>or applying a manual layout:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">legend</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">ManualLayout</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openpyxl</span> <span class="kn">import</span> <span class="n">Workbook</span><span class="p">,</span> <span class="n">load_workbook</span>
+<span class="kn">from</span> <span class="nn">openpyxl.chart</span> <span class="kn">import</span> <span class="n">ScatterChart</span><span class="p">,</span> <span class="n">Series</span><span class="p">,</span> <span class="n">Reference</span>
+<span class="kn">from</span> <span class="nn">openpyxl.chart.layout</span> <span class="kn">import</span> <span class="n">Layout</span><span class="p">,</span> <span class="n">ManualLayout</span>
+
+<span class="n">wb</span> <span class="o">=</span> <span class="n">Workbook</span><span class="p">()</span>
+<span class="n">ws</span> <span class="o">=</span> <span class="n">wb</span><span class="o">.</span><span class="n">active</span>
+
+<span class="n">rows</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;Size&#39;</span><span class="p">,</span> <span class="s1">&#39;Batch 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Batch 2&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+    <span class="n">ws</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+
+<span class="n">ch1</span> <span class="o">=</span> <span class="n">ScatterChart</span><span class="p">()</span>
+<span class="n">xvalues</span> <span class="o">=</span> <span class="n">Reference</span><span class="p">(</span><span class="n">ws</span><span class="p">,</span> <span class="n">min_col</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">min_row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">max_row</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">Reference</span><span class="p">(</span><span class="n">ws</span><span class="p">,</span> <span class="n">min_col</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">min_row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_row</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+    <span class="n">series</span> <span class="o">=</span> <span class="n">Series</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">xvalues</span><span class="p">,</span> <span class="n">title_from_data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ch1</span><span class="o">.</span><span class="n">series</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">series</span><span class="p">)</span>
+
+
+<span class="n">ch1</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Default layout&quot;</span>
+<span class="n">ch1</span><span class="o">.</span><span class="n">style</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="n">ch1</span><span class="o">.</span><span class="n">x_axis</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Size&#39;</span>
+<span class="n">ch1</span><span class="o">.</span><span class="n">y_axis</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Percentage&#39;</span>
+<span class="n">ch1</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span>
+
+<span class="n">ws</span><span class="o">.</span><span class="n">add_chart</span><span class="p">(</span><span class="n">ch1</span><span class="p">,</span> <span class="s2">&quot;B10&quot;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+
+<span class="c1"># Half-size chart, bottom right</span>
+<span class="n">ch2</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">ch1</span><span class="p">)</span>
+<span class="n">ch2</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Manual chart layout&quot;</span>
+<span class="n">ch2</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="s2">&quot;tr&quot;</span>
+<span class="n">ch2</span><span class="o">.</span><span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span>
+    <span class="n">manualLayout</span><span class="o">=</span><span class="n">ManualLayout</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
+        <span class="n">h</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+<span class="n">ws</span><span class="o">.</span><span class="n">add_chart</span><span class="p">(</span><span class="n">ch2</span><span class="p">,</span> <span class="s2">&quot;H10&quot;</span><span class="p">)</span>
+
+<span class="c1"># Half-size chart, centred</span>
+<span class="n">ch3</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">ch1</span><span class="p">)</span>
+<span class="n">ch3</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">Layout</span><span class="p">(</span>
+    <span class="n">ManualLayout</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
+    <span class="n">h</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">xMode</span><span class="o">=</span><span class="s2">&quot;edge&quot;</span><span class="p">,</span>
+    <span class="n">yMode</span><span class="o">=</span><span class="s2">&quot;edge&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+<span class="n">ch3</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Manual chart layout, edge mode&quot;</span>
+<span class="n">ws</span><span class="o">.</span><span class="n">add_chart</span><span class="p">(</span><span class="n">ch3</span><span class="p">,</span> <span class="s2">&quot;B27&quot;</span><span class="p">)</span>
+
+<span class="c1"># Manually position the legend bottom left</span>
+<span class="n">ch4</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">ch1</span><span class="p">)</span>
+<span class="n">ch4</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Manual legend layout&quot;</span>
+<span class="n">ch4</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">Layout</span><span class="p">(</span>
+    <span class="n">manualLayout</span><span class="o">=</span><span class="n">ManualLayout</span><span class="p">(</span>
+        <span class="n">yMode</span><span class="o">=</span><span class="s1">&#39;edge&#39;</span><span class="p">,</span>
+        <span class="n">xMode</span><span class="o">=</span><span class="s1">&#39;edge&#39;</span><span class="p">,</span>
+        <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+        <span class="n">h</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mf">0.5</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">ws</span><span class="o">.</span><span class="n">add_chart</span><span class="p">(</span><span class="n">ch4</span><span class="p">,</span> <span class="s2">&quot;H27&quot;</span><span class="p">)</span>
+
+<span class="n">wb</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;chart_layout.xlsx&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This produces four charts illustrating various possibilities:</p>
+<img alt="&quot;Different chart and legend layouts&quot;" src="../_images/chart_layout.png" />
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h3><a href="../index.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Changing the layout of plot area and legend</a><ul>
+<li><a class="reference internal" href="#chart-layout">Chart layout</a><ul>
+<li><a class="reference internal" href="#size-and-position">Size and position</a></li>
+<li><a class="reference internal" href="#mode">Mode</a></li>
+<li><a class="reference internal" href="#target">Target</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#legend-layout">Legend layout</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="secondary.html"
+                          title="上一章">Adding a second axis</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="pattern.html"
+                          title="下一章">Adding Patterns</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/charts/chart_layout.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="pattern.html" title="Adding Patterns"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="secondary.html" title="Adding a second axis"
+             >上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="introduction.html" >Charts</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Changing the layout of plot area and legend</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2010 - 2022, See AUTHORS.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+  </body>
+</html>

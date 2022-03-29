@@ -1,0 +1,824 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>openpyxl.drawing.fill module &#8212; openpyxl 3.0.9 文档</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nature.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="openpyxl.drawing.geometry module" href="openpyxl.drawing.geometry.html" />
+    <link rel="prev" title="openpyxl.drawing.effect module" href="openpyxl.drawing.effect.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.drawing.geometry.html" title="openpyxl.drawing.geometry module"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.drawing.effect.html" title="openpyxl.drawing.effect module"
+             accesskey="P">上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.drawing.html" accesskey="U">openpyxl.drawing package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.drawing.fill module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-openpyxl.drawing.fill">
+<span id="openpyxl-drawing-fill-module"></span><h1>openpyxl.drawing.fill module<a class="headerlink" href="#module-openpyxl.drawing.fill" title="永久链接至标题">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.drawing.fill.</span></span><span class="sig-name descname"><span class="pre">Blip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cstate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">embed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noGrp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noSelect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noRot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noChangeAspect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noMove</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noResize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noEditPoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noAdjustHandles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noChangeArrowheads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noChangeShapeType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extLst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alphaBiLevel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alphaCeiling</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alphaFloor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alphaInv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alphaMod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alphaModFix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alphaRepl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">biLevel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blur</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clrChange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clrRepl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duotone</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fillOverlay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grayscl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hsl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/drawing/fill.html#Blip"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.drawing.fill.Blip" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.alphaBiLevel">
+<span class="sig-name descname"><span class="pre">alphaBiLevel</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.alphaBiLevel" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.effect.AlphaBiLevelEffect’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.alphaCeiling">
+<span class="sig-name descname"><span class="pre">alphaCeiling</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.alphaCeiling" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.effect.AlphaCeilingEffect’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.alphaFloor">
+<span class="sig-name descname"><span class="pre">alphaFloor</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.alphaFloor" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.effect.AlphaFloorEffect’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.alphaInv">
+<span class="sig-name descname"><span class="pre">alphaInv</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.alphaInv" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.effect.AlphaInverseEffect’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.alphaMod">
+<span class="sig-name descname"><span class="pre">alphaMod</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.alphaMod" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.effect.AlphaModulateEffect’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.alphaModFix">
+<span class="sig-name descname"><span class="pre">alphaModFix</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.alphaModFix" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.effect.AlphaModulateFixedEffect’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.alphaRepl">
+<span class="sig-name descname"><span class="pre">alphaRepl</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.alphaRepl" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.effect.AlphaReplaceEffect’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.biLevel">
+<span class="sig-name descname"><span class="pre">biLevel</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.biLevel" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.effect.BiLevelEffect’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.blur">
+<span class="sig-name descname"><span class="pre">blur</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.blur" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.effect.BlurEffect’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.clrChange">
+<span class="sig-name descname"><span class="pre">clrChange</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.clrChange" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.effect.ColorChangeEffect’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.clrRepl">
+<span class="sig-name descname"><span class="pre">clrRepl</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.clrRepl" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.effect.ColorReplaceEffect’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.cstate">
+<span class="sig-name descname"><span class="pre">cstate</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.cstate" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘email’, ‘print’, ‘hqprint’, ‘screen’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.duotone">
+<span class="sig-name descname"><span class="pre">duotone</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.duotone" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.effect.DuotoneEffect’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.embed">
+<span class="sig-name descname"><span class="pre">embed</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.embed" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.extLst">
+<span class="sig-name descname"><span class="pre">extLst</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.extLst" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.descriptors.excel.ExtensionList’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.fillOverlay">
+<span class="sig-name descname"><span class="pre">fillOverlay</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.fillOverlay" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.effect.FillOverlayEffect’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.grayscl">
+<span class="sig-name descname"><span class="pre">grayscl</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.grayscl" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.effect.GrayscaleEffect’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.hsl">
+<span class="sig-name descname"><span class="pre">hsl</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.hsl" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.effect.HSLEffect’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.link">
+<span class="sig-name descname"><span class="pre">link</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.link" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.lum">
+<span class="sig-name descname"><span class="pre">lum</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.lum" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.effect.LuminanceEffect’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.namespace">
+<span class="sig-name descname"><span class="pre">namespace</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://schemas.openxmlformats.org/drawingml/2006/main'</span></em><a class="headerlink" href="#openpyxl.drawing.fill.Blip.namespace" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.noAdjustHandles">
+<span class="sig-name descname"><span class="pre">noAdjustHandles</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.noAdjustHandles" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.noChangeArrowheads">
+<span class="sig-name descname"><span class="pre">noChangeArrowheads</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.noChangeArrowheads" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.noChangeAspect">
+<span class="sig-name descname"><span class="pre">noChangeAspect</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.noChangeAspect" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.noChangeShapeType">
+<span class="sig-name descname"><span class="pre">noChangeShapeType</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.noChangeShapeType" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.noEditPoints">
+<span class="sig-name descname"><span class="pre">noEditPoints</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.noEditPoints" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.noGrp">
+<span class="sig-name descname"><span class="pre">noGrp</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.noGrp" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.noMove">
+<span class="sig-name descname"><span class="pre">noMove</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.noMove" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.noResize">
+<span class="sig-name descname"><span class="pre">noResize</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.noResize" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.noRot">
+<span class="sig-name descname"><span class="pre">noRot</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.noRot" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.noSelect">
+<span class="sig-name descname"><span class="pre">noSelect</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.noSelect" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'blip'</span></em><a class="headerlink" href="#openpyxl.drawing.fill.Blip.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.Blip.tint">
+<span class="sig-name descname"><span class="pre">tint</span></span><a class="headerlink" href="#openpyxl.drawing.fill.Blip.tint" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.effect.TintEffect’&gt;</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.BlipFillProperties">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.drawing.fill.</span></span><span class="sig-name descname"><span class="pre">BlipFillProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dpi=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotWithShape=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blip=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tile=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stretch=&lt;openpyxl.drawing.fill.StretchInfoProperties</span> <span class="pre">object&gt;</span> <span class="pre">Parameters:</span> <span class="pre">fillRect=&lt;openpyxl.drawing.fill.RelativeRect</span> <span class="pre">object&gt;</span> <span class="pre">Parameters:</span> <span class="pre">l=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">srcRect=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/drawing/fill.html#BlipFillProperties"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.drawing.fill.BlipFillProperties" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.BlipFillProperties.blip">
+<span class="sig-name descname"><span class="pre">blip</span></span><a class="headerlink" href="#openpyxl.drawing.fill.BlipFillProperties.blip" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.fill.Blip’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.BlipFillProperties.dpi">
+<span class="sig-name descname"><span class="pre">dpi</span></span><a class="headerlink" href="#openpyxl.drawing.fill.BlipFillProperties.dpi" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.BlipFillProperties.rotWithShape">
+<span class="sig-name descname"><span class="pre">rotWithShape</span></span><a class="headerlink" href="#openpyxl.drawing.fill.BlipFillProperties.rotWithShape" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.BlipFillProperties.srcRect">
+<span class="sig-name descname"><span class="pre">srcRect</span></span><a class="headerlink" href="#openpyxl.drawing.fill.BlipFillProperties.srcRect" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.fill.RelativeRect’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.BlipFillProperties.stretch">
+<span class="sig-name descname"><span class="pre">stretch</span></span><a class="headerlink" href="#openpyxl.drawing.fill.BlipFillProperties.stretch" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.fill.StretchInfoProperties’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.BlipFillProperties.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'blipFill'</span></em><a class="headerlink" href="#openpyxl.drawing.fill.BlipFillProperties.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.BlipFillProperties.tile">
+<span class="sig-name descname"><span class="pre">tile</span></span><a class="headerlink" href="#openpyxl.drawing.fill.BlipFillProperties.tile" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.fill.TileInfoProperties’&gt;</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.GradientFillProperties">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.drawing.fill.</span></span><span class="sig-name descname"><span class="pre">GradientFillProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotWithShape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gsLst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tileRect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/drawing/fill.html#GradientFillProperties"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.drawing.fill.GradientFillProperties" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.GradientFillProperties.flip">
+<span class="sig-name descname"><span class="pre">flip</span></span><a class="headerlink" href="#openpyxl.drawing.fill.GradientFillProperties.flip" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘y’, ‘xy’, ‘x’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.GradientFillProperties.gsLst">
+<span class="sig-name descname"><span class="pre">gsLst</span></span><a class="headerlink" href="#openpyxl.drawing.fill.GradientFillProperties.gsLst" title="永久链接至目标">¶</a></dt>
+<dd><p>Wrap a sequence in an containing object</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.GradientFillProperties.lin">
+<span class="sig-name descname"><span class="pre">lin</span></span><a class="headerlink" href="#openpyxl.drawing.fill.GradientFillProperties.lin" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.fill.LinearShadeProperties’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.GradientFillProperties.linear">
+<span class="sig-name descname"><span class="pre">linear</span></span><a class="headerlink" href="#openpyxl.drawing.fill.GradientFillProperties.linear" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.GradientFillProperties.namespace">
+<span class="sig-name descname"><span class="pre">namespace</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://schemas.openxmlformats.org/drawingml/2006/main'</span></em><a class="headerlink" href="#openpyxl.drawing.fill.GradientFillProperties.namespace" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.GradientFillProperties.path">
+<span class="sig-name descname"><span class="pre">path</span></span><a class="headerlink" href="#openpyxl.drawing.fill.GradientFillProperties.path" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.fill.PathShadeProperties’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.GradientFillProperties.rotWithShape">
+<span class="sig-name descname"><span class="pre">rotWithShape</span></span><a class="headerlink" href="#openpyxl.drawing.fill.GradientFillProperties.rotWithShape" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.GradientFillProperties.stop_list">
+<span class="sig-name descname"><span class="pre">stop_list</span></span><a class="headerlink" href="#openpyxl.drawing.fill.GradientFillProperties.stop_list" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.GradientFillProperties.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'gradFill'</span></em><a class="headerlink" href="#openpyxl.drawing.fill.GradientFillProperties.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.GradientFillProperties.tileRect">
+<span class="sig-name descname"><span class="pre">tileRect</span></span><a class="headerlink" href="#openpyxl.drawing.fill.GradientFillProperties.tileRect" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.fill.RelativeRect’&gt;</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.GradientStop">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.drawing.fill.</span></span><span class="sig-name descname"><span class="pre">GradientStop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scrgbClr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">srgbClr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hslClr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sysClr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schemeClr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prstClr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/drawing/fill.html#GradientStop"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.drawing.fill.GradientStop" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.GradientStop.RGB">
+<span class="sig-name descname"><span class="pre">RGB</span></span><a class="headerlink" href="#openpyxl.drawing.fill.GradientStop.RGB" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.GradientStop.RGBPercent">
+<span class="sig-name descname"><span class="pre">RGBPercent</span></span><a class="headerlink" href="#openpyxl.drawing.fill.GradientStop.RGBPercent" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.GradientStop.hslClr">
+<span class="sig-name descname"><span class="pre">hslClr</span></span><a class="headerlink" href="#openpyxl.drawing.fill.GradientStop.hslClr" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.colors.HSLColor’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.GradientStop.namespace">
+<span class="sig-name descname"><span class="pre">namespace</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://schemas.openxmlformats.org/drawingml/2006/main'</span></em><a class="headerlink" href="#openpyxl.drawing.fill.GradientStop.namespace" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.GradientStop.pos">
+<span class="sig-name descname"><span class="pre">pos</span></span><a class="headerlink" href="#openpyxl.drawing.fill.GradientStop.pos" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.GradientStop.prstClr">
+<span class="sig-name descname"><span class="pre">prstClr</span></span><a class="headerlink" href="#openpyxl.drawing.fill.GradientStop.prstClr" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘yellowGreen’, ‘mediumOrchid’, ‘ltSlateGrey’, ‘coral’, ‘ivory’, ‘lavenderBlush’, ‘green’, ‘aliceBlue’, ‘fuchsia’, ‘forestGreen’, ‘navajoWhite’, ‘ltSteelBlue’, ‘darkOrange’, ‘saddleBrown’, ‘ltSalmon’, ‘mistyRose’, ‘aquamarine’, ‘slateGrey’, ‘blanchedAlmond’, ‘crimson’, ‘dkOrchid’, ‘mediumSpringGreen’, ‘cornsilk’, ‘aqua’, ‘olive’, ‘tan’, ‘skyBlue’, ‘lightGreen’, ‘navy’, ‘snow’, ‘limeGreen’, ‘grey’, ‘medSeaGreen’, ‘darkTurquoise’, ‘dkMagenta’, ‘ltBlue’, ‘darkSalmon’, ‘indianRed’, ‘sienna’, ‘dkSlateGrey’, ‘floralWhite’, ‘dkSeaGreen’, ‘magenta’, ‘darkSlateBlue’, ‘moccasin’, ‘oldLace’, ‘lightYellow’, ‘darkGreen’, ‘darkGrey’, ‘lemonChiffon’, ‘darkBlue’, ‘blue’, ‘lightSkyBlue’, ‘royalBlue’, ‘teal’, ‘dkSlateBlue’, ‘paleVioletRed’, ‘black’, ‘medSpringGreen’, ‘orangeRed’, ‘rosyBrown’, ‘dkRed’, ‘papayaWhip’, ‘darkSeaGreen’, ‘lightSlateGrey’, ‘gray’, ‘lightGrey’, ‘goldenrod’, ‘ltSeaGreen’, ‘ltSlateGray’, ‘ltYellow’, ‘paleGoldenrod’, ‘blueViolet’, ‘dimGrey’, ‘purple’, ‘brown’, ‘darkMagenta’, ‘dkGrey’, ‘hotPink’, ‘mintCream’, ‘paleTurquoise’, ‘medTurquoise’, ‘seaShell’, ‘mediumSeaGreen’, ‘oliveDrab’, ‘yellow’, ‘darkKhaki’, ‘chartreuse’, ‘dkBlue’, ‘violet’, ‘antiqueWhite’, ‘orange’, ‘lavender’, ‘powderBlue’, ‘mediumBlue’, ‘peru’, ‘steelBlue’, ‘lightCoral’, ‘thistle’, ‘lime’, ‘peachPuff’, ‘firebrick’, ‘pink’, ‘dkGreen’, ‘ltCyan’, ‘gold’, ‘mediumPurple’, ‘azure’, ‘linen’, ‘wheat’, ‘greenYellow’, ‘sandyBrown’, ‘seaGreen’, ‘dkOliveGreen’, ‘darkViolet’, ‘lightGray’, ‘ghostWhite’, ‘medSlateBlue’, ‘dkTurquoise’, ‘lightSeaGreen’, ‘darkRed’, ‘dodgerBlue’, ‘lightCyan’, ‘ltCoral’, ‘turquoise’, ‘dkOrange’, ‘dkGoldenrod’, ‘ltGoldenrodYellow’, ‘medOrchid’, ‘darkGoldenrod’, ‘khaki’, ‘ltGray’, ‘slateGray’, ‘bisque’, ‘lightPink’, ‘lawnGreen’, ‘mediumSlateBlue’, ‘honeydew’, ‘chocolate’, ‘darkSlateGray’, ‘darkSlateGrey’, ‘darkOliveGreen’, ‘dkKhaki’, ‘orchid’, ‘plum’, ‘darkOrchid’, ‘ltGrey’, ‘gainsboro’, ‘medAquamarine’, ‘dimGray’, ‘midnightBlue’, ‘dkViolet’, ‘ltSkyBlue’, ‘cyan’, ‘indigo’, ‘silver’, ‘springGreen’, ‘beige’, ‘salmon’, ‘white’, ‘whiteSmoke’, ‘dkCyan’, ‘lightSteelBlue’, ‘slateBlue’, ‘tomato’, ‘ltGreen’, ‘dkGray’, ‘paleGreen’, ‘dkSalmon’, ‘mediumVioletRed’, ‘medPurple’, ‘burlyWood’, ‘dkSlateGray’, ‘ltPink’, ‘maroon’, ‘medVioletRed’, ‘lightGoldenrodYellow’, ‘deepPink’, ‘cadetBlue’, ‘deepSkyBlue’, ‘darkCyan’, ‘darkGray’, ‘red’, ‘mediumTurquoise’, ‘lightSlateGray’, ‘mediumAquamarine’, ‘cornflowerBlue’, ‘lightBlue’, ‘medBlue’, ‘lightSalmon’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.GradientStop.schemeClr">
+<span class="sig-name descname"><span class="pre">schemeClr</span></span><a class="headerlink" href="#openpyxl.drawing.fill.GradientStop.schemeClr" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.colors.SchemeColor’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.GradientStop.scrgbClr">
+<span class="sig-name descname"><span class="pre">scrgbClr</span></span><a class="headerlink" href="#openpyxl.drawing.fill.GradientStop.scrgbClr" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.colors.RGBPercent’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.GradientStop.srgbClr">
+<span class="sig-name descname"><span class="pre">srgbClr</span></span><a class="headerlink" href="#openpyxl.drawing.fill.GradientStop.srgbClr" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.GradientStop.sysClr">
+<span class="sig-name descname"><span class="pre">sysClr</span></span><a class="headerlink" href="#openpyxl.drawing.fill.GradientStop.sysClr" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.colors.SystemColor’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.GradientStop.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'gs'</span></em><a class="headerlink" href="#openpyxl.drawing.fill.GradientStop.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.LinearShadeProperties">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.drawing.fill.</span></span><span class="sig-name descname"><span class="pre">LinearShadeProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ang</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/drawing/fill.html#LinearShadeProperties"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.drawing.fill.LinearShadeProperties" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.LinearShadeProperties.ang">
+<span class="sig-name descname"><span class="pre">ang</span></span><a class="headerlink" href="#openpyxl.drawing.fill.LinearShadeProperties.ang" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.LinearShadeProperties.namespace">
+<span class="sig-name descname"><span class="pre">namespace</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://schemas.openxmlformats.org/drawingml/2006/main'</span></em><a class="headerlink" href="#openpyxl.drawing.fill.LinearShadeProperties.namespace" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.LinearShadeProperties.scaled">
+<span class="sig-name descname"><span class="pre">scaled</span></span><a class="headerlink" href="#openpyxl.drawing.fill.LinearShadeProperties.scaled" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘bool’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.LinearShadeProperties.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'lin'</span></em><a class="headerlink" href="#openpyxl.drawing.fill.LinearShadeProperties.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.PathShadeProperties">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.drawing.fill.</span></span><span class="sig-name descname"><span class="pre">PathShadeProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fillToRect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/drawing/fill.html#PathShadeProperties"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.drawing.fill.PathShadeProperties" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.PathShadeProperties.fillToRect">
+<span class="sig-name descname"><span class="pre">fillToRect</span></span><a class="headerlink" href="#openpyxl.drawing.fill.PathShadeProperties.fillToRect" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.fill.RelativeRect’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.PathShadeProperties.namespace">
+<span class="sig-name descname"><span class="pre">namespace</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://schemas.openxmlformats.org/drawingml/2006/main'</span></em><a class="headerlink" href="#openpyxl.drawing.fill.PathShadeProperties.namespace" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.PathShadeProperties.path">
+<span class="sig-name descname"><span class="pre">path</span></span><a class="headerlink" href="#openpyxl.drawing.fill.PathShadeProperties.path" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘rect’, ‘circle’, ‘shape’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.PathShadeProperties.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'path'</span></em><a class="headerlink" href="#openpyxl.drawing.fill.PathShadeProperties.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.PatternFillProperties">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.drawing.fill.</span></span><span class="sig-name descname"><span class="pre">PatternFillProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fgClr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bgClr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/drawing/fill.html#PatternFillProperties"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.drawing.fill.PatternFillProperties" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.PatternFillProperties.background">
+<span class="sig-name descname"><span class="pre">background</span></span><a class="headerlink" href="#openpyxl.drawing.fill.PatternFillProperties.background" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.PatternFillProperties.bgClr">
+<span class="sig-name descname"><span class="pre">bgClr</span></span><a class="headerlink" href="#openpyxl.drawing.fill.PatternFillProperties.bgClr" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.colors.ColorChoice’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.PatternFillProperties.fgClr">
+<span class="sig-name descname"><span class="pre">fgClr</span></span><a class="headerlink" href="#openpyxl.drawing.fill.PatternFillProperties.fgClr" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.colors.ColorChoice’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.PatternFillProperties.foreground">
+<span class="sig-name descname"><span class="pre">foreground</span></span><a class="headerlink" href="#openpyxl.drawing.fill.PatternFillProperties.foreground" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.PatternFillProperties.namespace">
+<span class="sig-name descname"><span class="pre">namespace</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://schemas.openxmlformats.org/drawingml/2006/main'</span></em><a class="headerlink" href="#openpyxl.drawing.fill.PatternFillProperties.namespace" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.PatternFillProperties.preset">
+<span class="sig-name descname"><span class="pre">preset</span></span><a class="headerlink" href="#openpyxl.drawing.fill.PatternFillProperties.preset" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.PatternFillProperties.prst">
+<span class="sig-name descname"><span class="pre">prst</span></span><a class="headerlink" href="#openpyxl.drawing.fill.PatternFillProperties.prst" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘trellis’, ‘wave’, ‘smGrid’, ‘pct75’, ‘plaid’, ‘dotDmnd’, ‘wdDnDiag’, ‘pct10’, ‘dashDnDiag’, ‘lgCheck’, ‘dkHorz’, ‘pct70’, ‘pct90’, ‘ltUpDiag’, ‘smConfetti’, ‘horz’, ‘horzBrick’, ‘narVert’, ‘shingle’, ‘pct30’, ‘divot’, ‘wdUpDiag’, ‘pct40’, ‘pct20’, ‘dkDnDiag’, ‘pct60’, ‘weave’, ‘ltVert’, ‘vert’, ‘sphere’, ‘pct80’, ‘dkVert’, ‘dashVert’, ‘dkUpDiag’, ‘ltHorz’, ‘lgGrid’, ‘dashHorz’, ‘dotGrid’, ‘ltDnDiag’, ‘cross’, ‘dnDiag’, ‘lgConfetti’, ‘openDmnd’, ‘pct5’, ‘pct25’, ‘smCheck’, ‘solidDmnd’, ‘pct50’, ‘diagBrick’, ‘upDiag’, ‘narHorz’, ‘dashUpDiag’, ‘diagCross’, ‘zigZag’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.PatternFillProperties.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pattFill'</span></em><a class="headerlink" href="#openpyxl.drawing.fill.PatternFillProperties.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.RelativeRect">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.drawing.fill.</span></span><span class="sig-name descname"><span class="pre">RelativeRect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">l</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/drawing/fill.html#RelativeRect"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.drawing.fill.RelativeRect" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.RelativeRect.b">
+<span class="sig-name descname"><span class="pre">b</span></span><a class="headerlink" href="#openpyxl.drawing.fill.RelativeRect.b" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.RelativeRect.bottom">
+<span class="sig-name descname"><span class="pre">bottom</span></span><a class="headerlink" href="#openpyxl.drawing.fill.RelativeRect.bottom" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.RelativeRect.l">
+<span class="sig-name descname"><span class="pre">l</span></span><a class="headerlink" href="#openpyxl.drawing.fill.RelativeRect.l" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.RelativeRect.left">
+<span class="sig-name descname"><span class="pre">left</span></span><a class="headerlink" href="#openpyxl.drawing.fill.RelativeRect.left" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.RelativeRect.namespace">
+<span class="sig-name descname"><span class="pre">namespace</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://schemas.openxmlformats.org/drawingml/2006/main'</span></em><a class="headerlink" href="#openpyxl.drawing.fill.RelativeRect.namespace" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.RelativeRect.r">
+<span class="sig-name descname"><span class="pre">r</span></span><a class="headerlink" href="#openpyxl.drawing.fill.RelativeRect.r" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.RelativeRect.right">
+<span class="sig-name descname"><span class="pre">right</span></span><a class="headerlink" href="#openpyxl.drawing.fill.RelativeRect.right" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.RelativeRect.t">
+<span class="sig-name descname"><span class="pre">t</span></span><a class="headerlink" href="#openpyxl.drawing.fill.RelativeRect.t" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘float’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.RelativeRect.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'rect'</span></em><a class="headerlink" href="#openpyxl.drawing.fill.RelativeRect.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.RelativeRect.top">
+<span class="sig-name descname"><span class="pre">top</span></span><a class="headerlink" href="#openpyxl.drawing.fill.RelativeRect.top" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.SolidColorFillProperties">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.drawing.fill.</span></span><span class="sig-name descname"><span class="pre">SolidColorFillProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scrgbClr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">srgbClr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hslClr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sysClr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schemeClr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prstClr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/drawing/fill.html#SolidColorFillProperties"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.drawing.fill.SolidColorFillProperties" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.SolidColorFillProperties.RGB">
+<span class="sig-name descname"><span class="pre">RGB</span></span><a class="headerlink" href="#openpyxl.drawing.fill.SolidColorFillProperties.RGB" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.SolidColorFillProperties.RGBPercent">
+<span class="sig-name descname"><span class="pre">RGBPercent</span></span><a class="headerlink" href="#openpyxl.drawing.fill.SolidColorFillProperties.RGBPercent" title="永久链接至目标">¶</a></dt>
+<dd><p>Aliases can be used when either the desired attribute name is not allowed
+or confusing in Python (eg. “type”) or a more descriptve name is desired
+(eg. “underline” for “u”)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.SolidColorFillProperties.hslClr">
+<span class="sig-name descname"><span class="pre">hslClr</span></span><a class="headerlink" href="#openpyxl.drawing.fill.SolidColorFillProperties.hslClr" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.colors.HSLColor’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.SolidColorFillProperties.prstClr">
+<span class="sig-name descname"><span class="pre">prstClr</span></span><a class="headerlink" href="#openpyxl.drawing.fill.SolidColorFillProperties.prstClr" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘yellowGreen’, ‘mediumOrchid’, ‘ltSlateGrey’, ‘coral’, ‘ivory’, ‘lavenderBlush’, ‘green’, ‘aliceBlue’, ‘fuchsia’, ‘forestGreen’, ‘navajoWhite’, ‘ltSteelBlue’, ‘darkOrange’, ‘saddleBrown’, ‘ltSalmon’, ‘mistyRose’, ‘aquamarine’, ‘slateGrey’, ‘blanchedAlmond’, ‘crimson’, ‘dkOrchid’, ‘mediumSpringGreen’, ‘cornsilk’, ‘aqua’, ‘olive’, ‘tan’, ‘skyBlue’, ‘lightGreen’, ‘navy’, ‘snow’, ‘limeGreen’, ‘grey’, ‘medSeaGreen’, ‘darkTurquoise’, ‘dkMagenta’, ‘ltBlue’, ‘darkSalmon’, ‘indianRed’, ‘sienna’, ‘dkSlateGrey’, ‘floralWhite’, ‘dkSeaGreen’, ‘magenta’, ‘darkSlateBlue’, ‘moccasin’, ‘oldLace’, ‘lightYellow’, ‘darkGreen’, ‘darkGrey’, ‘lemonChiffon’, ‘darkBlue’, ‘blue’, ‘lightSkyBlue’, ‘royalBlue’, ‘teal’, ‘dkSlateBlue’, ‘paleVioletRed’, ‘black’, ‘medSpringGreen’, ‘orangeRed’, ‘rosyBrown’, ‘dkRed’, ‘papayaWhip’, ‘darkSeaGreen’, ‘lightSlateGrey’, ‘gray’, ‘lightGrey’, ‘goldenrod’, ‘ltSeaGreen’, ‘ltSlateGray’, ‘ltYellow’, ‘paleGoldenrod’, ‘blueViolet’, ‘dimGrey’, ‘purple’, ‘brown’, ‘darkMagenta’, ‘dkGrey’, ‘hotPink’, ‘mintCream’, ‘paleTurquoise’, ‘medTurquoise’, ‘seaShell’, ‘mediumSeaGreen’, ‘oliveDrab’, ‘yellow’, ‘darkKhaki’, ‘chartreuse’, ‘dkBlue’, ‘violet’, ‘antiqueWhite’, ‘orange’, ‘lavender’, ‘powderBlue’, ‘mediumBlue’, ‘peru’, ‘steelBlue’, ‘lightCoral’, ‘thistle’, ‘lime’, ‘peachPuff’, ‘firebrick’, ‘pink’, ‘dkGreen’, ‘ltCyan’, ‘gold’, ‘mediumPurple’, ‘azure’, ‘linen’, ‘wheat’, ‘greenYellow’, ‘sandyBrown’, ‘seaGreen’, ‘dkOliveGreen’, ‘darkViolet’, ‘lightGray’, ‘ghostWhite’, ‘medSlateBlue’, ‘dkTurquoise’, ‘lightSeaGreen’, ‘darkRed’, ‘dodgerBlue’, ‘lightCyan’, ‘ltCoral’, ‘turquoise’, ‘dkOrange’, ‘dkGoldenrod’, ‘ltGoldenrodYellow’, ‘medOrchid’, ‘darkGoldenrod’, ‘khaki’, ‘ltGray’, ‘slateGray’, ‘bisque’, ‘lightPink’, ‘lawnGreen’, ‘mediumSlateBlue’, ‘honeydew’, ‘chocolate’, ‘darkSlateGray’, ‘darkSlateGrey’, ‘darkOliveGreen’, ‘dkKhaki’, ‘orchid’, ‘plum’, ‘darkOrchid’, ‘ltGrey’, ‘gainsboro’, ‘medAquamarine’, ‘dimGray’, ‘midnightBlue’, ‘dkViolet’, ‘ltSkyBlue’, ‘cyan’, ‘indigo’, ‘silver’, ‘springGreen’, ‘beige’, ‘salmon’, ‘white’, ‘whiteSmoke’, ‘dkCyan’, ‘lightSteelBlue’, ‘slateBlue’, ‘tomato’, ‘ltGreen’, ‘dkGray’, ‘paleGreen’, ‘dkSalmon’, ‘mediumVioletRed’, ‘medPurple’, ‘burlyWood’, ‘dkSlateGray’, ‘ltPink’, ‘maroon’, ‘medVioletRed’, ‘lightGoldenrodYellow’, ‘deepPink’, ‘cadetBlue’, ‘deepSkyBlue’, ‘darkCyan’, ‘darkGray’, ‘red’, ‘mediumTurquoise’, ‘lightSlateGray’, ‘mediumAquamarine’, ‘cornflowerBlue’, ‘lightBlue’, ‘medBlue’, ‘lightSalmon’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.SolidColorFillProperties.schemeClr">
+<span class="sig-name descname"><span class="pre">schemeClr</span></span><a class="headerlink" href="#openpyxl.drawing.fill.SolidColorFillProperties.schemeClr" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.colors.SchemeColor’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.SolidColorFillProperties.scrgbClr">
+<span class="sig-name descname"><span class="pre">scrgbClr</span></span><a class="headerlink" href="#openpyxl.drawing.fill.SolidColorFillProperties.scrgbClr" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.colors.RGBPercent’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.SolidColorFillProperties.srgbClr">
+<span class="sig-name descname"><span class="pre">srgbClr</span></span><a class="headerlink" href="#openpyxl.drawing.fill.SolidColorFillProperties.srgbClr" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘str’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.SolidColorFillProperties.sysClr">
+<span class="sig-name descname"><span class="pre">sysClr</span></span><a class="headerlink" href="#openpyxl.drawing.fill.SolidColorFillProperties.sysClr" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.colors.SystemColor’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.SolidColorFillProperties.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'solidFill'</span></em><a class="headerlink" href="#openpyxl.drawing.fill.SolidColorFillProperties.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.StretchInfoProperties">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.drawing.fill.</span></span><span class="sig-name descname"><span class="pre">StretchInfoProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fillRect=&lt;openpyxl.drawing.fill.RelativeRect</span> <span class="pre">object&gt;</span> <span class="pre">Parameters:</span> <span class="pre">l=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/drawing/fill.html#StretchInfoProperties"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.drawing.fill.StretchInfoProperties" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.StretchInfoProperties.fillRect">
+<span class="sig-name descname"><span class="pre">fillRect</span></span><a class="headerlink" href="#openpyxl.drawing.fill.StretchInfoProperties.fillRect" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘openpyxl.drawing.fill.RelativeRect’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.StretchInfoProperties.namespace">
+<span class="sig-name descname"><span class="pre">namespace</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://schemas.openxmlformats.org/drawingml/2006/main'</span></em><a class="headerlink" href="#openpyxl.drawing.fill.StretchInfoProperties.namespace" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.StretchInfoProperties.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'stretch'</span></em><a class="headerlink" href="#openpyxl.drawing.fill.StretchInfoProperties.tagname" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.TileInfoProperties">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openpyxl.drawing.fill.</span></span><span class="sig-name descname"><span class="pre">TileInfoProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/openpyxl/drawing/fill.html#TileInfoProperties"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#openpyxl.drawing.fill.TileInfoProperties" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="openpyxl.descriptors.serialisable.html#openpyxl.descriptors.serialisable.Serialisable" title="openpyxl.descriptors.serialisable.Serialisable"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.descriptors.serialisable.Serialisable</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.TileInfoProperties.algn">
+<span class="sig-name descname"><span class="pre">algn</span></span><a class="headerlink" href="#openpyxl.drawing.fill.TileInfoProperties.algn" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘bl’, ‘b’, ‘br’, ‘t’, ‘l’, ‘tl’, ‘tr’, ‘r’, ‘ctr’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.TileInfoProperties.flip">
+<span class="sig-name descname"><span class="pre">flip</span></span><a class="headerlink" href="#openpyxl.drawing.fill.TileInfoProperties.flip" title="永久链接至目标">¶</a></dt>
+<dd><p>Value must be one of {‘y’, ‘xy’, ‘x’}</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.TileInfoProperties.sx">
+<span class="sig-name descname"><span class="pre">sx</span></span><a class="headerlink" href="#openpyxl.drawing.fill.TileInfoProperties.sx" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.TileInfoProperties.sy">
+<span class="sig-name descname"><span class="pre">sy</span></span><a class="headerlink" href="#openpyxl.drawing.fill.TileInfoProperties.sy" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.TileInfoProperties.tx">
+<span class="sig-name descname"><span class="pre">tx</span></span><a class="headerlink" href="#openpyxl.drawing.fill.TileInfoProperties.tx" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openpyxl.drawing.fill.TileInfoProperties.ty">
+<span class="sig-name descname"><span class="pre">ty</span></span><a class="headerlink" href="#openpyxl.drawing.fill.TileInfoProperties.ty" title="永久链接至目标">¶</a></dt>
+<dd><p>Values must be of type &lt;class ‘int’&gt;</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="openpyxl.drawing.effect.html"
+                          title="上一章">openpyxl.drawing.effect module</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="openpyxl.drawing.geometry.html"
+                          title="下一章">openpyxl.drawing.geometry module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/openpyxl.drawing.fill.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.drawing.geometry.html" title="openpyxl.drawing.geometry module"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="openpyxl.drawing.effect.html" title="openpyxl.drawing.effect module"
+             >上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="openpyxl.html" >openpyxl package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="openpyxl.drawing.html" >openpyxl.drawing package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.drawing.fill module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2010 - 2022, See AUTHORS.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+  </body>
+</html>

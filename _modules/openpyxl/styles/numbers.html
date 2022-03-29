@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>openpyxl.styles.numbers &#8212; openpyxl 3.0.9 文档</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/nature.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">模块代码</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.styles.numbers</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>openpyxl.styles.numbers 源代码</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2010-2022 openpyxl</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">String</span><span class="p">,</span>
+    <span class="n">Sequence</span><span class="p">,</span>
+    <span class="n">Integer</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.serialisable</span> <span class="kn">import</span> <span class="n">Serialisable</span>
+
+
+<span class="n">BUILTIN_FORMATS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;General&#39;</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;0.00&#39;</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;#,##0&#39;</span><span class="p">,</span>
+    <span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;#,##0.00&#39;</span><span class="p">,</span>
+    <span class="mi">5</span><span class="p">:</span> <span class="s1">&#39;&quot;$&quot;#,##0_);(&quot;$&quot;#,##0)&#39;</span><span class="p">,</span>
+    <span class="mi">6</span><span class="p">:</span> <span class="s1">&#39;&quot;$&quot;#,##0_);[Red](&quot;$&quot;#,##0)&#39;</span><span class="p">,</span>
+    <span class="mi">7</span><span class="p">:</span> <span class="s1">&#39;&quot;$&quot;#,##0.00_);(&quot;$&quot;#,##0.00)&#39;</span><span class="p">,</span>
+    <span class="mi">8</span><span class="p">:</span> <span class="s1">&#39;&quot;$&quot;#,##0.00_);[Red](&quot;$&quot;#,##0.00)&#39;</span><span class="p">,</span>
+    <span class="mi">9</span><span class="p">:</span> <span class="s1">&#39;0%&#39;</span><span class="p">,</span>
+    <span class="mi">10</span><span class="p">:</span> <span class="s1">&#39;0.00%&#39;</span><span class="p">,</span>
+    <span class="mi">11</span><span class="p">:</span> <span class="s1">&#39;0.00E+00&#39;</span><span class="p">,</span>
+    <span class="mi">12</span><span class="p">:</span> <span class="s1">&#39;# ?/?&#39;</span><span class="p">,</span>
+    <span class="mi">13</span><span class="p">:</span> <span class="s1">&#39;# ??/??&#39;</span><span class="p">,</span>
+    <span class="mi">14</span><span class="p">:</span> <span class="s1">&#39;mm-dd-yy&#39;</span><span class="p">,</span>
+    <span class="mi">15</span><span class="p">:</span> <span class="s1">&#39;d-mmm-yy&#39;</span><span class="p">,</span>
+    <span class="mi">16</span><span class="p">:</span> <span class="s1">&#39;d-mmm&#39;</span><span class="p">,</span>
+    <span class="mi">17</span><span class="p">:</span> <span class="s1">&#39;mmm-yy&#39;</span><span class="p">,</span>
+    <span class="mi">18</span><span class="p">:</span> <span class="s1">&#39;h:mm AM/PM&#39;</span><span class="p">,</span>
+    <span class="mi">19</span><span class="p">:</span> <span class="s1">&#39;h:mm:ss AM/PM&#39;</span><span class="p">,</span>
+    <span class="mi">20</span><span class="p">:</span> <span class="s1">&#39;h:mm&#39;</span><span class="p">,</span>
+    <span class="mi">21</span><span class="p">:</span> <span class="s1">&#39;h:mm:ss&#39;</span><span class="p">,</span>
+    <span class="mi">22</span><span class="p">:</span> <span class="s1">&#39;m/d/yy h:mm&#39;</span><span class="p">,</span>
+
+    <span class="mi">37</span><span class="p">:</span> <span class="s1">&#39;#,##0_);(#,##0)&#39;</span><span class="p">,</span>
+    <span class="mi">38</span><span class="p">:</span> <span class="s1">&#39;#,##0_);[Red](#,##0)&#39;</span><span class="p">,</span>
+    <span class="mi">39</span><span class="p">:</span> <span class="s1">&#39;#,##0.00_);(#,##0.00)&#39;</span><span class="p">,</span>
+    <span class="mi">40</span><span class="p">:</span> <span class="s1">&#39;#,##0.00_);[Red](#,##0.00)&#39;</span><span class="p">,</span>
+
+    <span class="mi">41</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;_(* #,##0_);_(* \(#,##0\);_(* &quot;-&quot;_);_(@_)&#39;</span><span class="p">,</span>
+    <span class="mi">42</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;_(&quot;$&quot;* #,##0_);_(&quot;$&quot;* \(#,##0\);_(&quot;$&quot;* &quot;-&quot;_);_(@_)&#39;</span><span class="p">,</span>
+    <span class="mi">43</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;_(* #,##0.00_);_(* \(#,##0.00\);_(* &quot;-&quot;??_);_(@_)&#39;</span><span class="p">,</span>
+
+    <span class="mi">44</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;_(&quot;$&quot;* #,##0.00_)_(&quot;$&quot;* \(#,##0.00\)_(&quot;$&quot;* &quot;-&quot;??_)_(@_)&#39;</span><span class="p">,</span>
+    <span class="mi">45</span><span class="p">:</span> <span class="s1">&#39;mm:ss&#39;</span><span class="p">,</span>
+    <span class="mi">46</span><span class="p">:</span> <span class="s1">&#39;[h]:mm:ss&#39;</span><span class="p">,</span>
+    <span class="mi">47</span><span class="p">:</span> <span class="s1">&#39;mmss.0&#39;</span><span class="p">,</span>
+    <span class="mi">48</span><span class="p">:</span> <span class="s1">&#39;##0.0E+0&#39;</span><span class="p">,</span>
+    <span class="mi">49</span><span class="p">:</span> <span class="s1">&#39;@&#39;</span><span class="p">,</span> <span class="p">}</span>
+
+<span class="n">BUILTIN_FORMATS_MAX_SIZE</span> <span class="o">=</span> <span class="mi">164</span>
+<span class="n">BUILTIN_FORMATS_REVERSE</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="p">[(</span><span class="n">value</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">BUILTIN_FORMATS</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span>
+
+<span class="n">FORMAT_GENERAL</span> <span class="o">=</span> <span class="n">BUILTIN_FORMATS</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">FORMAT_TEXT</span> <span class="o">=</span> <span class="n">BUILTIN_FORMATS</span><span class="p">[</span><span class="mi">49</span><span class="p">]</span>
+<span class="n">FORMAT_NUMBER</span> <span class="o">=</span> <span class="n">BUILTIN_FORMATS</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">FORMAT_NUMBER_00</span> <span class="o">=</span> <span class="n">BUILTIN_FORMATS</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">FORMAT_NUMBER_COMMA_SEPARATED1</span> <span class="o">=</span> <span class="n">BUILTIN_FORMATS</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">FORMAT_NUMBER_COMMA_SEPARATED2</span> <span class="o">=</span> <span class="s1">&#39;#,##0.00_-&#39;</span>
+<span class="n">FORMAT_PERCENTAGE</span> <span class="o">=</span> <span class="n">BUILTIN_FORMATS</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span>
+<span class="n">FORMAT_PERCENTAGE_00</span> <span class="o">=</span> <span class="n">BUILTIN_FORMATS</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">FORMAT_DATE_YYYYMMDD2</span> <span class="o">=</span> <span class="s1">&#39;yyyy-mm-dd&#39;</span>
+<span class="n">FORMAT_DATE_YYMMDD</span> <span class="o">=</span> <span class="s1">&#39;yy-mm-dd&#39;</span>
+<span class="n">FORMAT_DATE_DDMMYY</span> <span class="o">=</span> <span class="s1">&#39;dd/mm/yy&#39;</span>
+<span class="n">FORMAT_DATE_DMYSLASH</span> <span class="o">=</span> <span class="s1">&#39;d/m/y&#39;</span>
+<span class="n">FORMAT_DATE_DMYMINUS</span> <span class="o">=</span> <span class="s1">&#39;d-m-y&#39;</span>
+<span class="n">FORMAT_DATE_DMMINUS</span> <span class="o">=</span> <span class="s1">&#39;d-m&#39;</span>
+<span class="n">FORMAT_DATE_MYMINUS</span> <span class="o">=</span> <span class="s1">&#39;m-y&#39;</span>
+<span class="n">FORMAT_DATE_XLSX14</span> <span class="o">=</span> <span class="n">BUILTIN_FORMATS</span><span class="p">[</span><span class="mi">14</span><span class="p">]</span>
+<span class="n">FORMAT_DATE_XLSX15</span> <span class="o">=</span> <span class="n">BUILTIN_FORMATS</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span>
+<span class="n">FORMAT_DATE_XLSX16</span> <span class="o">=</span> <span class="n">BUILTIN_FORMATS</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span>
+<span class="n">FORMAT_DATE_XLSX17</span> <span class="o">=</span> <span class="n">BUILTIN_FORMATS</span><span class="p">[</span><span class="mi">17</span><span class="p">]</span>
+<span class="n">FORMAT_DATE_XLSX22</span> <span class="o">=</span> <span class="n">BUILTIN_FORMATS</span><span class="p">[</span><span class="mi">22</span><span class="p">]</span>
+<span class="n">FORMAT_DATE_DATETIME</span> <span class="o">=</span> <span class="s1">&#39;yyyy-mm-dd h:mm:ss&#39;</span>
+<span class="n">FORMAT_DATE_TIME1</span> <span class="o">=</span> <span class="n">BUILTIN_FORMATS</span><span class="p">[</span><span class="mi">18</span><span class="p">]</span>
+<span class="n">FORMAT_DATE_TIME2</span> <span class="o">=</span> <span class="n">BUILTIN_FORMATS</span><span class="p">[</span><span class="mi">19</span><span class="p">]</span>
+<span class="n">FORMAT_DATE_TIME3</span> <span class="o">=</span> <span class="n">BUILTIN_FORMATS</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span>
+<span class="n">FORMAT_DATE_TIME4</span> <span class="o">=</span> <span class="n">BUILTIN_FORMATS</span><span class="p">[</span><span class="mi">21</span><span class="p">]</span>
+<span class="n">FORMAT_DATE_TIME5</span> <span class="o">=</span> <span class="n">BUILTIN_FORMATS</span><span class="p">[</span><span class="mi">45</span><span class="p">]</span>
+<span class="n">FORMAT_DATE_TIME6</span> <span class="o">=</span> <span class="n">BUILTIN_FORMATS</span><span class="p">[</span><span class="mi">21</span><span class="p">]</span>
+<span class="n">FORMAT_DATE_TIME7</span> <span class="o">=</span> <span class="s1">&#39;i:s.S&#39;</span>
+<span class="n">FORMAT_DATE_TIME8</span> <span class="o">=</span> <span class="s1">&#39;h:mm:ss@&#39;</span>
+<span class="n">FORMAT_DATE_TIMEDELTA</span> <span class="o">=</span> <span class="s1">&#39;[hh]:mm:ss&#39;</span>
+<span class="n">FORMAT_DATE_YYMMDDSLASH</span> <span class="o">=</span> <span class="s1">&#39;yy/mm/dd@&#39;</span>
+<span class="n">FORMAT_CURRENCY_USD_SIMPLE</span> <span class="o">=</span> <span class="s1">&#39;&quot;$&quot;#,##0.00_-&#39;</span>
+<span class="n">FORMAT_CURRENCY_USD</span> <span class="o">=</span> <span class="s1">&#39;$#,##0_-&#39;</span>
+<span class="n">FORMAT_CURRENCY_EUR_SIMPLE</span> <span class="o">=</span> <span class="s1">&#39;[$EUR ]#,##0.00_-&#39;</span>
+
+
+<span class="n">COLORS</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\[(BLACK|BLUE|CYAN|GREEN|MAGENTA|RED|WHITE|YELLOW)\]&quot;</span>
+<span class="n">LITERAL_GROUP</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;&quot;.*?&quot;&#39;</span> <span class="c1"># anything in quotes</span>
+<span class="n">LOCALE_GROUP</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\[(?!hh?\]|mm?\]|ss?\])[^\]]*\]&#39;</span> <span class="c1"># anything in square brackets, except hours or minutes or seconds</span>
+<span class="n">STRIP_RE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">LITERAL_GROUP</span><span class="si">}</span><span class="s2">|</span><span class="si">{</span><span class="n">LOCALE_GROUP</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">TIMEDELTA_RE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\[hh?\](:mm(:ss(\.0*)?)?)?|\[mm?\](:ss(\.0*)?)?|\[ss?\](\.0*)?&#39;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
+
+
+<span class="c1"># Spec 18.8.31 numFmts</span>
+<span class="c1"># +ve;-ve;zero;text</span>
+
+<div class="viewcode-block" id="is_date_format"><a class="viewcode-back" href="../../../api/openpyxl.styles.numbers.html#openpyxl.styles.numbers.is_date_format">[文档]</a><span class="k">def</span> <span class="nf">is_date_format</span><span class="p">(</span><span class="n">fmt</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">fmt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="n">fmt</span> <span class="o">=</span> <span class="n">fmt</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># only look at the first format</span>
+    <span class="n">fmt</span> <span class="o">=</span> <span class="n">STRIP_RE</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">fmt</span><span class="p">)</span> <span class="c1"># ignore some formats</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[^</span><span class="se">\\</span><span class="s2">][dmhysDMHYS]&quot;</span><span class="p">,</span> <span class="n">fmt</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="is_timedelta_format"><a class="viewcode-back" href="../../../api/openpyxl.styles.numbers.html#openpyxl.styles.numbers.is_timedelta_format">[文档]</a><span class="k">def</span> <span class="nf">is_timedelta_format</span><span class="p">(</span><span class="n">fmt</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">fmt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="n">fmt</span> <span class="o">=</span> <span class="n">fmt</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># only look at the first format</span>
+    <span class="k">return</span> <span class="n">TIMEDELTA_RE</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">fmt</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="is_datetime"><a class="viewcode-back" href="../../../api/openpyxl.styles.numbers.html#openpyxl.styles.numbers.is_datetime">[文档]</a><span class="k">def</span> <span class="nf">is_datetime</span><span class="p">(</span><span class="n">fmt</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return date, time or datetime</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_date_format</span><span class="p">(</span><span class="n">fmt</span><span class="p">):</span>
+        <span class="k">return</span>
+
+    <span class="n">DATE</span> <span class="o">=</span> <span class="n">TIME</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">if</span> <span class="nb">any</span><span class="p">((</span><span class="n">x</span> <span class="ow">in</span> <span class="n">fmt</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="s1">&#39;dy&#39;</span><span class="p">)):</span>
+        <span class="n">DATE</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">((</span><span class="n">x</span> <span class="ow">in</span> <span class="n">fmt</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="s1">&#39;hs&#39;</span><span class="p">)):</span>
+        <span class="n">TIME</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">if</span> <span class="n">DATE</span> <span class="ow">and</span> <span class="n">TIME</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;datetime&quot;</span>
+    <span class="k">if</span> <span class="n">DATE</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;date&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;time&quot;</span></div>
+
+
+<div class="viewcode-block" id="is_builtin"><a class="viewcode-back" href="../../../api/openpyxl.styles.numbers.html#openpyxl.styles.numbers.is_builtin">[文档]</a><span class="k">def</span> <span class="nf">is_builtin</span><span class="p">(</span><span class="n">fmt</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">fmt</span> <span class="ow">in</span> <span class="n">BUILTIN_FORMATS</span><span class="o">.</span><span class="n">values</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="builtin_format_code"><a class="viewcode-back" href="../../../api/openpyxl.styles.numbers.html#openpyxl.styles.numbers.builtin_format_code">[文档]</a><span class="k">def</span> <span class="nf">builtin_format_code</span><span class="p">(</span><span class="n">index</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return one of the standard format codes by index.&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">fmt</span> <span class="o">=</span> <span class="n">BUILTIN_FORMATS</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="n">fmt</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">fmt</span></div>
+
+
+<div class="viewcode-block" id="builtin_format_id"><a class="viewcode-back" href="../../../api/openpyxl.styles.numbers.html#openpyxl.styles.numbers.builtin_format_id">[文档]</a><span class="k">def</span> <span class="nf">builtin_format_id</span><span class="p">(</span><span class="n">fmt</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return the id of a standard style.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">BUILTIN_FORMATS_REVERSE</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">fmt</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NumberFormatDescriptor"><a class="viewcode-back" href="../../../api/openpyxl.styles.numbers.html#openpyxl.styles.numbers.NumberFormatDescriptor">[文档]</a><span class="k">class</span> <span class="nc">NumberFormatDescriptor</span><span class="p">(</span><span class="n">String</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">FORMAT_GENERAL</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">NumberFormatDescriptor</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__set__</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NumberFormat"><a class="viewcode-back" href="../../../api/openpyxl.styles.numbers.html#openpyxl.styles.numbers.NumberFormat">[文档]</a><span class="k">class</span> <span class="nc">NumberFormat</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">numFmtId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">formatCode</span> <span class="o">=</span> <span class="n">String</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">numFmtId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">formatCode</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">numFmtId</span> <span class="o">=</span> <span class="n">numFmtId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">formatCode</span> <span class="o">=</span> <span class="n">formatCode</span></div>
+
+
+<div class="viewcode-block" id="NumberFormatList"><a class="viewcode-back" href="../../../api/openpyxl.styles.numbers.html#openpyxl.styles.numbers.NumberFormatList">[文档]</a><span class="k">class</span> <span class="nc">NumberFormatList</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">count</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">numFmt</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">NumberFormat</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;numFmt&#39;</span><span class="p">,)</span>
+    <span class="n">__attrs__</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">count</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">numFmt</span><span class="o">=</span><span class="p">(),</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">numFmt</span> <span class="o">=</span> <span class="n">numFmt</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">numFmt</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">numFmt</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >模块代码</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.styles.numbers</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2010 - 2022, See AUTHORS.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+  </body>
+</html>

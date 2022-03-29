@@ -1,0 +1,447 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>openpyxl.worksheet.filters &#8212; openpyxl 3.0.9 文档</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/nature.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">模块代码</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.worksheet.filters</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>openpyxl.worksheet.filters 源代码</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2010-2022 openpyxl</span>
+
+
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.serialisable</span> <span class="kn">import</span> <span class="n">Serialisable</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Alias</span><span class="p">,</span>
+    <span class="n">Typed</span><span class="p">,</span>
+    <span class="n">Set</span><span class="p">,</span>
+    <span class="n">Float</span><span class="p">,</span>
+    <span class="n">DateTime</span><span class="p">,</span>
+    <span class="n">NoneSet</span><span class="p">,</span>
+    <span class="n">Bool</span><span class="p">,</span>
+    <span class="n">Integer</span><span class="p">,</span>
+    <span class="n">String</span><span class="p">,</span>
+    <span class="n">Sequence</span><span class="p">,</span>
+    <span class="n">MinMax</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.excel</span> <span class="kn">import</span> <span class="n">ExtensionList</span><span class="p">,</span> <span class="n">CellRange</span>
+<span class="kn">from</span> <span class="nn">openpyxl.descriptors.sequence</span> <span class="kn">import</span> <span class="n">ValueSequence</span>
+
+
+<div class="viewcode-block" id="SortCondition"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.filters.html#openpyxl.worksheet.filters.SortCondition">[文档]</a><span class="k">class</span> <span class="nc">SortCondition</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;sortCondition&quot;</span>
+
+    <span class="n">descending</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">sortBy</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;cellColor&#39;</span><span class="p">,</span> <span class="s1">&#39;fontColor&#39;</span><span class="p">,</span> <span class="s1">&#39;icon&#39;</span><span class="p">]))</span>
+    <span class="n">ref</span> <span class="o">=</span> <span class="n">CellRange</span><span class="p">()</span>
+    <span class="n">customList</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dxfId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">iconSet</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;3Arrows&#39;</span><span class="p">,</span> <span class="s1">&#39;3ArrowsGray&#39;</span><span class="p">,</span> <span class="s1">&#39;3Flags&#39;</span><span class="p">,</span>
+                           <span class="s1">&#39;3TrafficLights1&#39;</span><span class="p">,</span> <span class="s1">&#39;3TrafficLights2&#39;</span><span class="p">,</span> <span class="s1">&#39;3Signs&#39;</span><span class="p">,</span> <span class="s1">&#39;3Symbols&#39;</span><span class="p">,</span> <span class="s1">&#39;3Symbols2&#39;</span><span class="p">,</span>
+                           <span class="s1">&#39;4Arrows&#39;</span><span class="p">,</span> <span class="s1">&#39;4ArrowsGray&#39;</span><span class="p">,</span> <span class="s1">&#39;4RedToBlack&#39;</span><span class="p">,</span> <span class="s1">&#39;4Rating&#39;</span><span class="p">,</span> <span class="s1">&#39;4TrafficLights&#39;</span><span class="p">,</span>
+                           <span class="s1">&#39;5Arrows&#39;</span><span class="p">,</span> <span class="s1">&#39;5ArrowsGray&#39;</span><span class="p">,</span> <span class="s1">&#39;5Rating&#39;</span><span class="p">,</span> <span class="s1">&#39;5Quarters&#39;</span><span class="p">]))</span>
+    <span class="n">iconId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">ref</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">descending</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">sortBy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">customList</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">dxfId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">iconSet</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">iconId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">descending</span> <span class="o">=</span> <span class="n">descending</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sortBy</span> <span class="o">=</span> <span class="n">sortBy</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="n">ref</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">customList</span> <span class="o">=</span> <span class="n">customList</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dxfId</span> <span class="o">=</span> <span class="n">dxfId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">iconSet</span> <span class="o">=</span> <span class="n">iconSet</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">iconId</span> <span class="o">=</span> <span class="n">iconId</span></div>
+
+
+<div class="viewcode-block" id="SortState"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.filters.html#openpyxl.worksheet.filters.SortState">[文档]</a><span class="k">class</span> <span class="nc">SortState</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;sortState&quot;</span>
+
+    <span class="n">columnSort</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">caseSensitive</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">sortMethod</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;stroke&#39;</span><span class="p">,</span> <span class="s1">&#39;pinYin&#39;</span><span class="p">]))</span>
+    <span class="n">ref</span> <span class="o">=</span> <span class="n">CellRange</span><span class="p">()</span>
+    <span class="n">sortCondition</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">SortCondition</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;sortCondition&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">columnSort</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">caseSensitive</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">sortMethod</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">ref</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">sortCondition</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">columnSort</span> <span class="o">=</span> <span class="n">columnSort</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">caseSensitive</span> <span class="o">=</span> <span class="n">caseSensitive</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sortMethod</span> <span class="o">=</span> <span class="n">sortMethod</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="n">ref</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sortCondition</span> <span class="o">=</span> <span class="n">sortCondition</span>
+
+
+    <span class="k">def</span> <span class="fm">__bool__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ref</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="IconFilter"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.filters.html#openpyxl.worksheet.filters.IconFilter">[文档]</a><span class="k">class</span> <span class="nc">IconFilter</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;iconFilter&quot;</span>
+
+    <span class="n">iconSet</span> <span class="o">=</span> <span class="n">Set</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;3Arrows&#39;</span><span class="p">,</span> <span class="s1">&#39;3ArrowsGray&#39;</span><span class="p">,</span> <span class="s1">&#39;3Flags&#39;</span><span class="p">,</span>
+                           <span class="s1">&#39;3TrafficLights1&#39;</span><span class="p">,</span> <span class="s1">&#39;3TrafficLights2&#39;</span><span class="p">,</span> <span class="s1">&#39;3Signs&#39;</span><span class="p">,</span> <span class="s1">&#39;3Symbols&#39;</span><span class="p">,</span> <span class="s1">&#39;3Symbols2&#39;</span><span class="p">,</span>
+                           <span class="s1">&#39;4Arrows&#39;</span><span class="p">,</span> <span class="s1">&#39;4ArrowsGray&#39;</span><span class="p">,</span> <span class="s1">&#39;4RedToBlack&#39;</span><span class="p">,</span> <span class="s1">&#39;4Rating&#39;</span><span class="p">,</span> <span class="s1">&#39;4TrafficLights&#39;</span><span class="p">,</span>
+                           <span class="s1">&#39;5Arrows&#39;</span><span class="p">,</span> <span class="s1">&#39;5ArrowsGray&#39;</span><span class="p">,</span> <span class="s1">&#39;5Rating&#39;</span><span class="p">,</span> <span class="s1">&#39;5Quarters&#39;</span><span class="p">]))</span>
+    <span class="n">iconId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">iconSet</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">iconId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">iconSet</span> <span class="o">=</span> <span class="n">iconSet</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">iconId</span> <span class="o">=</span> <span class="n">iconId</span></div>
+
+
+<div class="viewcode-block" id="ColorFilter"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.filters.html#openpyxl.worksheet.filters.ColorFilter">[文档]</a><span class="k">class</span> <span class="nc">ColorFilter</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;colorFilter&quot;</span>
+
+    <span class="n">dxfId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">cellColor</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">dxfId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">cellColor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dxfId</span> <span class="o">=</span> <span class="n">dxfId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cellColor</span> <span class="o">=</span> <span class="n">cellColor</span></div>
+
+
+<div class="viewcode-block" id="DynamicFilter"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.filters.html#openpyxl.worksheet.filters.DynamicFilter">[文档]</a><span class="k">class</span> <span class="nc">DynamicFilter</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;dynamicFilter&quot;</span>
+
+    <span class="nb">type</span> <span class="o">=</span> <span class="n">Set</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;null&#39;</span><span class="p">,</span> <span class="s1">&#39;aboveAverage&#39;</span><span class="p">,</span> <span class="s1">&#39;belowAverage&#39;</span><span class="p">,</span> <span class="s1">&#39;tomorrow&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;today&#39;</span><span class="p">,</span> <span class="s1">&#39;yesterday&#39;</span><span class="p">,</span> <span class="s1">&#39;nextWeek&#39;</span><span class="p">,</span> <span class="s1">&#39;thisWeek&#39;</span><span class="p">,</span> <span class="s1">&#39;lastWeek&#39;</span><span class="p">,</span> <span class="s1">&#39;nextMonth&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;thisMonth&#39;</span><span class="p">,</span> <span class="s1">&#39;lastMonth&#39;</span><span class="p">,</span> <span class="s1">&#39;nextQuarter&#39;</span><span class="p">,</span> <span class="s1">&#39;thisQuarter&#39;</span><span class="p">,</span> <span class="s1">&#39;lastQuarter&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;nextYear&#39;</span><span class="p">,</span> <span class="s1">&#39;thisYear&#39;</span><span class="p">,</span> <span class="s1">&#39;lastYear&#39;</span><span class="p">,</span> <span class="s1">&#39;yearToDate&#39;</span><span class="p">,</span> <span class="s1">&#39;Q1&#39;</span><span class="p">,</span> <span class="s1">&#39;Q2&#39;</span><span class="p">,</span> <span class="s1">&#39;Q3&#39;</span><span class="p">,</span> <span class="s1">&#39;Q4&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;M1&#39;</span><span class="p">,</span> <span class="s1">&#39;M2&#39;</span><span class="p">,</span> <span class="s1">&#39;M3&#39;</span><span class="p">,</span> <span class="s1">&#39;M4&#39;</span><span class="p">,</span> <span class="s1">&#39;M5&#39;</span><span class="p">,</span> <span class="s1">&#39;M6&#39;</span><span class="p">,</span> <span class="s1">&#39;M7&#39;</span><span class="p">,</span> <span class="s1">&#39;M8&#39;</span><span class="p">,</span> <span class="s1">&#39;M9&#39;</span><span class="p">,</span> <span class="s1">&#39;M10&#39;</span><span class="p">,</span> <span class="s1">&#39;M11&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;M12&#39;</span><span class="p">]))</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="n">Float</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">valIso</span> <span class="o">=</span> <span class="n">DateTime</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">maxVal</span> <span class="o">=</span> <span class="n">Float</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">maxValIso</span> <span class="o">=</span> <span class="n">DateTime</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">val</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">valIso</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">maxVal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">maxValIso</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="nb">type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">valIso</span> <span class="o">=</span> <span class="n">valIso</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">maxVal</span> <span class="o">=</span> <span class="n">maxVal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">maxValIso</span> <span class="o">=</span> <span class="n">maxValIso</span></div>
+
+
+<div class="viewcode-block" id="CustomFilter"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.filters.html#openpyxl.worksheet.filters.CustomFilter">[文档]</a><span class="k">class</span> <span class="nc">CustomFilter</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;customFilter&quot;</span>
+
+    <span class="n">operator</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="s1">&#39;lessThan&#39;</span><span class="p">,</span> <span class="s1">&#39;lessThanOrEqual&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;notEqual&#39;</span><span class="p">,</span> <span class="s1">&#39;greaterThanOrEqual&#39;</span><span class="p">,</span> <span class="s1">&#39;greaterThan&#39;</span><span class="p">]))</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="n">String</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">operator</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">val</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">operator</span> <span class="o">=</span> <span class="n">operator</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">val</span></div>
+
+
+<div class="viewcode-block" id="CustomFilters"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.filters.html#openpyxl.worksheet.filters.CustomFilters">[文档]</a><span class="k">class</span> <span class="nc">CustomFilters</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;customFilters&quot;</span>
+
+    <span class="n">_and</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">customFilter</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">CustomFilter</span><span class="p">)</span> <span class="c1"># min 1, max 2</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;customFilter&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">_and</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">customFilter</span><span class="o">=</span><span class="p">(),</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_and</span> <span class="o">=</span> <span class="n">_and</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">customFilter</span> <span class="o">=</span> <span class="n">customFilter</span></div>
+
+
+<div class="viewcode-block" id="Top10"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.filters.html#openpyxl.worksheet.filters.Top10">[文档]</a><span class="k">class</span> <span class="nc">Top10</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;top10&quot;</span>
+
+    <span class="n">top</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">percent</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="n">Float</span><span class="p">()</span>
+    <span class="n">filterVal</span> <span class="o">=</span> <span class="n">Float</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">top</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">percent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">val</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">filterVal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">top</span> <span class="o">=</span> <span class="n">top</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">percent</span> <span class="o">=</span> <span class="n">percent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filterVal</span> <span class="o">=</span> <span class="n">filterVal</span></div>
+
+
+<div class="viewcode-block" id="DateGroupItem"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.filters.html#openpyxl.worksheet.filters.DateGroupItem">[文档]</a><span class="k">class</span> <span class="nc">DateGroupItem</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;dateGroupItem&quot;</span>
+
+    <span class="n">year</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">month</span> <span class="o">=</span> <span class="n">MinMax</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">day</span> <span class="o">=</span> <span class="n">MinMax</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">31</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">hour</span> <span class="o">=</span> <span class="n">MinMax</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">23</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">minute</span> <span class="o">=</span> <span class="n">MinMax</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">59</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">second</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">59</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dateTimeGrouping</span> <span class="o">=</span> <span class="n">Set</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="s1">&#39;hour&#39;</span><span class="p">,</span> <span class="s1">&#39;minute&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;second&#39;</span><span class="p">]))</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">year</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">month</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">day</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">hour</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">minute</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">second</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">dateTimeGrouping</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="n">year</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">month</span> <span class="o">=</span> <span class="n">month</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">day</span> <span class="o">=</span> <span class="n">day</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hour</span> <span class="o">=</span> <span class="n">hour</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">minute</span> <span class="o">=</span> <span class="n">minute</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">second</span> <span class="o">=</span> <span class="n">second</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dateTimeGrouping</span> <span class="o">=</span> <span class="n">dateTimeGrouping</span></div>
+
+
+<div class="viewcode-block" id="Filters"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.filters.html#openpyxl.worksheet.filters.Filters">[文档]</a><span class="k">class</span> <span class="nc">Filters</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;filters&quot;</span>
+
+    <span class="n">blank</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">calendarType</span> <span class="o">=</span> <span class="n">NoneSet</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;gregorian&quot;</span><span class="p">,</span><span class="s2">&quot;gregorianUs&quot;</span><span class="p">,</span>
+                                   <span class="s2">&quot;gregorianMeFrench&quot;</span><span class="p">,</span><span class="s2">&quot;gregorianArabic&quot;</span><span class="p">,</span> <span class="s2">&quot;hijri&quot;</span><span class="p">,</span><span class="s2">&quot;hebrew&quot;</span><span class="p">,</span>
+                                   <span class="s2">&quot;taiwan&quot;</span><span class="p">,</span><span class="s2">&quot;japan&quot;</span><span class="p">,</span> <span class="s2">&quot;thai&quot;</span><span class="p">,</span><span class="s2">&quot;korea&quot;</span><span class="p">,</span>
+                                   <span class="s2">&quot;saka&quot;</span><span class="p">,</span><span class="s2">&quot;gregorianXlitEnglish&quot;</span><span class="p">,</span><span class="s2">&quot;gregorianXlitFrench&quot;</span><span class="p">])</span>
+    <span class="nb">filter</span> <span class="o">=</span> <span class="n">ValueSequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+    <span class="n">dateGroupItem</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">DateGroupItem</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;filter&#39;</span><span class="p">,</span> <span class="s1">&#39;dateGroupItem&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">blank</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">calendarType</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="nb">filter</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">dateGroupItem</span><span class="o">=</span><span class="p">(),</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blank</span> <span class="o">=</span> <span class="n">blank</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">calendarType</span> <span class="o">=</span> <span class="n">calendarType</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="nb">filter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dateGroupItem</span> <span class="o">=</span> <span class="n">dateGroupItem</span></div>
+
+
+<div class="viewcode-block" id="FilterColumn"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.filters.html#openpyxl.worksheet.filters.FilterColumn">[文档]</a><span class="k">class</span> <span class="nc">FilterColumn</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;filterColumn&quot;</span>
+
+    <span class="n">colId</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+    <span class="n">col_id</span> <span class="o">=</span> <span class="n">Alias</span><span class="p">(</span><span class="s1">&#39;colId&#39;</span><span class="p">)</span>
+    <span class="n">hiddenButton</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">showButton</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># some elements are choice</span>
+    <span class="n">filters</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Filters</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">top10</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">Top10</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">customFilters</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">CustomFilters</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dynamicFilter</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">DynamicFilter</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">colorFilter</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ColorFilter</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">iconFilter</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">IconFilter</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;filters&#39;</span><span class="p">,</span> <span class="s1">&#39;top10&#39;</span><span class="p">,</span> <span class="s1">&#39;customFilters&#39;</span><span class="p">,</span> <span class="s1">&#39;dynamicFilter&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;colorFilter&#39;</span><span class="p">,</span> <span class="s1">&#39;iconFilter&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">colId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">hiddenButton</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">showButton</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">filters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">top10</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">customFilters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">dynamicFilter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">colorFilter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">iconFilter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">blank</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">vals</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">colId</span> <span class="o">=</span> <span class="n">colId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hiddenButton</span> <span class="o">=</span> <span class="n">hiddenButton</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showButton</span> <span class="o">=</span> <span class="n">showButton</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filters</span> <span class="o">=</span> <span class="n">filters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">top10</span> <span class="o">=</span> <span class="n">top10</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">customFilters</span> <span class="o">=</span> <span class="n">customFilters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dynamicFilter</span> <span class="o">=</span> <span class="n">dynamicFilter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">colorFilter</span> <span class="o">=</span> <span class="n">colorFilter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">iconFilter</span> <span class="o">=</span> <span class="n">iconFilter</span>
+        <span class="k">if</span> <span class="n">blank</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">filters</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">blank</span> <span class="o">=</span> <span class="n">blank</span>
+        <span class="k">if</span> <span class="n">vals</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">filters</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">vals</span></div>
+
+
+<div class="viewcode-block" id="AutoFilter"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.filters.html#openpyxl.worksheet.filters.AutoFilter">[文档]</a><span class="k">class</span> <span class="nc">AutoFilter</span><span class="p">(</span><span class="n">Serialisable</span><span class="p">):</span>
+
+    <span class="n">tagname</span> <span class="o">=</span> <span class="s2">&quot;autoFilter&quot;</span>
+
+    <span class="n">ref</span> <span class="o">=</span> <span class="n">CellRange</span><span class="p">()</span>
+    <span class="n">filterColumn</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">FilterColumn</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">sortState</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">SortState</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">extLst</span> <span class="o">=</span> <span class="n">Typed</span><span class="p">(</span><span class="n">expected_type</span><span class="o">=</span><span class="n">ExtensionList</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">__elements__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;filterColumn&#39;</span><span class="p">,</span> <span class="s1">&#39;sortState&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">ref</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">filterColumn</span><span class="o">=</span><span class="p">(),</span>
+                 <span class="n">sortState</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">extLst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="n">ref</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filterColumn</span> <span class="o">=</span> <span class="n">filterColumn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sortState</span> <span class="o">=</span> <span class="n">sortState</span>
+
+
+    <span class="k">def</span> <span class="fm">__bool__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ref</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+
+
+<div class="viewcode-block" id="AutoFilter.add_filter_column"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.filters.html#openpyxl.worksheet.filters.AutoFilter.add_filter_column">[文档]</a>    <span class="k">def</span> <span class="nf">add_filter_column</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col_id</span><span class="p">,</span> <span class="n">vals</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add row filter for specified column.</span>
+
+<span class="sd">        :param col_id: Zero-origin column id. 0 means first column.</span>
+<span class="sd">        :type  col_id: int</span>
+<span class="sd">        :param vals: Value list to show.</span>
+<span class="sd">        :type  vals: str[]</span>
+<span class="sd">        :param blank: Show rows that have blank cell if True (default=``False``)</span>
+<span class="sd">        :type  blank: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filterColumn</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">FilterColumn</span><span class="p">(</span><span class="n">colId</span><span class="o">=</span><span class="n">col_id</span><span class="p">,</span> <span class="n">filters</span><span class="o">=</span><span class="n">Filters</span><span class="p">(</span><span class="n">blank</span><span class="o">=</span><span class="n">blank</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="n">vals</span><span class="p">)))</span></div>
+
+
+<div class="viewcode-block" id="AutoFilter.add_sort_condition"><a class="viewcode-back" href="../../../api/openpyxl.worksheet.filters.html#openpyxl.worksheet.filters.AutoFilter.add_sort_condition">[文档]</a>    <span class="k">def</span> <span class="nf">add_sort_condition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ref</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add sort condition for cpecified range of cells.</span>
+
+<span class="sd">        :param ref: range of the cells (e.g. &#39;A2:A150&#39;)</span>
+<span class="sd">        :type  ref: string</span>
+<span class="sd">        :param descending: Descending sort order (default=``False``)</span>
+<span class="sd">        :type  descending: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cond</span> <span class="o">=</span> <span class="n">SortCondition</span><span class="p">(</span><span class="n">ref</span><span class="p">,</span> <span class="n">descending</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sortState</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sortState</span> <span class="o">=</span> <span class="n">SortState</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sortState</span><span class="o">.</span><span class="n">sortCondition</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cond</span><span class="p">)</span></div></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">openpyxl 3.0.9 文档</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >模块代码</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">openpyxl.worksheet.filters</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版权所有 2010 - 2022, See AUTHORS.
+      由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+  </body>
+</html>
