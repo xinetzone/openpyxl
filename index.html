@@ -16,7 +16,7 @@
     <script src="_static/translations.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="Tutorial" href="tutorial.html" /> 
+    <link rel="next" title="教程" href="tutorial.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>导航</h3>
@@ -28,7 +28,7 @@
           <a href="py-modindex.html" title="Python 模块索引"
              >模块</a> |</li>
         <li class="right" >
-          <a href="tutorial.html" title="Tutorial"
+          <a href="tutorial.html" title="教程"
              accesskey="N">下一页</a> |</li>
         <li class="nav-item nav-item-0"><a href="#">openpyxl 3.0.9 文档</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">openpyxl - A Python library to read/write Excel 2010 xlsx/xlsm files</a></li> 
@@ -64,21 +64,19 @@
 </dl>
 <a class="reference external image-reference" href="https://coveralls.io/bitbucket/openpyxl/openpyxl?branch=default"><img alt="coverage status" src="https://coveralls.io/repos/bitbucket/openpyxl/openpyxl/badge.svg?branch=default" /></a>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="永久链接至标题">¶</a></h2>
-<p>openpyxl is a Python library to read/write Excel 2010 xlsx/xlsm/xltx/xltm files.</p>
-<p>It was born from lack of existing library to read/write natively from Python
-the Office Open XML format.</p>
-<p>All kudos to the PHPExcel team as openpyxl was initially based on PHPExcel.</p>
+<h2>简介<a class="headerlink" href="#introduction" title="永久链接至标题">¶</a></h2>
+<p>openpyxl 是用于读写 Excel 2010 xlsx/xlsm/xltx/xltm 文件的 Python 库。</p>
+<p>它的诞生是由于缺乏现有的库，无法直接从 Python 中读取/写入 Office Open XML 格式。</p>
+<p>对于 PHPExcel 团队来说，所有的荣誉都是基于 openpyxl 的。</p>
 </section>
 <section id="security">
-<h2>Security<a class="headerlink" href="#security" title="永久链接至标题">¶</a></h2>
-<p>By default openpyxl does not guard against quadratic blowup or billion laughs
-xml attacks. To guard against these attacks install defusedxml.</p>
+<h2>安全<a class="headerlink" href="#security" title="永久链接至标题">¶</a></h2>
+<p>默认情况下，openpyxl 不能防止二次膨胀或十亿大笑 xml 攻击。为了防止这些攻击，请安装 defusedxml。</p>
 </section>
 <section id="mailing-list">
-<h2>Mailing List<a class="headerlink" href="#mailing-list" title="永久链接至标题">¶</a></h2>
-<p>The user list can be found on <a class="reference external" href="http://groups.google.com/group/openpyxl-users">http://groups.google.com/group/openpyxl-users</a></p>
-<p>Sample code:</p>
+<h2>邮箱列表<a class="headerlink" href="#mailing-list" title="永久链接至标题">¶</a></h2>
+<p>用户名单可在 <a class="reference external" href="http://groups.google.com/group/openpyxl-users">http://groups.google.com/group/openpyxl-users</a> 上找到</p>
+<p>样例代码:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openpyxl</span> <span class="kn">import</span> <span class="n">Workbook</span>
 <span class="n">wb</span> <span class="o">=</span> <span class="n">Workbook</span><span class="p">()</span>
 
@@ -101,36 +99,25 @@ xml attacks. To guard against these attacks install defusedxml.</p>
 </div>
 </section>
 <section id="documentation">
-<h2>Documentation<a class="headerlink" href="#documentation" title="永久链接至标题">¶</a></h2>
-<p>The documentation is at: <a class="reference external" href="https://openpyxl.readthedocs.io">https://openpyxl.readthedocs.io</a></p>
+<h2>文档<a class="headerlink" href="#documentation" title="永久链接至标题">¶</a></h2>
+<p>文档在（英文）：<a class="reference external" href="https://openpyxl.readthedocs.io">https://openpyxl.readthedocs.io</a></p>
 <ul class="simple">
-<li><p>installation methods</p></li>
-<li><p>code examples</p></li>
-<li><p>instructions for contributing</p></li>
+<li><p>安装方法</p></li>
+<li><p>代码样例</p></li>
+<li><p>指令的贡献</p></li>
 </ul>
-<p>Release notes: <a class="reference external" href="https://openpyxl.readthedocs.io/en/stable/changes.html">https://openpyxl.readthedocs.io/en/stable/changes.html</a></p>
+<p>发行注解：<a class="reference external" href="https://openpyxl.readthedocs.io/en/stable/changes.html">https://openpyxl.readthedocs.io/en/stable/changes.html</a></p>
 </section>
 <section id="support">
-<h2>Support<a class="headerlink" href="#support" title="永久链接至标题">¶</a></h2>
-<p>This is an open source project, maintained by volunteers in their spare time.
-This may well mean that particular features or functions that you would like
-are missing. But things don’t have to stay that way. You can contribute the
-project <a class="reference internal" href="development.html"><span class="doc">Development</span></a> yourself or contract a developer for particular
-features.</p>
-<p>Professional support for openpyxl is available from
-<a class="reference external" href="http://www.clark-consulting.eu/">Clark Consulting &amp; Research</a> and
-<a class="reference external" href="http://www.adimian.com">Adimian</a>. Donations to the project to support further
-development and maintenance are welcome.</p>
-<p>Bug reports and feature requests should be submitted using the <a class="reference external" href="https://foss.heptapod.net/openpyxl/openpyxl/-/issues">issue tracker</a>. Please provide a full
-traceback of any error you see and if possible a sample file. If for reasons
-of confidentiality you are unable to make a file publicly available then
-contact of one the developers.</p>
-<p>The repository is being provided by <a class="reference external" href="https://octobus.net/">Octobus</a> and
-<a class="reference external" href="https://clever-cloud.com/">Clever Cloud</a>.</p>
+<h2>支持<a class="headerlink" href="#support" title="永久链接至标题">¶</a></h2>
+<p>这是开源项目，由志愿者在业余时间维护。这很可能意味着您想要的特定功能或功能丢失了。但事情并不一定会一直这样。你可以自己提交项目 <a class="reference internal" href="development.html"><span class="doc">Development</span></a>，也可以与开发者签订合同，开发特定功能。</p>
+<p>openpyxl 的专业支持可从 <a class="reference external" href="http://www.clark-consulting.eu/">Clark Consulting &amp; Research</a> 和 <a class="reference external" href="http://www.adimian.com">Adimian</a> 获得。我们欢迎捐款支持该项目的进一步发展和维护。</p>
+<p>错误报告和特性请求应该通过 <a class="reference external" href="https://foss.heptapod.net/openpyxl/openpyxl/-/issues">问题跟踪器</a> 提交。请提供完整的追溯您看到的任何错误，如果可能的话，示例文件。如果出于保密原因，你不能将文件公开，那么请联系其中开发者。</p>
+<p>存储库由 <a class="reference external" href="https://octobus.net/">Octobus</a> 和 <a class="reference external" href="https://clever-cloud.com/">Clever Cloud</a> 提供。</p>
 </section>
 <section id="how-to-contribute">
-<h2>How to Contribute<a class="headerlink" href="#how-to-contribute" title="永久链接至标题">¶</a></h2>
-<p>Any help will be greatly appreciated, just follow those steps:</p>
+<h2>如何贡献<a class="headerlink" href="#how-to-contribute" title="永久链接至标题">¶</a></h2>
+<p>任何帮助我们都会非常感激，只要遵循以下步骤：</p>
 <blockquote>
 <div><p>1.
 Please join the group and create a branch (<a class="reference external" href="https://foss.heptapod.net/openpyxl/openpyxl/">https://foss.heptapod.net/openpyxl/openpyxl/</a>) and
@@ -155,90 +142,80 @@ request” button on <em>your</em> repository) and wait for your code to be
 reviewed, and, if you followed all theses steps, merged into the main
 repository.</p>
 </div></blockquote>
-<p>For further information see <a class="reference internal" href="development.html"><span class="doc">Development</span></a></p>
+<p>有关更多信息，请参阅 <a class="reference internal" href="development.html"><span class="doc">Development</span></a></p>
 <section id="other-ways-to-help">
-<h3>Other ways to help<a class="headerlink" href="#other-ways-to-help" title="永久链接至标题">¶</a></h3>
-<p>There are several ways to contribute, even if you can’t code (or can’t code well):</p>
+<h3>其他的帮助方式<a class="headerlink" href="#other-ways-to-help" title="永久链接至标题">¶</a></h3>
+<p>即使你不会写代码(或者写得不好)，你也可以通过多种方式做出贡献：</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>triaging bugs on the bug tracker: closing bugs that have already been
-closed, are not relevant, cannot be reproduced, …</p></li>
-<li><p>updating documentation in virtually every area: many large features have
-been added (mainly about charts and images at the moment) but without any
-documentation, it’s pretty hard to do anything with it</p></li>
-<li><p>proposing compatibility fixes for different versions of Python: we support
-3.6, 3.7, 3.8 and 3.9.</p></li>
+<li><p>在 bug 跟踪器上分类 bug：关闭已经关闭的 bug，不相关的 bug，不能被复现的 bug，…</p></li>
+<li><p>几乎在每个领域更新文档：已经添加了许多大型功能（目前主要是关于图表和图像），但没有任何文档，它很难做任何事情。</p></li>
+<li><p>建议针对不同版本的Python进行兼容性修复:我们支持 3.6、3.7、3.8 和 3.9。</p></li>
 </ul>
 </div></blockquote>
 </section>
 </section>
 <section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="永久链接至标题">¶</a></h2>
-<p>Install openpyxl using pip. It is advisable to do this in a Python virtualenv
-without system packages:</p>
+<h2>安装<a class="headerlink" href="#installation" title="永久链接至标题">¶</a></h2>
+<p>使用 pip 安装 openpyxl。建议在没有系统包的 Python virtualenv 中这样做::”</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install openpyxl
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
-<p>There is support for the popular <a class="reference external" href="http://lxml.de">lxml</a> library which will be used if it
-is installed. This is particular useful when creating large files.</p>
+<p>支持流行的 <a class="reference external" href="http://lxml.de">lxml</a> 库，如果安装它将被使用。这在创建大文件时特别有用。</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>To be able to include images (jpeg, png, bmp,…) into an openpyxl file,
-you will also need the “pillow” library that can be installed with:</p>
+<p>为了能够包含图像(jpeg, png, bmp，…)到 openpyxl 文件，你还需要 “pillow” 库，可以安装:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install pillow
 </pre></div>
 </div>
-<p>or browse <a class="reference external" href="https://pypi.python.org/pypi/Pillow/">https://pypi.python.org/pypi/Pillow/</a>, pick the latest version
-and head to the bottom of the page for Windows binaries.</p>
+<p>或浏览 <a class="reference external" href="https://pypi.python.org/pypi/Pillow/">https://pypi.python.org/pypi/Pillow/</a>，选择最新版本，然后在页面底部查找 Windows 二进制文件。</p>
 </div>
 <section id="working-with-a-checkout">
-<h3>Working with a checkout<a class="headerlink" href="#working-with-a-checkout" title="永久链接至标题">¶</a></h3>
-<p>Sometimes you might want to work with the checkout of a particular version.
-This may be the case if bugs have been fixed but a release has not yet been
-made.</p>
+<h3>使用签出<a class="headerlink" href="#working-with-a-checkout" title="永久链接至标题">¶</a></h3>
+<p>有时您可能想要使用特定版本的签出。如果漏洞已经修复，但还没有发布版本，情况可能就是这样。</p>
 <pre class="literal-block">$ pip install -e hg+https://foss.heptapod.net/openpyxl/openpyxl/&#64;3.0#egg=openpyxl</pre>
 </section>
 </section>
 <section id="usage-examples">
-<h2>Usage examples<a class="headerlink" href="#usage-examples" title="永久链接至标题">¶</a></h2>
+<h2>使用案例<a class="headerlink" href="#usage-examples" title="永久链接至标题">¶</a></h2>
 <section id="tutorial">
-<h3>Tutorial<a class="headerlink" href="#tutorial" title="永久链接至标题">¶</a></h3>
+<h3>教程<a class="headerlink" href="#tutorial" title="永久链接至标题">¶</a></h3>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#create-a-workbook">Create a workbook</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#playing-with-data">Playing with data</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#accessing-one-cell">Accessing one cell</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#accessing-many-cells">Accessing many cells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">教程</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#create-a-workbook">创建工作簿</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#playing-with-data">玩数据</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#accessing-one-cell">访问一个单元格</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#accessing-many-cells">访问大量单元格</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tutorial.html#values-only">Values only</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#data-storage">Data storage</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#saving-to-a-file">Saving to a file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#saving-as-a-stream">Saving as a stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#data-storage">数据存储</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#saving-to-a-file">保存至文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#saving-as-a-stream">保存成流文件</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#loading-from-a-file">Loading from a file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#loading-from-a-file">从文件加载</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </section>
 <section id="cookbook">
-<h3>Cookbook<a class="headerlink" href="#cookbook" title="永久链接至标题">¶</a></h3>
+<h3>食谱<a class="headerlink" href="#cookbook" title="永久链接至标题">¶</a></h3>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Simple usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#write-a-workbook">Write a workbook</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#read-an-existing-workbook">Read an existing workbook</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#using-number-formats">Using number formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#using-formulae">Using formulae</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#merge-unmerge-cells">Merge / Unmerge cells</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#inserting-an-image">Inserting an image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#fold-outline">Fold (outline)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">简单用法</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#write-a-workbook">写入工作表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#read-an-existing-workbook">读取已有的工作表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#using-number-formats">使用数字格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#using-formulae">使用公式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#merge-unmerge-cells">合并 / 拆分单元格</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#inserting-an-image">插入图片</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#fold-outline">折叠（大纲）</a></li>
 </ul>
 </li>
 </ul>
@@ -246,14 +223,14 @@ made.</p>
 </section>
 </section>
 <section id="performance">
-<h2>Performance<a class="headerlink" href="#performance" title="永久链接至标题">¶</a></h2>
+<h2>性能<a class="headerlink" href="#performance" title="永久链接至标题">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="performance.html#benchmarks">Benchmarks</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="performance.html#write-performance">Write Performance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="performance.html#read-performance">Read Performance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="performance.html#parallelisation">Parallelisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">性能</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#benchmarks">基准测试</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="performance.html#write-performance">写入性能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="performance.html#read-performance">读取性能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="performance.html#parallelisation">并行</a></li>
 </ul>
 </li>
 </ul>
@@ -262,20 +239,20 @@ made.</p>
 </div>
 </section>
 <section id="other-topics">
-<h2>Other topics<a class="headerlink" href="#other-topics" title="永久链接至标题">¶</a></h2>
+<h2>其他主题<a class="headerlink" href="#other-topics" title="永久链接至标题">¶</a></h2>
 <blockquote>
 <div><div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="optimized.html">Optimised Modes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="optimized.html#read-only-mode">Read-only mode</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimized.html#write-only-mode">Write-only mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optimized.html">优化模式</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="optimized.html#read-only-mode">只读模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimized.html#write-only-mode">只写模式</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="editing_worksheets.html">Inserting and deleting rows and columns, moving ranges of cells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="editing_worksheets.html">插入删除行或列, 移动范围单元格</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -356,7 +333,7 @@ made.</p>
 </div></blockquote>
 </section>
 <section id="information-for-developers">
-<h2>Information for Developers<a class="headerlink" href="#information-for-developers" title="永久链接至标题">¶</a></h2>
+<h2>开发者信息<a class="headerlink" href="#information-for-developers" title="永久链接至标题">¶</a></h2>
 <blockquote>
 <div><div class="toctree-wrapper compound">
 <ul>
@@ -366,9 +343,9 @@ made.</p>
 </div></blockquote>
 </section>
 <section id="api-documentation">
-<h2>API Documentation<a class="headerlink" href="#api-documentation" title="永久链接至标题">¶</a></h2>
+<h2>API 文档<a class="headerlink" href="#api-documentation" title="永久链接至标题">¶</a></h2>
 <section id="key-classes">
-<h3>Key Classes<a class="headerlink" href="#key-classes" title="永久链接至标题">¶</a></h3>
+<h3>关键类<a class="headerlink" href="#key-classes" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference internal" href="api/openpyxl.workbook.workbook.html#openpyxl.workbook.workbook.Workbook" title="openpyxl.workbook.workbook.Workbook"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.workbook.workbook.Workbook</span></code></a></p></li>
 <li><p><a class="reference internal" href="api/openpyxl.worksheet.worksheet.html#openpyxl.worksheet.worksheet.Worksheet" title="openpyxl.worksheet.worksheet.Worksheet"><code class="xref py py-class docutils literal notranslate"><span class="pre">openpyxl.worksheet.worksheet.Worksheet</span></code></a></p></li>
@@ -376,7 +353,7 @@ made.</p>
 </ul>
 </section>
 <section id="full-api">
-<h3>Full API<a class="headerlink" href="#full-api" title="永久链接至标题">¶</a></h3>
+<h3>完整 API<a class="headerlink" href="#full-api" title="永久链接至标题">¶</a></h3>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api/openpyxl.html">openpyxl package</a><ul>
@@ -389,7 +366,7 @@ made.</p>
 </section>
 </section>
 <section id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="永久链接至标题">¶</a></h1>
+<h1>索引和目录<a class="headerlink" href="#indices-and-tables" title="永久链接至标题">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">索引</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">模块索引</span></a></p></li>
@@ -397,7 +374,7 @@ made.</p>
 </ul>
 </section>
 <section id="release-notes">
-<h1>Release Notes<a class="headerlink" href="#release-notes" title="永久链接至标题">¶</a></h1>
+<h1>发布说明<a class="headerlink" href="#release-notes" title="永久链接至标题">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="changes.html">3.0.10 (unreleased)</a></li>
@@ -506,45 +483,45 @@ made.</p>
     <h3><a href="#">目录</a></h3>
     <ul>
 <li><a class="reference internal" href="#">openpyxl - A Python library to read/write Excel 2010 xlsx/xlsm files</a><ul>
-<li><a class="reference internal" href="#introduction">Introduction</a></li>
-<li><a class="reference internal" href="#security">Security</a></li>
-<li><a class="reference internal" href="#mailing-list">Mailing List</a></li>
-<li><a class="reference internal" href="#documentation">Documentation</a></li>
-<li><a class="reference internal" href="#support">Support</a></li>
-<li><a class="reference internal" href="#how-to-contribute">How to Contribute</a><ul>
-<li><a class="reference internal" href="#other-ways-to-help">Other ways to help</a></li>
+<li><a class="reference internal" href="#introduction">简介</a></li>
+<li><a class="reference internal" href="#security">安全</a></li>
+<li><a class="reference internal" href="#mailing-list">邮箱列表</a></li>
+<li><a class="reference internal" href="#documentation">文档</a></li>
+<li><a class="reference internal" href="#support">支持</a></li>
+<li><a class="reference internal" href="#how-to-contribute">如何贡献</a><ul>
+<li><a class="reference internal" href="#other-ways-to-help">其他的帮助方式</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#installation">Installation</a><ul>
-<li><a class="reference internal" href="#working-with-a-checkout">Working with a checkout</a></li>
+<li><a class="reference internal" href="#installation">安装</a><ul>
+<li><a class="reference internal" href="#working-with-a-checkout">使用签出</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#usage-examples">Usage examples</a><ul>
-<li><a class="reference internal" href="#tutorial">Tutorial</a></li>
-<li><a class="reference internal" href="#cookbook">Cookbook</a></li>
+<li><a class="reference internal" href="#usage-examples">使用案例</a><ul>
+<li><a class="reference internal" href="#tutorial">教程</a></li>
+<li><a class="reference internal" href="#cookbook">食谱</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#performance">Performance</a></li>
-<li><a class="reference internal" href="#other-topics">Other topics</a><ul>
+<li><a class="reference internal" href="#performance">性能</a></li>
+<li><a class="reference internal" href="#other-topics">其他主题</a><ul>
 </ul>
 </li>
-<li><a class="reference internal" href="#information-for-developers">Information for Developers</a></li>
-<li><a class="reference internal" href="#api-documentation">API Documentation</a><ul>
-<li><a class="reference internal" href="#key-classes">Key Classes</a></li>
-<li><a class="reference internal" href="#full-api">Full API</a></li>
+<li><a class="reference internal" href="#information-for-developers">开发者信息</a></li>
+<li><a class="reference internal" href="#api-documentation">API 文档</a><ul>
+<li><a class="reference internal" href="#key-classes">关键类</a></li>
+<li><a class="reference internal" href="#full-api">完整 API</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
-<li><a class="reference internal" href="#release-notes">Release Notes</a></li>
+<li><a class="reference internal" href="#indices-and-tables">索引和目录</a></li>
+<li><a class="reference internal" href="#release-notes">发布说明</a></li>
 </ul>
 
   </div>
   <div>
     <h4>下一个主题</h4>
     <p class="topless"><a href="tutorial.html"
-                          title="下一章">Tutorial</a></p>
+                          title="下一章">教程</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>本页</h3>
@@ -577,7 +554,7 @@ made.</p>
           <a href="py-modindex.html" title="Python 模块索引"
              >模块</a> |</li>
         <li class="right" >
-          <a href="tutorial.html" title="Tutorial"
+          <a href="tutorial.html" title="教程"
              >下一页</a> |</li>
         <li class="nav-item nav-item-0"><a href="#">openpyxl 3.0.9 文档</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">openpyxl - A Python library to read/write Excel 2010 xlsx/xlsm files</a></li> 

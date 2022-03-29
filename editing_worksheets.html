@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Inserting and deleting rows and columns, moving ranges of cells &#8212; openpyxl 3.0.9 文档</title>
+    <title>插入删除行或列, 移动范围单元格 &#8212; openpyxl 3.0.9 文档</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/nature.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -17,7 +17,7 @@
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
     <link rel="next" title="Working with Pandas and NumPy" href="pandas.html" />
-    <link rel="prev" title="Optimised Modes" href="optimized.html" /> 
+    <link rel="prev" title="优化模式" href="optimized.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>导航</h3>
@@ -32,10 +32,10 @@
           <a href="pandas.html" title="Working with Pandas and NumPy"
              accesskey="N">下一页</a> |</li>
         <li class="right" >
-          <a href="optimized.html" title="Optimised Modes"
+          <a href="optimized.html" title="优化模式"
              accesskey="P">上一页</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">openpyxl 3.0.9 文档</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Inserting and deleting rows and columns, moving ranges of cells</a></li> 
+        <li class="nav-item nav-item-this"><a href="">插入删除行或列, 移动范围单元格</a></li> 
       </ul>
     </div>  
 
@@ -45,10 +45,10 @@
           <div class="body" role="main">
             
   <section id="inserting-and-deleting-rows-and-columns-moving-ranges-of-cells">
-<h1>Inserting and deleting rows and columns, moving ranges of cells<a class="headerlink" href="#inserting-and-deleting-rows-and-columns-moving-ranges-of-cells" title="永久链接至标题">¶</a></h1>
+<h1>插入删除行或列, 移动范围单元格<a class="headerlink" href="#inserting-and-deleting-rows-and-columns-moving-ranges-of-cells" title="永久链接至标题">¶</a></h1>
 <section id="inserting-rows-and-columns">
-<h2>Inserting rows and columns<a class="headerlink" href="#inserting-rows-and-columns" title="永久链接至标题">¶</a></h2>
-<p>You can insert rows or columns using the relevant worksheet methods:</p>
+<h2>插入行和列<a class="headerlink" href="#inserting-rows-and-columns" title="永久链接至标题">¶</a></h2>
+<p>你可以使用工作表相关的方法来插入行和列：</p>
 <blockquote>
 <div><ul class="simple">
 <li><p><a class="reference internal" href="api/openpyxl.worksheet.worksheet.html#openpyxl.worksheet.worksheet.Worksheet.insert_rows" title="openpyxl.worksheet.worksheet.Worksheet.insert_rows"><code class="xref py py-func docutils literal notranslate"><span class="pre">openpyxl.worksheet.worksheet.Worksheet.insert_rows()</span></code></a></p></li>
@@ -57,44 +57,34 @@
 <li><p><a class="reference internal" href="api/openpyxl.worksheet.worksheet.html#openpyxl.worksheet.worksheet.Worksheet.delete_cols" title="openpyxl.worksheet.worksheet.Worksheet.delete_cols"><code class="xref py py-func docutils literal notranslate"><span class="pre">openpyxl.worksheet.worksheet.Worksheet.delete_cols()</span></code></a></p></li>
 </ul>
 </div></blockquote>
-<p>The default is one row or column. For example to insert a row at 7 (before
-the existing row 7):</p>
+<p>默认是一行或一列。例如在第七行插入一行（存在第七行）:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ws</span><span class="o">.</span><span class="n">insert_rows</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="deleting-rows-and-columns">
-<h2>Deleting rows and columns<a class="headerlink" href="#deleting-rows-and-columns" title="永久链接至标题">¶</a></h2>
-<p>To delete the columns <code class="docutils literal notranslate"><span class="pre">F:H</span></code>:</p>
+<h2>删除多行或多列<a class="headerlink" href="#deleting-rows-and-columns" title="永久链接至标题">¶</a></h2>
+<p>删除 <code class="docutils literal notranslate"><span class="pre">F:H</span></code> 列</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ws</span><span class="o">.</span><span class="n">delete_cols</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
-<p>Openpyxl does not manage dependencies, such as formulae, tables, charts,
-etc., when rows or columns are inserted or deleted. This is considered to
-be out of scope for a library that focuses on managing the file format.
-As a result, client code <strong>must</strong> implement the functionality required in
-any particular use case.</p>
+<p>当行或列被插入或删除时，Openpyxl 不管理依赖项，如公式、表格、图表等。这被认为超出了专注于管理文件格式的库的范围。因此，客户端代码 <strong>必须</strong> 实现任何特定用例所需的功能。</p>
 </div>
 </section>
 <section id="moving-ranges-of-cells">
-<h2>Moving ranges of cells<a class="headerlink" href="#moving-ranges-of-cells" title="永久链接至标题">¶</a></h2>
-<p>You can also move ranges of cells within a worksheet:</p>
+<h2>单元格的移动范围<a class="headerlink" href="#moving-ranges-of-cells" title="永久链接至标题">¶</a></h2>
+<p>您还可以在工作表中移动单元格范围</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ws</span><span class="o">.</span><span class="n">move_range</span><span class="p">(</span><span class="s2">&quot;D4:F10&quot;</span><span class="p">,</span> <span class="n">rows</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This will move the cells in the range <code class="docutils literal notranslate"><span class="pre">D4:F10</span></code> up one row, and right two
-columns. The cells will overwrite any existing cells.</p>
-<p>If cells contain formulae you can let openpyxl translate these for you, but
-as this is not always what you want it is disabled by default. Also only the
-formulae in the cells themselves will be translated. References to the cells
-from other cells or defined names will not be updated; you can use the
-<a class="reference internal" href="formula.html"><span class="doc">Parsing Formulas</span></a> translator to do this:</p>
+<p>这会将 <code class="docutils literal notranslate"><span class="pre">D4:F10</span></code> 单元格向上移动一行向右移动两列，已存在的单元格将会被覆盖</p>
+<p>如果单元格包含公式，你可以让 openpyxl 帮你进行翻译，但也并非总是你想要的结果，因此默认是禁用的。同时，只有单元格本身的公式将会被翻译。其他单元格对该单元格的引用或已定义的名称将不会被更新。你可以使用 <a class="reference internal" href="formula.html"><span class="doc">Parsing Formulas</span></a> 来做这件事:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ws</span><span class="o">.</span><span class="n">move_range</span><span class="p">(</span><span class="s2">&quot;G4:H10&quot;</span><span class="p">,</span> <span class="n">rows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">translate</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This will move the relative references in formulae in the range by one row and one column.</p>
+<p>这将使公式中的相对引用在该范围内移动一行和一列。</p>
 </section>
 </section>
 
@@ -111,10 +101,10 @@ from other cells or defined names will not be updated; you can use the
   <div>
     <h3><a href="index.html">目录</a></h3>
     <ul>
-<li><a class="reference internal" href="#">Inserting and deleting rows and columns, moving ranges of cells</a><ul>
-<li><a class="reference internal" href="#inserting-rows-and-columns">Inserting rows and columns</a></li>
-<li><a class="reference internal" href="#deleting-rows-and-columns">Deleting rows and columns</a></li>
-<li><a class="reference internal" href="#moving-ranges-of-cells">Moving ranges of cells</a></li>
+<li><a class="reference internal" href="#">插入删除行或列, 移动范围单元格</a><ul>
+<li><a class="reference internal" href="#inserting-rows-and-columns">插入行和列</a></li>
+<li><a class="reference internal" href="#deleting-rows-and-columns">删除多行或多列</a></li>
+<li><a class="reference internal" href="#moving-ranges-of-cells">单元格的移动范围</a></li>
 </ul>
 </li>
 </ul>
@@ -123,7 +113,7 @@ from other cells or defined names will not be updated; you can use the
   <div>
     <h4>上一个主题</h4>
     <p class="topless"><a href="optimized.html"
-                          title="上一章">Optimised Modes</a></p>
+                          title="上一章">优化模式</a></p>
   </div>
   <div>
     <h4>下一个主题</h4>
@@ -164,10 +154,10 @@ from other cells or defined names will not be updated; you can use the
           <a href="pandas.html" title="Working with Pandas and NumPy"
              >下一页</a> |</li>
         <li class="right" >
-          <a href="optimized.html" title="Optimised Modes"
+          <a href="optimized.html" title="优化模式"
              >上一页</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">openpyxl 3.0.9 文档</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Inserting and deleting rows and columns, moving ranges of cells</a></li> 
+        <li class="nav-item nav-item-this"><a href="">插入删除行或列, 移动范围单元格</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Performance &#8212; openpyxl 3.0.9 文档</title>
+    <title>性能 &#8212; openpyxl 3.0.9 文档</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/nature.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -16,8 +16,8 @@
     <script src="_static/translations.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="Optimised Modes" href="optimized.html" />
-    <link rel="prev" title="Simple usage" href="usage.html" /> 
+    <link rel="next" title="优化模式" href="optimized.html" />
+    <link rel="prev" title="简单用法" href="usage.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>导航</h3>
@@ -29,13 +29,13 @@
           <a href="py-modindex.html" title="Python 模块索引"
              >模块</a> |</li>
         <li class="right" >
-          <a href="optimized.html" title="Optimised Modes"
+          <a href="optimized.html" title="优化模式"
              accesskey="N">下一页</a> |</li>
         <li class="right" >
-          <a href="usage.html" title="Simple usage"
+          <a href="usage.html" title="简单用法"
              accesskey="P">上一页</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">openpyxl 3.0.9 文档</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Performance</a></li> 
+        <li class="nav-item nav-item-this"><a href="">性能</a></li> 
       </ul>
     </div>  
 
@@ -45,27 +45,15 @@
           <div class="body" role="main">
             
   <section id="performance">
-<h1>Performance<a class="headerlink" href="#performance" title="永久链接至标题">¶</a></h1>
-<p>openpyxl attempts to balance functionality and performance. Where in doubt,
-we have focused on functionality over optimisation: performance tweaks are
-easier once an API has been established. Memory use is fairly high in
-comparison with other libraries and applications and is approximately 50
-times the original file size, e.g. 2.5 GB for a 50 MB Excel file. As many use
-cases involve either only reading or writing files, the <a class="reference internal" href="optimized.html"><span class="doc">Optimised Modes</span></a>
-modes mean this is less of a problem.</p>
+<h1>性能<a class="headerlink" href="#performance" title="永久链接至标题">¶</a></h1>
+<p>openpyxl 尝试来平衡功能与性能。如果有疑问，我们把重点放在功能而非性能上：一旦建立了 API ，性能调整将变得更简单。与其他库和应用程序相比，内存使用率很高，约为原始文件大小的 50 倍，例如 50 MB 的 Excel 文件为内存使用约为 2.5 GB。</p>
 <section id="benchmarks">
-<h2>Benchmarks<a class="headerlink" href="#benchmarks" title="永久链接至标题">¶</a></h2>
-<p>All benchmarks are synthetic and extremely dependent upon the hardware but
-they can nevertheless give an indication.</p>
+<h2>基准测试<a class="headerlink" href="#benchmarks" title="永久链接至标题">¶</a></h2>
+<p>所有基准都是综合性的，并且高度依赖于硬件，但是它们仍然可以提供说明（indication）。</p>
 <section id="write-performance">
-<h3>Write Performance<a class="headerlink" href="#write-performance" title="永久链接至标题">¶</a></h3>
-<p>The <a class="reference external" href="https://foss.heptapod.net/openpyxl/openpyxl/-/snippets/66">benchmark code</a>
-can be adjusted to use more sheets and adjust the proportion of data that is
-strings. Because the version of Python being used can also significantly
-affect performance, a <a class="reference external" href="https://foss.heptapod.net/openpyxl/openpyxl/-/snippets/67">driver script</a>
-can also be used to test with different Python versions with a tox
-environment.</p>
-<p>Performance is compared with the excellent alternative library xlsxwriter</p>
+<h3>写入性能<a class="headerlink" href="#write-performance" title="永久链接至标题">¶</a></h3>
+<p><a class="reference external" href="https://foss.heptapod.net/openpyxl/openpyxl/-/snippets/66">benchmark code</a> 可以调整使用更多的工作表以及数据中字符串的比例。由于不同版本的 Python 也会对性能有着显著影响，所以使用了  <a class="reference external" href="https://foss.heptapod.net/openpyxl/openpyxl/-/snippets/67">driver script</a> 对 tox 环境下不同的版本 Python 进行测试。</p>
+<p>性能与出色的替代库 xlsxwriter 进行了比较</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Versions</span><span class="p">:</span>
 <span class="n">python</span><span class="p">:</span> <span class="mf">3.6.9</span>
 <span class="n">openpyxl</span><span class="p">:</span> <span class="mf">3.0.1</span>
@@ -122,19 +110,10 @@ environment.</p>
 </div>
 </section>
 <section id="read-performance">
-<h3>Read Performance<a class="headerlink" href="#read-performance" title="永久链接至标题">¶</a></h3>
-<p>Performance is measured using a file provided with a previous <a class="reference external" href="https://bitbucket.org/openpyxl/openpyxl/issues/494/">bug report</a> and compared with the
-older xlrd library. xlrd is primarily for the older BIFF file format of .XLS
-files but it does have limited support for XLSX.</p>
-<p>The code for the <a class="reference external" href="https://foss.heptapod.net/openpyxl/openpyxl/-/snippets/68">benchmark</a> shows the importance of
-choosing the right options when working with a file. In this case disabling
-external links stops openpyxl opening cached copies of the linked worksheets.</p>
-<p>One major difference between the libraries is that openpyxl’s read-only mode
-opens a workbook almost immediately making it suitable for multiple
-processes, this also readuces memory use significantly. xlrd does also not
-automatically convert dates and times into Python datetimes, though it does
-annotate cells accordingly but to do this in client code significantly
-reduces performance.</p>
+<h3>读取性能<a class="headerlink" href="#read-performance" title="永久链接至标题">¶</a></h3>
+<p>读取性能测试使用了 <a class="reference external" href="https://bitbucket.org/openpyxl/openpyxl/issues/494/">bug report</a> 提供的文件，和早期的 xlrd 库进行比较。xlrd 主要用于 .XLS 文件较旧的 BIFF 文件格式，它对 XLSX 文件支持有限。</p>
+<p><a class="reference external" href="https://foss.heptapod.net/openpyxl/openpyxl/-/snippets/68">benchmark</a> 代码显示了处理文件时正确选项的重要性。在这种情况下，禁用外部链接将让 openpyxl 停止打开链接工作表的缓存副本。</p>
+<p>两个库的主要区别是 openpyxl 的只读模式可以快速打开工作簿，使其适用于多进程，这也大大减少了内存的使用。xlrd 也不会自动将日期和时间转换为 Python 的 datetime，尽管它会相应地注释单元格（annotate cells），但是在客户端代码中这样做会大大降低性能。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Versions</span><span class="p">:</span>
 <span class="n">python</span><span class="p">:</span> <span class="mf">3.6.9</span>
 <span class="n">xlread</span><span class="p">:</span> <span class="mf">1.2.0</span>
@@ -183,15 +162,9 @@ reduces performance.</p>
 </div>
 </section>
 <section id="parallelisation">
-<h3>Parallelisation<a class="headerlink" href="#parallelisation" title="永久链接至标题">¶</a></h3>
-<p>Reading worksheets is fairly CPU-intensive which limits any benefits to be
-gained by parallelisation. However, if you are mainly interested in dumping
-the contents of a workbook then you can use openpyxl’s read-only mode and
-open multiple instances of a workbook and take advantage of multiple CPUs.</p>
-<p><a class="reference external" href="https://foss.heptapod.net/openpyxl/openpyxl/-/snippets/69">Sample code</a> using the
-same source file as for read performance shows that performance scales
-reasonably with only a slight overhead due to creating additional Python
-processes.</p>
+<h3>并行<a class="headerlink" href="#parallelisation" title="永久链接至标题">¶</a></h3>
+<p>读取工作表会占用大量 CPU 从而限制了从并行中获取好处。但是，如果你主要对 dump 工作表内容感兴趣，你可以使用 openpyxl 的只读模式打开复数工作表来利用多核 CPU。</p>
+<p><a class="reference external" href="https://foss.heptapod.net/openpyxl/openpyxl/-/snippets/69">示例代码</a> 使用与读取性能相同的源文件显示，由于创建额外的 Python 进程，性能可以合理地扩展，而开销很小。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Parallised</span> <span class="n">Read</span>
     <span class="n">Workbook</span> <span class="n">loaded</span> <span class="mf">1.12</span><span class="n">s</span>
     <span class="o">&gt;&gt;</span><span class="n">DATA</span><span class="o">&gt;&gt;</span> <span class="mf">2.27</span><span class="n">s</span>
@@ -219,11 +192,11 @@ processes.</p>
   <div>
     <h3><a href="index.html">目录</a></h3>
     <ul>
-<li><a class="reference internal" href="#">Performance</a><ul>
-<li><a class="reference internal" href="#benchmarks">Benchmarks</a><ul>
-<li><a class="reference internal" href="#write-performance">Write Performance</a></li>
-<li><a class="reference internal" href="#read-performance">Read Performance</a></li>
-<li><a class="reference internal" href="#parallelisation">Parallelisation</a></li>
+<li><a class="reference internal" href="#">性能</a><ul>
+<li><a class="reference internal" href="#benchmarks">基准测试</a><ul>
+<li><a class="reference internal" href="#write-performance">写入性能</a></li>
+<li><a class="reference internal" href="#read-performance">读取性能</a></li>
+<li><a class="reference internal" href="#parallelisation">并行</a></li>
 </ul>
 </li>
 </ul>
@@ -234,12 +207,12 @@ processes.</p>
   <div>
     <h4>上一个主题</h4>
     <p class="topless"><a href="usage.html"
-                          title="上一章">Simple usage</a></p>
+                          title="上一章">简单用法</a></p>
   </div>
   <div>
     <h4>下一个主题</h4>
     <p class="topless"><a href="optimized.html"
-                          title="下一章">Optimised Modes</a></p>
+                          title="下一章">优化模式</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>本页</h3>
@@ -272,13 +245,13 @@ processes.</p>
           <a href="py-modindex.html" title="Python 模块索引"
              >模块</a> |</li>
         <li class="right" >
-          <a href="optimized.html" title="Optimised Modes"
+          <a href="optimized.html" title="优化模式"
              >下一页</a> |</li>
         <li class="right" >
-          <a href="usage.html" title="Simple usage"
+          <a href="usage.html" title="简单用法"
              >上一页</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">openpyxl 3.0.9 文档</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Performance</a></li> 
+        <li class="nav-item nav-item-this"><a href="">性能</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
